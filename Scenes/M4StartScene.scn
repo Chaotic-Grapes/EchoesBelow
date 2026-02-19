@@ -639,7 +639,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 1.808550238609314,
+                        "AspectRatio": 2.284883737564087,
                         "FOV": 45.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -708,218 +708,6 @@
                         "Value": "UI"
                     },
                     "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "ExitText (Clone)"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1173.0,
-                            "Y": 584.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 0
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 0.6309971213340759,
-                            "R": 0.5357917547225952
-                        },
-                        "FontPath": "EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
-                        "FontSize": 120.0,
-                        "HAlign": 1,
-                        "Text": "Exit",
-                        "VAlign": 1,
-                        "Wrap": false
-                    },
-                    "TypeName": "GUIText"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "StartText"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 529.0,
-                            "Y": 584.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 0
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 0.6309971213340759,
-                            "R": 0.5357917547225952
-                        },
-                        "FontPath": "EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
-                        "FontSize": 120.0,
-                        "HAlign": 1,
-                        "Text": "Start",
-                        "VAlign": 1,
-                        "Wrap": false
-                    },
-                    "TypeName": "GUIText"
                 },
                 {
                     "Data": {
@@ -1394,6 +1182,218 @@
                 },
                 {
                     "Data": {
+                        "Value": "ExitText (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1173.0,
+                            "Y": 584.0
+                        },
+                        "Size": {
+                            "X": 100.0,
+                            "Y": 100.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 0
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 0.6309971213340759,
+                            "R": 0.5357917547225952
+                        },
+                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontSize": 120.0,
+                        "HAlign": 1,
+                        "Text": "Exit",
+                        "VAlign": 1,
+                        "Wrap": false
+                    },
+                    "TypeName": "GUIText"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "StartText"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 529.0,
+                            "Y": 584.0
+                        },
+                        "Size": {
+                            "X": 100.0,
+                            "Y": 100.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 0
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 0.6309971213340759,
+                            "R": 0.5357917547225952
+                        },
+                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontSize": 120.0,
+                        "HAlign": 1,
+                        "Text": "Start",
+                        "VAlign": 1,
+                        "Wrap": false
+                    },
+                    "TypeName": "GUIText"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
                         "Value": "Collider"
                     },
                     "TypeName": "Name"
@@ -1668,8 +1668,8 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 39,
-                        "TexturePath": "EchoesBelow\\Assets\\Sprites\\UI\\ChaosGrapeInBubble.png",
+                        "TextureId": 19,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\ChaosGrapeInBubble.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1783,100 +1783,6 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 6.0,
-                            "Y": 6.0,
-                            "Z": 6.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "CanvasBG"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "EmissiveStrength": 5.0,
-                        "EmissiveTextureId": 0,
-                        "EmissiveTexturePath": "",
-                        "NormalTextureId": 0,
-                        "NormalTexturePath": "",
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TextureId": 40,
-                        "TexturePath": "EchoesBelow\\Assets\\Sprites\\UI\\StartMenuBG_1.png",
-                        "Tiling": {
-                            "X": 1.0,
-                            "Y": 1.0
-                        }
-                    },
-                    "TypeName": "SpriteRenderer2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 6.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 6.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 6.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "ZOrder": -10
-                    },
-                    "TypeName": "ZIndex2D"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
                             "X": -0.9621819257736206,
                             "Y": -1.3371373414993286,
                             "Z": 0.0
@@ -1933,7 +1839,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 41,
+                        "TextureId": 20,
                         "TexturePath": "",
                         "Tiling": {
                             "X": 0.02083333395421505,
@@ -1959,8 +1865,8 @@
                         "SheetWidth": 21216,
                         "StartFrame": 0,
                         "TextureFilter": 0,
-                        "TextureId": 41,
-                        "TexturePath": "EchoesBelow\\Assets\\Sprites\\UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
+                        "TextureId": 20,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -2058,7 +1964,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 41,
+                        "TextureId": 20,
                         "TexturePath": "",
                         "Tiling": {
                             "X": 0.02083333395421505,
@@ -2084,8 +1990,8 @@
                         "SheetWidth": 21216,
                         "StartFrame": 0,
                         "TextureFilter": 0,
-                        "TextureId": 41,
-                        "TexturePath": "EchoesBelow\\Assets\\Sprites\\UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
+                        "TextureId": 20,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -2190,8 +2096,8 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 42,
-                        "TexturePath": "EchoesBelow\\Assets\\Sprites\\UI\\EchoesBelowTitleCard.png",
+                        "TextureId": 21,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\EchoesBelowTitleCard.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2226,6 +2132,100 @@
                 {
                     "Data": {
                         "ZOrder": 0
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 6.0,
+                            "Y": 6.0,
+                            "Z": 6.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "CanvasBG"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 22,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 6.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 6.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 6.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -10
                     },
                     "TypeName": "ZIndex2D"
                 }
@@ -2419,7 +2419,7 @@
                 {
                     "Data": {
                         "Bus": 1,
-                        "CuePath": "EchoesBelow/Assets/Obelisk_Chapter_5&6_BGM_Loop.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/BGM/Obelisk_Chapter_1&2_BGM_Loop.wav",
                         "EnableFadeIn": true,
                         "EnableFadeOut": true,
                         "FadeInDuration": 1.0,
@@ -2503,7 +2503,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/unused/SwimPizzaArms.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2513,7 +2513,7 @@
                         "Pitch": 1.0,
                         "PlayOnStart": false,
                         "Spatial3D": false,
-                        "Volume": 2.0
+                        "Volume": 2.4000000953674316
                     },
                     "TypeName": "AudioSource"
                 },
@@ -2581,7 +2581,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/BarnacleSnatchin.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX02_BarnacleSnatchin.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2659,7 +2659,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/Pickup MS.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX03_Pickup MS.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2737,7 +2737,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/Hit Sound.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX04_Hit Sound.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2815,7 +2815,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/SustainedSwimEntry.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX05_SustainedSwimEntry.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2893,7 +2893,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/unused/SwimPizzaArms.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2903,7 +2903,7 @@
                         "Pitch": 1.0399999618530273,
                         "PlayOnStart": false,
                         "Spatial3D": false,
-                        "Volume": 2.0
+                        "Volume": 2.4000000953674316
                     },
                     "TypeName": "AudioSource"
                 },
@@ -2971,7 +2971,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/unused/Door Opening.wav",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX06_Door Opening.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3049,7 +3049,85 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "EchoesBelow/Assets/Audio/unused/MenuSound.mp3",
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX07_MenuSound.mp3",
+                        "EnableFadeIn": false,
+                        "EnableFadeOut": false,
+                        "FadeInDuration": 1.0,
+                        "FadeOutDuration": 1.0,
+                        "Loop": false,
+                        "Pan": 0.0,
+                        "Pitch": 1.0,
+                        "PlayOnStart": false,
+                        "Spatial3D": false,
+                        "Volume": 1.0
+                    },
+                    "TypeName": "AudioSource"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "SFX08"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Bus": 2,
+                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX08_Zooming thru Grapevine.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3096,11 +3174,11 @@
             ]
         }
     ],
-    "EntityCount": 32,
+    "EntityCount": 33,
     "Hierarchy": [
         {
-            "child": 14,
-            "parent": 13
+            "child": 17,
+            "parent": 16
         },
         {
             "child": 18,
@@ -3109,6 +3187,10 @@
         {
             "child": 19,
             "parent": 16
+        },
+        {
+            "child": 14,
+            "parent": 13
         },
         {
             "child": 7,
@@ -3136,10 +3218,6 @@
         },
         {
             "child": 20,
-            "parent": 16
-        },
-        {
-            "child": 17,
             "parent": 16
         },
         {
@@ -3176,6 +3254,10 @@
         },
         {
             "child": 31,
+            "parent": 23
+        },
+        {
+            "child": 32,
             "parent": 23
         }
     ],

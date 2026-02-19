@@ -56,18 +56,20 @@
                 "EmissiveStrength": 5.0,
                 "EmissiveTextureId": 0,
                 "EmissiveTexturePath": "",
+                "Height": 342,
                 "NormalTextureId": 0,
                 "NormalTexturePath": "",
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
                 },
-                "TextureId": 29,
-                "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\Spike01.png",
+                "TextureId": 33,
+                "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                 "Tiling": {
                     "X": 1.0,
                     "Y": 1.0
-                }
+                },
+                "Width": 216
             },
             "TypeName": "SpriteRenderer2D"
         },

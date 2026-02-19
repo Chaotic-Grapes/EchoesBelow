@@ -56,18 +56,20 @@
                 "EmissiveStrength": 5.0,
                 "EmissiveTextureId": 0,
                 "EmissiveTexturePath": "",
+                "Height": 106,
                 "NormalTextureId": 0,
                 "NormalTexturePath": "",
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
                 },
-                "TextureId": 14,
-                "TexturePath": "EchoesBelow\\Assets\\Sprites\\ParticleAssets\\MS02.png",
+                "TextureId": 23,
+                "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                 "Tiling": {
                     "X": 1.0,
                     "Y": 1.0
-                }
+                },
+                "Width": 96
             },
             "TypeName": "SpriteRenderer2D"
         },

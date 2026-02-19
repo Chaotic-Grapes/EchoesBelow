@@ -3,15 +3,15 @@
         {
             "Data": {
                 "Position": {
-                    "X": -1.350888967514038,
-                    "Y": 1.5080358982086182,
+                    "X": 0.0,
+                    "Y": 0.0,
                     "Z": 0.0
                 },
                 "Rotation": {
-                    "W": 0.9538279175758362,
+                    "W": 1.0,
                     "X": 0.0,
                     "Y": 0.0,
-                    "Z": -0.30035358667373657
+                    "Z": 0.0
                 },
                 "Scale": {
                     "X": 0.30000001192092896,
@@ -91,8 +91,8 @@
                     "Y": 0.0
                 },
                 "TextureFilter": 0,
-                "TextureId": 40,
-                "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\ChaosGrape01.png",
+                "TextureId": 31,
+                "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                 "Tiling": {
                     "X": 1.0,
                     "Y": 1.0
@@ -107,11 +107,11 @@
                     "m00": 0.2458726316690445,
                     "m01": 0.17189139127731323,
                     "m02": 0.0,
-                    "m03": -1.350888967514038,
+                    "m03": 13.84372615814209,
                     "m10": -0.17189139127731323,
                     "m11": 0.2458726316690445,
                     "m12": 0.0,
-                    "m13": 1.5080358982086182,
+                    "m13": 12.685683250427246,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,
