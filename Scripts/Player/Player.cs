@@ -330,60 +330,8 @@ public class PlayerCollisionHandler : CollisionSystemBase
             }
         }
 
-        //if I detect a marine snow obj, send it back to whence it came!
-        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_ManagerComponent>(out MS_ManagerComponent msM))
-        {
-            AudioManager.instance.PlaySFX("SFX03");
-            MS_Manager.instance.SendToPool(other.Id);
-            InventoryController.instance.IncrementInStackSlot(other.GetComponent<MS_ManagerComponent>().msID);
-        }
-
+        //Marine Snow detection is handled by the Squidward!
     }
 }
 
-[System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
-public class PlayerTriggerHandler : TriggerSystemBase
-{
-    private const string SourceSceneName = "Level_One";
-    private const string endSceneName = "Scenes/EndScene.scn";
-    protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
-    {
-        Log("Triggered");
-        Entity other = Entity.FromId(World!, evt.OtherEntityId);
-        Log("T1");
-
-        if (Entity.FromId(World!, self.Id).TryGetComponent<PlayerComponent>(out PlayerComponent plc))
-        {
-            Log("Trigger: I have a Player Component!");
-        }
-        else
-        {
-            return;
-        }
-
-        Log("T2");
-        if (other.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign) && other.GetComponent<MatchSignifierComponent>().signifierID == 86118001 &&
-            InventoryController.ms02_Count >= 5 && InventoryController.ms01_Count >= 5)
-        {
-            Log("Endscene Entering. . . ");
-            SceneManager sceneManager = SceneManager.Instance;
-            //Loadscene use dalton's
-            sceneManager.SetNextAudioTransition(2.0f, true);
-            //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
-            //Like creating a new scene / allocate a new scene in the registry
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, endSceneName);
-            SceneManager.Instance.SetActive(sceneIndex);
-        }
-        Log("T3");
-        //if I detect a marine snow obj, send it back to whence it came!
-        //if (Entity.FromId(World!, other.Id).TryGetComponent<MS_ManagerComponent>(out MS_ManagerComponent msM))
-        //{
-        //    AudioManager.instance.PlaySFX("SFX03");
-        //    MS_Manager.instance.SendToPool(other.Id);
-        //    InventoryController.instance.IncrementInStackSlot(other.GetComponent<MS_ManagerComponent>().msID);
-        //}
-    }
-
-}
 

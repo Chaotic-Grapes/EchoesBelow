@@ -26,17 +26,17 @@ public class PauseMenu : SystemBase
     Color selectedCol = new Color(0.370f, 0.376f, 0.584f, 1f);
     Color unselectedCol = new Color(0.071f, 0.078f, 0.305f, 1f);
 
-    public static List<ulong> pauseMenuElementObjIds = new List<ulong>();
-    protected override void OnCreate()
-    {
-        //Log("System PauseMenu initialized");
-    }
-    private bool OnStart(ref bool startBool)
+    public static List<Entity> pauseMenuElementObjIds;
+    private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
         isFirstSelected = true;
+
+        Entity pauseMenuObj = Entity.FromId(World!, objId);
+        pauseMenuElementObjIds = pauseMenuObj.GetChildren();
+
         //End of Start
         return true;
     }
@@ -51,7 +51,7 @@ public class PauseMenu : SystemBase
         foreach (var pauseController in World!.Query<PauseMenuComponent>())
         {
             bool start = pauseController.Component1.start;
-            pauseController.Component1.start = OnStart(ref start);
+            pauseController.Component1.start = OnStart(ref start, pauseController.Entity.Id);
 
             if (!pauseController.Component1.isPauseable) return;
         }
@@ -64,9 +64,9 @@ public class PauseMenu : SystemBase
             
             Time.TimeScale = 0;
             isPaused = true;
-            foreach (ulong ui_id in pauseMenuElementObjIds)
+            foreach (Entity menuElement in pauseMenuElementObjIds)
             {
-                Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = true;
+                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = true;
             }
             //Launch Pause Menu
             Log("Launch Pause Menu");
@@ -77,9 +77,9 @@ public class PauseMenu : SystemBase
            
             Time.TimeScale = 1;
             isPaused = false;
-            foreach (ulong ui_id in pauseMenuElementObjIds)
+            foreach (Entity menuElement in pauseMenuElementObjIds)
             {
-                Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = false;
+                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
             }
             //Close Pause Menu
             Log("Paused Game from Esc Press");
@@ -118,9 +118,9 @@ public class PauseMenu : SystemBase
             AudioManager.instance.PlaySFX("SFX07");
             Time.TimeScale = 1;
             isPaused = false;
-            foreach (ulong ui_id in pauseMenuElementObjIds)
+            foreach (Entity menuElement in pauseMenuElementObjIds)
             {
-                Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = false;
+                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
             }
             //Close Pause Menu
             Log("Unpaused from Pressing Resume with Spacebar");
@@ -135,40 +135,14 @@ public class PauseMenu : SystemBase
             //Like creating a new scene / allocate a new scene in the registry
             Time.TimeScale = 1;
             isPaused = false;
-            foreach (ulong ui_id in pauseMenuElementObjIds)
+            foreach (Entity menuElement in pauseMenuElementObjIds)
             {
-                Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = false;
+                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
             }
             var sceneIndex = SceneManager.Instance.AddScene();
             var ss = SceneManager.Instance.LoadScene(sceneIndex, TargetScenePath);
             SceneManager.Instance.SetActive(sceneIndex);
-
         }
 
-    }
-}
-
-
-[Component] public record struct AddToPauseMenuListComponent(bool start);
-[System(SystemGroup.Update, SystemRunMode.PlayOnly)]
-public class AddToPauseMenuList : SystemBase
-{
-    private bool OnStart(ref bool startBool, ulong pauseMenuElementId)
-    {
-        if (startBool == true) return true;
-        startBool = true;
-        //Todo
-        PauseMenu.pauseMenuElementObjIds.Add(pauseMenuElementId);
-
-        //End of Start
-        return true;
-    }
-    protected override void OnUpdate()
-    {
-        foreach(var pauseMenuElement in World!.Query<AddToPauseMenuListComponent>())
-        {
-            bool start = pauseMenuElement.Component1.start;
-            pauseMenuElement.Component1.start = OnStart(ref start, pauseMenuElement.Entity.Id);
-        }
     }
 }

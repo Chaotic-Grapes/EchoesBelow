@@ -29,7 +29,7 @@
         },
         {
             "Data": {
-                "Flags": 0,
+                "Flags": 1,
                 "LayerMask": 4294967294,
                 "Offset": {
                     "X": 0.0,

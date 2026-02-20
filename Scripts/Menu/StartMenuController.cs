@@ -16,22 +16,13 @@ public class StartMenuController : SystemBase
     //For startscene
     private const string SourceSceneName = "M4StartScene";
     private const string TargetScenePath = "EchoesBelow/Scenes/Level_One.scn";
-    private const float SwitchDelaySeconds = 5.0f;
-
     //for endscene
     private const string EndSceneName = "EndScene";
     private const string StartSceneName = "EchoesBelow/Scenes/M4StartScene.scn";
 
-    private float _elapsed;
-    private bool _switched;
-
-
     public bool isKeyPressed_horizontal;
     bool isLeftSelected;
-    protected override void OnCreate()
-    { //Application.Shutdown
-        //Application.Quit();
-    }
+
     private bool OnStart(ref bool startBool, ulong endSceneControllerId)
     {
         if (startBool == true) return true;
@@ -103,24 +94,21 @@ public class StartMenuController : SystemBase
         if (isLeftSelected && Input.IsKeyPressed(KeyCode.Space))
         {
             AudioManager.instance.PlaySFX("SFX07");
-            //Load Scene
-            ////Log("Start");
-            //SceneManager.Instance.LoadScene(TargetScenePath);
-            ////Log("Loaded");
+           
             try
             {
                 //Fade out music
                 sceneManager.SetNextAudioTransition(2.0f, true);
-                //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
+                
                 //Like creating a new scene / allocate a new scene in the registry
                 var sceneIndex = SceneManager.Instance.AddScene();
                 var ss = SceneManager.Instance.LoadScene(sceneIndex, TargetScenePath);
                 SceneManager.Instance.SetActive(sceneIndex);
-                ////Log("Loaded");
+                
             }
             catch (Exception ex)
             {
-                ////Log($"{ex.Message}");
+                Log($"{ex.Message}");
             }
         }
         else if(!isLeftSelected && Input.IsKeyPressed(KeyCode.Space))
