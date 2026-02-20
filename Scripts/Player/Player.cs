@@ -295,7 +295,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         //Log($"Entering self: {self.GetComponent<Name>().ToString()} into TryGetComponent<PlayerComponent> Check . . . . . . . . . . . . . . . . . . . . . .");
         if (Entity.FromId(World!, self.Id).TryGetComponent<PlayerComponent>(out PlayerComponent plc))
         {
-            Log("I have a Player Component!");
+            Log("Collision: I have a Player Component!");
         }
         else
         {
@@ -307,10 +307,9 @@ public class PlayerCollisionHandler : CollisionSystemBase
 
     private void PlayerCollisionEvents(Entity self, CollisionEvent evt)
     {
-        Log("PlayerCollisionEvents Start >>>");
+        //Log("PlayerCollisionEvents Start >>>");
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-        Log("1");
         //Find Tag Mask, Then take damage and open doors 
         if (Entity.FromId(World!, other.Id).TryGetComponent<TagMask>(out TagMask tg))
         {
@@ -321,7 +320,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 ProcessDeath.instance.TakeHit(evt.OtherEntityId, self.Id);
                 Log("Take Damage!");
             }
-            Log("2");
+            
             if (tg.Mask == 4)
             {
                 AudioManager.instance.PlaySFX("SFX06");
@@ -330,7 +329,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 Log("Door Detected!");
             }
         }
-        Log("3");
+
         //if I detect a marine snow obj, send it back to whence it came!
         if (Entity.FromId(World!, other.Id).TryGetComponent<MS_ManagerComponent>(out MS_ManagerComponent msM))
         {
@@ -338,8 +337,6 @@ public class PlayerCollisionHandler : CollisionSystemBase
             MS_Manager.instance.SendToPool(other.Id);
             InventoryController.instance.IncrementInStackSlot(other.GetComponent<MS_ManagerComponent>().msID);
         }
-        Log("4");
-    
 
     }
 }
@@ -348,13 +345,27 @@ public class PlayerCollisionHandler : CollisionSystemBase
 public class PlayerTriggerHandler : TriggerSystemBase
 {
     private const string SourceSceneName = "Level_One";
-    private const string endSceneName = "EchoesBelow/Scenes/EndScene.scn";
+    private const string endSceneName = "Scenes/EndScene.scn";
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
+        Log("Triggered");
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
-        if (other.HasComponent<MatchSignifierComponent>() && other.GetComponent<MatchSignifierComponent>().signifierID == 86118001 &&
+        Log("T1");
+
+        if (Entity.FromId(World!, self.Id).TryGetComponent<PlayerComponent>(out PlayerComponent plc))
+        {
+            Log("Trigger: I have a Player Component!");
+        }
+        else
+        {
+            return;
+        }
+
+        Log("T2");
+        if (other.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign) && other.GetComponent<MatchSignifierComponent>().signifierID == 86118001 &&
             InventoryController.ms02_Count >= 5 && InventoryController.ms01_Count >= 5)
         {
+            Log("Endscene Entering. . . ");
             SceneManager sceneManager = SceneManager.Instance;
             //Loadscene use dalton's
             sceneManager.SetNextAudioTransition(2.0f, true);
@@ -364,6 +375,15 @@ public class PlayerTriggerHandler : TriggerSystemBase
             var ss = SceneManager.Instance.LoadScene(sceneIndex, endSceneName);
             SceneManager.Instance.SetActive(sceneIndex);
         }
+        Log("T3");
+        //if I detect a marine snow obj, send it back to whence it came!
+        //if (Entity.FromId(World!, other.Id).TryGetComponent<MS_ManagerComponent>(out MS_ManagerComponent msM))
+        //{
+        //    AudioManager.instance.PlaySFX("SFX03");
+        //    MS_Manager.instance.SendToPool(other.Id);
+        //    InventoryController.instance.IncrementInStackSlot(other.GetComponent<MS_ManagerComponent>().msID);
+        //}
     }
+
 }
 

@@ -17,7 +17,7 @@ namespace Scripts.Menu;
 public class PauseMenu : SystemBase
 {
     private const string SourceSceneName = "Level_One";
-    private const string TargetScenePath = "EchoesBelow/Scenes/M4StartScene.scn";
+    private const string TargetScenePath = "Scenes/M4StartScene.scn";
     bool isPaused = false;
 
     public bool isKeyPressed_vertical;
@@ -55,42 +55,34 @@ public class PauseMenu : SystemBase
 
             if (!pauseController.Component1.isPauseable) return;
         }
-        //Test
-        //foreach (ulong ui_id in pauseMenuElementObjIds)
-        //{
-        //    Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = false;
-        //}
+      
         SceneManager sceneManager = SceneManager.Instance;
 
-        if (isKeyPressed_Esc)// && !isPaused)// && Input.IsKeyPressed(KeyCode.Escape))
+        if (isKeyPressed_Esc && !isPaused)
         {
             AudioManager.instance.PlaySFX("SFX07");
-            if (!isPaused)
+            
+            Time.TimeScale = 0;
+            isPaused = true;
+            foreach (ulong ui_id in pauseMenuElementObjIds)
             {
-                Time.TimeScale = 0;
-                isPaused = true;
-                foreach (ulong ui_id in pauseMenuElementObjIds)
-                {
-                    Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = true;
-                }
-                //Launch Pause Menu
-                Log("Launch Pause Menu");
+                Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = true;
             }
+            //Launch Pause Menu
+            Log("Launch Pause Menu");
         }
-        else if (isKeyPressed_Esc)// && isPaused)
+        else if (isKeyPressed_Esc && isPaused)
         {
             AudioManager.instance.PlaySFX("SFX07");
-            if (isPaused)
+           
+            Time.TimeScale = 1;
+            isPaused = false;
+            foreach (ulong ui_id in pauseMenuElementObjIds)
             {
-                Time.TimeScale = 1;
-                isPaused = false;
-                foreach (ulong ui_id in pauseMenuElementObjIds)
-                {
-                    Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = false;
-                }
-                //Close Pause Menu
-                Log("Paused Game from Esc Press");
+                Entity.FromId(World!, ui_id).GetComponent<GUIElement>().Visible = false;
             }
+            //Close Pause Menu
+            Log("Paused Game from Esc Press");
         }
 
         if (isPaused)
