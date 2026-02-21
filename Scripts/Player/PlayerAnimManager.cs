@@ -10,7 +10,6 @@ using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
 
-//[Component] public record struct PlayerAnimManagerComponent(bool start);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class PlayerAnimManager : SystemBase
 {
@@ -18,28 +17,8 @@ public class PlayerAnimManager : SystemBase
     protected override void OnCreate()
     {
         instance = this;
-        //Log("System PlayerAnimManager initialized", LogLevel.Debug);
     }
-    //private bool OnStart(ref bool startBool, ulong objId)
-    //{
-    //    if (startBool == true) return true;
-    //    startBool = true;
-    //    //Todo
-        
-    //    //End of Start
-    //    return true;
-    //}
-    //protected override void OnUpdate()
-    //{
 
-    //    foreach(var gameObject in World!.Query<PlayerAnimManagerComponent>())
-    //    {
-    //        bool start = gameObject.Component1.start;
-    //        gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
-    //    }
-
-
-    //}
     public void SetAnimState(PlayerAnimPreset animState)
     {
         foreach(var animator in  World!.Query<PlayerComponent, SpriteSheetAnimation2D>())

@@ -148,10 +148,6 @@ public class Player : SystemBase
                 av.Value = 0;
             }
 
-            ////Log($"playerAngle: {playerAngle}");
-            ////Log($"absTarget: {abs_InputDirection}");
-            ////Log("flipFac2: " + flipFac);
-
             if (isKeyDown_W || isKeyDown_S
             || isKeyDown_A || isKeyDown_D)
             {

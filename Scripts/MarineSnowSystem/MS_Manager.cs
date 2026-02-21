@@ -117,16 +117,16 @@ public class MS_Manager : SystemBase
             gameObject.Component1.start = OnStart(ref start, objID, msID);
 
 
-            if (Input.IsKeyPressed(KeyCode.Q))
-            {
-                int i = 0;
-                Log("1++++++++++++++++++++++++++++++++++++++++");
-                foreach(List<ulong> objPool in objPools)
-                {
-                    Log($"list 0{++i} count: {objPool.Count}");
-                }
-                Log("2++++++++++++++++++++++++++++++++++++++++");
-            }
+            //if (Input.IsKeyPressed(KeyCode.Q))
+            //{
+            //    int i = 0;
+            //    Log("1++++++++++++++++++++++++++++++++++++++++");
+            //    foreach(List<ulong> objPool in objPools)
+            //    {
+            //        Log($"list 0{++i} count: {objPool.Count}");
+            //    }
+            //    Log("2++++++++++++++++++++++++++++++++++++++++");
+            //}
         }
     }
     public ulong TakeFromPool(int msID, Vector3 newPos, float decayTime)

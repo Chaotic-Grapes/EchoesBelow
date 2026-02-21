@@ -20,14 +20,17 @@ public class InventoryController : SystemBase
 
     public static List<ulong> ms01_List;
     public static List<ulong> ms02_List;
-    static bool isDown_Q;
+
+    public static List<ulong> slotObjIds;
+    public static Dictionary<string, Slot> slotInstances;
+
+    static bool isPressed_Q;
     static bool leftSlotIsSelected;
     protected override void OnCreate()
     {
         instance = this;
-        //Log("System InventoryController initialized");
     }
-    private bool OnStart(ref bool startBool)
+    private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
         startBool = true;
@@ -41,22 +44,48 @@ public class InventoryController : SystemBase
         //Initialize our lists!
         ms01_List = new List<ulong>();
         ms02_List = new List<ulong>();
-        //End of Start
+
+        slotObjIds = new List<ulong>();
+        slotInstances = new Dictionary<string, Slot>();
+
+        Log("0=================");
+        //Finds every child of a slot, and aligns it to the parent slot in ui space
+        //Also stores the unique references to instances of lists
+        foreach(var slot in World!.Query<SlotComponent>())
+        {
+            Log("1");
+            Entity slotEntity = Entity.FromId(World!, slot.Entity.Id);
+
+            Slot slotInstance = new Slot();
+            slotObjIds.Add(slot.Entity.Id);
+            slotInstances.Add(slotEntity.GetComponent<Name>().Value.ToString(), slotInstance);
+            Log("2");
+            slotInstance.ms_ImageRefList = Entity.FromId(World!, slot.Entity.Id).GetChildren();
+            foreach(Entity MS_imageRef in slotInstance.ms_ImageRefList)
+            {
+                MS_imageRef.GetComponent<GUIElement>().Position.X = slotEntity.GetComponent<GUIElement>().Position.X;
+                MS_imageRef.GetComponent<GUIElement>().Position.Y = slotEntity.GetComponent<GUIElement>().Position.Y;
+
+            }
+            Log("3");
+        }
+        Log("4+++++++++++++++++");
+      
         return true;
     }
     protected override void OnUpdate()
     {
         //check for input
-        isDown_Q = Input.IsKeyPressed(KeyCode.Q);
+        isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
 
         foreach(var gameObject in World!.Query<InventoryControllerComponent>())
         {
             bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start);
+            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
             //Todo
         }
         //MS01 slot is always first
-        if (isDown_Q)
+        if (isPressed_Q)
         {
             leftSlotIsSelected = false;
             foreach (var gameObject in World!.Query<GUIElement, MatchSignifierComponent>())
@@ -70,7 +99,18 @@ public class InventoryController : SystemBase
                 
             }
         }
-        
+
+        if (Input.IsKeyPressed(KeyCode.J))
+        {
+            Log("J is Pressed!");
+            foreach(var gameObject in World!.Query<MatchSignifierComponent>())
+            {
+                if(gameObject.Component1.signifierID == 2121)
+                {
+                    
+                }
+            }
+        }
 
     }
     public void IncrementInStackSlot(int msID)
@@ -107,8 +147,7 @@ public class InventoryController : SystemBase
                 }
                 break;
         }
-        ////Log($"ms01 Slot: {ms01_Count}items");
-        ////Log($"ms02 Slot: {ms02_Count}items");
+        
 
     }
     public void DecrementInStackSlot(int msID)
@@ -144,10 +183,18 @@ public class InventoryController : SystemBase
                 }
                 break;
         }
-        ////Log($"ms01 Slot: {ms01_Count}items");
-        ////Log($"ms02 Slot: {ms02_Count}items");
+        
     }
-
 }
 
+[Component] public record struct SlotComponent(bool start);
+[System(SystemGroup.Update, SystemRunMode.PlayOnly)]
+public class Slot
+{
+    public List<Entity> ms_ImageRefList { get; set; }
+    public Slot()
+    {
+        ms_ImageRefList = new List<Entity>();
+    }
+}
 
