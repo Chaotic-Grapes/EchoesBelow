@@ -5,7 +5,7 @@
                 "Position": {
                     "X": 0.0,
                     "Y": 0.0,
-                    "Z": 1.0
+                    "Z": 0.0
                 },
                 "Rotation": {
                     "W": 1.0,
@@ -30,7 +30,7 @@
         {
             "Data": {
                 "Active": true,
-                "AspectRatio": 2.432499885559082,
+                "AspectRatio": 1.8533333539962769,
                 "FOV": 45.0,
                 "FarPlane": 100.0,
                 "NearPlane": 0.10000000149011612,
@@ -68,6 +68,12 @@
                 }
             },
             "TypeName": "WorldTransform"
+        },
+        {
+            "Data": {
+                "signifierID": 1286608618
+            },
+            "TypeName": "Match Signifier"
         }
     ]
 }

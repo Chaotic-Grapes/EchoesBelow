@@ -251,7 +251,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 1.7777777910232544,
+                        "AspectRatio": 2.157428026199341,
                         "FOV": 45.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -366,7 +366,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 18,
+                        "TextureId": 11,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\1-PlayerAssets\\OceanBG_00@4x.png",
                         "Tiling": {
                             "X": 1.0,
@@ -556,7 +556,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 11,
+                        "TextureId": 18,
                         "TexturePath": "",
                         "Tiling": {
                             "X": 0.011764705181121826,
@@ -582,7 +582,7 @@
                         "SheetWidth": 11900,
                         "StartFrame": 16,
                         "TextureFilter": 0,
-                        "TextureId": 11,
+                        "TextureId": 18,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\1-PlayerAssets\\PlayerSpriteSheets\\Grain_SpriteSheet_IdleDash_FullHorizontal.png",
                         "UseRow": true
                     },
@@ -971,7 +971,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1091,7 +1091,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1211,7 +1211,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1331,7 +1331,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1451,7 +1451,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1571,7 +1571,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1691,7 +1691,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1811,7 +1811,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1931,7 +1931,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2051,7 +2051,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2171,7 +2171,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2291,7 +2291,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2411,7 +2411,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 20,
+                        "TextureId": 19,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2531,7 +2531,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2651,7 +2651,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2771,7 +2771,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2891,7 +2891,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3011,7 +3011,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3131,7 +3131,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3251,7 +3251,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3371,7 +3371,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3491,7 +3491,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3611,7 +3611,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3731,7 +3731,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3851,7 +3851,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -3971,7 +3971,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 21,
+                        "TextureId": 20,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4091,7 +4091,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 22,
+                        "TextureId": 21,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4211,7 +4211,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 23,
+                        "TextureId": 22,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4331,7 +4331,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 24,
+                        "TextureId": 23,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4451,7 +4451,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 25,
+                        "TextureId": 24,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4571,7 +4571,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 24,
+                        "TextureId": 23,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4691,7 +4691,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 19,
+                        "TextureId": 25,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4817,7 +4817,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 19,
+                        "TextureId": 25,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
@@ -4943,7 +4943,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 19,
+                        "TextureId": 25,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
@@ -5069,7 +5069,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 19,
+                        "TextureId": 25,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
@@ -5195,7 +5195,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 19,
+                        "TextureId": 25,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
@@ -5321,7 +5321,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 19,
+                        "TextureId": 25,
                         "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
@@ -12037,7 +12037,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 28,
+                        "TextureId": 27,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -12178,7 +12178,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 28,
+                        "TextureId": 27,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -12319,7 +12319,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 28,
+                        "TextureId": 27,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -12460,7 +12460,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 28,
+                        "TextureId": 27,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -12601,7 +12601,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 28,
+                        "TextureId": 27,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -12742,7 +12742,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 28,
+                        "TextureId": 27,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -15532,7 +15532,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 27,
+                        "TextureId": 28,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -15645,7 +15645,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 27,
+                        "TextureId": 28,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -15834,7 +15834,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 31,
+                        "TextureId": 29,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\SpawnGrape_Bulb.png",
                         "Tiling": {
                             "X": 1.0,
@@ -15971,7 +15971,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 29,
+                        "TextureId": 30,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
                         "Tiling": {
                             "X": 1.0,
@@ -16102,7 +16102,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 29,
+                        "TextureId": 30,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
                         "Tiling": {
                             "X": 1.0,
@@ -16233,7 +16233,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 30,
+                        "TextureId": 31,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
@@ -16364,7 +16364,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 30,
+                        "TextureId": 31,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
@@ -16495,7 +16495,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 30,
+                        "TextureId": 31,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
@@ -16626,7 +16626,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 30,
+                        "TextureId": 31,
                         "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
@@ -17194,719 +17194,14 @@
                     "TypeName": "WorldTransform"
                 }
             ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Slot"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 192.0,
-                            "Y": 19.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 0
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.9998999834060669,
-                            "G": 0.9998999834060669,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Flags": 0,
-                        "PrefabHash": 3928585196
-                    },
-                    "TypeName": "PrefabInstanceMetadata"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "start": false
-                    },
-                    "TypeName": "Slot"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "MS04_ui"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "MS05_ui"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "MS06_ui"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "MS07_ui"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "MS03_ui"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Size": {
-                            "X": 100.0,
-                            "Y": 100.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
         }
     ],
-    "EntityCount": 158,
+    "EntityCount": 152,
     "Hierarchy": [
+        {
+            "child": 76,
+            "parent": 71
+        },
         {
             "child": 72,
             "parent": 71
@@ -17920,8 +17215,12 @@
             "parent": 6
         },
         {
-            "child": 76,
-            "parent": 71
+            "child": 122,
+            "parent": 115
+        },
+        {
+            "child": 123,
+            "parent": 115
         },
         {
             "child": 78,
@@ -17944,12 +17243,12 @@
             "parent": 71
         },
         {
-            "child": 122,
-            "parent": 115
+            "child": 67,
+            "parent": 66
         },
         {
-            "child": 123,
-            "parent": 115
+            "child": 68,
+            "parent": 66
         },
         {
             "child": 73,
@@ -17958,14 +17257,6 @@
         {
             "child": 75,
             "parent": 74
-        },
-        {
-            "child": 67,
-            "parent": 66
-        },
-        {
-            "child": 68,
-            "parent": 66
         },
         {
             "child": 61,
@@ -18088,26 +17379,6 @@
             "parent": 102
         },
         {
-            "child": 153,
-            "parent": 152
-        },
-        {
-            "child": 154,
-            "parent": 152
-        },
-        {
-            "child": 155,
-            "parent": 152
-        },
-        {
-            "child": 156,
-            "parent": 152
-        },
-        {
-            "child": 157,
-            "parent": 152
-        },
-        {
             "child": 2,
             "parent": 0
         },
@@ -18172,68 +17443,56 @@
             "parent": 115
         },
         {
-            "child": 69,
-            "parent": 66
+            "child": 148,
+            "parent": 147
         },
         {
-            "child": 41,
-            "parent": 9
+            "child": 124,
+            "parent": 115
         },
         {
-            "child": 42,
-            "parent": 9
+            "child": 125,
+            "parent": 115
         },
         {
-            "child": 43,
-            "parent": 9
+            "child": 126,
+            "parent": 115
         },
         {
-            "child": 44,
-            "parent": 9
+            "child": 127,
+            "parent": 115
         },
         {
-            "child": 45,
-            "parent": 9
+            "child": 128,
+            "parent": 115
         },
         {
-            "child": 46,
-            "parent": 9
+            "child": 129,
+            "parent": 115
         },
         {
-            "child": 48,
-            "parent": 47
+            "child": 130,
+            "parent": 115
         },
         {
-            "child": 49,
-            "parent": 47
+            "child": 131,
+            "parent": 115
         },
         {
-            "child": 50,
-            "parent": 47
+            "child": 132,
+            "parent": 115
         },
         {
-            "child": 51,
-            "parent": 47
+            "child": 133,
+            "parent": 115
         },
         {
-            "child": 52,
-            "parent": 47
+            "child": 134,
+            "parent": 115
         },
         {
-            "child": 53,
-            "parent": 47
-        },
-        {
-            "child": 54,
-            "parent": 47
-        },
-        {
-            "child": 55,
-            "parent": 47
-        },
-        {
-            "child": 56,
-            "parent": 47
+            "child": 135,
+            "parent": 115
         },
         {
             "child": 141,
@@ -18258,6 +17517,10 @@
         {
             "child": 146,
             "parent": 139
+        },
+        {
+            "child": 1,
+            "parent": 0
         },
         {
             "child": 10,
@@ -18384,64 +17647,72 @@
             "parent": 9
         },
         {
+            "child": 69,
+            "parent": 66
+        },
+        {
+            "child": 41,
+            "parent": 9
+        },
+        {
+            "child": 42,
+            "parent": 9
+        },
+        {
+            "child": 43,
+            "parent": 9
+        },
+        {
+            "child": 44,
+            "parent": 9
+        },
+        {
+            "child": 45,
+            "parent": 9
+        },
+        {
+            "child": 46,
+            "parent": 9
+        },
+        {
+            "child": 48,
+            "parent": 47
+        },
+        {
+            "child": 49,
+            "parent": 47
+        },
+        {
+            "child": 50,
+            "parent": 47
+        },
+        {
+            "child": 51,
+            "parent": 47
+        },
+        {
+            "child": 52,
+            "parent": 47
+        },
+        {
+            "child": 53,
+            "parent": 47
+        },
+        {
+            "child": 54,
+            "parent": 47
+        },
+        {
+            "child": 55,
+            "parent": 47
+        },
+        {
+            "child": 56,
+            "parent": 47
+        },
+        {
             "child": 8,
             "parent": 6
-        },
-        {
-            "child": 148,
-            "parent": 147
-        },
-        {
-            "child": 124,
-            "parent": 115
-        },
-        {
-            "child": 125,
-            "parent": 115
-        },
-        {
-            "child": 126,
-            "parent": 115
-        },
-        {
-            "child": 127,
-            "parent": 115
-        },
-        {
-            "child": 128,
-            "parent": 115
-        },
-        {
-            "child": 129,
-            "parent": 115
-        },
-        {
-            "child": 130,
-            "parent": 115
-        },
-        {
-            "child": 131,
-            "parent": 115
-        },
-        {
-            "child": 132,
-            "parent": 115
-        },
-        {
-            "child": 133,
-            "parent": 115
-        },
-        {
-            "child": 134,
-            "parent": 115
-        },
-        {
-            "child": 135,
-            "parent": 115
-        },
-        {
-            "child": 65,
-            "parent": 64
         },
         {
             "child": 63,
@@ -18452,8 +17723,8 @@
             "parent": 115
         },
         {
-            "child": 1,
-            "parent": 0
+            "child": 65,
+            "parent": 64
         },
         {
             "child": 7,
@@ -18472,20 +17743,20 @@
             "parent": 0
         },
         {
-            "child": 60,
-            "parent": 6
-        },
-        {
             "child": 57,
             "parent": 6
         },
         {
-            "child": 71,
-            "parent": 64
+            "child": 60,
+            "parent": 6
         },
         {
             "child": 66,
             "parent": 65
+        },
+        {
+            "child": 71,
+            "parent": 64
         },
         {
             "child": 70,
