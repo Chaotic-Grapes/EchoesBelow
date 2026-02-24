@@ -176,7 +176,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -581,7 +581,7 @@
                             "G": 0.0,
                             "R": 0.6859673261642456
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 102.0,
                         "HAlign": 1,
                         "Text": "Thank you for Playing",
@@ -687,7 +687,7 @@
                             "G": 0.9998999834060669,
                             "R": 1.0
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 102.0,
                         "HAlign": 1,
                         "Text": "Press spacebar to go back to Start!",

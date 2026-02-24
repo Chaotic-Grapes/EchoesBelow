@@ -1222,7 +1222,7 @@
                             "G": 0.6309971213340759,
                             "R": 0.5357917547225952
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 120.0,
                         "HAlign": 1,
                         "Text": "Exit",
@@ -1328,7 +1328,7 @@
                             "G": 0.6309971213340759,
                             "R": 0.5357917547225952
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 120.0,
                         "HAlign": 1,
                         "Text": "Start",
@@ -1669,7 +1669,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\ChaosGrapeInBubble.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\ChaosGrapeInBubble.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1866,7 +1866,7 @@
                         "StartFrame": 0,
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -1991,7 +1991,7 @@
                         "StartFrame": 0,
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -2097,7 +2097,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 21,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\EchoesBelowTitleCard.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\EchoesBelowTitleCard.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2191,7 +2191,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 22,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
