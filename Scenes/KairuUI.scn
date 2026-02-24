@@ -1392,23 +1392,23 @@
                         "Alignment": 4,
                         "Margin": {
                             "W": 0.0,
-                            "X": 0.0,
+                            "X": 13.0,
                             "Y": 0.0,
                             "Z": 0.0
                         },
                         "Padding": {
                             "W": 0.0,
-                            "X": 0.0,
+                            "X": 70.0,
                             "Y": 0.0,
                             "Z": 0.0
                         },
                         "Position": {
-                            "X": -265.0,
-                            "Y": 82.0
+                            "X": -246.0,
+                            "Y": 107.0
                         },
                         "Size": {
-                            "X": 240.0,
-                            "Y": 127.0
+                            "X": 526.0,
+                            "Y": 386.0
                         },
                         "Visible": true,
                         "ZOrder": 12
@@ -1419,30 +1419,28 @@
                     "Data": {
                         "Color": {
                             "A": 1.0,
-                            "B": 0.3050000071525574,
-                            "G": 0.07800000160932541,
-                            "R": 0.07100000232458115
-                        },
-                        "CornerRadius": 0.0
-                    },
-                    "TypeName": "GUIPanel"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
                             "B": 1.0,
-                            "G": 0.9999281764030457,
-                            "R": 0.9998999834060669
+                            "G": 1.0,
+                            "R": 1.0
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
-                        "FontSize": 90.0,
-                        "HAlign": 1,
-                        "Text": "Exit",
-                        "VAlign": 1,
-                        "Wrap": false
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7.1-PauseMenu\\Exit.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
                     },
-                    "TypeName": "GUIText"
+                    "TypeName": "GUIImage"
                 },
                 {
                     "Data": {
@@ -1477,136 +1475,6 @@
                 {
                     "Data": {
                         "signifierID": 22
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Button_Resume"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": -207.0,
-                            "Y": -71.0
-                        },
-                        "Size": {
-                            "X": 359.0,
-                            "Y": 117.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 12
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.5839999914169312,
-                            "G": 0.37599998712539673,
-                            "R": 0.3700000047683716
-                        },
-                        "CornerRadius": 0.0
-                    },
-                    "TypeName": "GUIPanel"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
-                        "FontSize": 90.0,
-                        "HAlign": 1,
-                        "Text": "Resume",
-                        "VAlign": 1,
-                        "Wrap": false
-                    },
-                    "TypeName": "GUIText"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 23
                     },
                     "TypeName": "Match Signifier"
                 }
@@ -1789,8 +1657,8 @@
                             "Y": 37.0
                         },
                         "Size": {
-                            "X": 800.0,
-                            "Y": 450.0
+                            "X": 1920.0,
+                            "Y": 1080.0
                         },
                         "Visible": true,
                         "ZOrder": 10
@@ -1800,14 +1668,377 @@
                 {
                     "Data": {
                         "Color": {
-                            "A": 0.6759581565856934,
+                            "A": 1.0,
                             "B": 1.0,
-                            "G": 0.25920569896698,
-                            "R": 0.3195723295211792
+                            "G": 1.0,
+                            "R": 1.0
                         },
-                        "CornerRadius": 0.0
+                        "ScaleMode": 1,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7.1-PauseMenu\\PauseMenu_BG.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
                     },
-                    "TypeName": "GUIPanel"
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Sound_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 21.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 125.0,
+                            "Y": 108.0
+                        },
+                        "Size": {
+                            "X": 397.0,
+                            "Y": 382.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 13
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7.1-PauseMenu\\Sound.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "BGM_Slider"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 529.0,
+                            "Y": 134.0
+                        },
+                        "Size": {
+                            "X": 303.0,
+                            "Y": 85.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 12
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7.1-PauseMenu\\BGM_Slider.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "BGM_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 343.0,
+                            "Y": 75.0
+                        },
+                        "Size": {
+                            "X": 558.0,
+                            "Y": 186.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 11
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 1,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7.1-PauseMenu\\BGM.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
                 },
                 {
                     "Data": {
@@ -1927,27 +2158,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "CooldownBar"
+                        "Value": "DisplaySelected"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
+                        "Alignment": 0,
                         "Margin": {
                             "W": 0.0,
                             "X": 0.0,
@@ -1961,12 +2178,12 @@
                             "Z": 0.0
                         },
                         "Position": {
-                            "X": -7.0,
-                            "Y": -442.0
+                            "X": -51.0,
+                            "Y": 29.0
                         },
                         "Size": {
-                            "X": 0.0,
-                            "Y": 40.0
+                            "X": 225.0,
+                            "Y": 225.0
                         },
                         "Visible": true,
                         "ZOrder": 0
@@ -1977,13 +2194,28 @@
                     "Data": {
                         "Color": {
                             "A": 1.0,
-                            "B": 0.9998999834060669,
-                            "G": 0.9998999834060669,
+                            "B": 1.0,
+                            "G": 1.0,
                             "R": 1.0
                         },
-                        "CornerRadius": 1.0
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSelected_Temporart.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
                     },
-                    "TypeName": "GUIPanel"
+                    "TypeName": "GUIImage"
                 },
                 {
                     "Data": {
@@ -2014,12 +2246,6 @@
                         }
                     },
                     "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 96355538
-                    },
-                    "TypeName": "Match Signifier"
                 }
             ]
         },
@@ -6055,13 +6281,27 @@
                 },
                 {
                     "Data": {
-                        "Value": "DisplaySelected"
+                        "Value": "CooldownBar"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Alignment": 0,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
                         "Margin": {
                             "W": 0.0,
                             "X": 0.0,
@@ -6075,12 +6315,12 @@
                             "Z": 0.0
                         },
                         "Position": {
-                            "X": -51.0,
-                            "Y": 29.0
+                            "X": -7.0,
+                            "Y": -442.0
                         },
                         "Size": {
-                            "X": 225.0,
-                            "Y": 225.0
+                            "X": 0.0,
+                            "Y": 40.0
                         },
                         "Visible": true,
                         "ZOrder": 0
@@ -6091,28 +6331,13 @@
                     "Data": {
                         "Color": {
                             "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
+                            "B": 0.9998999834060669,
+                            "G": 0.9998999834060669,
                             "R": 1.0
                         },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSelected_Temporart.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
+                        "CornerRadius": 1.0
                     },
-                    "TypeName": "GUIImage"
+                    "TypeName": "GUIPanel"
                 },
                 {
                     "Data": {
@@ -6143,6 +6368,12 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 96355538
+                    },
+                    "TypeName": "Match Signifier"
                 }
             ]
         },
@@ -6178,7 +6409,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 1.7777777910232544,
+                        "AspectRatio": 1.8019417524337769,
                         "FOV": 45.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -6230,238 +6461,6 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": 8.881784197001252e-16,
-                            "Y": 3.725290298461914e-09,
-                            "Z": 5.820766091346741e-11
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "KairuUIImage"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": -89.0,
-                            "Y": -314.0
-                        },
-                        "Size": {
-                            "X": 400.0,
-                            "Y": 400.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 0.9998999834060669,
-                            "R": 0.9999344944953918
-                        },
-                        "ScaleMode": 1,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\MenuShape_00.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 8.881784197001252e-16,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 3.725290298461914e-09,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 5.820766091346741e-11,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 8.881784197001252e-16,
-                            "Y": 3.725290298461914e-09,
-                            "Z": 5.820766091346741e-11
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "KairuUIImage Lighter"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": -89.0,
-                            "Y": -314.0
-                        },
-                        "Size": {
-                            "X": 400.0,
-                            "Y": 400.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 1
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 0.9998999834060669,
-                            "R": 0.9999344944953918
-                        },
-                        "ScaleMode": 1,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\MenuShape_00.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 1.7763568394002505e-15,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 7.450580596923828e-09,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 1.1641532182693481e-10,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
                             "X": 0.0,
                             "Y": 0.0,
                             "Z": 0.0
@@ -6482,55 +6481,28 @@
                 },
                 {
                     "Data": {
-                        "Value": "KairuUIPanel"
+                        "Value": "Tilemap"
                     },
                     "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": -80.0,
-                            "Y": 0.0
-                        },
-                        "Size": {
-                            "X": 385.0,
-                            "Y": 270.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 10
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.9998999834060669,
-                            "G": 0.9998999834060669,
-                            "R": 1.0
-                        },
-                        "CornerRadius": 0.0
-                    },
-                    "TypeName": "GUIPanel"
                 },
                 {
                     "Data": {
                         "Id": 0
                     },
                     "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "DefaultHeight": 64,
+                        "DefaultWidth": 64,
+                        "LayerIndex": 0,
+                        "TileMapPath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Scenes\\KairuUI.tilemap",
+                        "TilePixelSize": 32,
+                        "TileWorldSize": 1.0,
+                        "TilesetTexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7.1-PauseMenu\\BGM.png",
+                        "Visible": true
+                    },
+                    "TypeName": "TileMapComponent"
                 },
                 {
                     "Data": {
@@ -6561,134 +6533,6 @@
     ],
     "EntityCount": 62,
     "Hierarchy": [
-        {
-            "child": 17,
-            "parent": 16
-        },
-        {
-            "child": 18,
-            "parent": 16
-        },
-        {
-            "child": 12,
-            "parent": 11
-        },
-        {
-            "child": 13,
-            "parent": 11
-        },
-        {
-            "child": 28,
-            "parent": 27
-        },
-        {
-            "child": 29,
-            "parent": 27
-        },
-        {
-            "child": 30,
-            "parent": 27
-        },
-        {
-            "child": 31,
-            "parent": 27
-        },
-        {
-            "child": 32,
-            "parent": 27
-        },
-        {
-            "child": 34,
-            "parent": 33
-        },
-        {
-            "child": 35,
-            "parent": 33
-        },
-        {
-            "child": 36,
-            "parent": 33
-        },
-        {
-            "child": 37,
-            "parent": 33
-        },
-        {
-            "child": 38,
-            "parent": 33
-        },
-        {
-            "child": 40,
-            "parent": 39
-        },
-        {
-            "child": 41,
-            "parent": 39
-        },
-        {
-            "child": 42,
-            "parent": 39
-        },
-        {
-            "child": 43,
-            "parent": 39
-        },
-        {
-            "child": 44,
-            "parent": 39
-        },
-        {
-            "child": 46,
-            "parent": 45
-        },
-        {
-            "child": 47,
-            "parent": 45
-        },
-        {
-            "child": 48,
-            "parent": 45
-        },
-        {
-            "child": 49,
-            "parent": 45
-        },
-        {
-            "child": 50,
-            "parent": 45
-        },
-        {
-            "child": 52,
-            "parent": 51
-        },
-        {
-            "child": 53,
-            "parent": 51
-        },
-        {
-            "child": 54,
-            "parent": 51
-        },
-        {
-            "child": 55,
-            "parent": 51
-        },
-        {
-            "child": 56,
-            "parent": 51
-        },
-        {
-            "child": 57,
-            "parent": 21
-        },
-        {
-            "child": 60,
-            "parent": 59
-        },
-        {
-            "child": 1,
-            "parent": 0
-        },
         {
             "child": 2,
             "parent": 1
@@ -6726,44 +6570,176 @@
             "parent": 1
         },
         {
-            "child": 23,
-            "parent": 21
+            "child": 20,
+            "parent": 16
         },
         {
-            "child": 25,
-            "parent": 21
+            "child": 21,
+            "parent": 16
         },
         {
-            "child": 24,
-            "parent": 23
+            "child": 22,
+            "parent": 16
         },
         {
             "child": 26,
             "parent": 25
         },
         {
-            "child": 27,
-            "parent": 21
+            "child": 28,
+            "parent": 27
+        },
+        {
+            "child": 12,
+            "parent": 11
+        },
+        {
+            "child": 13,
+            "parent": 11
+        },
+        {
+            "child": 30,
+            "parent": 29
+        },
+        {
+            "child": 31,
+            "parent": 29
+        },
+        {
+            "child": 32,
+            "parent": 29
         },
         {
             "child": 33,
-            "parent": 21
+            "parent": 29
+        },
+        {
+            "child": 34,
+            "parent": 29
+        },
+        {
+            "child": 36,
+            "parent": 35
+        },
+        {
+            "child": 37,
+            "parent": 35
+        },
+        {
+            "child": 38,
+            "parent": 35
         },
         {
             "child": 39,
-            "parent": 21
+            "parent": 35
+        },
+        {
+            "child": 40,
+            "parent": 35
+        },
+        {
+            "child": 42,
+            "parent": 41
+        },
+        {
+            "child": 43,
+            "parent": 41
+        },
+        {
+            "child": 44,
+            "parent": 41
         },
         {
             "child": 45,
-            "parent": 21
+            "parent": 41
+        },
+        {
+            "child": 46,
+            "parent": 41
+        },
+        {
+            "child": 48,
+            "parent": 47
+        },
+        {
+            "child": 49,
+            "parent": 47
+        },
+        {
+            "child": 50,
+            "parent": 47
         },
         {
             "child": 51,
-            "parent": 21
+            "parent": 47
         },
         {
-            "child": 22,
-            "parent": 21
+            "child": 52,
+            "parent": 47
+        },
+        {
+            "child": 54,
+            "parent": 53
+        },
+        {
+            "child": 55,
+            "parent": 53
+        },
+        {
+            "child": 56,
+            "parent": 53
+        },
+        {
+            "child": 57,
+            "parent": 53
+        },
+        {
+            "child": 58,
+            "parent": 53
+        },
+        {
+            "child": 24,
+            "parent": 23
+        },
+        {
+            "child": 1,
+            "parent": 0
+        },
+        {
+            "child": 25,
+            "parent": 23
+        },
+        {
+            "child": 27,
+            "parent": 23
+        },
+        {
+            "child": 29,
+            "parent": 23
+        },
+        {
+            "child": 35,
+            "parent": 23
+        },
+        {
+            "child": 41,
+            "parent": 23
+        },
+        {
+            "child": 47,
+            "parent": 23
+        },
+        {
+            "child": 53,
+            "parent": 23
+        },
+        {
+            "child": 59,
+            "parent": 23
+        },
+        {
+            "child": 18,
+            "parent": 16
         },
         {
             "child": 19,
@@ -6778,15 +6754,15 @@
             "parent": 0
         },
         {
-            "child": 21,
-            "parent": 14
-        },
-        {
             "child": 16,
             "parent": 15
         },
         {
-            "child": 20,
+            "child": 23,
+            "parent": 14
+        },
+        {
+            "child": 17,
             "parent": 16
         }
     ],
