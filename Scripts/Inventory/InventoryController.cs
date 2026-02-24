@@ -48,18 +48,16 @@ public class InventoryController : SystemBase
         slotObjIds = new List<ulong>();
         slotInstances = new Dictionary<string, Slot>();
 
-        Log("0=================");
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
         foreach(var slot in World!.Query<SlotComponent>())
         {
-            Log("1");
             Entity slotEntity = Entity.FromId(World!, slot.Entity.Id);
 
             Slot slotInstance = new Slot();
             slotObjIds.Add(slot.Entity.Id);
             slotInstances.Add(slotEntity.GetComponent<Name>().Value.ToString(), slotInstance);
-            Log("2");
+            
             slotInstance.ms_ImageRefList = Entity.FromId(World!, slot.Entity.Id).GetChildren();
             foreach(Entity MS_imageRef in slotInstance.ms_ImageRefList)
             {
@@ -67,9 +65,8 @@ public class InventoryController : SystemBase
                 MS_imageRef.GetComponent<GUIElement>().Position.Y = slotEntity.GetComponent<GUIElement>().Position.Y;
 
             }
-            Log("3");
+            
         }
-        Log("4+++++++++++++++++");
       
         return true;
     }
@@ -113,39 +110,53 @@ public class InventoryController : SystemBase
         }
 
     }
-    public void IncrementInStackSlot(int msID)
+    public void AddToInventory(int msID)
     {
         switch (msID)
         {
-            
             case 1:
-                ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
+            ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
                 
-                foreach(var ui in World!.Query<MatchSignifierComponent>())
+            foreach(var ui in World!.Query<MatchSignifierComponent>())
+            {
+                foreach(var inventory in World!.Query<InventoryControllerComponent>())
                 {
-                    foreach(var inventory in World!.Query<InventoryControllerComponent>())
+                    if(ui.Component1.signifierID == inventory.Component1.ms01_signifier) 
                     {
-                        if(ui.Component1.signifierID == inventory.Component1.ms01_signifier) 
-                        {
-                            ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");          
-                        }
+                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");          
                     }
                 }
-                break;
+            }
+            break;
             case 2:
-                ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
+            ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
                
-                foreach (var ui in World!.Query<MatchSignifierComponent>())
+            foreach (var ui in World!.Query<MatchSignifierComponent>())
+            {
+                foreach (var inventory in World!.Query<InventoryControllerComponent>())
                 {
-                    foreach (var inventory in World!.Query<InventoryControllerComponent>())
+                    if (ui.Component1.signifierID == inventory.Component1.ms02_signifier)
                     {
-                        if (ui.Component1.signifierID == inventory.Component1.ms02_signifier)
-                        {
-                            ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
-                        }
+                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
                     }
                 }
-                break;
+            }
+            break;
+            case 3:
+
+            break;
+            case 4:
+
+            break;
+            case 5:
+
+            break;
+            case 6:
+
+            break;
+            case 7:
+
+            break;
         }
         
 
@@ -196,5 +207,10 @@ public class Slot
     {
         ms_ImageRefList = new List<Entity>();
     }
+}
+
+public enum MSparticle
+{
+    MS01, MS02, MS03, MS04, MS05, MS06, MS07
 }
 

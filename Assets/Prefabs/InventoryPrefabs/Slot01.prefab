@@ -50,8 +50,8 @@
                                 "Y": 0.0
                             },
                             "Size": {
-                                "X": 100.0,
-                                "Y": 100.0
+                                "X": 50.0,
+                                "Y": 50.0
                             },
                             "Visible": true,
                             "ZOrder": 1
@@ -74,7 +74,7 @@
                                 "Z": 0.0
                             },
                             "TextureFilter": 0,
-                            "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                            "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                             "UVRect": {
                                 "W": 1.0,
                                 "X": 0.0,
@@ -84,354 +84,18 @@
                             "UseSlicing": false
                         },
                         "TypeName": "GUIImage"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "MS05_ui"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Alignment": 0,
-                            "Margin": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Padding": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Size": {
-                                "X": 100.0,
-                                "Y": 100.0
-                            },
-                            "Visible": true,
-                            "ZOrder": 1
-                        },
-                        "TypeName": "GUIElement"
                     },
                     {
                         "Data": {
                             "Color": {
                                 "A": 1.0,
-                                "B": 1.0,
-                                "G": 1.0,
-                                "R": 1.0
+                                "B": 0.8220335245132446,
+                                "G": 0.4151058495044708,
+                                "R": 0.6759493350982666
                             },
-                            "ScaleMode": 0,
-                            "SliceBorder": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "TextureFilter": 0,
-                            "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
-                            "UVRect": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 1.0
-                            },
-                            "UseSlicing": false
+                            "CornerRadius": 0.0
                         },
-                        "TypeName": "GUIImage"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "MS06_ui"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Alignment": 0,
-                            "Margin": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Padding": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Size": {
-                                "X": 100.0,
-                                "Y": 100.0
-                            },
-                            "Visible": true,
-                            "ZOrder": 1
-                        },
-                        "TypeName": "GUIElement"
-                    },
-                    {
-                        "Data": {
-                            "Color": {
-                                "A": 1.0,
-                                "B": 1.0,
-                                "G": 1.0,
-                                "R": 1.0
-                            },
-                            "ScaleMode": 0,
-                            "SliceBorder": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "TextureFilter": 0,
-                            "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
-                            "UVRect": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 1.0
-                            },
-                            "UseSlicing": false
-                        },
-                        "TypeName": "GUIImage"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "MS07_ui"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Alignment": 0,
-                            "Margin": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Padding": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Size": {
-                                "X": 100.0,
-                                "Y": 100.0
-                            },
-                            "Visible": true,
-                            "ZOrder": 1
-                        },
-                        "TypeName": "GUIElement"
-                    },
-                    {
-                        "Data": {
-                            "Color": {
-                                "A": 1.0,
-                                "B": 1.0,
-                                "G": 1.0,
-                                "R": 1.0
-                            },
-                            "ScaleMode": 0,
-                            "SliceBorder": {
-                                "W": 0.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "TextureFilter": 0,
-                            "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
-                            "UVRect": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 1.0
-                            },
-                            "UseSlicing": false
-                        },
-                        "TypeName": "GUIImage"
+                        "TypeName": "GUIPanel"
                     },
                     {
                         "Data": {
@@ -514,8 +178,8 @@
                                 "Y": 0.0
                             },
                             "Size": {
-                                "X": 100.0,
-                                "Y": 100.0
+                                "X": 50.0,
+                                "Y": 50.0
                             },
                             "Visible": true,
                             "ZOrder": 1
@@ -526,8 +190,8 @@
                         "Data": {
                             "Color": {
                                 "A": 1.0,
-                                "B": 1.0,
-                                "G": 1.0,
+                                "B": 0.9999439716339111,
+                                "G": 0.9998999834060669,
                                 "R": 1.0
                             },
                             "ScaleMode": 0,
@@ -538,7 +202,7 @@
                                 "Z": 0.0
                             },
                             "TextureFilter": 0,
-                            "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                            "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                             "UVRect": {
                                 "W": 1.0,
                                 "X": 0.0,
@@ -548,6 +212,402 @@
                             "UseSlicing": false
                         },
                         "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.677621066570282,
+                                "G": 0.10345941036939621,
+                                "R": 0.9003796577453613
+                            },
+                            "CornerRadius": 0.0
+                        },
+                        "TypeName": "GUIPanel"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "MS07_ui"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Size": {
+                                "X": 50.0,
+                                "Y": 50.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 1
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.9999816417694092,
+                                "G": 1.0,
+                                "R": 0.9998999834060669
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.49943313002586365,
+                                "G": 0.5499141216278076,
+                                "R": 0.1402774602174759
+                            },
+                            "CornerRadius": 0.0
+                        },
+                        "TypeName": "GUIPanel"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "MS05_ui"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Size": {
+                                "X": 50.0,
+                                "Y": 50.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 1
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.9998999834060669,
+                                "G": 0.9999744892120361,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.10386531800031662,
+                                "G": 0.8228225111961365,
+                                "R": 0.9680562019348145
+                            },
+                            "CornerRadius": 0.0
+                        },
+                        "TypeName": "GUIPanel"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "MS06_ui"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Size": {
+                                "X": 50.0,
+                                "Y": 50.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 1
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.9998999834060669,
+                                "G": 1.0,
+                                "R": 0.9999167919158936
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.46253859996795654,
+                                "G": 1.0,
+                                "R": 0.5425399541854858
+                            },
+                            "CornerRadius": 0.0
+                        },
+                        "TypeName": "GUIPanel"
                     },
                     {
                         "Data": {
@@ -606,7 +666,7 @@
             },
             {
                 "Data": {
-                    "Value": "Slot"
+                    "Value": "Slot01"
                 },
                 "TypeName": "Name"
             },
@@ -654,7 +714,7 @@
                         "Z": 0.0
                     },
                     "TextureFilter": 0,
-                    "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
+                    "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
                     "UVRect": {
                         "W": 1.0,
                         "X": 0.0,
@@ -664,6 +724,18 @@
                     "UseSlicing": false
                 },
                 "TypeName": "GUIImage"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 0.20000000298023224,
+                        "G": 0.20000000298023224,
+                        "R": 0.20000000298023224
+                    },
+                    "CornerRadius": 0.0
+                },
+                "TypeName": "GUIPanel"
             },
             {
                 "Data": {

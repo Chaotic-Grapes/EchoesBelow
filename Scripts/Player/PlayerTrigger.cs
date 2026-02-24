@@ -56,7 +56,7 @@ public class PlayerTriggerHandler : TriggerSystemBase
         {
             AudioManager.instance.PlaySFX("SFX03");
             MS_Manager.instance.SendToPool(other.Id);
-            InventoryController.instance.IncrementInStackSlot(other.GetComponent<MS_ManagerComponent>().msID);
+            InventoryController.instance.AddToInventory(other.GetComponent<MS_ManagerComponent>().msID);
         }
     }
 }
