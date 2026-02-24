@@ -367,7 +367,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 11,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\1-PlayerAssets\\OceanBG_00@4x.png",
+                        "TexturePath": "Assets\\Sprites\\1-PlayerAssets\\OceanBG_00@4x.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -583,7 +583,7 @@
                         "StartFrame": 16,
                         "TextureFilter": 0,
                         "TextureId": 18,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\1-PlayerAssets\\PlayerSpriteSheets\\Grain_SpriteSheet_IdleDash_FullHorizontal.png",
+                        "TexturePath": "Assets\\Sprites\\1-PlayerAssets\\PlayerSpriteSheets\\Grain_SpriteSheet_IdleDash_FullHorizontal.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -972,7 +972,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1092,7 +1092,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1212,7 +1212,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1332,7 +1332,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1452,7 +1452,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1572,7 +1572,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1692,7 +1692,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1812,7 +1812,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -1932,7 +1932,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2052,7 +2052,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2172,7 +2172,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2292,7 +2292,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2412,7 +2412,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 19,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2532,7 +2532,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2652,7 +2652,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2772,7 +2772,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2892,7 +2892,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3012,7 +3012,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3132,7 +3132,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3252,7 +3252,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3372,7 +3372,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3492,7 +3492,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3612,7 +3612,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3732,7 +3732,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3852,7 +3852,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -3972,7 +3972,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 20,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4092,7 +4092,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 21,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4212,7 +4212,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 22,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4332,7 +4332,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 23,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4452,7 +4452,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 24,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4572,7 +4572,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 23,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4692,7 +4692,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 25,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4818,7 +4818,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 25,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -4944,7 +4944,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 25,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -5070,7 +5070,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 25,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -5196,7 +5196,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 25,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -5322,7 +5322,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 25,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -6297,7 +6297,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -6413,7 +6413,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS02.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS02.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -6843,7 +6843,7 @@
                         "StartFrame": 0,
                         "TextureFilter": 0,
                         "TextureId": 26,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\3.1-NPCsSpriteSheets\\BarnacleSnatcher_SpriteSheet_Snatch_FullHorizontal.png",
+                        "TexturePath": "Assets\\Sprites\\3.1-NPCsSpriteSheets\\BarnacleSnatcher_SpriteSheet_Snatch_FullHorizontal.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -7165,7 +7165,7 @@
                             "G": 0.9999281764030457,
                             "R": 0.9998999834060669
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 90.0,
                         "HAlign": 1,
                         "Text": "Exit",
@@ -7295,7 +7295,7 @@
                             "G": 1.0,
                             "R": 1.0
                         },
-                        "FontPath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
+                        "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 90.0,
                         "HAlign": 1,
                         "Text": "Resume",
@@ -7421,7 +7421,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\MenuControls.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\MenuControls.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8288,7 +8288,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSelected_Temporart.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSelected_Temporart.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8404,7 +8404,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8533,7 +8533,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8649,7 +8649,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8765,7 +8765,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8881,7 +8881,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -8997,7 +8997,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9113,7 +9113,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9242,7 +9242,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9358,7 +9358,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9474,7 +9474,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9590,7 +9590,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9706,7 +9706,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9822,7 +9822,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -9951,7 +9951,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10067,7 +10067,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10183,7 +10183,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10299,7 +10299,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10415,7 +10415,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10531,7 +10531,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10660,7 +10660,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10776,7 +10776,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -10892,7 +10892,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11008,7 +11008,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11124,7 +11124,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11240,7 +11240,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
+                        "TexturePath": "Assets\\Sprites\\7-UI\\HotbarSlot_Temporary.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11369,7 +11369,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS04.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS04.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11485,7 +11485,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS05.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11601,7 +11601,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11717,7 +11717,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS07.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -11833,7 +11833,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -12038,7 +12038,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 27,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -12179,7 +12179,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 27,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -12320,7 +12320,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 27,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -12461,7 +12461,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 27,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -12602,7 +12602,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 27,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -12743,7 +12743,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 27,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -15533,7 +15533,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 28,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -15646,7 +15646,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 28,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -15835,7 +15835,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 29,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\SpawnGrape_Bulb.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SpawnGrape_Bulb.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -15972,7 +15972,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 30,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -16103,7 +16103,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 30,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -16234,7 +16234,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 31,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -16365,7 +16365,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 31,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -16496,7 +16496,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 31,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -16627,7 +16627,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 31,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Yellow.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -16762,7 +16762,7 @@
                         "FramesPerSecond": 20.0,
                         "Loop": true,
                         "NormalTextureId": 33,
-                        "NormalTexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\8-VFX\\SmokeVFX_V3_n.png",
+                        "NormalTexturePath": "Assets\\Sprites\\8-VFX\\SmokeVFX_V3_n.png",
                         "Playing": true,
                         "Row": 0,
                         "SheetHeight": 253,
@@ -16770,7 +16770,7 @@
                         "StartFrame": 0,
                         "TextureFilter": 0,
                         "TextureId": 32,
-                        "TexturePath": "C:\\Users\\Jpeg1\\Documents\\GrapeEngine Projects\\EchoesBelow\\Assets\\Sprites\\8-VFX\\SmokeVFX_V3.png",
+                        "TexturePath": "Assets\\Sprites\\8-VFX\\SmokeVFX_V3.png",
                         "UseRow": true
                     },
                     "TypeName": "SpriteSheetAnimation2D"
@@ -17075,7 +17075,7 @@
                         },
                         "TextureFilter": 0,
                         "TextureId": 34,
-                        "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\z-Placeholder Sprites\\WinConText.png",
+                        "TexturePath": "Assets\\Sprites\\z-Placeholder Sprites\\WinConText.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
