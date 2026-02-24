@@ -76,7 +76,7 @@ public class StartMenuController : SystemBase
         isKeyPressed_horizontal = Input.IsKeyPressed(KeyCode.A) || Input.IsKeyPressed(KeyCode.D);
         if (isKeyPressed_horizontal)
         {
-            AudioManager.instance.PlaySFX("SFX07");
+            //AudioManager.instance.PlaySFX("SFX07");
             isLeftSelected = !isLeftSelected;
             ////Log("isLeftSelected: " + isLeftSelected);
             foreach(var controller in World!.Query<StartMenuControllerComponent>())
@@ -93,7 +93,7 @@ public class StartMenuController : SystemBase
 
         if (isLeftSelected && Input.IsKeyPressed(KeyCode.Space))
         {
-            AudioManager.instance.PlaySFX("SFX07");
+            //AudioManager.instance.PlaySFX("SFX07");
            
             try
             {
@@ -113,7 +113,7 @@ public class StartMenuController : SystemBase
         }
         else if(!isLeftSelected && Input.IsKeyPressed(KeyCode.Space))
         {
-            AudioManager.instance.PlaySFX("SFX07");
+            //AudioManager.instance.PlaySFX("SFX07");
             ////Log("Quit");
             Application.Quit();
         }

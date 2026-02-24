@@ -107,7 +107,7 @@ public class ProcessDeath : SystemBase
     }
     public void TakeHit(ulong otherId, ulong playerId)
     {
-        AudioManager.instance.PlaySFX("SFX04");
+        //AudioManager.instance.PlaySFX("SFX04");
 
         Entity other = Entity.FromId(World!, otherId);
         Entity player = Entity.FromId(World!, playerId);
@@ -135,7 +135,7 @@ public class ProcessDeath : SystemBase
         {
             isHit = false;
             Death(playerId);
-            AudioManager.instance.PlaySFX("SFX08");
+            //AudioManager.instance.PlaySFX("SFX08");
         }
     }
     private void Death(ulong playerId)
