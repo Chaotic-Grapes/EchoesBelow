@@ -63,7 +63,6 @@ public class InventoryController : SystemBase
             {
                 MS_imageRef.GetComponent<GUIElement>().Position.X = slotEntity.GetComponent<GUIElement>().Position.X;
                 MS_imageRef.GetComponent<GUIElement>().Position.Y = slotEntity.GetComponent<GUIElement>().Position.Y;
-
             }
             
         }
@@ -99,14 +98,21 @@ public class InventoryController : SystemBase
 
         if (Input.IsKeyPressed(KeyCode.J))
         {
-            Log("J is Pressed!");
-            foreach(var gameObject in World!.Query<MatchSignifierComponent>())
+            Log("J is Pressed!==========");
+            foreach(ulong u in slotObjIds)
             {
-                if(gameObject.Component1.signifierID == 2121)
+                Entity e = Entity.FromId(World!, u);
+                Log($"Obj ID: {u} of name: {e.GetComponent<Name>().Value.ToString()} >>");
+                foreach(KeyValuePair<string,Slot> stringSlot in slotInstances)
                 {
-                    
+                    if(stringSlot.Key == e.GetComponent<Name>().Value.ToString())
+                    {
+                        Log($"Key Found!: {stringSlot.Key} contains slot instance with a msRefImageListCount of {stringSlot.Value.ms_ImageRefList.Count}");
+                    }
+                    else { Log("Nothing Found in here"); }
                 }
             }
+            Log("End======================");
         }
 
     }
@@ -117,13 +123,13 @@ public class InventoryController : SystemBase
             case 1:
             ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
                 
-            foreach(var ui in World!.Query<MatchSignifierComponent>())
+            foreach(var gameObject in World!.Query<MatchSignifierComponent>())
             {
-                foreach(var inventory in World!.Query<InventoryControllerComponent>())
+                foreach(var gameObject2 in World!.Query<InventoryControllerComponent>())
                 {
-                    if(ui.Component1.signifierID == inventory.Component1.ms01_signifier) 
+                    if(gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier) 
                     {
-                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");          
+                        gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");          
                     }
                 }
             }
@@ -131,13 +137,13 @@ public class InventoryController : SystemBase
             case 2:
             ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
                
-            foreach (var ui in World!.Query<MatchSignifierComponent>())
+            foreach (var gameObject in World!.Query<MatchSignifierComponent>())
             {
-                foreach (var inventory in World!.Query<InventoryControllerComponent>())
+                foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
                 {
-                    if (ui.Component1.signifierID == inventory.Component1.ms02_signifier)
+                    if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier)
                     {
-                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
+                        gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
                     }
                 }
             }
