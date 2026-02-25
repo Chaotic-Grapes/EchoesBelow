@@ -26,7 +26,9 @@ public class InventoryController : SystemBase
     public static Dictionary<string, Slot> slotInstances;
 
     static bool isPressed_Q;
-    static bool leftSlotIsSelected;
+
+    static int iterator;
+
     protected override void OnCreate()
     {
         instance = this;
@@ -40,8 +42,6 @@ public class InventoryController : SystemBase
         ms01_Count = 0;
         ms02_Count = 0;
 
-        leftSlotIsSelected = true;
-
         //Initialize our lists!
         ms01_List = new List<ulong>();
         ms02_List = new List<ulong>();
@@ -49,14 +49,16 @@ public class InventoryController : SystemBase
         slotObjIds = new ulong[7];
         slotInstances = new Dictionary<string, Slot>();
 
+        iterator = slotObjIds.Length - 1;
+
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
-        foreach(var slot in World!.Query<SlotComponent>())
+        foreach (var slot in World!.Query<SlotComponent>())
         {
             Entity slotEntity = Entity.FromId(World!, slot.Entity.Id);
             string slotName = slotEntity.GetComponent<Name>().Value.ToString();
 
-            Slot slotInstance = new Slot(false); // initialized with a false isStoringItem bool
+            Slot slotInstance = new Slot(false, 0); // initialized with a false isStoringItem bool, 0 refers to an empty slot
             //slotObjIds.Add(slot.Entity.Id);
             slotInstances.Add(slotName, slotInstance);
 
@@ -101,9 +103,14 @@ public class InventoryController : SystemBase
             //    MS_imageRef.GetComponent<GUIElement>().Position.X = slotEntity.GetComponent<GUIElement>().Position.X;
             //    MS_imageRef.GetComponent<GUIElement>().Position.Y = slotEntity.GetComponent<GUIElement>().Position.Y;
             //}
-            
+
         }
-      
+
+        //Set the selection
+        ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[iterator]).GetComponent<GUIImage>();
+        guiImage.Color = new Color(100, 100, 100, 255);
+        Log("Set to Black!");
+
         return true;
     }
     protected override void OnUpdate()
@@ -117,108 +124,199 @@ public class InventoryController : SystemBase
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
             //Todo
-        }
-        //MS01 slot is always first
-        if (isPressed_Q)
-        {
-            leftSlotIsSelected = false;
-            foreach (var gameObject in World!.Query<GUIElement, MatchSignifierComponent>())
+
+
+            //Iterator
+            if (isPressed_Q)
             {
-                //Toggle!
-                if(gameObject.Entity.GetComponent<MatchSignifierComponent>().signifierID == 1234 ||
-                   gameObject.Entity.GetComponent<MatchSignifierComponent>().signifierID == 2345)
+                Iterator(ref iterator);
+            }
+
+            //For Checking
+            if (Input.IsKeyPressed(KeyCode.J))
+            {
+                Log("J is Pressed!==========");
+                //Entity e = Entity.FromId(World!, u);
+                foreach (KeyValuePair<string, Slot> stringSlot in slotInstances)
                 {
-                gameObject.Entity.GetComponent<GUIElement>().Visible = !gameObject.Entity.GetComponent<GUIElement>().Visible;
+                    Log($"{stringSlot.Key} contains {stringSlot.Value.ms_ImageRefList.Count} refs, isStoringItem = {stringSlot.Value.isStoringItem}");
+                }
+
+                Log("%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                foreach (ulong id in slotObjIds)
+                {
+                    Log($"slotObjIds contains a {Entity.FromId(World!, id).GetComponent<Name>().Value.ToString()}");
+                }
+                Log("End======================");
+            }
+        }
+        
+
+
+    }
+    private void Iterator(ref int iterator)
+    {
+        iterator--;
+
+        if (iterator < 0)
+        {
+            iterator = slotObjIds.Length - 1;
+        }
+
+        for (int i = slotObjIds.Length - 1; i >= 0; i--)
+        {
+            ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[i]).GetComponent<GUIImage>();
+            //if selected, gray out / higlight the slot
+            if (i == iterator)
+            {
+                guiImage.Color = new Color(100, 100, 100, 255);
+                Log("Set to Black!");
+            }
+            //else restore the color back to white
+            else
+            {
+                guiImage.Color = new Color(255, 255, 255, 255);
+                Log("Set to White");
+            }
+        }
+
+        UpdateSelection();
+        //Log($"Current Selected: {iterator}");
+        bool isSlotEmpty = !slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem;
+        
+        if (isSlotEmpty)
+        {
+            Log($"There's nothing in Slot0{iterator+1}");
+        }
+        else
+        {
+            Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
+        }
+    }
+   
+    private void UpdateSelection()
+    {
+        int msIdInSlot = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
+        foreach (var gameObject in World!.Query<MatchSignifierComponent>())
+        {
+            if(gameObject.Component1.signifierID == 787878)
+            {
+                //Do the following when it finds the DisplaySelector Obj
+                Entity displaySelectorEntity = Entity.FromId(World!, gameObject.Entity.Id);
+                //Initialize and declare an ordered list of displaySelector's children
+                ulong[] displaySelector_msImageArray_ordered = new ulong[7];
+                foreach (Entity ms_Image in displaySelectorEntity.GetChildren())
+                {
+                    switch (ms_Image.GetComponent<Name>().Value.ToString())
+                    {
+                        case "MS01_ui":
+                            displaySelector_msImageArray_ordered[0] = ms_Image.Id;
+                            break;
+                        case "MS02_ui":
+                            displaySelector_msImageArray_ordered[1] = ms_Image.Id;
+                            break;
+                        case "MS03_ui":
+                            displaySelector_msImageArray_ordered[2] = ms_Image.Id;
+                            break;
+                        case "MS04_ui":
+                            displaySelector_msImageArray_ordered[3] = ms_Image.Id;
+                            break;
+                        case "MS05_ui":
+                            displaySelector_msImageArray_ordered[4] = ms_Image.Id;
+                            break;
+                        case "MS06_ui":
+                            displaySelector_msImageArray_ordered[5] = ms_Image.Id;
+                            break;
+                        case "MS07_ui":
+                            displaySelector_msImageArray_ordered[6] = ms_Image.Id;
+                            break;
+                    }
                 }
                 
-            }
-        }
-
-        //For Checking
-        if (Input.IsKeyPressed(KeyCode.J))
-        {
-            Log("J is Pressed!==========");
-            foreach(ulong u in slotObjIds)
-            {
-                Entity e = Entity.FromId(World!, u);
-                foreach(KeyValuePair<string,Slot> stringSlot in slotInstances)
+                //Iterate thru the ordered list, and switch GUIImages on and off as required
+                for (int i = 0; i < displaySelector_msImageArray_ordered.Length; i++)
                 {
-                    if(stringSlot.Key == e.GetComponent<Name>().Value.ToString())
+                    ref GUIElement guiElement = ref Entity.FromId(World!, displaySelector_msImageArray_ordered[i]).GetComponent<GUIElement>();
+                    if (msIdInSlot-1 == i)
                     {
-                        Log($"{stringSlot.Key} contains {stringSlot.Value.ms_ImageRefList.Count} refs, isStorinItem = {stringSlot.Value.isStoringItem}");
+                        //Turn on the image if the slot contains the item!
+                        guiElement.Visible = true;
                     }
-                    else { }
+                    else
+                    {
+                        //turn off all other slots
+                        guiElement.Visible = false;
+                    }
                 }
+               
             }
-            Log("%%%%%%%%%%%%%%%%%%%%%%%%%%");
-            foreach(ulong id in slotObjIds)
-            {
-                Log($"slotObjIds contains a {Entity.FromId(World!,id).GetComponent<Name>().Value.ToString()}");
-            }
-            Log("End======================");
         }
-
     }
     public void AddToInventory(int msID, ulong otherId)
     {
         switch (msID)
         {
             case 1:
-            //ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
-                
             foreach(var gameObject in World!.Query<MatchSignifierComponent>())
             {
                 foreach(var gameObject2 in World!.Query<InventoryControllerComponent>())
                 {
                     if(gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier && ms01_Count != 10) 
                     {
-                        ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
-                        MS_Manager.instance.SendToPool(otherId);
-                        slotInstances["Slot06"].isStoringItem = true;
-                        gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");          
-                    }
+                            ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
+                            MS_Manager.instance.SendToPool(otherId);
+                            slotInstances["Slot06"].isStoringItem = true;
+                            slotInstances["Slot06"].storedMsId = 1;
+                            gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");
+                            UpdateSelection();
+                        }
                 }
             }
             break;
             case 2:
-            //ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
-               
             foreach (var gameObject in World!.Query<MatchSignifierComponent>())
             {
                 foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
                 {
                     if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier && ms02_Count != 10)
                     {
-                        ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
-                        MS_Manager.instance.SendToPool(otherId);
-                        slotInstances["Slot07"].isStoringItem = true;
-                        gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
-                    }
+                            ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
+                            MS_Manager.instance.SendToPool(otherId);
+                            slotInstances["Slot07"].isStoringItem = true;
+                            slotInstances["Slot07"].storedMsId = 2;
+                            gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
+                            UpdateSelection();
+                        }
                 }
             }
             break;
             case 3:
                 //Find the slotInstance that contains the ms_imageRefList
-                AddItemToNonStackableSlot("MS03_ui", otherId);
+                AddItemToNonStackableSlot("MS03_ui", otherId, 3);
+                UpdateSelection();
                 break;
             case 4:
-                AddItemToNonStackableSlot("MS04_ui", otherId);
+                AddItemToNonStackableSlot("MS04_ui", otherId, 4);
+                UpdateSelection();
                 break;
             case 5:
-                AddItemToNonStackableSlot("MS05_ui", otherId);
+                AddItemToNonStackableSlot("MS05_ui", otherId, 5);
+                UpdateSelection();
                 break;
             case 6:
-                AddItemToNonStackableSlot("MS06_ui", otherId);
+                AddItemToNonStackableSlot("MS06_ui", otherId, 6);
+                UpdateSelection();
                 break;
             case 7:
-                AddItemToNonStackableSlot("MS07_ui", otherId);
+                AddItemToNonStackableSlot("MS07_ui", otherId, 7);
+                UpdateSelection();
                 break;
         }
         
 
     }
 
-    public void AddItemToNonStackableSlot(string msIdCheck, ulong otherId)
+    public void AddItemToNonStackableSlot(string msIdCheck, ulong otherId, int msId)
     {
         FindAvailableSlot(out Entity slotEntity);
         foreach (Entity image in slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
@@ -229,6 +327,7 @@ public class InventoryController : SystemBase
                 MS_Manager.instance.SendToPool(otherId);
                 image.GetComponent<GUIElement>().Visible = true;
                 slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].isStoringItem = true;
+                slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].storedMsId = msId;
             }
         }
     }
@@ -292,10 +391,12 @@ public class Slot
 {
     public List<Entity> ms_ImageRefList { get; set; }
     public bool isStoringItem { get; set; }
-    public Slot(bool isStoringItem)
+    public int storedMsId { get; set; }
+    public Slot(bool isStoringItem, int storedMsId)
     {
         ms_ImageRefList = new List<Entity>();
         this.isStoringItem = isStoringItem;
+        this.storedMsId = storedMsId;
     }
 }
 
