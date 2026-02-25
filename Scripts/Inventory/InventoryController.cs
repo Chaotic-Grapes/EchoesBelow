@@ -134,11 +134,11 @@ public class InventoryController : SystemBase
                 Iterator(ref iterator);
             }
 
-            if (isPressed_X)
+            if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 if(iterator == 6) RemoveFromInventory(2);
                 else if (iterator == 5) RemoveFromInventory(1);
-                else RemoveFromInventory(0);
+                else RemoveFromInventory(slotInstances[Entity.FromId(World!,slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId);
             }
 
             //else if (Input.IsKeyPressed(KeyCode.Keypad1)) { iterator = 0; InstantIterate(); }
@@ -188,13 +188,11 @@ public class InventoryController : SystemBase
             if (i == iterator)
             {
                 guiImage.Color = new Color(100, 100, 100, 255);
-                Log("Set to Black!");
             }
             //else restore the color back to white
             else
             {
                 guiImage.Color = new Color(255, 255, 255, 255);
-                Log("Set to White");
             }
         }
 
@@ -202,14 +200,14 @@ public class InventoryController : SystemBase
         //Log($"Current Selected: {iterator}");
         bool isSlotEmpty = !slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem;
         
-        if (isSlotEmpty)
-        {
-            Log($"There's nothing in Slot0{iterator+1}");
-        }
-        else
-        {
-            Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
-        }
+        //if (isSlotEmpty)
+        //{
+        //    Log($"There's nothing in Slot0{iterator+1}");
+        //}
+        //else
+        //{
+        //    Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
+        //}
     }
    
     private void UpdateSelection()
@@ -352,7 +350,8 @@ public class InventoryController : SystemBase
 
     public void RemoveFromInventory(int msID)
     {
-
+        //if (msID == 0) return;
+        
         switch (msID)
         {
             case 1:
@@ -408,6 +407,8 @@ public class InventoryController : SystemBase
                 UpdateSelection();
                 break;
         }
+        MS_Manager.instance.TakeFromPool(msID, new Vector3(Player.instance.currentPos.X, Player.instance.currentPos.Y - 0.6f, 0), 15f);
+        
     }
     public bool FindAvailableSlot(out Entity slotEntity)
     {
