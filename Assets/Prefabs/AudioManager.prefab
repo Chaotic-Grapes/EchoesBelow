@@ -735,6 +735,7 @@
             {
                 "Data": {
                     "Bus": 1,
+                    "CueId": 0,
                     "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/BGM/Obelisk_Chapter_5&6_BGM_Loop.wav",
                     "EnableFadeIn": true,
                     "EnableFadeOut": true,
