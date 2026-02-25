@@ -131,6 +131,14 @@ public class InventoryController : SystemBase
             {
                 Iterator(ref iterator);
             }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad1)) { iterator = 0; InstantIterate(); }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad2)) { iterator = 1; InstantIterate(); }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad3)) { iterator = 2; InstantIterate(); }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad4)) { iterator = 3; InstantIterate(); }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad5)) { iterator = 4; InstantIterate(); }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad6)) { iterator = 5; InstantIterate(); }
+            //else if (Input.IsKeyPressed(KeyCode.Keypad7)) { iterator = 6; InstantIterate(); }
+
 
             //For Checking
             if (Input.IsKeyPressed(KeyCode.J))
@@ -193,6 +201,38 @@ public class InventoryController : SystemBase
             Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
         }
     }
+    //private void InstantIterate()
+    //{
+    //    for (int i = slotObjIds.Length - 1; i >= 0; i--)
+    //    {
+    //        ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[i]).GetComponent<GUIImage>();
+    //        //if selected, gray out / higlight the slot
+    //        if (i == iterator)
+    //        {
+    //            guiImage.Color = new Color(100, 100, 100, 255);
+    //            Log("Set to Black!");
+    //        }
+    //        //else restore the color back to white
+    //        else
+    //        {
+    //            guiImage.Color = new Color(255, 255, 255, 255);
+    //            Log("Set to White");
+    //        }
+    //    }
+
+    //    UpdateSelection();
+    //    //Log($"Current Selected: {iterator}");
+    //    bool isSlotEmpty = !slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem;
+
+    //    if (isSlotEmpty)
+    //    {
+    //        Log($"There's nothing in Slot0{iterator + 1}");
+    //    }
+    //    else
+    //    {
+    //        Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
+    //    }
+    //}
    
     private void UpdateSelection()
     {
