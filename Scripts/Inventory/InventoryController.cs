@@ -91,14 +91,16 @@ public class InventoryController : SystemBase
             }
             else { }
 
-
-
             slotInstance.ms_ImageRefList = Entity.FromId(World!, slot.Entity.Id).GetChildren();
-            foreach(Entity MS_imageRef in slotInstance.ms_ImageRefList)
-            {
-                MS_imageRef.GetComponent<GUIElement>().Position.X = slotEntity.GetComponent<GUIElement>().Position.X;
-                MS_imageRef.GetComponent<GUIElement>().Position.Y = slotEntity.GetComponent<GUIElement>().Position.Y;
-            }
+
+            //foreach(Entity MS_imageRef in slotInstance.ms_ImageRefList)
+            //{
+            //    //Currently the engine applies GUI position transformations to children after scene load
+            //    //So the current way caters to this
+            //    //If that somehow breaks, go back to the old way on the right
+            //    MS_imageRef.GetComponent<GUIElement>().Position.X = slotEntity.GetComponent<GUIElement>().Position.X;
+            //    MS_imageRef.GetComponent<GUIElement>().Position.Y = slotEntity.GetComponent<GUIElement>().Position.Y;
+            //}
             
         }
       
