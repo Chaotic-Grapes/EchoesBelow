@@ -60,7 +60,7 @@ public class PauseMenu : SystemBase
 
         if (isKeyPressed_Esc && !isPaused)
         {
-            //AudioManager.instance.PlaySFX("SFX07");
+            AudioManager.instance.PlaySFX("SFX07");
             
             Time.TimeScale = 0;
             isPaused = true;
@@ -73,7 +73,7 @@ public class PauseMenu : SystemBase
         }
         else if (isKeyPressed_Esc && isPaused)
         {
-            //AudioManager.instance.PlaySFX("SFX07");
+            AudioManager.instance.PlaySFX("SFX07");
            
             Time.TimeScale = 1;
             isPaused = false;
@@ -89,7 +89,7 @@ public class PauseMenu : SystemBase
         {
             if (isKeyPressed_vertical)
             {
-                //AudioManager.instance.PlaySFX("SFX07");
+                AudioManager.instance.PlaySFX("SFX07");
                 isFirstSelected = !isFirstSelected;
                 ////Log("isLeftSelected: " + isFirstSelected);
                 foreach (var controller in World!.Query<PauseMenuComponent>())
@@ -115,7 +115,7 @@ public class PauseMenu : SystemBase
         //Temporary, turn this back on soon!
         if (isPaused && isKeyPressed_Space && isFirstSelected)
         {
-            //AudioManager.instance.PlaySFX("SFX07");
+            AudioManager.instance.PlaySFX("SFX07");
             Time.TimeScale = 1;
             isPaused = false;
             foreach (Entity menuElement in pauseMenuElementObjIds)
@@ -128,7 +128,7 @@ public class PauseMenu : SystemBase
         }
         else if (isPaused && isKeyPressed_Space && !isFirstSelected)
         {
-            //AudioManager.instance.PlaySFX("SFX07");
+            AudioManager.instance.PlaySFX("SFX07");
             //Log("Quitting . . . ");
             sceneManager.SetNextAudioTransition(2.0f, true);
             //var scene = SceneManager.Instance.LoadScene(TargetScenePath);

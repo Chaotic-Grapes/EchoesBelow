@@ -324,7 +324,7 @@ public sealed class BarnacleSnatcherStateSystem : SystemBase
         //Log("SNATCH SNATCH SNATCH");
         //It will eat both for now
 
-        //AudioManager.instance.PlaySFX("SFX02");
+        AudioManager.instance.PlaySFX("SFX02");
 
         InventoryController.instance.RemoveFromInventory(1);
         InventoryController.instance.RemoveFromInventory(2);

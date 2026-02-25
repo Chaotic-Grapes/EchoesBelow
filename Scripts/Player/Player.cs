@@ -186,7 +186,7 @@ public class Player : SystemBase
     }
     private void AddRelativeForce(ref LinearVelocity2D lv, Vector2 playerDir, float moveSpeed)
     {
-        //AudioManager.instance.PlaySFX("SFX05");
+        AudioManager.instance.PlaySFX("SFX05");
         lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
         lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
     }
@@ -211,11 +211,11 @@ public class Player : SystemBase
 
             if (!AudioManager.sfxEntityDictionary["SFX01"].GetComponent<AudioSource>().PlayOnStart)
             {
-                //AudioManager.instance.PlaySFX("SFX01");
+                AudioManager.instance.PlaySFX("SFX01");
             }
             else
             {
-                //AudioManager.instance.PlaySFX("SFX01_alt");
+                AudioManager.instance.PlaySFX("SFX01_alt");
             }
         }
     }
@@ -319,7 +319,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
             
             if (tg.Mask == 4)
             {
-                //AudioManager.instance.PlaySFX("SFX06");
+                AudioManager.instance.PlaySFX("SFX06");
                 //door detected
                 other.GetComponent<Active>().Enabled = false;
                 Log("Door Detected!");

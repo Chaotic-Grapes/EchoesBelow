@@ -2419,7 +2419,7 @@
                 {
                     "Data": {
                         "Bus": 1,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/BGM/Obelisk_Chapter_1&2_BGM_Loop.wav",
+                        "CuePath": "Assets/Audio/BGM/Obelisk_Chapter_1&2_BGM_Loop.wav",
                         "EnableFadeIn": true,
                         "EnableFadeOut": true,
                         "FadeInDuration": 1.0,
@@ -2503,7 +2503,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2581,7 +2581,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX02_BarnacleSnatchin.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX02_BarnacleSnatchin.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2659,7 +2659,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX03_Pickup MS.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX03_Pickup MS.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2737,7 +2737,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX04_Hit Sound.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX04_Hit Sound.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2815,7 +2815,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX05_SustainedSwimEntry.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX05_SustainedSwimEntry.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2893,7 +2893,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -2971,7 +2971,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX06_Door Opening.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX06_Door Opening.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3049,7 +3049,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX07_MenuSound.mp3",
+                        "CuePath": "Assets/Audio/SFX/SFX07_MenuSound.mp3",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3127,7 +3127,7 @@
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX08_Zooming thru Grapevine.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX08_Zooming thru Grapevine.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
