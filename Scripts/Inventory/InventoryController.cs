@@ -26,6 +26,7 @@ public class InventoryController : SystemBase
     public static Dictionary<string, Slot> slotInstances;
 
     static bool isPressed_Q;
+    static bool isPressed_X;
 
     static int iterator;
 
@@ -118,6 +119,7 @@ public class InventoryController : SystemBase
         //This is gonna be overhauled
         //check for input
         isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
+        isPressed_X = Input.IsKeyPressed(KeyCode.X);
 
         foreach(var gameObject in World!.Query<InventoryControllerComponent>())
         {
@@ -131,6 +133,14 @@ public class InventoryController : SystemBase
             {
                 Iterator(ref iterator);
             }
+
+            if (isPressed_X)
+            {
+                if(iterator == 6) RemoveFromInventory(2);
+                else if (iterator == 5) RemoveFromInventory(1);
+                else RemoveFromInventory(0);
+            }
+
             //else if (Input.IsKeyPressed(KeyCode.Keypad1)) { iterator = 0; InstantIterate(); }
             //else if (Input.IsKeyPressed(KeyCode.Keypad2)) { iterator = 1; InstantIterate(); }
             //else if (Input.IsKeyPressed(KeyCode.Keypad3)) { iterator = 2; InstantIterate(); }
@@ -201,38 +211,6 @@ public class InventoryController : SystemBase
             Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
         }
     }
-    //private void InstantIterate()
-    //{
-    //    for (int i = slotObjIds.Length - 1; i >= 0; i--)
-    //    {
-    //        ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[i]).GetComponent<GUIImage>();
-    //        //if selected, gray out / higlight the slot
-    //        if (i == iterator)
-    //        {
-    //            guiImage.Color = new Color(100, 100, 100, 255);
-    //            Log("Set to Black!");
-    //        }
-    //        //else restore the color back to white
-    //        else
-    //        {
-    //            guiImage.Color = new Color(255, 255, 255, 255);
-    //            Log("Set to White");
-    //        }
-    //    }
-
-    //    UpdateSelection();
-    //    //Log($"Current Selected: {iterator}");
-    //    bool isSlotEmpty = !slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem;
-
-    //    if (isSlotEmpty)
-    //    {
-    //        Log($"There's nothing in Slot0{iterator + 1}");
-    //    }
-    //    else
-    //    {
-    //        Log($"There's msid: {slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId} in Slot0{iterator + 1}");
-    //    }
-    //}
    
     private void UpdateSelection()
     {
@@ -303,7 +281,7 @@ public class InventoryController : SystemBase
                 {
                     if(gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier && ms01_Count != 10) 
                     {
-                            ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
+                            ms01_Count = GMath.Clamp(++ms01_Count, 0, 10);
                             MS_Manager.instance.SendToPool(otherId);
                             slotInstances["Slot06"].isStoringItem = true;
                             slotInstances["Slot06"].storedMsId = 1;
@@ -320,7 +298,7 @@ public class InventoryController : SystemBase
                 {
                     if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier && ms02_Count != 10)
                     {
-                            ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
+                            ms02_Count = GMath.Clamp(++ms02_Count, 0, 10);
                             MS_Manager.instance.SendToPool(otherId);
                             slotInstances["Slot07"].isStoringItem = true;
                             slotInstances["Slot07"].storedMsId = 2;
@@ -372,40 +350,64 @@ public class InventoryController : SystemBase
         }
     }
 
-    public void DecrementInStackSlot(int msID)
+    public void RemoveFromInventory(int msID)
     {
+
         switch (msID)
         {
             case 1:
-            ms01_Count = GMath.Clamp(--ms01_Count, 0, 10);
-
-            foreach (var ui in World!.Query<MatchSignifierComponent>())
-            {
-                foreach (var inventory in World!.Query<InventoryControllerComponent>())
+                foreach (var gameObject in World!.Query<MatchSignifierComponent>())
                 {
-                    if (ui.Component1.signifierID == inventory.Component1.ms01_signifier)
+                    foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
                     {
-                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");
+                        if (gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier && ms01_Count > 0)
+                        {
+                            ms01_Count = GMath.Clamp(--ms01_Count, 0, 10);
+                            //MS_Manager.instance.SendToPool(otherId);
+                            if(ms01_Count <= 0)
+                            {
+                                slotInstances["Slot06"].isStoringItem = false;
+                                slotInstances["Slot06"].storedMsId = 0;
+                            }
+                            
+                            gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");
+                            UpdateSelection();
+                        }
                     }
                 }
-            }
-            break;
+                break;
             case 2:
-            ms02_Count = GMath.Clamp(--ms02_Count, 0, 10);
-
-            foreach (var ui in World!.Query<MatchSignifierComponent>())
-            {
-                foreach (var inventory in World!.Query<InventoryControllerComponent>())
+                foreach (var gameObject in World!.Query<MatchSignifierComponent>())
                 {
-                    if (ui.Component1.signifierID == inventory.Component1.ms02_signifier)
+                    foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
                     {
-                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
+                        if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier && ms02_Count > 0)
+                        {
+                            ms02_Count = GMath.Clamp(--ms02_Count, 0, 10);
+                            //MS_Manager.instance.SendToPool(otherId);
+                            if (ms02_Count <= 0)
+                            {
+                                slotInstances["Slot07"].isStoringItem = false;
+                                slotInstances["Slot07"].storedMsId = 0;
+                            }
+                            gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
+                            UpdateSelection();
+                        }
                     }
                 }
-            }
-            break;
+                break;
+            default:
+                Entity slotEntity = Entity.FromId(World!, slotObjIds[iterator]);
+                string slotName = slotEntity.GetComponent<Name>().Value.ToString();
+                foreach (Entity image in slotInstances[slotName].ms_ImageRefList)
+                {
+                    image.GetComponent<GUIElement>().Visible = false;
+                    slotInstances[slotName].isStoringItem = false;
+                    slotInstances[slotName].storedMsId = 0;
+                }
+                UpdateSelection();
+                break;
         }
-        
     }
     public bool FindAvailableSlot(out Entity slotEntity)
     {

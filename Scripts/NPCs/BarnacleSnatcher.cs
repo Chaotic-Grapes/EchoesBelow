@@ -326,8 +326,8 @@ public sealed class BarnacleSnatcherStateSystem : SystemBase
 
         //AudioManager.instance.PlaySFX("SFX02");
 
-        InventoryController.instance.DecrementInStackSlot(1);
-        InventoryController.instance.DecrementInStackSlot(2);
+        InventoryController.instance.RemoveFromInventory(1);
+        InventoryController.instance.RemoveFromInventory(2);
 
         ai.State = BarnacleState.Attack;
         anim.Row = ai.AnimRow;
