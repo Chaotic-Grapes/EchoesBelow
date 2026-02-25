@@ -55,8 +55,8 @@ public class PlayerTriggerHandler : TriggerSystemBase
         if (Entity.FromId(World!, other.Id).TryGetComponent<MS_ManagerComponent>(out MS_ManagerComponent msM))
         {
             //AudioManager.instance.PlaySFX("SFX03");
-            MS_Manager.instance.SendToPool(other.Id);
-            InventoryController.instance.AddToInventory(other.GetComponent<MS_ManagerComponent>().msID);
+            //MS_Manager.instance.SendToPool(other.Id);
+            InventoryController.instance.AddToInventory(other.GetComponent<MS_ManagerComponent>().msID, other.Id);
         }
     }
 }

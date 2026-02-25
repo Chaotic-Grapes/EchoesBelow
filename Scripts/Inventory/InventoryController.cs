@@ -1,3 +1,4 @@
+using EchoesBelow.Scripts.MarineSnowSystem;
 using GrapeEngine.Math;
 using GrapeEngine.Scripting.Components;
 using GrapeEngine.Scripting.Core;
@@ -152,73 +153,76 @@ public class InventoryController : SystemBase
         }
 
     }
-    public void AddToInventory(int msID)
+    public void AddToInventory(int msID, ulong otherId)
     {
         switch (msID)
         {
             case 1:
-            ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
+            //ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
                 
             foreach(var gameObject in World!.Query<MatchSignifierComponent>())
             {
                 foreach(var gameObject2 in World!.Query<InventoryControllerComponent>())
                 {
-                    if(gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier) 
+                    if(gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier && ms01_Count != 10) 
                     {
+                        ms01_Count = GMath.Clamp(++ms01_Count,(ushort)0,(ushort)10);
+                        MS_Manager.instance.SendToPool(otherId);
+                        slotInstances["Slot06"].isStoringItem = true;
                         gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");          
                     }
                 }
             }
             break;
             case 2:
-            ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
+            //ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
                
             foreach (var gameObject in World!.Query<MatchSignifierComponent>())
             {
                 foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
                 {
-                    if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier)
+                    if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier && ms02_Count != 10)
                     {
+                        ms02_Count = GMath.Clamp(++ms02_Count, (ushort)0, (ushort)10);
+                        MS_Manager.instance.SendToPool(otherId);
+                        slotInstances["Slot07"].isStoringItem = true;
                         gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
                     }
                 }
             }
             break;
             case 3:
-                Log($"3 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
                 //Find the slotInstance that contains the ms_imageRefList
-                AddItemToNonStackableSlot("MS03_ui");
+                AddItemToNonStackableSlot("MS03_ui", otherId);
                 break;
             case 4:
-                Log($"4 Available Slot: {Entity.FromId(World!, FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
-
-                AddItemToNonStackableSlot("MS04_ui");
+                AddItemToNonStackableSlot("MS04_ui", otherId);
                 break;
             case 5:
-                Log($"5 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
-                AddItemToNonStackableSlot("MS05_ui");
+                AddItemToNonStackableSlot("MS05_ui", otherId);
                 break;
             case 6:
-                Log($"6 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
-                AddItemToNonStackableSlot("MS06_ui");
+                AddItemToNonStackableSlot("MS06_ui", otherId);
                 break;
             case 7:
-                Log($"7 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
-                AddItemToNonStackableSlot("MS07_ui");
+                AddItemToNonStackableSlot("MS07_ui", otherId);
                 break;
         }
         
 
     }
 
-    public void AddItemToNonStackableSlot(string msIdCheck)
+    public void AddItemToNonStackableSlot(string msIdCheck, ulong otherId)
     {
-        foreach (Entity image in slotInstances[Entity.FromId(World!, FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
+        FindAvailableSlot(out Entity slotEntity);
+        foreach (Entity image in slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
         {
             if (Entity.FromId(World!, image.Id).GetComponent<Name>().Value.ToString() == msIdCheck)
             {
+                if (!FindAvailableSlot(out Entity e)) return;
+                MS_Manager.instance.SendToPool(otherId);
                 image.GetComponent<GUIElement>().Visible = true;
-                slotInstances[Entity.FromId(World!, FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()].isStoringItem = true;
+                slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].isStoringItem = true;
             }
         }
     }
@@ -258,19 +262,21 @@ public class InventoryController : SystemBase
         }
         
     }
-    public Entity FindAvailableSlot()
+    public bool FindAvailableSlot(out Entity slotEntity)
     {
         //Iterate thru the nonstackable era in sequence
         for (int i=4; i>=0; i--)
         {
-            Entity slotEntity = Entity.FromId(World!,nonStackableSlots[i]);
-            if (!slotInstances[slotEntity.GetComponent<Name>().Value.ToString()].isStoringItem)
+            //Entity slotEntity = Entity.FromId(World!,nonStackableSlots[i]);
+            if (!slotInstances[Entity.FromId(World!, nonStackableSlots[i]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
-                return slotEntity;
+                slotEntity = Entity.FromId(World!, nonStackableSlots[i]);
+                return true;
             }
         }
         //Default case
-        return Entity.FromId(World!, nonStackableSlots[0]);
+        slotEntity = Entity.FromId(World!, nonStackableSlots[0]);
+        return false;
     }
 }
 
@@ -287,7 +293,7 @@ public class Slot
     }
 }
 
-public enum MSparticle
+public enum MS
 {
     MS01, MS02, MS03, MS04, MS05, MS06, MS07
 }
