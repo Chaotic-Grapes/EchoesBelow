@@ -22,9 +22,8 @@ public class InventoryController : SystemBase
     public static List<ulong> ms01_List;
     public static List<ulong> ms02_List;
 
-    public static List<ulong> slotObjIds;
+    public static ulong[] slotObjIds;
     public static Dictionary<string, Slot> slotInstances;
-    public static ulong[] nonStackableSlots;
 
     static bool isPressed_Q;
     static bool leftSlotIsSelected;
@@ -47,9 +46,8 @@ public class InventoryController : SystemBase
         ms01_List = new List<ulong>();
         ms02_List = new List<ulong>();
 
-        slotObjIds = new List<ulong>();
+        slotObjIds = new ulong[7];
         slotInstances = new Dictionary<string, Slot>();
-        nonStackableSlots = new ulong[5];
 
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
@@ -59,29 +57,37 @@ public class InventoryController : SystemBase
             string slotName = slotEntity.GetComponent<Name>().Value.ToString();
 
             Slot slotInstance = new Slot(false); // initialized with a false isStoringItem bool
-            slotObjIds.Add(slot.Entity.Id);
+            //slotObjIds.Add(slot.Entity.Id);
             slotInstances.Add(slotName, slotInstance);
 
-            if (slotName == "Slot06" || slotName == "Slot07") { }
+            //Arranging in the correct order for nonstackables and the total overarching list
+            if (slotName == "Slot07") //contains only MS02s
+            {
+                slotObjIds[6] = slot.Entity.Id;
+            }
+            else if(slotName == "Slot06") //contains only MS01s
+            {
+                slotObjIds[5] = slot.Entity.Id;
+            }
             else if (slotName == "Slot05")
             {
-                nonStackableSlots[4] = slot.Entity.Id;
+                slotObjIds[4] = slot.Entity.Id;
             }
             else if (slotName == "Slot04")
             {
-                nonStackableSlots[3] = slot.Entity.Id;
+                slotObjIds[3] = slot.Entity.Id;
             }
             else if (slotName == "Slot03")
             {
-                nonStackableSlots[2] = slot.Entity.Id;
+                slotObjIds[2] = slot.Entity.Id;
             }
             else if (slotName == "Slot02")
             {
-                nonStackableSlots[1] = slot.Entity.Id;
+                slotObjIds[1] = slot.Entity.Id;
             }
             else if (slotName == "Slot01")
             {
-                nonStackableSlots[0] = slot.Entity.Id;
+                slotObjIds[0] = slot.Entity.Id;
             }
             else { }
 
@@ -133,21 +139,19 @@ public class InventoryController : SystemBase
             foreach(ulong u in slotObjIds)
             {
                 Entity e = Entity.FromId(World!, u);
-                Log($"Obj ID: {u} of name: {e.GetComponent<Name>().Value.ToString()} >>");
                 foreach(KeyValuePair<string,Slot> stringSlot in slotInstances)
                 {
                     if(stringSlot.Key == e.GetComponent<Name>().Value.ToString())
                     {
-                        Log($"Key Found!: {stringSlot.Key} contains slot instance with a msRefImageListCount of {stringSlot.Value.ms_ImageRefList.Count}");
-                        Log("isStoringItem = " + stringSlot.Value.isStoringItem);
+                        Log($"{stringSlot.Key} contains {stringSlot.Value.ms_ImageRefList.Count} refs, isStorinItem = {stringSlot.Value.isStoringItem}");
                     }
-                    else { Log("Nothing Found in here"); }
+                    else { }
                 }
             }
-            Log("**************************");
-            for(int i = 0; i<5; i++)
+            Log("%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            foreach(ulong id in slotObjIds)
             {
-                Log($"index {i} of nonStackableSlots contains {Entity.FromId(World!,nonStackableSlots[i]).GetComponent<Name>().Value.ToString()}");
+                Log($"slotObjIds contains a {Entity.FromId(World!,id).GetComponent<Name>().Value.ToString()}");
             }
             Log("End======================");
         }
@@ -268,14 +272,14 @@ public class InventoryController : SystemBase
         for (int i=4; i>=0; i--)
         {
             //Entity slotEntity = Entity.FromId(World!,nonStackableSlots[i]);
-            if (!slotInstances[Entity.FromId(World!, nonStackableSlots[i]).GetComponent<Name>().Value.ToString()].isStoringItem)
+            if (!slotInstances[Entity.FromId(World!, slotObjIds[i]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
-                slotEntity = Entity.FromId(World!, nonStackableSlots[i]);
+                slotEntity = Entity.FromId(World!, slotObjIds[i]);
                 return true;
             }
         }
         //Default case
-        slotEntity = Entity.FromId(World!, nonStackableSlots[0]);
+        slotEntity = Entity.FromId(World!, slotObjIds[0]);
         return false;
     }
 }

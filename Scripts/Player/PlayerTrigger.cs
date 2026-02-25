@@ -29,11 +29,11 @@ public class PlayerTriggerHandler : TriggerSystemBase
 
         if (Entity.FromId(World!, self.Id).TryGetComponent<PlayerTriggerComponent>(out PlayerTriggerComponent squidWard))
         {
-            Log("Trigger: I have a Squidward!");
+            //Log("Trigger: I have a Squidward!");
         }
         else
         {
-            Log("Trigger: I DONT have a Squidward!");
+            //Log("Trigger: I DONT have a Squidward!");
             return;
         }
 

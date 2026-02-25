@@ -291,7 +291,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         //Log($"Entering self: {self.GetComponent<Name>().ToString()} into TryGetComponent<PlayerComponent> Check . . . . . . . . . . . . . . . . . . . . . .");
         if (Entity.FromId(World!, self.Id).TryGetComponent<PlayerComponent>(out PlayerComponent plc))
         {
-            Log("Collision: I have a Player Component!");
+            //Log("Collision: I have a Player Component!");
         }
         else
         {
