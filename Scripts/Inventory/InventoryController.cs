@@ -23,6 +23,7 @@ public class InventoryController : SystemBase
 
     public static List<ulong> slotObjIds;
     public static Dictionary<string, Slot> slotInstances;
+    public static ulong[] nonStackableSlots;
 
     static bool isPressed_Q;
     static bool leftSlotIsSelected;
@@ -47,17 +48,44 @@ public class InventoryController : SystemBase
 
         slotObjIds = new List<ulong>();
         slotInstances = new Dictionary<string, Slot>();
+        nonStackableSlots = new ulong[5];
 
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
         foreach(var slot in World!.Query<SlotComponent>())
         {
             Entity slotEntity = Entity.FromId(World!, slot.Entity.Id);
+            string slotName = slotEntity.GetComponent<Name>().Value.ToString();
 
-            Slot slotInstance = new Slot();
+            Slot slotInstance = new Slot(false); // initialized with a false isStoringItem bool
             slotObjIds.Add(slot.Entity.Id);
-            slotInstances.Add(slotEntity.GetComponent<Name>().Value.ToString(), slotInstance);
-            
+            slotInstances.Add(slotName, slotInstance);
+
+            if (slotName == "Slot06" || slotName == "Slot07") { }
+            else if (slotName == "Slot05")
+            {
+                nonStackableSlots[4] = slot.Entity.Id;
+            }
+            else if (slotName == "Slot04")
+            {
+                nonStackableSlots[3] = slot.Entity.Id;
+            }
+            else if (slotName == "Slot03")
+            {
+                nonStackableSlots[2] = slot.Entity.Id;
+            }
+            else if (slotName == "Slot02")
+            {
+                nonStackableSlots[1] = slot.Entity.Id;
+            }
+            else if (slotName == "Slot01")
+            {
+                nonStackableSlots[0] = slot.Entity.Id;
+            }
+            else { }
+
+
+
             slotInstance.ms_ImageRefList = Entity.FromId(World!, slot.Entity.Id).GetChildren();
             foreach(Entity MS_imageRef in slotInstance.ms_ImageRefList)
             {
@@ -71,6 +99,7 @@ public class InventoryController : SystemBase
     }
     protected override void OnUpdate()
     {
+        //This is gonna be overhauled
         //check for input
         isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
 
@@ -96,6 +125,7 @@ public class InventoryController : SystemBase
             }
         }
 
+        //For Checking
         if (Input.IsKeyPressed(KeyCode.J))
         {
             Log("J is Pressed!==========");
@@ -108,9 +138,15 @@ public class InventoryController : SystemBase
                     if(stringSlot.Key == e.GetComponent<Name>().Value.ToString())
                     {
                         Log($"Key Found!: {stringSlot.Key} contains slot instance with a msRefImageListCount of {stringSlot.Value.ms_ImageRefList.Count}");
+                        Log("isStoringItem = " + stringSlot.Value.isStoringItem);
                     }
                     else { Log("Nothing Found in here"); }
                 }
+            }
+            Log("**************************");
+            for(int i = 0; i<5; i++)
+            {
+                Log($"index {i} of nonStackableSlots contains {Entity.FromId(World!,nonStackableSlots[i]).GetComponent<Name>().Value.ToString()}");
             }
             Log("End======================");
         }
@@ -149,58 +185,92 @@ public class InventoryController : SystemBase
             }
             break;
             case 3:
-
-            break;
+                Log($"3 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
+                //Find the slotInstance that contains the ms_imageRefList
+                AddItemToNonStackableSlot("MS03_ui");
+                break;
             case 4:
+                Log($"4 Available Slot: {Entity.FromId(World!, FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
 
-            break;
+                AddItemToNonStackableSlot("MS04_ui");
+                break;
             case 5:
-
-            break;
+                Log($"5 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
+                AddItemToNonStackableSlot("MS05_ui");
+                break;
             case 6:
-
-            break;
+                Log($"6 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
+                AddItemToNonStackableSlot("MS06_ui");
+                break;
             case 7:
-
-            break;
+                Log($"7 Available Slot: {Entity.FromId(World!,FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()}");
+                AddItemToNonStackableSlot("MS07_ui");
+                break;
         }
         
 
     }
+
+    public void AddItemToNonStackableSlot(string msIdCheck)
+    {
+        foreach (Entity image in slotInstances[Entity.FromId(World!, FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
+        {
+            if (Entity.FromId(World!, image.Id).GetComponent<Name>().Value.ToString() == msIdCheck)
+            {
+                image.GetComponent<GUIElement>().Visible = true;
+                slotInstances[Entity.FromId(World!, FindAvailableSlot().Id).GetComponent<Name>().Value.ToString()].isStoringItem = true;
+            }
+        }
+    }
+
     public void DecrementInStackSlot(int msID)
     {
         switch (msID)
         {
             case 1:
-                ms01_Count = GMath.Clamp(--ms01_Count, 0, 10);
+            ms01_Count = GMath.Clamp(--ms01_Count, 0, 10);
 
-                foreach (var ui in World!.Query<MatchSignifierComponent>())
+            foreach (var ui in World!.Query<MatchSignifierComponent>())
+            {
+                foreach (var inventory in World!.Query<InventoryControllerComponent>())
                 {
-                    foreach (var inventory in World!.Query<InventoryControllerComponent>())
+                    if (ui.Component1.signifierID == inventory.Component1.ms01_signifier)
                     {
-                        if (ui.Component1.signifierID == inventory.Component1.ms01_signifier)
-                        {
-                            ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");
-                        }
+                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");
                     }
                 }
-                break;
+            }
+            break;
             case 2:
-                ms02_Count = GMath.Clamp(--ms02_Count, 0, 10);
+            ms02_Count = GMath.Clamp(--ms02_Count, 0, 10);
 
-                foreach (var ui in World!.Query<MatchSignifierComponent>())
+            foreach (var ui in World!.Query<MatchSignifierComponent>())
+            {
+                foreach (var inventory in World!.Query<InventoryControllerComponent>())
                 {
-                    foreach (var inventory in World!.Query<InventoryControllerComponent>())
+                    if (ui.Component1.signifierID == inventory.Component1.ms02_signifier)
                     {
-                        if (ui.Component1.signifierID == inventory.Component1.ms02_signifier)
-                        {
-                            ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
-                        }
+                        ui.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
                     }
                 }
-                break;
+            }
+            break;
         }
         
+    }
+    public Entity FindAvailableSlot()
+    {
+        //Iterate thru the nonstackable era in sequence
+        for (int i=4; i>=0; i--)
+        {
+            Entity slotEntity = Entity.FromId(World!,nonStackableSlots[i]);
+            if (!slotInstances[slotEntity.GetComponent<Name>().Value.ToString()].isStoringItem)
+            {
+                return slotEntity;
+            }
+        }
+        //Default case
+        return Entity.FromId(World!, nonStackableSlots[0]);
     }
 }
 
@@ -209,9 +279,11 @@ public class InventoryController : SystemBase
 public class Slot
 {
     public List<Entity> ms_ImageRefList { get; set; }
-    public Slot()
+    public bool isStoringItem { get; set; }
+    public Slot(bool isStoringItem)
     {
         ms_ImageRefList = new List<Entity>();
+        this.isStoringItem = isStoringItem;
     }
 }
 

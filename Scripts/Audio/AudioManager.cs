@@ -38,14 +38,14 @@ public class AudioManager : SystemBase
         return true;
     }
 
-    protected override void OnUpdate()
-    {
-        foreach (var gameObject in World!.Query<AudioManagerComponent>())
-        {
-            bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
-        }
-    }
+    //protected override void OnUpdate()
+    //{
+    //    foreach (var gameObject in World!.Query<AudioManagerComponent>())
+    //    {
+    //        bool start = gameObject.Component1.start;
+    //        gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
+    //    }
+    //}
 
     public void PlaySFX(string sfxName)
     {
