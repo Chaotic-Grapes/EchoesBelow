@@ -26,7 +26,7 @@ public class AudioManager : SystemBase
 
         Entity audioManager = Entity.FromId(World!, objId);
 
-        sfxEntityDictionary = new Dictionary<string,Entity>();
+        sfxEntityDictionary = [];
         sfxEntityList = audioManager.GetChildren();
 
         foreach(Entity e in sfxEntityList)
