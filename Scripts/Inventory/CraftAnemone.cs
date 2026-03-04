@@ -56,8 +56,18 @@ public class CraftAnemone : SystemBase
         ref LocalTransform capturedEntityTransform = ref capturedEntity.GetComponent<LocalTransform>();
         ref LocalTransform transform = ref anemone.GetComponent<LocalTransform>();
 
-        capturedEntityTransform.Position = new Vector3(GMath.Lerp(capturedEntityTransform.Position.X, transform.Position.X, 0.04f),
-                                                       GMath.Lerp(capturedEntityTransform.Position.Y, transform.Position.Y, 0.04f), lerpFac);
+        //Zero out angular and linearVelocities
+        ref LinearVelocity2D capturedEntityLinearVelocity = ref capturedEntity.GetComponent<LinearVelocity2D>();
+        ref AngularVelocity2D capturedEntityAngularVelocity = ref capturedEntity.GetComponent<AngularVelocity2D>();
+        capturedEntityAngularVelocity.Value = 0;
+        capturedEntityLinearVelocity.Value = Vector2.Zero;
+
+        //Zero out rotation, and reset!
+        capturedEntityTransform.Rotation = Quaternion.Identity;
+
+        //Interpolate towards anemone!
+        capturedEntityTransform.Position = new Vector3(GMath.Lerp(capturedEntityTransform.Position.X, transform.Position.X, lerpFac),
+                                                       GMath.Lerp(capturedEntityTransform.Position.Y, transform.Position.Y, lerpFac), 0);
 
         //If my speed is near 0, means Im close to the checkpoint
         //RESPAWN
