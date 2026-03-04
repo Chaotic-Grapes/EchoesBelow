@@ -177,8 +177,12 @@ public class MS_Manager : SystemBase
         lv.Value.X = GMath.Random(0.5f, 2f);
         pulledEntity.AddComponent<AngularVelocity2D>();
         //Add Decay Component HARDCODED
-        ref MS_DecayComponent decay = ref pulledEntity.AddComponent<MS_DecayComponent>();
-        decay.decayTime = decayTime;
+        if(Entity.FromId(World!, pulledObjId).GetComponent<MS_IDComponent>().msID == 1 || Entity.FromId(World!, pulledObjId).GetComponent<MS_IDComponent>().msID == 2)
+        {
+            ref MS_DecayComponent decay = ref pulledEntity.AddComponent<MS_DecayComponent>();
+            decay.decayTime = decayTime;
+        }
+
 
     }
     private void ResetPoolObj(ulong objID)
