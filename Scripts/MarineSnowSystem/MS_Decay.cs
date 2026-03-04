@@ -20,7 +20,7 @@ public class MS_Decay : SystemBase
 
     protected override void OnUpdate()
     {
-       foreach(var gameObject in World!.Query<MS_DecayComponent, MS_ManagerComponent>())
+       foreach(var gameObject in World!.Query<MS_DecayComponent, MS_IDComponent>())
        {
             gameObject.Component1.decayTime -= Time.DeltaTime;
             if(gameObject.Component1.decayTime < 0)

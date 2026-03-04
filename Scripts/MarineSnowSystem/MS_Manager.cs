@@ -6,6 +6,7 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 
 namespace EchoesBelow.Scripts.MarineSnowSystem;
@@ -38,95 +39,73 @@ public class MS_Manager : SystemBase
     public ulong emptyId = 99999999999;
     private Vector3 poolLocation = new Vector3(10000, 10000, 0);
 
-    protected override void OnCreate()
-    {
-        //This is only ever called once, so there is only one instance assignment
-        //initialize
-        instance = this;
-        //Log("System MS_Manager initialized");
-        
-    }
-    private bool OnStart(ref bool startBool, ulong objID, int msID)
+    private bool OnStart(ref bool startBool)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
 
-        switch (msID)
+        Log("MS MANAGER CREATED");
+        //This is only ever called once, so there is only one instance assignment
+        //initialize
+        instance = this;
+
+        ulong MS_Manager_Id = 0; //default
+        //For each MS_Manager only
+        //Create the lists
+        foreach (var gameObject in World!.Query<MS_ManagerComponent>())
         {
-            case 0:
-                //For MS Manager instance
-                poolContainerId = objID;
+            ulong objID = gameObject.Entity.Id;
+            int msID = gameObject.Component1.msID;
 
-                ////Log("Initialize Pools ! poolContainerId: " + poolContainerId, LogLevel.Debug);
+            //For MS Manager instance
+            poolContainerId = objID;
 
-                ms01_ObjectPool = new List<ulong>();
-                ms02_ObjectPool = new List<ulong>();
-                ms03_ObjectPool = new List<ulong>();
-                ms04_ObjectPool = new List<ulong>();
-                ms05_ObjectPool = new List<ulong>();
-                ms06_ObjectPool = new List<ulong>();
-                ms07_ObjectPool = new List<ulong>();
+            ////Log("Initialize Pools ! poolContainerId: " + poolContainerId, LogLevel.Debug);
 
-                objPools = new List<ulong>[7];
-                objPools[0] = ms01_ObjectPool;
-                objPools[1] = ms02_ObjectPool;
-                objPools[2] = ms03_ObjectPool;
-                objPools[3] = ms04_ObjectPool;
-                objPools[4] = ms05_ObjectPool;
-                objPools[5] = ms06_ObjectPool;
-                objPools[6] = ms07_ObjectPool;
-                break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-                SendToPool(objID);
-                break;
+            ms01_ObjectPool = new List<ulong>();
+            ms02_ObjectPool = new List<ulong>();
+            ms03_ObjectPool = new List<ulong>();
+            ms04_ObjectPool = new List<ulong>();
+            ms05_ObjectPool = new List<ulong>();
+            ms06_ObjectPool = new List<ulong>();
+            ms07_ObjectPool = new List<ulong>();
+
+            objPools = new List<ulong>[7];
+            objPools[0] = ms01_ObjectPool;
+            objPools[1] = ms02_ObjectPool;
+            objPools[2] = ms03_ObjectPool;
+            objPools[3] = ms04_ObjectPool;
+            objPools[4] = ms05_ObjectPool;
+            objPools[5] = ms06_ObjectPool;
+            objPools[6] = ms07_ObjectPool;
+
+            MS_Manager_Id = objID;
         }
+
+        //Send all found MSnows parented under MSManager into the objpools
+        List<Entity> MSchildren = Entity.FromId(World!,MS_Manager_Id).GetChildren();
+
+        //Send Marine Snows to relevant obj pools
+        foreach(Entity MS_snow in MSchildren)
+        {
+            SendToPool(MS_snow.Id);
+        }
+        Log("MS_MANAGER FULLY INITIALIZED");
 
         //End of Start
         return true;
     }
     protected override void OnUpdate()
     {
-        foreach(var gameObject in World!.Query<MS_ManagerComponent>().Without<SpriteRenderer2D>())
+        foreach (var gameObject in World!.Query<MS_ManagerComponent>())
         {
-            ulong objID = gameObject.Entity.Id;
-            int msID = gameObject.Component1.msID;
-
-            //This kinda works like an OnAwake( ) function
             bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start, objID, msID);
+            gameObject.Component1.start = OnStart(ref start);
 
-        }
-
-
-        foreach( var gameObject in World!.Query<MS_ManagerComponent>())
-        {
-            ulong objID = gameObject.Entity.Id;
-            int msID = gameObject.Component1.msID;
-            
-
-            //A Pseudo Start function, called once per obj at runtime
-            //This allows onStart to work
-            bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start, objID, msID);
+            //Do everyth else
 
 
-            //if (Input.IsKeyPressed(KeyCode.Q))
-            //{
-            //    int i = 0;
-            //    Log("1++++++++++++++++++++++++++++++++++++++++");
-            //    foreach(List<ulong> objPool in objPools)
-            //    {
-            //        Log($"list 0{++i} count: {objPool.Count}");
-            //    }
-            //    Log("2++++++++++++++++++++++++++++++++++++++++");
-            //}
         }
     }
     public ulong TakeFromPool(int msID, Vector3 newPos, float decayTime)
@@ -158,7 +137,7 @@ public class MS_Manager : SystemBase
         foreach (List<ulong> objPool in objPools)
         {
             //check if i++ == target msID
-            if (Entity.FromId(World!, returningObjId).GetComponent<MS_ManagerComponent>().msID == id_Iterator)
+            if (Entity.FromId(World!, returningObjId).GetComponent<MS_IDComponent>().msID == id_Iterator)
             {
                 //add the obj back into the pool, reset its transforms
                 objPool.Add(returningObjId);
@@ -166,7 +145,6 @@ public class MS_Manager : SystemBase
 
                 //returningEntity.GetComponent<Active>().Enabled = false;
 
-                ////Log($"Sent ms0{Entity.FromId(World!, returningObjId).GetComponent<MS_ManagerComponent>().msID} to Pool {id_Iterator}!", LogLevel.Debug);
                 return;
             }
             id_Iterator++;

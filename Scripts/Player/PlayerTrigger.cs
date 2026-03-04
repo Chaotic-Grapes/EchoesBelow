@@ -52,11 +52,11 @@ public class PlayerTriggerHandler : TriggerSystemBase
         }
        
         //if I detect a marine snow obj, send it back to whence it came!
-        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_ManagerComponent>(out MS_ManagerComponent msM))
+        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM))
         {
             AudioManager.instance.PlaySFX("SFX03");
             //MS_Manager.instance.SendToPool(other.Id);
-            InventoryController.instance.AddToInventory(other.GetComponent<MS_ManagerComponent>().msID, other.Id);
+            InventoryController.instance.AddToInventory(other.GetComponent<MS_IDComponent>().msID, other.Id);
         }
     }
 }

@@ -12,17 +12,22 @@ using System.Numerics;
 
 namespace Scripts.CraftingSystem;
 
-[Component] public record struct CombinationMachineComponent(float num);
+[Component] public record struct CombinationMachineComponent(bool start);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CombinationMachine : SystemBase
 {
     public static Dictionary<ulong, CMachineData> instances;
-    protected override void OnCreate()
+
+    private bool OnStart(ref bool startBool)
     {
+        if (startBool == true) return true;
+        startBool = true;
+        //Todo
+
         Log("Combo Machine Alive!");
 
         instances = new Dictionary<ulong, CMachineData>();
-        Log("1");
+        //Log("1");
         //Execute once for all instances
         foreach (var gameObject in World!.Query<CombinationMachineComponent>())
         {
@@ -31,10 +36,10 @@ public class CombinationMachine : SystemBase
             CMachineData cm = new CMachineData(gameObject.Entity.Id, Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString());
             instances.Add(gameObject.Entity.Id, cm);
         }
-        Log("CombinationMachines are created");
-        Log("What is happening...");
-    }
 
+        //End of Start
+        return true;
+    }
     protected override void OnUpdate()
     {
         // TODO: Query entities and update components
@@ -42,12 +47,11 @@ public class CombinationMachine : SystemBase
         //Log("HELLO!!!2");
         foreach (var gameObject in World!.Query<CombinationMachineComponent>())
         {
-           
+            bool start = gameObject.Component1.start;
+            gameObject.Component1.start = OnStart(ref start);
+
             string name = instances[gameObject.Entity.Id].name;
             Log("My NEW name is" + name);
-            
-
-
         }
     }
 
