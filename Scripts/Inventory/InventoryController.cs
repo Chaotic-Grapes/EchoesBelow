@@ -28,6 +28,8 @@ public class InventoryController : SystemBase
     static bool isPressed_Q;
     static bool isPressed_X;
 
+    public bool isEnabled_xInput = true;
+
     static int iterator;
 
     protected override void OnCreate()
@@ -119,7 +121,7 @@ public class InventoryController : SystemBase
         //This is gonna be overhauled
         //check for input
         isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
-        isPressed_X = Input.IsKeyPressed(KeyCode.X);
+        if(isEnabled_xInput) isPressed_X = Input.IsKeyPressed(KeyCode.X);
 
         foreach(var gameObject in World!.Query<InventoryControllerComponent>())
         {

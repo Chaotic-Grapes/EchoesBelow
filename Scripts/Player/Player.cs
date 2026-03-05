@@ -23,6 +23,7 @@ namespace EchoesBelow.Scripts;
 public class Player : SystemBase
 {
     public static Player instance;
+    public Entity player {  get; set; }
 
     PlayerAnimPreset dashState = new PlayerAnimPreset(0, 0, 20, 24f);
     PlayerAnimPreset idleState = new PlayerAnimPreset(0, 20, 65, 30f);
@@ -40,17 +41,24 @@ public class Player : SystemBase
     static bool isKeyDown_A = false;
     static bool isKeyDown_S = false;
     static bool isKeyDown_D = false;
+    static bool isKeyPressed_Space = false;
+
+    public bool isEnabled;
 
     protected override void OnCreate()
     {
         instance = this;
         //Log("System Player initialized");
     }
-    private bool OnStart(ref bool startBool)
+    private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
+
+        isEnabled = true;
+
+        player = Entity.FromId(World!, objId);
 
         dashCoolDownTimer = 0;
         isCoolingDown = false;
@@ -63,17 +71,22 @@ public class Player : SystemBase
     }
     protected override void OnUpdate()
     {
-        isKeyDown_W = Input.IsKeyDown(KeyCode.W);
-        isKeyDown_A = Input.IsKeyDown(KeyCode.A); 
-        isKeyDown_S = Input.IsKeyDown(KeyCode.S);
-        isKeyDown_D = Input.IsKeyDown(KeyCode.D);
+        if (isEnabled)
+        {
+            isKeyDown_W = Input.IsKeyDown(KeyCode.W);
+            isKeyDown_A = Input.IsKeyDown(KeyCode.A); 
+            isKeyDown_S = Input.IsKeyDown(KeyCode.S);
+            isKeyDown_D = Input.IsKeyDown(KeyCode.D);
+            isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
+        }
+
 
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())
         {
             //A Pseudo Start function, called once per obj at runtime
             //This allows onStart to work
             bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start);
+            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
 
             //Anim
             if (isKeyDown_A || isKeyDown_D || isKeyDown_W || isKeyDown_S)
@@ -154,7 +167,7 @@ public class Player : SystemBase
                 AddDriftForce(ref lv, playerDir, driftSpeed, maxSpeed);
                 AddPeriodicalForce(ref lv, periodicForceInterval, ref timer_forPeriodicForce, playerDir, moveSpeed);
             }
-            if(Input.IsKeyPressed(KeyCode.Space) && !isCoolingDown)
+            if(isKeyPressed_Space && !isCoolingDown)
             { 
                 AddRelativeForce(ref lv, playerDir, moveSpeed);
                 isCoolingDown = true;
@@ -267,6 +280,14 @@ public class Player : SystemBase
     protected override void OnDestroy()
     {
         //Log("System Player destroyed");
+    }
+    public void ResetInputs()
+    {
+        isKeyDown_W = false;
+        isKeyDown_A = false;
+        isKeyDown_S = false;
+        isKeyDown_D = false;
+        isKeyPressed_Space = false;
     }
     public enum Compass
     {
