@@ -34,6 +34,7 @@ public class CraftAnemoneData
     {
         this.objId = objId;
         this.name = name;
+        this.isOpened = false;
     }
 }
 [Component] public record struct CraftAnemoneComponent(bool start, float lerpFacInMiliseconds, float exitSpeed);
@@ -41,8 +42,8 @@ public class CraftAnemoneData
 public class CraftAnemone : SystemBase
 {
     public static Dictionary<ulong, CraftAnemoneData> instances;
-    private const float cameraOffsetY = 2.20f;
-    private const float FOVoffset = 141;
+    private const float cameraOffsetY = 3.0f;
+    private const float FOVoffset = 151;
     private const float FOVoriginal = 128.5f;
     private const float cameraOriginalY = 0f;
     private const float marginAllowance = 0.25f;
@@ -111,6 +112,11 @@ public class CraftAnemone : SystemBase
                     //Shoot the player out of the anemone
                     ref LinearVelocity2D lv = ref Player.instance.player.GetComponent<LinearVelocity2D>();
                     lv.Value = new Vector2(0, gameObject.Component1.exitSpeed);
+
+                    CraftAnemone.instances[gameObject.Entity.Id].isExitingAnemone = true;
+                    CraftAnemone.instances[gameObject.Entity.Id].isEnteredAnemone = false;
+
+                    CraftAnemone.instances[gameObject.Entity.Id].isCaptured = false;
                 }
             }
 
@@ -120,12 +126,17 @@ public class CraftAnemone : SystemBase
             {
                 TractorBeam(CraftAnemoneHandler.capturedEntity, gameObject.Entity.Id, lerpFac);
 
-                float yBloom = 1.55f;
-                float yWilt = -0.86f; // might be unused but good to know!
-                if (!instances[gameObject.Entity.Id].isOpened) //if it hasnt been opened, open the craftanemone start node!
-                    Bloom(instances[gameObject.Entity.Id], yBloom,lerpFac * 0.8f);
+                
+
                 //if you want it to wilt, plug in the yWilt value!
             }
+
+            float yBloom = 1.55f;
+            float yWilt = -0.86f; // might be unused but good to know!
+
+            if (instances[gameObject.Entity.Id].isOpened) //if it hasnt been opened, open the craftanemone start node!
+            Bloom(instances[gameObject.Entity.Id], yBloom,lerpFac * 0.8f);
+            //else if (!isOpened) Bloom with yWilt;
 
             if (instances[gameObject.Entity.Id].isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
@@ -218,8 +229,8 @@ public class CraftAnemone : SystemBase
         playerTransform.Rotation = Quaternion.Identity;
 
         //Interpolate towards anemone!
-        playerTransform.Position = new Vector3(GMath.Lerp(playerTransform.Position.X, transform.Position.X, lerpFac),
-                                                       GMath.Lerp(playerTransform.Position.Y, transform.Position.Y, lerpFac), 0);
+        playerTransform.Position = new Vector3(GMath.Lerp(playerTransform.Position.X, transform.Position.X, lerpFac * 1.75f),
+                                                       GMath.Lerp(playerTransform.Position.Y, transform.Position.Y, lerpFac * 1.75f), 0);
 
         //If position is within the agreed allowance, stop the tractor beam
         float playerXpos = player.GetComponent<LocalTransform>().Position.X;
@@ -261,31 +272,29 @@ public class CraftAnemoneHandler : TriggerSystemBase
         
 
     }
-    protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
-    {
-        Entity other = Entity.FromId(World!, evt.OtherEntityId);
+    //Unused for now
+    //protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
+    //{
+    //    Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
-        else return;
+    //    if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
+    //    else return;
 
 
-        if (other.HasComponent<PlayerTriggerComponent>())
-        {
-            CraftAnemone.instances[self.Id].isExitingAnemone = true;
-            CraftAnemone.instances[self.Id].isEnteredAnemone = false;
+    //    if (other.HasComponent<PlayerTriggerComponent>())
+    //    {
 
-            CraftAnemone.instances[self.Id].isCaptured = false;
-            ////ensable player movement and X key for inventory!
-            //Player.instance.isEnabled = true;
-            //InventoryController.instance.isEnabled_xInput = true;
-        }
+    //    }
 
-    }
+    //}
 
     private void LaunchCrafting(Entity self, Entity other)
     {
+        AudioManager.instance.PlaySFX("SFX09");
         //This is everything that happens when a player is captured by the anemone
         capturedEntity = other;
+
+        CraftAnemone.instances[self.Id].isOpened = true;
 
         CraftAnemone.instances[self.Id].isLerpingToAnemone = true;
  
