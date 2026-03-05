@@ -51,7 +51,7 @@ public class CombinationMachine : SystemBase
             gameObject.Component1.start = OnStart(ref start);
 
             string name = instances[gameObject.Entity.Id].name;
-            Log("My NEW name is" + name);
+            //Log("My NEW name is" + name);
         }
     }
 

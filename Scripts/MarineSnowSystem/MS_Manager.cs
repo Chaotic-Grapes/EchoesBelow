@@ -6,7 +6,6 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 
 
 namespace EchoesBelow.Scripts.MarineSnowSystem;
@@ -45,7 +44,6 @@ public class MS_Manager : SystemBase
         startBool = true;
         //Todo
 
-        Log("MS MANAGER CREATED");
         //This is only ever called once, so there is only one instance assignment
         //initialize
         instance = this;
@@ -91,7 +89,6 @@ public class MS_Manager : SystemBase
         {
             SendToPool(MS_snow.Id);
         }
-        Log("MS_MANAGER FULLY INITIALIZED");
 
         //End of Start
         return true;

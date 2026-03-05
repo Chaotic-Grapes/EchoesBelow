@@ -7,27 +7,77 @@ using GrapeEngine.Scripting.Events;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using System.Collections.Generic;
+
 
 namespace EchoesBelow.Scripts.BasicTools;
 
+public class CraftAnemoneData
+{
+    public ulong objId { get; set; }
+    public string name { get; set; }
+    public bool isCaptured { get; set; }
+    public bool isOpened { get; set; }
+    public bool isEnteredAnemone {  get; set; }
+    public bool isExitingAnemone { get; set; }
+    public Vector3 startNodePos { get; set; }
+    public Entity startNode { get; set; }
+
+ 
+
+
+    // I can have multiple unique fields in here, these cant be set from the outset
+    // But colliders can query and send info to the corresponding CMachineData container
+    // Accessing thru ulong ids
+    public CraftAnemoneData(ulong objId, string name)
+    {
+        this.objId = objId;
+        this.name = name;
+    }
+}
 [Component] public record struct CraftAnemoneComponent(bool start, float lerpFacInMiliseconds);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftAnemone : SystemBase
 {
-    public static bool isCaptured;
-    public static CraftAnemone instance;
-    protected override void OnCreate()
-    {
-        
-    }
+    public static Dictionary<ulong, CraftAnemoneData> instances;
+    private const float cameraOffsetY = 2.20f;
+    private const float FOVoffset = 141;
+    private const float FOVoriginal = 128.5f;
+    private const float cameraOriginalY = 0f;
+
     private bool OnStart(ref bool startBool)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
+        instances = new Dictionary<ulong, CraftAnemoneData>();
 
-        isCaptured = false;
-        instance = this;
+        foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
+        {
+            // Process component
+            //creates a new craftAnemoneData container per CraftAnemone detected
+            CraftAnemoneData craftAnemone = new CraftAnemoneData(gameObject.Entity.Id, Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString());
+            instances.Add(gameObject.Entity.Id, craftAnemone);
+
+            //Assign to that specific anemone
+            CraftAnemoneData craftAnemoneInstance = instances[gameObject.Entity.Id];
+            craftAnemoneInstance.isCaptured = false;
+            craftAnemoneInstance.isOpened = false;
+
+            //craftAnemone.startNodePos = Entity.FromId(World!, gameObject.Entity.Id);
+
+            //Assign the appropriate start pos
+            foreach (Entity child in Entity.FromId(World!, gameObject.Entity.Id).GetChildren())
+            {
+                if (child.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSignifier) && mSignifier.signifierID == 466)
+                {
+                    craftAnemone.startNodePos = child.GetComponent<LocalTransform>().Position;
+                    craftAnemoneInstance.startNode = child;
+                }
+            }
+
+
+        }
 
         //End of Start
         return true;
@@ -35,21 +85,88 @@ public class CraftAnemone : SystemBase
     protected override void OnUpdate()
     {
         //Use this
+        Log("UHOH");
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
 
+            Log("Oh no");
+            
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
 
-            //Do everyth else
-            if (isCaptured) TractorBeam(CraftAnemoneHandler.capturedEntity, gameObject.Entity.Id, lerpFac);
+            ////Do everyth else
+            if (instances[gameObject.Entity.Id].isCaptured)
+            {
+                TractorBeam(CraftAnemoneHandler.capturedEntity, gameObject.Entity.Id, lerpFac);
+            }
+
+            if (instances[gameObject.Entity.Id].isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
+            {
+                TransitionCamera(instances[gameObject.Entity.Id], lerpFac);
+            }
+            if (instances[gameObject.Entity.Id].isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
+            {
+                ResetCamera(instances[gameObject.Entity.Id], lerpFac);
+            }
+
+        }
+    }
+    public void TransitionCamera(CraftAnemoneData cr, float lerpFac)
+    {
+        foreach (var camera in World!.Query<Camera3D>())
+        {
+
+            ref LocalTransform cameraTransform = ref Entity.FromId(World!, camera.Entity.Id).GetComponent<LocalTransform>();
+
+            //Lerp transform to 2.2 on positive y
+            //And change FOV to 141
+            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOffsetY, lerpFac), cameraTransform.Position.Z);
+            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoffset, lerpFac);
+
+            Log($"camPos: {cameraTransform.Position.Y} bool check with camOffSetY {cameraOffsetY}: {cameraTransform.Position.Y == cameraOffsetY}");
+            if (cameraTransform.Position.Y == cameraOffsetY && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV == FOVoffset)
+            {   //When Done entering
+                cr.isEnteredAnemone = false;
+                cr.isExitingAnemone = false;
+                Log("Done Entering!");
+            }
+
+            //float camYPos = cameraTransform.Position.Y;
+            //float FOVValue = Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV;
+            //if (cameraOffsetY - 0.125f < camYPos && camYPos < cameraOffsetY + 0.125f &&
+            //    FOVoffset - 0.125f < FOVValue && FOVValue < FOVoffset + 0.125f)
+            //{
+            //    cr.isEnteredAnemone = false;
+            //    cr.isExitingAnemone = false;
+            //    Log("Done Entering!");
+            //}
+        }
+    }
+    public void ResetCamera(CraftAnemoneData cr, float lerpFac)
+    {
+        foreach (var camera in World!.Query<Camera3D>())
+        {
+
+            ref LocalTransform cameraTransform = ref Entity.FromId(World!, camera.Entity.Id).GetComponent<LocalTransform>();
+
+            //Lerp transform to 2.2 on positive y
+            //And change FOV to 141
+            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOriginalY, lerpFac), cameraTransform.Position.Z);
+            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoriginal, lerpFac);
+
+            if (cameraTransform.Position.Y <= cameraOriginalY && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV <= FOVoriginal)
+            {   //When done exiting
+                cr.isEnteredAnemone = false;
+                cr.isExitingAnemone = false;
+                Log("Done Exiting!");
+            }
+
 
         }
     }
     public void TractorBeam(Entity e, ulong objId, float lerpFac)
     {
-        Log("AHH");
         Entity capturedEntity = Entity.FromId(World!, e.Id);
         Entity anemone = Entity.FromId(World!, objId);
 
@@ -69,41 +186,63 @@ public class CraftAnemone : SystemBase
         capturedEntityTransform.Position = new Vector3(GMath.Lerp(capturedEntityTransform.Position.X, transform.Position.X, lerpFac),
                                                        GMath.Lerp(capturedEntityTransform.Position.Y, transform.Position.Y, lerpFac), 0);
 
-        //If my speed is near 0, means Im close to the checkpoint
-        //RESPAWN
+        //If position is within the agreed allowance, stop the tractor beam
         float playerXpos = capturedEntity.GetComponent<LocalTransform>().Position.X;
-        float checkPXpos = transform.Position.X;
+        float Xboundary = transform.Position.X;
 
         float playerYpos = capturedEntity.GetComponent<LocalTransform>().Position.Y;
-        float checkPYpos = transform.Position.Y;
+        float yBoundary = transform.Position.Y;
 
-        if (checkPXpos - 0.125f < playerXpos && playerXpos < checkPXpos + 0.125f &&
-            checkPYpos - 0.125f < playerYpos && playerYpos < checkPYpos + 0.125f)
+        if (Xboundary - 0.125f < playerXpos && playerXpos < Xboundary + 0.125f &&
+            yBoundary - 0.125f < playerYpos && playerYpos < yBoundary + 0.125f)
         {
-            capturedEntity.GetComponent<Active>().Enabled = true;
-
-            isCaptured = false;
+            instances[objId].isCaptured = false;
         }
-        Log("Woahh");
     }
 }
 
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
 public class CraftAnemoneHandler : TriggerSystemBase
 {
+    ////this passes information to CraftAnemone class
     public static Entity capturedEntity;
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
-        
-        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) Log("I am a cnidarian and I'm proud!");
+
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
         else return;
 
-        if (other.HasComponent<PlayerComponent>())
-        {
-            Log("he has a player and now Im in the beam");
-            capturedEntity = other;
-            CraftAnemone.isCaptured = true;
-        }
+        if (other.HasComponent<PlayerComponent>()) LaunchCrafting(self, other);
+
     }
+    protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
+    {
+        Entity other = Entity.FromId(World!, evt.OtherEntityId);
+
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
+        else return;
+
+
+        if (other.HasComponent<PlayerTriggerComponent>())
+        {
+            CraftAnemone.instances[self.Id].isExitingAnemone = true;
+            CraftAnemone.instances[self.Id].isEnteredAnemone = false;
+        }
+
+    }
+
+    private void LaunchCrafting(Entity self, Entity other)
+    {
+        //This is everything that happens when a player is captured by the anemone
+        capturedEntity = other;
+
+        CraftAnemone.instances[self.Id].isCaptured = true;
+        CraftAnemone.instances[self.Id].isOpened = true;
+        CraftAnemone.instances[self.Id].isEnteredAnemone = true;
+        CraftAnemone.instances[self.Id].isExitingAnemone = false;
+
+        Entity.FromId(World!, CraftAnemone.instances[self.Id].startNode.Id).GetComponent<Active>().Enabled = true;
+    }
+
 }
