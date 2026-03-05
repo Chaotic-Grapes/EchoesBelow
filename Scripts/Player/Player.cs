@@ -17,6 +17,7 @@ namespace EchoesBelow.Scripts;
     float periodicForceIntervalinMS,
     float moveSpeed,
     float angularVelocity,
+    float dashSpeed,
     bool start // required for start function
 );
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
@@ -111,6 +112,7 @@ public class Player : SystemBase
             Vector2 moveDirNormalized = Vector2.Zero;
             float moveSpeed = gameObject.Component1.moveSpeed * 0.01f; //this allows floating point decimal values
             float driftSpeed = gameObject.Component1.driftSpeed * 0.01f; //this allows floating point decimal values
+            float dashSpeed = gameObject.Component1.dashSpeed * 0.01f; //this allows floating point decimal values
             float angularVelocity = gameObject.Component1.angularVelocity * 0.01f; //100 == 1
             float periodicForceInterval = gameObject.Component1.periodicForceIntervalinMS/1000;
 
@@ -161,18 +163,19 @@ public class Player : SystemBase
                 av.Value = 0;
             }
 
-            if (isKeyDown_W || isKeyDown_S
+            if(isKeyPressed_Space && !isCoolingDown)
+            { 
+                AddInstantaneousForce(ref lv, playerDir, dashSpeed);
+                isCoolingDown = true;
+                dashCoolDownTimer = 1.5f;
+            }
+            else if (isKeyDown_W || isKeyDown_S
             || isKeyDown_A || isKeyDown_D)
             {
                 AddDriftForce(ref lv, playerDir, driftSpeed, maxSpeed);
                 AddPeriodicalForce(ref lv, periodicForceInterval, ref timer_forPeriodicForce, playerDir, moveSpeed);
             }
-            if(isKeyPressed_Space && !isCoolingDown)
-            { 
-                AddRelativeForce(ref lv, playerDir, moveSpeed);
-                isCoolingDown = true;
-                dashCoolDownTimer = 1.5f;
-            }
+
             if (isCoolingDown)
             {
                 dashCoolDownTimer -= Time.DeltaTime;
@@ -183,7 +186,7 @@ public class Player : SystemBase
             }
 
 
-            //Finally
+            //Finally, cap the overall speed thru capping the linear velocities
             SpeedLimit(ref lv, maxSpeed);
 
             //update Position
@@ -196,12 +199,15 @@ public class Player : SystemBase
     {
         lv.Value.X = GMath.Clamp(lv.Value.X, -maxSpeed, maxSpeed);
         lv.Value.Y = GMath.Clamp(lv.Value.Y, -maxSpeed, maxSpeed);
+
     }
-    private void AddRelativeForce(ref LinearVelocity2D lv, Vector2 playerDir, float moveSpeed)
+    private void AddInstantaneousForce(ref LinearVelocity2D lv, Vector2 playerDir, float dashSpeed)
     {
         AudioManager.instance.PlaySFX("SFX05");
-        lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
-        lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
+        //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
+        //lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
+
+        lv.Value = playerDir.Normalized * dashSpeed;
     }
     private static void AddDriftForce(ref LinearVelocity2D lv, Vector2 playerDir, float moveSpeed, float maxSpeed)
     {
