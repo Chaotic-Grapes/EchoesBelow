@@ -79,7 +79,7 @@ public class CraftAnemone : SystemBase
 
 
         }
-        Log("HEYO!");
+     
         //End of Start
         return true;
     }
@@ -97,17 +97,43 @@ public class CraftAnemone : SystemBase
             if (instances[gameObject.Entity.Id].isCaptured)
             {
                 TractorBeam(CraftAnemoneHandler.capturedEntity, gameObject.Entity.Id, lerpFac);
+
+                float yBloom = 1.55f;
+                float yWilt = -0.86f; // might be unused but good to know!
+                if (!instances[gameObject.Entity.Id].isOpened) //if it hasnt been opened, open the craftanemone start node!
+                    Bloom(instances[gameObject.Entity.Id], yBloom,lerpFac * 0.8f);
+                //if you want it to wilt, plug in the yWilt value!
             }
 
             if (instances[gameObject.Entity.Id].isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
-                TransitionCamera(instances[gameObject.Entity.Id], lerpFac*1.8f);
+                TransitionCamera(instances[gameObject.Entity.Id], lerpFac*1.6f);
             }
             if (instances[gameObject.Entity.Id].isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
             {
-                ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.8f);
+                ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
             }
 
+        }
+    }
+    public void Bloom(CraftAnemoneData cr, float yOffset ,float lerpFac)
+    {
+        Entity startNodeEntity = Entity.FromId(World!, cr.startNode.Id);
+
+        startNodeEntity.GetComponent<Active>().Enabled = true;
+        startNodeEntity.GetFirstChild()!.GetComponent<Active>().Enabled = true;
+
+        ref LocalTransform startNodeTransform = ref startNodeEntity.GetComponent<LocalTransform>();
+
+        //Hardcoded transform values
+
+        startNodeTransform.Position = new Vector3(startNodeTransform.Position.X,
+                                                  GMath.Lerp(startNodeTransform.Position.Y, yOffset, lerpFac), 
+                                                  startNodeTransform.Position.Z);
+
+        if (startNodeTransform.Position.Y >= yOffset - marginAllowance)
+        {
+            cr.isOpened = true;
         }
     }
     public void TransitionCamera(CraftAnemoneData cr, float lerpFac)
@@ -130,15 +156,6 @@ public class CraftAnemone : SystemBase
                 Log("Done Entering!");
             }
 
-            //float camYPos = cameraTransform.Position.Y;
-            //float FOVValue = Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV;
-            //if (cameraOffsetY - 0.01f < camYPos && camYPos < cameraOffsetY + 0.01f &&
-            //    FOVoffset - 0.01f < FOVValue && FOVValue < FOVoffset + 0.01f)
-            //{
-            //    cr.isEnteredAnemone = false;
-            //    cr.isExitingAnemone = false;
-            //    Log("Done Entering!");
-            //}
         }
     }
     public void ResetCamera(CraftAnemoneData cr, float lerpFac)
@@ -236,11 +253,13 @@ public class CraftAnemoneHandler : TriggerSystemBase
         capturedEntity = other;
 
         CraftAnemone.instances[self.Id].isCaptured = true;
-        CraftAnemone.instances[self.Id].isOpened = true;
+        //CraftAnemone.instances[self.Id].isOpened = true;
         CraftAnemone.instances[self.Id].isEnteredAnemone = true;
         CraftAnemone.instances[self.Id].isExitingAnemone = false;
 
-        Entity.FromId(World!, CraftAnemone.instances[self.Id].startNode.Id).GetComponent<Active>().Enabled = true;
+        //if (!CraftAnemone.instances[self.Id].isOpened)
+        //Entity.FromId(World!, CraftAnemone.instances[self.Id].startNode.Id).GetComponent<Active>().Enabled = true;
+        //Entity.FromId(World!, CraftAnemone.instances[self.Id].startNode.Id).GetFirstChild()!.GetComponent<Active>().Enabled = true;
     }
 
 }
