@@ -44,6 +44,7 @@ public class CraftAnemone : SystemBase
     private const float FOVoffset = 141;
     private const float FOVoriginal = 128.5f;
     private const float cameraOriginalY = 0f;
+    private const float marginAllowance = 0.25f;
 
     private bool OnStart(ref bool startBool)
     {
@@ -78,21 +79,18 @@ public class CraftAnemone : SystemBase
 
 
         }
-
+        Log("HEYO!");
         //End of Start
         return true;
     }
     protected override void OnUpdate()
     {
         //Use this
-        Log("UHOH");
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
 
-            Log("Oh no");
-            
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
 
             ////Do everyth else
@@ -103,11 +101,11 @@ public class CraftAnemone : SystemBase
 
             if (instances[gameObject.Entity.Id].isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
-                TransitionCamera(instances[gameObject.Entity.Id], lerpFac);
+                TransitionCamera(instances[gameObject.Entity.Id], lerpFac*1.8f);
             }
             if (instances[gameObject.Entity.Id].isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
             {
-                ResetCamera(instances[gameObject.Entity.Id], lerpFac);
+                ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.8f);
             }
 
         }
@@ -125,7 +123,7 @@ public class CraftAnemone : SystemBase
             Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoffset, lerpFac);
 
             Log($"camPos: {cameraTransform.Position.Y} bool check with camOffSetY {cameraOffsetY}: {cameraTransform.Position.Y == cameraOffsetY}");
-            if (cameraTransform.Position.Y == cameraOffsetY && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV == FOVoffset)
+            if (cameraTransform.Position.Y >= cameraOffsetY - marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV >= FOVoffset - marginAllowance)
             {   //When Done entering
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
@@ -134,8 +132,8 @@ public class CraftAnemone : SystemBase
 
             //float camYPos = cameraTransform.Position.Y;
             //float FOVValue = Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV;
-            //if (cameraOffsetY - 0.125f < camYPos && camYPos < cameraOffsetY + 0.125f &&
-            //    FOVoffset - 0.125f < FOVValue && FOVValue < FOVoffset + 0.125f)
+            //if (cameraOffsetY - 0.01f < camYPos && camYPos < cameraOffsetY + 0.01f &&
+            //    FOVoffset - 0.01f < FOVValue && FOVValue < FOVoffset + 0.01f)
             //{
             //    cr.isEnteredAnemone = false;
             //    cr.isExitingAnemone = false;
@@ -155,7 +153,7 @@ public class CraftAnemone : SystemBase
             cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOriginalY, lerpFac), cameraTransform.Position.Z);
             Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoriginal, lerpFac);
 
-            if (cameraTransform.Position.Y <= cameraOriginalY && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV <= FOVoriginal)
+            if (cameraTransform.Position.Y <= cameraOriginalY + marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV <= FOVoriginal + marginAllowance)
             {   //When done exiting
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
