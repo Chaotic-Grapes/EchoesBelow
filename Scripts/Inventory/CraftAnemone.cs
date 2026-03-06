@@ -96,7 +96,6 @@ public class CraftAnemone : SystemBase
         //Get a raw list of all children under the craftAnemone
         foreach (Entity child in Entity.FromId(World!, pool.objId).GetChildren())
         {
-            
             //If child does not have a craftmove, skip!
             if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
             {
@@ -105,8 +104,6 @@ public class CraftAnemone : SystemBase
             {
                 pool.rawChildList.Add(child.Id);
             }
-
-                
         }
 
         foreach (ulong childID in pool.rawChildList)
@@ -122,7 +119,6 @@ public class CraftAnemone : SystemBase
                     Log($"{Entity.FromId(World!, childID).GetComponent<Name>().Value.ToString()} is added to objPool[{id_Iterator}]");
                 }
                 id_Iterator++;
-
             }
         }
         Log("Complete==============================================================================================");
@@ -351,8 +347,8 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
 }
 
-
-public class CraftAnemone_ObjPool
+[RequireForUpdate<CraftAnemoneComponent>]
+public class CraftAnemone_ObjPool : SystemBase
 {
     public List<ulong> rawChildList { get; set; }
 
@@ -367,6 +363,7 @@ public class CraftAnemone_ObjPool
     public List<ulong>[] objPools;
 
     public ulong objId { get; set; }
+    private const ulong emptyId = 99999999999;
 
     public CraftAnemone_ObjPool(ulong objId)
     {
@@ -390,5 +387,79 @@ public class CraftAnemone_ObjPool
         objPools[4] = ms05_ObjectPool;
         objPools[5] = ms06_ObjectPool;
         objPools[6] = ms07_ObjectPool;
+    }
+ 
+    public ulong TakeFromPool(int msID, Vector3 newPos)
+    {
+        int id_Iterator = 1;
+        foreach (List<ulong> objPool in objPools)
+        {
+            //Check if obj pool is empty
+            if (msID == id_Iterator && objPool.Count > 0)
+            {
+                ulong pulledObjId = objPool[objPool.Count - 1];
+                objPool.Remove(pulledObjId);
+
+                InitPoolObj(newPos, pulledObjId);
+
+                ////Log($"Taken from Pool {id_Iterator}!",LogLevel.Debug);
+                return pulledObjId;
+            }
+            id_Iterator++;
+        }
+        return emptyId;
+    }
+
+
+
+    public void SendToPool(ulong returningObjId)
+    {
+        int id_Iterator = 1;
+        foreach (List<ulong> objPool in objPools)
+        {
+            //check if i++ == target msID
+            if (Entity.FromId(World!, returningObjId).GetComponent<CraftMoveComponent>().msID == id_Iterator)
+            {
+                //add the obj back into the pool, reset its transforms
+                objPool.Add(returningObjId);
+                ResetPoolObj(returningObjId);
+
+                //returningEntity.GetComponent<Active>().Enabled = false;
+
+                return;
+            }
+            id_Iterator++;
+
+        }
+
+    }
+
+    private void InitPoolObj(Vector3 newPos, ulong pulledObjId)
+    {
+        Entity pulledObj = Entity.FromId(World!, pulledObjId);
+        //Enable active
+        pulledObj.GetComponent<Active>().Enabled = true;
+        //Set to new transform
+        ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
+        pulledObjTransform.Position = newPos;
+
+        //Set Everything anew, every field that must be set is set here
+       
+
+    }
+    private void ResetPoolObj(ulong returningObjId)
+    {
+        Entity returningObj = Entity.FromId(World!, returningObjId);
+
+        //Deactivate whatever is necessary
+
+
+        //Disable active
+        returningObj.GetComponent<Active>().Enabled = false;
+        //set to original transform
+        ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
+        returningObjTransform.Position = Vector3.Zero;
+
+
     }
 }
