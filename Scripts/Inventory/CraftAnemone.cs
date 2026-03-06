@@ -24,6 +24,7 @@ public class CraftAnemoneData
     public bool isCaptured { get; set; }
     public Vector3 startNodePos { get; set; }
     public Entity startNode { get; set; }
+    public CraftAnemone_ObjPool pool { get; set; }
 
  
 
@@ -36,6 +37,7 @@ public class CraftAnemoneData
         this.objId = objId;
         this.name = name;
         this.isOpened = false;
+        this.pool = new CraftAnemone_ObjPool(objId);
     }
 }
 [Component] public record struct CraftAnemoneComponent(bool start, float lerpFacInMiliseconds, float exitSpeed);
@@ -90,11 +92,13 @@ public class CraftAnemone : SystemBase
 
         //Initialize Obj Pools per CraftAnemone Obj
         Log($"Init Pool. . . =======(obj id : {objId})==================================================================");
+        //THE ASSIGNMENTS MAY BE WRONG!
 
-        CraftAnemone_ObjPool pool = new CraftAnemone_ObjPool(objId);
+        Log("Assigningg!. . . for objId: " + objId);
+        //CraftAnemone.instances[objId].pool2 = new CraftAnemone_ObjPool(objId);
 
         //Get a raw list of all children under the craftAnemone
-        foreach (Entity child in Entity.FromId(World!, pool.objId).GetChildren())
+        foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
         {
             //If child does not have a craftmove, skip!
             if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
@@ -102,14 +106,15 @@ public class CraftAnemone : SystemBase
             }
             else
             {
-                pool.rawChildList.Add(child.Id);
+                CraftAnemone.instances[objId].pool.rawChildList.Add(child.Id);
             }
         }
 
-        foreach (ulong childID in pool.rawChildList)
+        //Sort everything
+        foreach (ulong childID in CraftAnemone.instances[objId].pool.rawChildList)
         {
             int id_Iterator = 1;
-            foreach (List<ulong> objPool in pool.objPools)
+            foreach (List<ulong> objPool in CraftAnemone.instances[objId].pool.objPools)
             {
                 //check if i++ == target msID
                 if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
@@ -121,6 +126,7 @@ public class CraftAnemone : SystemBase
                 id_Iterator++;
             }
         }
+        Log($"is pool null? {CraftAnemone.instances[objId].pool == null}");
         Log("Complete==============================================================================================");
 
 
@@ -129,6 +135,31 @@ public class CraftAnemone : SystemBase
     }
     protected override void OnUpdate()
     {
+        if (Input.IsKeyPressed(KeyCode.K))
+        {
+            foreach(CraftAnemoneData l in CraftAnemone.instances.Values)
+            {
+                Log("++++++++++++++++++++++++++++++++++++++++");
+                Log($"objID stored: {l.objId} name: {l.name}");
+                Log($"isCaptured: {l.isCaptured}");
+                Log($"startNode pos: {l.startNodePos}");
+                Log($"is pool null? {l.pool == null}");
+                if (l.pool != null)
+                {
+                    Log($"   >>Im not null!! I contain a reference to {l.pool.objId}");
+                    foreach(List<ulong> i in l.pool.objPools)
+                    {
+                        foreach(ulong j in i)
+                        {
+                            Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
+                        }
+                    }
+                }
+                Log($"______________________________________");
+            }
+        }
+
+
         //Use this
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
@@ -139,13 +170,13 @@ public class CraftAnemone : SystemBase
             CraftAnemoneData cr = instances[gameObject.Entity.Id];
 
             //Inputs
-            if (instances[gameObject.Entity.Id].isCaptured)
+            if (cr.isCaptured)
             {
                 isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
 
                 if(isKeyPressed_X)
                 {
-                    //ensable player movement and X key for inventory!
+                    //enable player movement and X key for inventory!
                     Player.instance.isEnabled = true;
                     InventoryController.instance.isEnabled_xInput = true;
                     
@@ -159,6 +190,22 @@ public class CraftAnemone : SystemBase
 
                     cr.isCaptured = false;
                 }
+
+                
+                if (InventoryController.isPressed_Q)
+                {
+                    Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
+                    //Take from Pool, if InventoryController.currentSelected_msID == 0, ignore it
+                    if (InventoryController.currentSelected_msID != 0)
+                    {
+                        Log("In");
+                        Log($"2is the pool null? : {cr.pool == null}");
+                        cr.pool.UpdateSelection_TakeFromPool(InventoryController.currentSelected_msID, new Vector3(4, 0, 0));
+                        Log("out");
+                    }
+
+                }
+                
             }
 
 
@@ -183,12 +230,6 @@ public class CraftAnemone : SystemBase
             if (cr.isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
             {
                 ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
-            }
-
-
-            if (cr.isCaptured)
-            {
-                Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}");
             }
         }
     }
@@ -396,24 +437,27 @@ public class CraftAnemone_ObjPool : SystemBase
         objPools[6] = ms07_ObjectPool;
     }
  
-    public ulong TakeFromPool(int msID, Vector3 newPos)
+    public ulong UpdateSelection_TakeFromPool(int msID, Vector3 newPos)
     {
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
+            Log("1 - Looking thru pools");
             //Check if obj pool is empty
             if (msID == id_Iterator && objPool.Count > 0)
             {
+                Log("2 - Finding in pool");
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 
                 InitPoolObj(newPos, pulledObjId);
 
-                ////Log($"Taken from Pool {id_Iterator}!",LogLevel.Debug);
+                Log($"4 - Taken from Pool {id_Iterator}!",LogLevel.Debug);
                 return pulledObjId;
             }
             id_Iterator++;
         }
+        Log("Nothing found");
         return emptyId;
     }
 
@@ -443,13 +487,16 @@ public class CraftAnemone_ObjPool : SystemBase
 
     private void InitPoolObj(Vector3 newPos, ulong pulledObjId)
     {
+        Log("3 - initialising. . .");
         Entity pulledObj = Entity.FromId(World!, pulledObjId);
+        Log("--1");
         //Enable active
         pulledObj.GetComponent<Active>().Enabled = true;
+        Log("--2");
         //Set to new transform
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
-
+        Log(">>Tried to initialise objid: " + pulledObjId);
         //Set Everything anew, every field that must be set is set here
        
 
