@@ -1,3 +1,4 @@
+using EchoesBelow.Scripts.Audio;
 using EchoesBelow.Scripts.MarineSnowSystem;
 using GrapeEngine.Math;
 using GrapeEngine.Scripting.Components;
@@ -136,6 +137,8 @@ public class InventoryController : SystemBase
             //Iterator
             if (isPressed_Q)
             {
+                AudioManager.instance.PlaySFX("SFX07");
+
                 Iterator(ref iterator);
 
                 if(!slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
@@ -351,6 +354,7 @@ public class InventoryController : SystemBase
 
     public void AddItemToNonStackableSlot(string msIdCheck, ulong otherId, int msId)
     {
+        AudioManager.instance.PlaySFX("SFX04");
         FindAvailableSlot(out Entity slotEntity);
         foreach (Entity image in slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
         {

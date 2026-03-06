@@ -45,9 +45,15 @@ public class Anemone :SystemBase
     // Accessing thru ulong ids
     public Anemone(ulong objId, string name)
     {
+        //Set everything!
         this.objId = objId;
         this.name = name;
         this.isOpened = false;
+        this.isLerpingToAnemone = false;
+        this.isOpened = false;
+        this.isEnteredAnemone = false;
+        this.isExitingAnemone = false;
+        this.isCaptured = false;
 
         //Obj Pool Assignments
         rawChildList = new List<ulong>();
