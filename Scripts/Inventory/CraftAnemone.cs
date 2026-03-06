@@ -7,10 +7,11 @@ using GrapeEngine.Scripting.Events;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts.CraftingSystem;
 using System.Collections.Generic;
 
 
-namespace EchoesBelow.Scripts.BasicTools;
+namespace EchoesBelow.Scripts;
 
 public class CraftAnemoneData
 {
@@ -50,11 +51,12 @@ public class CraftAnemone : SystemBase
 
     static bool isKeyPressed_X = false;
 
-    private bool OnStart(ref bool startBool)
+    private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
+        //Initialize all CraftAnemoneData per CraftAnemone Objs
         instances = new Dictionary<ulong, CraftAnemoneData>();
 
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
@@ -78,12 +80,57 @@ public class CraftAnemone : SystemBase
                 {
                     craftAnemone.startNodePos = child.GetComponent<LocalTransform>().Position;
                     craftAnemoneInstance.startNode = child;
+
                 }
             }
 
 
+
         }
-     
+
+        //Initialize Obj Pools per CraftAnemone Obj
+        Log($"Init Pool. . . =======(obj id : {objId})==================================================================");
+
+        CraftAnemone_ObjPool pool = new CraftAnemone_ObjPool(objId);
+
+        //Get a raw list of all children under the craftAnemone
+        foreach (Entity child in Entity.FromId(World!, pool.objId).GetChildren())
+        {
+            
+            //If child does not have a craftmove, skip!
+            if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
+            {
+                Log(">>tossed");
+            }
+            else
+            {
+                Log(">>Added to Raw List");
+                pool.rawChildList.Add(child.Id);
+            }
+
+                
+        }
+
+        foreach (ulong childID in pool.rawChildList)
+        {
+            int id_Iterator = 1;
+            foreach (List<ulong> objPool in pool.objPools)
+            {
+                Log($"Trying to Add {Entity.FromId(World!, childID).GetComponent<Name>().Value.ToString()}");
+                //check if i++ == target msID
+                if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
+                {
+                    //add the obj back into the pool, reset its transforms
+                    objPool.Add(childID);
+                    Log($"{Entity.FromId(World!, childID).GetComponent<Name>().Value.ToString()} is added to objPool[{id_Iterator}]");
+                }
+                id_Iterator++;
+
+            }
+        }
+        Log("Complete==============================================================================================");
+
+
         //End of Start
         return true;
     }
@@ -93,7 +140,7 @@ public class CraftAnemone : SystemBase
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
             bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start);
+            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
 
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
 
@@ -290,6 +337,11 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
     private void LaunchCrafting(Entity self, Entity other)
     {
+        //Force set
+        CraftAnemone.instances[self.Id].isEnteredAnemone = false;
+        CraftAnemone.instances[self.Id].isExitingAnemone = false;
+
+
         AudioManager.instance.PlaySFX("SFX09");
         //This is everything that happens when a player is captured by the anemone
         capturedEntity = other;
@@ -305,3 +357,94 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
 }
 
+
+public class CraftAnemone_ObjPool
+{
+    public List<ulong> rawChildList { get; set; }
+
+    public List<ulong> ms01_ObjectPool { get; set; }
+    public List<ulong> ms02_ObjectPool { get; set; }
+    public List<ulong> ms03_ObjectPool { get; set; }
+    public List<ulong> ms04_ObjectPool { get; set; }
+    public List<ulong> ms05_ObjectPool { get; set; }
+    public List<ulong> ms06_ObjectPool { get; set; }
+    public List<ulong> ms07_ObjectPool { get; set; }
+
+    public List<ulong>[] objPools;
+
+    public ulong objId { get; set; }
+
+    public CraftAnemone_ObjPool(ulong objId)
+    {
+        this.objId = objId;
+
+        rawChildList = new List<ulong>();
+
+        ms01_ObjectPool = new List<ulong>();
+        ms02_ObjectPool = new List<ulong>();
+        ms03_ObjectPool = new List<ulong>();
+        ms04_ObjectPool = new List<ulong>();
+        ms05_ObjectPool = new List<ulong>();
+        ms06_ObjectPool = new List<ulong>();
+        ms07_ObjectPool = new List<ulong>();
+
+        objPools = new List<ulong>[7];
+        objPools[0] = ms01_ObjectPool;
+        objPools[1] = ms02_ObjectPool;
+        objPools[2] = ms03_ObjectPool;
+        objPools[3] = ms04_ObjectPool;
+        objPools[4] = ms05_ObjectPool;
+        objPools[5] = ms06_ObjectPool;
+        objPools[6] = ms07_ObjectPool;
+
+    }
+    private bool OnStart(ref bool startBool)
+    {
+        if (startBool == true) return true;
+        startBool = true;
+        //Todo
+        //Log("Init Pool. . . ========================================================================================");
+        //rawChildList = new List<ulong>();
+
+        //ms01_ObjectPool = new List<ulong>();
+        //ms02_ObjectPool = new List<ulong>();
+        //ms03_ObjectPool = new List<ulong>();
+        //ms04_ObjectPool = new List<ulong>();
+        //ms05_ObjectPool = new List<ulong>();
+        //ms06_ObjectPool = new List<ulong>();
+        //ms07_ObjectPool = new List<ulong>();
+
+        //objPools = new List<ulong>[7];
+
+        ////Get a raw list of all children under the craftAnemone
+        //foreach(Entity child in Entity.FromId(World!, objId).GetChildren())
+        //{
+        //    //If child does not have a craftmove, skip!
+        //    if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove)) continue;
+
+        //    rawChildList.Add(child.Id);
+        //}
+
+        //foreach(ulong childID in rawChildList)
+        //{
+        //    int id_Iterator = 1;
+        //    foreach (List<ulong> objPool in objPools)
+        //    {
+        //        //check if i++ == target msID
+        //        if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
+        //        {
+        //            //add the obj back into the pool, reset its transforms
+        //            objPool.Add(childID);
+        //            Log($"{Entity.FromId(World!, childID).GetComponent<Name>().Value.ToString()} is added to objPool[{id_Iterator}]");
+        //        }
+        //        id_Iterator++;
+
+        //    }
+        //}
+
+        //Log("Complete==============================================================================================");
+
+        //End of Start
+        return true;
+    }
+}
