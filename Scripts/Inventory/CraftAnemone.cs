@@ -136,6 +136,7 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
 
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
+            CraftAnemoneData cr = instances[gameObject.Entity.Id];
 
             //Inputs
             if (instances[gameObject.Entity.Id].isCaptured)
@@ -153,16 +154,16 @@ public class CraftAnemone : SystemBase
                     ref LinearVelocity2D lv = ref Player.instance.player.GetComponent<LinearVelocity2D>();
                     lv.Value = new Vector2(0, gameObject.Component1.exitSpeed);
 
-                    instances[gameObject.Entity.Id].isExitingAnemone = true;
-                    instances[gameObject.Entity.Id].isEnteredAnemone = false;
+                    cr.isExitingAnemone = true;
+                    cr.isEnteredAnemone = false;
 
-                    instances[gameObject.Entity.Id].isCaptured = false;
+                    cr.isCaptured = false;
                 }
             }
 
 
             ////Do everyth else
-            if (instances[gameObject.Entity.Id].isLerpingToAnemone)
+            if (cr.isLerpingToAnemone)
             {
                 TractorBeam(CraftAnemoneHandler.capturedEntity, gameObject.Entity.Id, lerpFac);
             }
@@ -170,18 +171,24 @@ public class CraftAnemone : SystemBase
             float yBloom = 1.55f;
             float yWilt = -0.86f; // might be unused but good to know!
 
-            if (instances[gameObject.Entity.Id].isOpened) //if it hasnt been opened, open the craftanemone start node!
-            Bloom(instances[gameObject.Entity.Id], yBloom,lerpFac * 0.8f);
+            if (cr.isOpened) //if it hasnt been opened, open the craftanemone start node!
+            Bloom(cr, yBloom,lerpFac * 0.8f);
             //else if (!isOpened) Bloom with yWilt; 
             //if you want it to wilt, plug in the yWilt value!
 
-            if (instances[gameObject.Entity.Id].isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
+            if (cr.isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
                 TransitionCamera(instances[gameObject.Entity.Id], lerpFac*1.6f);
             }
-            if (instances[gameObject.Entity.Id].isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
+            if (cr.isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
             {
                 ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
+            }
+
+
+            if (cr.isCaptured)
+            {
+                Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}");
             }
         }
     }

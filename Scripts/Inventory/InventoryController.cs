@@ -31,6 +31,7 @@ public class InventoryController : SystemBase
     public bool isEnabled_xInput = true;
 
     static int iterator;
+    public static int currentSelected_msID;
 
     protected override void OnCreate()
     {
@@ -53,6 +54,8 @@ public class InventoryController : SystemBase
         slotInstances = new Dictionary<string, Slot>();
 
         iterator = slotObjIds.Length - 1;
+
+        currentSelected_msID = 0;
 
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
@@ -134,8 +137,20 @@ public class InventoryController : SystemBase
             if (isPressed_Q)
             {
                 Iterator(ref iterator);
-            }
 
+                if(!slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+                {//if slot not storing item
+                    currentSelected_msID = 0; //default case
+                }
+                else
+                {//if slot stores an item
+                    currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
+                    if (iterator == 6) currentSelected_msID = 2;
+                    else if (iterator == 5) currentSelected_msID = 1;
+                    else currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
+                }
+            }
+            //Remove from slot
             if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 if(iterator == 6) RemoveFromInventory(2);
