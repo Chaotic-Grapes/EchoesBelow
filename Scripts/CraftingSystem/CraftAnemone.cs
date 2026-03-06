@@ -13,38 +13,11 @@ using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
 
-public class CraftAnemoneData
-{
-    public ulong objId { get; set; }
-    public string name { get; set; }
-    public bool isLerpingToAnemone { get; set; }
-    public bool isOpened { get; set; }
-    public bool isEnteredAnemone {  get; set; }
-    public bool isExitingAnemone { get; set; }
-    public bool isCaptured { get; set; }
-    public Vector3 startNodePos { get; set; }
-    public Entity startNode { get; set; }
-    public CraftAnemone_ObjPool pool { get; set; }
-
- 
-
-
-    // I can have multiple unique fields in here, these cant be set from the outset
-    // But colliders can query and send info to the corresponding CMachineData container
-    // Accessing thru ulong ids
-    public CraftAnemoneData(ulong objId, string name)
-    {
-        this.objId = objId;
-        this.name = name;
-        this.isOpened = false;
-        this.pool = new CraftAnemone_ObjPool(objId);
-    }
-}
 [Component] public record struct CraftAnemoneComponent(bool start, float lerpFacInMiliseconds, float exitSpeed);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftAnemone : SystemBase
 {
-    public static Dictionary<ulong, CraftAnemoneData> instances;
+    public static Dictionary<ulong, Anemone> instances;
     private const float cameraOffsetY = 3.0f;
     private const float FOVoffset = 151;
     private const float FOVoriginal = 128.5f;
@@ -59,17 +32,17 @@ public class CraftAnemone : SystemBase
         startBool = true;
         //Todo
         //Initialize all CraftAnemoneData per CraftAnemone Objs
-        instances = new Dictionary<ulong, CraftAnemoneData>();
+        instances = new Dictionary<ulong, Anemone>();
 
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
             // Process component
             //creates a new craftAnemoneData container per CraftAnemone detected
-            CraftAnemoneData craftAnemone = new CraftAnemoneData(gameObject.Entity.Id, Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString());
+            Anemone craftAnemone = new Anemone(gameObject.Entity.Id, Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString());
             instances.Add(gameObject.Entity.Id, craftAnemone);
 
             //Assign to that specific anemone
-            CraftAnemoneData craftAnemoneInstance = instances[gameObject.Entity.Id];
+            Anemone craftAnemoneInstance = instances[gameObject.Entity.Id];
             craftAnemoneInstance.isLerpingToAnemone = false;
             craftAnemoneInstance.isOpened = false;
 
@@ -95,7 +68,7 @@ public class CraftAnemone : SystemBase
         //THE ASSIGNMENTS MAY BE WRONG!
 
         Log("Assigningg!. . . for objId: " + objId);
-        //CraftAnemone.instances[objId].pool2 = new CraftAnemone_ObjPool(objId);
+        //CraftAnemone.instances[objId]2 = new CraftAnemone_ObjPool(objId);
 
         //Get a raw list of all children under the craftAnemone
         foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
@@ -106,15 +79,15 @@ public class CraftAnemone : SystemBase
             }
             else
             {
-                CraftAnemone.instances[objId].pool.rawChildList.Add(child.Id);
+                CraftAnemone.instances[objId].rawChildList.Add(child.Id);
             }
         }
 
         //Sort everything
-        foreach (ulong childID in CraftAnemone.instances[objId].pool.rawChildList)
+        foreach (ulong childID in CraftAnemone.instances[objId].rawChildList)
         {
             int id_Iterator = 1;
-            foreach (List<ulong> objPool in CraftAnemone.instances[objId].pool.objPools)
+            foreach (List<ulong> objPool in CraftAnemone.instances[objId].objPools)
             {
                 //check if i++ == target msID
                 if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
@@ -126,7 +99,7 @@ public class CraftAnemone : SystemBase
                 id_Iterator++;
             }
         }
-        Log($"is pool null? {CraftAnemone.instances[objId].pool == null}");
+        Log($"is pool null? {CraftAnemone.instances[objId] == null}");
         Log("Complete==============================================================================================");
 
 
@@ -137,17 +110,17 @@ public class CraftAnemone : SystemBase
     {
         if (Input.IsKeyPressed(KeyCode.K))
         {
-            foreach(CraftAnemoneData l in CraftAnemone.instances.Values)
+            foreach(Anemone l in CraftAnemone.instances.Values)
             {
                 Log("++++++++++++++++++++++++++++++++++++++++");
                 Log($"objID stored: {l.objId} name: {l.name}");
                 Log($"isCaptured: {l.isCaptured}");
                 Log($"startNode pos: {l.startNodePos}");
-                Log($"is pool null? {l.pool == null}");
-                if (l.pool != null)
+                Log($"is pool null? {l == null}");
+                if (l != null)
                 {
-                    Log($"   >>Im not null!! I contain a reference to {l.pool.objId}");
-                    foreach(List<ulong> i in l.pool.objPools)
+                    Log($"   >>Im not null!! I contain a reference to {l.objId}");
+                    foreach(List<ulong> i in l.objPools)
                     {
                         foreach(ulong j in i)
                         {
@@ -167,7 +140,7 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
 
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
-            CraftAnemoneData cr = instances[gameObject.Entity.Id];
+            Anemone cr = instances[gameObject.Entity.Id];
 
             //Inputs
             if (cr.isCaptured)
@@ -199,8 +172,8 @@ public class CraftAnemone : SystemBase
                     if (InventoryController.currentSelected_msID != 0)
                     {
                         Log("In");
-                        Log($"2is the pool null? : {cr.pool == null}");
-                        cr.pool.UpdateSelection_TakeFromPool(InventoryController.currentSelected_msID, new Vector3(4, 0, 0));
+                        Log($"2is the pool null? : {cr == null}");
+                        cr.UpdateSelection_TakeFromPool(InventoryController.currentSelected_msID, new Vector3(4, 0, 0));
                         Log("out");
                     }
 
@@ -233,7 +206,7 @@ public class CraftAnemone : SystemBase
             }
         }
     }
-    public void Bloom(CraftAnemoneData cr, float yOffset ,float lerpFac)
+    public void Bloom(Anemone cr, float yOffset ,float lerpFac)
     {
         Entity startNodeEntity = Entity.FromId(World!, cr.startNode.Id);
 
@@ -253,7 +226,7 @@ public class CraftAnemone : SystemBase
             cr.isOpened = true;
         }
     }
-    public void TransitionCamera(CraftAnemoneData cr, float lerpFac)
+    public void TransitionCamera(Anemone cr, float lerpFac)
     {
         foreach (var camera in World!.Query<Camera3D>())
         {
@@ -274,7 +247,7 @@ public class CraftAnemone : SystemBase
 
         }
     }
-    public void ResetCamera(CraftAnemoneData cr, float lerpFac)
+    public void ResetCamera(Anemone cr, float lerpFac)
     {
         foreach (var camera in World!.Query<Camera3D>())
         {
@@ -395,125 +368,125 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
 }
 
-[RequireForUpdate<CraftAnemoneComponent>]
-public class CraftAnemone_ObjPool : SystemBase
-{
-    public List<ulong> rawChildList { get; set; }
+//[RequireForUpdate<CraftAnemoneComponent>]
+//public class CraftAnemone_ObjPool : SystemBase
+//{
+//    public List<ulong> rawChildList { get; set; }
 
-    public List<ulong> ms01_ObjectPool { get; set; }
-    public List<ulong> ms02_ObjectPool { get; set; }
-    public List<ulong> ms03_ObjectPool { get; set; }
-    public List<ulong> ms04_ObjectPool { get; set; }
-    public List<ulong> ms05_ObjectPool { get; set; }
-    public List<ulong> ms06_ObjectPool { get; set; }
-    public List<ulong> ms07_ObjectPool { get; set; }
+//    public List<ulong> ms01_ObjectPool { get; set; }
+//    public List<ulong> ms02_ObjectPool { get; set; }
+//    public List<ulong> ms03_ObjectPool { get; set; }
+//    public List<ulong> ms04_ObjectPool { get; set; }
+//    public List<ulong> ms05_ObjectPool { get; set; }
+//    public List<ulong> ms06_ObjectPool { get; set; }
+//    public List<ulong> ms07_ObjectPool { get; set; }
 
-    public List<ulong>[] objPools;
+//    public List<ulong>[] objPools;
 
-    public ulong objId { get; set; }
-    private const ulong emptyId = 99999999999;
+//    public ulong objId { get; set; }
+//    private const ulong emptyId = 99999999999;
 
-    public CraftAnemone_ObjPool(ulong objId)
-    {
-        this.objId = objId;
+//    public CraftAnemone_ObjPool(ulong objId)
+//    {
+//        this.objId = objId;
 
-        rawChildList = new List<ulong>();
+//        rawChildList = new List<ulong>();
 
-        ms01_ObjectPool = new List<ulong>();
-        ms02_ObjectPool = new List<ulong>();
-        ms03_ObjectPool = new List<ulong>();
-        ms04_ObjectPool = new List<ulong>();
-        ms05_ObjectPool = new List<ulong>();
-        ms06_ObjectPool = new List<ulong>();
-        ms07_ObjectPool = new List<ulong>();
+//        ms01_ObjectPool = new List<ulong>();
+//        ms02_ObjectPool = new List<ulong>();
+//        ms03_ObjectPool = new List<ulong>();
+//        ms04_ObjectPool = new List<ulong>();
+//        ms05_ObjectPool = new List<ulong>();
+//        ms06_ObjectPool = new List<ulong>();
+//        ms07_ObjectPool = new List<ulong>();
 
-        objPools = new List<ulong>[7];
-        objPools[0] = ms01_ObjectPool;
-        objPools[1] = ms02_ObjectPool;
-        objPools[2] = ms03_ObjectPool;
-        objPools[3] = ms04_ObjectPool;
-        objPools[4] = ms05_ObjectPool;
-        objPools[5] = ms06_ObjectPool;
-        objPools[6] = ms07_ObjectPool;
-    }
+//        objPools = new List<ulong>[7];
+//        objPools[0] = ms01_ObjectPool;
+//        objPools[1] = ms02_ObjectPool;
+//        objPools[2] = ms03_ObjectPool;
+//        objPools[3] = ms04_ObjectPool;
+//        objPools[4] = ms05_ObjectPool;
+//        objPools[5] = ms06_ObjectPool;
+//        objPools[6] = ms07_ObjectPool;
+//    }
  
-    public ulong UpdateSelection_TakeFromPool(int msID, Vector3 newPos)
-    {
-        int id_Iterator = 1;
-        foreach (List<ulong> objPool in objPools)
-        {
-            Log("1 - Looking thru pools");
-            //Check if obj pool is empty
-            if (msID == id_Iterator && objPool.Count > 0)
-            {
-                Log("2 - Finding in pool");
-                ulong pulledObjId = objPool[objPool.Count - 1];
-                objPool.Remove(pulledObjId);
+//    public ulong UpdateSelection_TakeFromPool(int msID, Vector3 newPos)
+//    {
+//        int id_Iterator = 1;
+//        foreach (List<ulong> objPool in objPools)
+//        {
+//            Log("1 - Looking thru pools");
+//            //Check if obj pool is empty
+//            if (msID == id_Iterator && objPool.Count > 0)
+//            {
+//                Log("2 - Finding in pool");
+//                ulong pulledObjId = objPool[objPool.Count - 1];
+//                objPool.Remove(pulledObjId);
 
-                InitPoolObj(newPos, pulledObjId);
+//                InitPoolObj(newPos, pulledObjId);
 
-                Log($"4 - Taken from Pool {id_Iterator}!",LogLevel.Debug);
-                return pulledObjId;
-            }
-            id_Iterator++;
-        }
-        Log("Nothing found");
-        return emptyId;
-    }
+//                Log($"4 - Taken from Pool {id_Iterator}!",LogLevel.Debug);
+//                return pulledObjId;
+//            }
+//            id_Iterator++;
+//        }
+//        Log("Nothing found");
+//        return emptyId;
+//    }
 
 
 
-    public void SendToPool(ulong returningObjId)
-    {
-        int id_Iterator = 1;
-        foreach (List<ulong> objPool in objPools)
-        {
-            //check if i++ == target msID
-            if (Entity.FromId(World!, returningObjId).GetComponent<CraftMoveComponent>().msID == id_Iterator)
-            {
-                //add the obj back into the pool, reset its transforms
-                objPool.Add(returningObjId);
-                ResetPoolObj(returningObjId);
+//    public void SendToPool(ulong returningObjId)
+//    {
+//        int id_Iterator = 1;
+//        foreach (List<ulong> objPool in objPools)
+//        {
+//            //check if i++ == target msID
+//            if (Entity.FromId(World!, returningObjId).GetComponent<CraftMoveComponent>().msID == id_Iterator)
+//            {
+//                //add the obj back into the pool, reset its transforms
+//                objPool.Add(returningObjId);
+//                ResetPoolObj(returningObjId);
 
-                //returningEntity.GetComponent<Active>().Enabled = false;
+//                //returningEntity.GetComponent<Active>().Enabled = false;
 
-                return;
-            }
-            id_Iterator++;
+//                return;
+//            }
+//            id_Iterator++;
 
-        }
+//        }
 
-    }
+//    }
 
-    private void InitPoolObj(Vector3 newPos, ulong pulledObjId)
-    {
-        Log("3 - initialising. . .");
-        Entity pulledObj = Entity.FromId(World!, pulledObjId);
-        Log("--1");
-        //Enable active
-        pulledObj.GetComponent<Active>().Enabled = true;
-        Log("--2");
-        //Set to new transform
-        ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
-        pulledObjTransform.Position = newPos;
-        Log(">>Tried to initialise objid: " + pulledObjId);
-        //Set Everything anew, every field that must be set is set here
+//    private void InitPoolObj(Vector3 newPos, ulong pulledObjId)
+//    {
+//        Log("3 - initialising. . .");
+//        Entity pulledObj = Entity.FromId(World!, pulledObjId);
+//        Log("--1");
+//        //Enable active
+//        pulledObj.GetComponent<Active>().Enabled = true;
+//        Log("--2");
+//        //Set to new transform
+//        ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
+//        pulledObjTransform.Position = newPos;
+//        Log(">>Tried to initialise objid: " + pulledObjId);
+//        //Set Everything anew, every field that must be set is set here
        
 
-    }
-    private void ResetPoolObj(ulong returningObjId)
-    {
-        Entity returningObj = Entity.FromId(World!, returningObjId);
+//    }
+//    private void ResetPoolObj(ulong returningObjId)
+//    {
+//        Entity returningObj = Entity.FromId(World!, returningObjId);
 
-        //Deactivate whatever is necessary
-
-
-        //Disable active
-        returningObj.GetComponent<Active>().Enabled = false;
-        //set to original transform
-        ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
-        returningObjTransform.Position = Vector3.Zero;
+//        //Deactivate whatever is necessary
 
 
-    }
-}
+//        //Disable active
+//        returningObj.GetComponent<Active>().Enabled = false;
+//        //set to original transform
+//        ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
+//        returningObjTransform.Position = Vector3.Zero;
+
+
+//    }
+//}
