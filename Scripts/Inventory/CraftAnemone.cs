@@ -100,11 +100,9 @@ public class CraftAnemone : SystemBase
             //If child does not have a craftmove, skip!
             if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
             {
-                Log(">>tossed");
             }
             else
             {
-                Log(">>Added to Raw List");
                 pool.rawChildList.Add(child.Id);
             }
 
@@ -116,7 +114,6 @@ public class CraftAnemone : SystemBase
             int id_Iterator = 1;
             foreach (List<ulong> objPool in pool.objPools)
             {
-                Log($"Trying to Add {Entity.FromId(World!, childID).GetComponent<Name>().Value.ToString()}");
                 //check if i++ == target msID
                 if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
                 {
@@ -160,10 +157,10 @@ public class CraftAnemone : SystemBase
                     ref LinearVelocity2D lv = ref Player.instance.player.GetComponent<LinearVelocity2D>();
                     lv.Value = new Vector2(0, gameObject.Component1.exitSpeed);
 
-                    CraftAnemone.instances[gameObject.Entity.Id].isExitingAnemone = true;
-                    CraftAnemone.instances[gameObject.Entity.Id].isEnteredAnemone = false;
+                    instances[gameObject.Entity.Id].isExitingAnemone = true;
+                    instances[gameObject.Entity.Id].isEnteredAnemone = false;
 
-                    CraftAnemone.instances[gameObject.Entity.Id].isCaptured = false;
+                    instances[gameObject.Entity.Id].isCaptured = false;
                 }
             }
 
@@ -172,10 +169,6 @@ public class CraftAnemone : SystemBase
             if (instances[gameObject.Entity.Id].isLerpingToAnemone)
             {
                 TractorBeam(CraftAnemoneHandler.capturedEntity, gameObject.Entity.Id, lerpFac);
-
-                
-
-                //if you want it to wilt, plug in the yWilt value!
             }
 
             float yBloom = 1.55f;
@@ -183,7 +176,8 @@ public class CraftAnemone : SystemBase
 
             if (instances[gameObject.Entity.Id].isOpened) //if it hasnt been opened, open the craftanemone start node!
             Bloom(instances[gameObject.Entity.Id], yBloom,lerpFac * 0.8f);
-            //else if (!isOpened) Bloom with yWilt;
+            //else if (!isOpened) Bloom with yWilt; 
+            //if you want it to wilt, plug in the yWilt value!
 
             if (instances[gameObject.Entity.Id].isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
@@ -396,55 +390,5 @@ public class CraftAnemone_ObjPool
         objPools[4] = ms05_ObjectPool;
         objPools[5] = ms06_ObjectPool;
         objPools[6] = ms07_ObjectPool;
-
-    }
-    private bool OnStart(ref bool startBool)
-    {
-        if (startBool == true) return true;
-        startBool = true;
-        //Todo
-        //Log("Init Pool. . . ========================================================================================");
-        //rawChildList = new List<ulong>();
-
-        //ms01_ObjectPool = new List<ulong>();
-        //ms02_ObjectPool = new List<ulong>();
-        //ms03_ObjectPool = new List<ulong>();
-        //ms04_ObjectPool = new List<ulong>();
-        //ms05_ObjectPool = new List<ulong>();
-        //ms06_ObjectPool = new List<ulong>();
-        //ms07_ObjectPool = new List<ulong>();
-
-        //objPools = new List<ulong>[7];
-
-        ////Get a raw list of all children under the craftAnemone
-        //foreach(Entity child in Entity.FromId(World!, objId).GetChildren())
-        //{
-        //    //If child does not have a craftmove, skip!
-        //    if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove)) continue;
-
-        //    rawChildList.Add(child.Id);
-        //}
-
-        //foreach(ulong childID in rawChildList)
-        //{
-        //    int id_Iterator = 1;
-        //    foreach (List<ulong> objPool in objPools)
-        //    {
-        //        //check if i++ == target msID
-        //        if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
-        //        {
-        //            //add the obj back into the pool, reset its transforms
-        //            objPool.Add(childID);
-        //            Log($"{Entity.FromId(World!, childID).GetComponent<Name>().Value.ToString()} is added to objPool[{id_Iterator}]");
-        //        }
-        //        id_Iterator++;
-
-        //    }
-        //}
-
-        //Log("Complete==============================================================================================");
-
-        //End of Start
-        return true;
     }
 }
