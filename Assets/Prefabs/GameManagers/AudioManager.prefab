@@ -33,7 +33,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -76,6 +76,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -111,7 +118,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX02_BarnacleSnatchin.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX02_BarnacleSnatchin.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -154,6 +161,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -189,7 +203,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX03_Pickup MS.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX03_Pickup MS.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -232,6 +246,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -267,7 +288,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX04_Hit Sound.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX04_Hit Sound.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -310,6 +331,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -345,7 +373,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX05_SustainedSwimEntry.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX05_SustainedSwimEntry.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -388,6 +416,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -423,7 +458,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -466,6 +501,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -501,7 +543,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX06_Door Opening.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX06_Door Opening.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -544,6 +586,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -579,7 +628,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX07_MenuSound.mp3",
+                            "CuePath": "Assets/Audio/SFX/SFX07_MenuSound.mp3",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -622,6 +671,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             },
@@ -657,7 +713,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/SFX/SFX08_Zooming thru Grapevine.wav",
+                            "CuePath": "Assets/Audio/SFX/SFX08_Zooming thru Grapevine.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "FadeInDuration": 1.0,
@@ -700,6 +756,98 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX09"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/SFX/SFX_09_Attach to Crafting Screen.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             }
@@ -735,7 +883,7 @@
             {
                 "Data": {
                     "Bus": 1,
-                    "CuePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow/Assets/Audio/BGM/Obelisk_Chapter_5&6_BGM_Loop.wav",
+                    "CuePath": "Assets/Audio/BGM/Obelisk_Chapter_5&6_BGM_Loop.wav",
                     "EnableFadeIn": true,
                     "EnableFadeOut": true,
                     "FadeInDuration": 1.0,
@@ -748,6 +896,46 @@
                     "Volume": 1.0
                 },
                 "TypeName": "AudioSource"
+            },
+            {
+                "Data": {
+                    "Alignment": 8,
+                    "Margin": {
+                        "W": 0.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Padding": {
+                        "W": 0.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Position": {
+                        "X": 30.0,
+                        "Y": -827.0
+                    },
+                    "Size": {
+                        "X": 16.0,
+                        "Y": 200.0
+                    },
+                    "Visible": true,
+                    "ZOrder": 0
+                },
+                "TypeName": "GUIElement"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 0.6304553747177124,
+                        "G": 0.0,
+                        "R": 0.7000782489776611
+                    },
+                    "CornerRadius": 0.0
+                },
+                "TypeName": "GUIPanel"
             },
             {
                 "Data": {
@@ -781,7 +969,10 @@
             },
             {
                 "Data": {
-                    "start": false
+                    "globalBGMVolume": 50,
+                    "globalSFXVolume": 100,
+                    "start": false,
+                    "volumeStep": 5
                 },
                 "TypeName": "Audio Manager"
             }
