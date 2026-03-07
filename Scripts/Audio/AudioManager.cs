@@ -52,11 +52,8 @@ public class AudioManager : SystemBase
     {
         if (startBool == true) return true;
         startBool = true;
-        Log("2");
         //Todo
-        Log("SFX container audioVol: " + audioSFX.startVolume + " / Audio SFX current vol: " + audioSource.Volume);
         audioSFX.startVolume = audioSource.Volume;
-
         return true;
     }
     protected override void OnUpdate()

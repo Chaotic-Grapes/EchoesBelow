@@ -8,6 +8,7 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts.CraftingSystem;
+using System.Collections;
 using System.Collections.Generic;
 
 
@@ -76,7 +77,7 @@ public class Anemone :SystemBase
         objPools[6] = ms07_ObjectPool;
     }
 
-    public ulong UpdateSelection_TakeFromPool(int msID, Vector3 newPos)
+    public ulong UpdateSelection_TakeFromPool(int msID)
     {
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
@@ -89,7 +90,7 @@ public class Anemone :SystemBase
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 
-                InitPoolObj(newPos, pulledObjId);
+                //InitPoolObj(newPos, pulledObjId);
 
                 Log($"4 - Taken from Pool {id_Iterator}!", LogLevel.Debug);
                 return pulledObjId;
@@ -124,21 +125,22 @@ public class Anemone :SystemBase
 
     }
 
-    private void InitPoolObj(Vector3 newPos, ulong pulledObjId)
+    public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
     {
-        Log("3 - initialising. . .");
-        Entity pulledObj = Entity.FromId(World!, pulledObjId);
-        Log("--1");
+        Log("1: pulledObjId: " + pulledObjId);
+        Entity pulledObj = Entity.FromId(world, pulledObjId);
+        Log("2");
         //Enable active
-        pulledObj.GetComponent<Active>().Enabled = true;
-        Log("--2");
+        ref Active active = ref pulledObj.GetComponent<Active>();
+        active.Enabled = true;
+        Log("3");
         //Set to new transform
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
-        Log(">>Tried to initialise objid: " + pulledObjId);
+        Log("4 >>Tried to initialise objid: " + pulledObjId);
         //Set Everything anew, every field that must be set is set here
 
-
+        Log("5 Complete");
     }
     private void ResetPoolObj(ulong returningObjId)
     {

@@ -322,6 +322,8 @@ public class PlayerCollisionHandler : CollisionSystemBase
     //int i = 0;
     protected override void OnCollisionEnter(Entity self, CollisionEvent evt)
     {
+        Log($"self: {self.GetComponent<Name>().ToString()} / other {Entity.FromId(World!,evt.OtherEntityId).GetComponent<Name>().Value.ToString()} . . . Id: {evt.OtherEntityId}");
+
         //Log($"Entering self: {self.GetComponent<Name>().ToString()} into TryGetComponent<PlayerComponent> Check . . . . . . . . . . . . . . . . . . . . . .");
         if (Entity.FromId(World!, self.Id).TryGetComponent<PlayerComponent>(out PlayerComponent plc))
         {

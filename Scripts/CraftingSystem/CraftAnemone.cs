@@ -61,7 +61,6 @@ public class CraftAnemone : SystemBase
         }
 
         //Initialize Obj Pools per CraftAnemone Obj
-        Log($"Init Pool. . . =======(obj id : {objId})===================================");
 
         //Get a raw list of all children under the craftAnemone
         foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
@@ -75,7 +74,6 @@ public class CraftAnemone : SystemBase
                 anemone.rawChildList.Add(child.Id);
             }
         }
-
         //Sort everything
         foreach (ulong childID in anemone.rawChildList)
         {
@@ -91,17 +89,16 @@ public class CraftAnemone : SystemBase
                 id_Iterator++;
             }
         }
-        foreach(List<ulong> objPool in anemone.objPools)
-        {
-            foreach (ulong item in objPool)
-            {
-                Log($"I contain: {Entity.FromId(World!, item).GetComponent<Name>().Value.ToString()}");
-            }
-        }
+        //foreach(List<ulong> objPool in anemone.objPools)
+        //{
+        //    foreach (ulong item in objPool)
+        //    {
+        //        Log($"I contain: {Entity.FromId(World!, item).GetComponent<Name>().Value.ToString()}");
+        //    }
+        //}
         //Add the instance! AFTER everything is set
         instances.Add(objId, anemone);
-        
-        Log($"Complete===================(instances.Count: {instances.Count})========");
+  
         //End of Start
         return true;
     }
@@ -175,8 +172,10 @@ public class CraftAnemone : SystemBase
                     //Take from Pool, if InventoryController.currentSelected_msID == 0, ignore it
                     if (InventoryController.currentSelected_msID != 0)
                     {
-                        cr.UpdateSelection_TakeFromPool(InventoryController.currentSelected_msID, new Vector3(4, 0, 0));
-                        Log("Updated Selection");
+                        ulong query = cr.UpdateSelection_TakeFromPool(InventoryController.currentSelected_msID);
+                        Log($"Updated Selection : objId pulled {query} / {Entity.FromId(World!, query).GetComponent<Name>().Value.ToString()}");
+
+                        cr.InitPoolObj(World!,new Vector3(4, 0, 0), query);
                     }
 
                 }
@@ -210,7 +209,7 @@ public class CraftAnemone : SystemBase
         }
     }
     #endregion
-
+    #region AnemoneFuncs
     public void Bloom(Anemone cr, float yOffset ,float lerpFac)
     {
         Entity startNodeEntity = Entity.FromId(World!, cr.startNode.Id);
@@ -311,6 +310,7 @@ public class CraftAnemone : SystemBase
             instances[objId].isCaptured = true;
         }
     }
+    #endregion
 }
 
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]

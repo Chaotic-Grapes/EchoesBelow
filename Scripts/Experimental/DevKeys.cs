@@ -14,7 +14,6 @@ public class DevKeys : SystemBase
 {
     protected override void OnCreate()
     {
-        Log("Start!!!!!!!!!!!");
     }
 
     protected override void OnUpdate()
