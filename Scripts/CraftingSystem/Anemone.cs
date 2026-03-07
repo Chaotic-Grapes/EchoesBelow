@@ -59,6 +59,7 @@ public class Anemone :SystemBase
 
         //Obj Pool Assignments
         rawChildList = new List<ulong>();
+        sortedChildList = new List<ulong>();
 
         ms01_ObjectPool = new List<ulong>();
         ms02_ObjectPool = new List<ulong>();
@@ -78,42 +79,32 @@ public class Anemone :SystemBase
         objPools[6] = ms07_ObjectPool;
     }
 
-    public ulong UpdateSelection(World world, int msID, Vector3 newPos)
+    public void UpdateSelection(World world, int msID, Vector3 newPos)
     {
+        //First we iterate thru the sorted child list
+        //We reset EVERYTHING, turn off active for active children
+        //Then we add any active children back to the relevant lists
+        foreach (ulong childID in sortedChildList)
+        {
+            for (int i = 1; i < 7; i++)
+            {
+                Entity queriedObj = Entity.FromId(world, childID);
 
-        //shld check inside each child obj , maybe after the raw List is sorted, store that list of items
-        // order of foreach sortedList > check against every objpool in objpools > do the query , so 3 levels of foreach and 1 conditional operator
-        //foreach(ulong childID in sortedChildList)
-        //{
-        //    int id_Iterator2 = 1;
-        //    foreach (List<ulong> objPool in objPools)
-        //    {
-        //        Log("1a");
-       
-        //        Entity queriedObj = Entity.FromId(world, childID);
-         
-        //        if (queriedObj.GetComponent<CraftMoveComponent>().msID == id_Iterator2)
-        //        {
-        //            Log("3a");
-        //            if (queriedObj.GetComponent<Active>().Enabled)
-        //            {
-        //                Log("4a");
-        //                objPool.Add(queriedObj.Id);
-        //                ResetPoolObj(world, queriedObj.Id);
-        //            }
-        //            Log("5a");
-        //        }
-        //        Log("6a");
-    
-        //        id_Iterator2++;
-        //    }
-        //}
-        
-        
-        
+                if (queriedObj.GetComponent<CraftMoveComponent>().msID == i)
+                {
+                    if (queriedObj.GetComponent<Active>().Enabled)
+                    {
+                        objPools[i-1].Add(queriedObj.Id);
+                        break;
+                    }
+                }
+            }
+            //Reset all children
+            ResetPoolObj(world, childID);
+        }
 
-
-
+        //Skip the spawning step if msID is 0 , i.e empty slot
+        if (msID == 0) return;
 
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
@@ -129,12 +120,12 @@ public class Anemone :SystemBase
                 InitPoolObj(world, newPos, pulledObjId);
 
                 Log($"4b - Taken from Pool {id_Iterator}!", LogLevel.Debug);
-                return pulledObjId;
+                return;
             }
             id_Iterator++;
         }
         Log("5b Nothing found");
-        return emptyId;
+        return;
     }
 
 
@@ -145,14 +136,11 @@ public class Anemone :SystemBase
         foreach (List<ulong> objPool in objPools)
         {
             //check if i++ == target msID
-            if (Entity.FromId(World!, returningObjId).GetComponent<CraftMoveComponent>().msID == id_Iterator)
+            if (Entity.FromId(world, returningObjId).GetComponent<CraftMoveComponent>().msID == id_Iterator)
             {
                 //add the obj back into the pool, reset its transforms
                 objPool.Add(returningObjId);
-                ResetPoolObj(world, returningObjId);
-
-                //returningEntity.GetComponent<Active>().Enabled = false;
-
+                
                 return;
             }
             id_Iterator++;
@@ -178,17 +166,18 @@ public class Anemone :SystemBase
     }
     private void ResetPoolObj(World world, ulong returningObjId)
     {
-        Entity returningObj = Entity.FromId(World!, returningObjId);
+        Entity returningObj = Entity.FromId(world, returningObjId);
 
         //Deactivate whatever is necessary
 
 
         //Disable active
-        returningObj.GetComponent<Active>().Enabled = false;
+        ref Active active = ref returningObj.GetComponent<Active>();
+        active.Enabled = false;
         //set to original transform
         ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
         returningObjTransform.Position = Vector3.Zero;
-
+        Log("3HEI");
 
     }
 }

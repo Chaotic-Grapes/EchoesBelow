@@ -85,6 +85,8 @@ public class CraftAnemone : SystemBase
                 {
                     //add the obj back into the pool, reset its transforms
                     ms_objPool.Add(childID);
+
+                    anemone.sortedChildList.Add(childID);
                 }
                 id_Iterator++;
             }
@@ -164,19 +166,14 @@ public class CraftAnemone : SystemBase
                     cr.isEnteredAnemone = false;
 
                     cr.isCaptured = false;
+
+                    cr.UpdateSelection(World!, 0, new Vector3(0, 1.5f, 0));
                 }
 
                 if (InventoryController.isPressed_Q)
                 {
                     Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
-                    //Take from Pool, if InventoryController.currentSelected_msID == 0, ignore it
-                    if (InventoryController.currentSelected_msID != 0)
-                    {
-                        ulong spawningObjId = cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(4, 0, 0));
-                        Log($"Updated Selection : objId pulled {spawningObjId} / {Entity.FromId(World!, spawningObjId).GetComponent<Name>().Value.ToString()}");
-
-                    }
-
+                    cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.5f, 0));
                 }
 
             }
