@@ -12,6 +12,7 @@ namespace EchoesBelow.Scripts;
     float switchInterval,
     float startPolarity
 );
+[RequireForUpdate<GravSwitcherComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class GravSwitcher : SystemBase
 {

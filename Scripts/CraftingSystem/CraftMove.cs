@@ -13,6 +13,7 @@ using System.Numerics;
 namespace Scripts.CraftingSystem;
 
 [Component] public record struct CraftMoveComponent(bool start, int msID);
+[RequireForUpdate<CraftMoveComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftMove : SystemBase
 {

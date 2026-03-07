@@ -40,8 +40,8 @@ public class Anemone :SystemBase
 
     private const ulong emptyId = 99999999999;
 
-    // I can have multiple unique fields in here, these cant be set from the outset
-    // But colliders can query and send info to the corresponding CMachineData container
+    // I can have multiple unique properties in here, these cant be set from the outset
+    // But colliders can query and send info to the corresponding container
     // Accessing thru ulong ids
     public Anemone(ulong objId, string name)
     {

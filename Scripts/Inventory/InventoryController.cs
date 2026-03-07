@@ -153,12 +153,23 @@ public class InventoryController : SystemBase
                     else currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
                 }
             }
-            //Remove from slot
+            //Remove from slot / Vomitting
             if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
-                if(iterator == 6) RemoveFromInventory(2);
-                else if (iterator == 5) RemoveFromInventory(1);
-                else RemoveFromInventory(slotInstances[Entity.FromId(World!,slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId);
+                Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
+                Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
+                if (iterator == 6)
+                { 
+                    RemoveFromInventory(2, true, newPos, trajectory); 
+                }
+                else if (iterator == 5)
+                { 
+                    RemoveFromInventory(1, true, newPos, trajectory); 
+                }
+                else 
+                { 
+                    RemoveFromInventory(slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId, true, newPos, trajectory); 
+                }
             }
 
             //else if (Input.IsKeyPressed(KeyCode.Keypad1)) { iterator = 0; InstantIterate(); }
@@ -369,7 +380,7 @@ public class InventoryController : SystemBase
         }
     }
 
-    public void RemoveFromInventory(int msID)
+    public void RemoveFromInventory(int msID, bool isVomitting, Vector3 newPos, Vector2 trajectory)
     {
         //if (msID == 0) return;
         
@@ -428,7 +439,7 @@ public class InventoryController : SystemBase
                 UpdateSelection();
                 break;
         }
-        MS_Manager.instance.TakeFromPool(msID, new Vector3(Player.instance.currentPos.X, Player.instance.currentPos.Y - 0.6f, 0), 15f);
+        MS_Manager.instance.TakeFromPool(msID, newPos, trajectory, 15f, isVomitting);
         
     }
     public bool FindAvailableSlot(out Entity slotEntity)

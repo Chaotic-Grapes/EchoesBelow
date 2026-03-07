@@ -15,6 +15,7 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System;
+using GrapeEngine.Math;
 
 namespace EchoesBelow.Scripts;
 
@@ -326,8 +327,8 @@ public sealed class BarnacleSnatcherStateSystem : SystemBase
 
         AudioManager.instance.PlaySFX("SFX02");
 
-        InventoryController.instance.RemoveFromInventory(1);
-        InventoryController.instance.RemoveFromInventory(2);
+        InventoryController.instance.RemoveFromInventory(1,false, Player.instance.currentPos, Vector2.Zero);
+        InventoryController.instance.RemoveFromInventory(2, false, Player.instance.currentPos, Vector2.Zero);
 
         ai.State = BarnacleState.Attack;
         anim.Row = ai.AnimRow;

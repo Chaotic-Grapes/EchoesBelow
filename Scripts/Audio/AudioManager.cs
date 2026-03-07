@@ -10,6 +10,7 @@ using System.Collections.Generic;
 namespace EchoesBelow.Scripts.Audio;
 
 [Component] public record struct AudioManagerComponent(bool start);
+[RequireForUpdate<AudioManagerComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class AudioManager : SystemBase
 {

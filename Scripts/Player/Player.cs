@@ -18,18 +18,24 @@ namespace EchoesBelow.Scripts;
     float moveSpeed,
     float angularVelocity,
     float dashSpeed,
-    bool start // required for start function
+    bool start, // required for start function
+    float vomitSpeed
 );
+[RequireForUpdate<PlayerComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class Player : SystemBase
 {
     public static Player instance;
     public Entity player {  get; set; }
 
+    //Make anim states here
     PlayerAnimPreset dashState = new PlayerAnimPreset(0, 0, 20, 24f);
     PlayerAnimPreset idleState = new PlayerAnimPreset(0, 20, 65, 30f);
 
+    public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;
+    
+    public float vomitSpeed;
     public Vector3 currentPos;
     const float lerpFac = 1;
     const float maxSpeed = 8;
@@ -80,7 +86,7 @@ public class Player : SystemBase
             isKeyDown_D = Input.IsKeyDown(KeyCode.D);
             isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         }
-
+        
 
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())
         {
@@ -89,11 +95,13 @@ public class Player : SystemBase
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
 
+            vomitSpeed = gameObject.Component1.vomitSpeed;
+
             //Anim
             if (isKeyDown_A || isKeyDown_D || isKeyDown_W || isKeyDown_S)
             {
                 PlayerAnimManager.instance.SetAnimState(dashState);
-            }
+            } // can add an else if in between for spacebar soon
             else
             {
                 PlayerAnimManager.instance.SetAnimState(idleState);
@@ -107,7 +115,6 @@ public class Player : SystemBase
             ref LocalTransform transform = ref gameObject.Component4;
             ref LinearVelocity2D lv = ref gameObject.Component2;
             ref AngularVelocity2D av = ref gameObject.Component3;
-            Vector2 playerDir;
             Vector2 moveDir = Vector2.Zero;
             Vector2 moveDirNormalized = Vector2.Zero;
             float moveSpeed = gameObject.Component1.moveSpeed * 0.01f; //this allows floating point decimal values
@@ -356,6 +363,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         //Marine Snow Trigger detection is handled by the Squidward!
         if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM))
         {
+            if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
             AudioManager.instance.PlaySFX("SFX03");
             
             //MS_Manager.instance.SendToPool(other.Id);

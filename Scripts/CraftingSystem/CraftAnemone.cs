@@ -156,7 +156,7 @@ public class CraftAnemone : SystemBase
                 {
                     //enable player movement and X key for inventory!
                     Player.instance.isEnabled = true;
-                    InventoryController.instance.isEnabled_xInput = true;
+                    //InventoryController.instance.isEnabled_xInput = true;
 
                     //This rlly works for dash!
                     //Shoot the player out of the anemone
@@ -223,7 +223,7 @@ public class CraftAnemone : SystemBase
         //Hardcoded transform values
 
         startNodeTransform.Position = new Vector3(startNodeTransform.Position.X,
-                                                  GMath.Lerp(startNodeTransform.Position.Y, yOffset, lerpFac), 
+                                                  GMath.Lerp(startNodeTransform.Position.Y, yOffset, lerpFac * Time.DeltaTime), 
                                                   startNodeTransform.Position.Z);
 
         if (startNodeTransform.Position.Y >= yOffset - marginAllowance)
@@ -240,8 +240,8 @@ public class CraftAnemone : SystemBase
 
             //Lerp transform to 2.2 on positive y
             //And change FOV to 141
-            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOffsetY, lerpFac), cameraTransform.Position.Z);
-            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoffset, lerpFac);
+            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOffsetY, lerpFac * Time.DeltaTime), cameraTransform.Position.Z);
+            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoffset, lerpFac * Time.DeltaTime);
 
             if (cameraTransform.Position.Y >= cameraOffsetY - marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV >= FOVoffset - marginAllowance)
             {   //When Done entering
@@ -261,8 +261,10 @@ public class CraftAnemone : SystemBase
 
             //Lerp transform to 2.2 on positive y
             //And change FOV to 141
-            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOriginalY, lerpFac), cameraTransform.Position.Z);
-            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoriginal, lerpFac);
+
+            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOriginalY, lerpFac * Time.DeltaTime), cameraTransform.Position.Z);
+            
+            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoriginal, lerpFac * Time.DeltaTime);
 
             if (cameraTransform.Position.Y <= cameraOriginalY + marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV <= FOVoriginal + marginAllowance)
             {   //When done exiting
@@ -292,8 +294,8 @@ public class CraftAnemone : SystemBase
         playerTransform.Rotation = Quaternion.Identity;
        
         //Interpolate towards anemone!
-        playerTransform.Position = new Vector3(GMath.Lerp(playerTransform.Position.X, transform.Position.X, lerpFac * 1.75f),
-                                                       GMath.Lerp(playerTransform.Position.Y, transform.Position.Y, lerpFac * 1.75f), 0);
+        playerTransform.Position = new Vector3(GMath.Lerp(playerTransform.Position.X, transform.Position.X, lerpFac * 1.75f *Time.DeltaTime),
+                                                       GMath.Lerp(playerTransform.Position.Y, transform.Position.Y, lerpFac * 1.75f *Time.DeltaTime), 0);
     
         //If position is within the agreed allowance, stop the tractor beam
         float playerXpos = player.GetComponent<LocalTransform>().Position.X;
@@ -336,20 +338,20 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
     }
     //Unused for now
-    //protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
-    //{
-    //    Entity other = Entity.FromId(World!, evt.OtherEntityId);
+    protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
+    {
+        Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-    //    if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
-    //    else return;
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
+        else return;
 
 
-    //    if (other.HasComponent<PlayerTriggerComponent>())
-    //    {
+        if (other.HasComponent<PlayerTriggerComponent>())
+        {
+            InventoryController.instance.isEnabled_xInput = true;
+        }
 
-    //    }
-
-    //}
+    }
 
     private void LaunchCrafting(Entity self, Entity other)
     {

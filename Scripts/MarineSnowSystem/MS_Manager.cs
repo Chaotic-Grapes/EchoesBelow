@@ -105,7 +105,7 @@ public class MS_Manager : SystemBase
 
         }
     }
-    public ulong TakeFromPool(int msID, Vector3 newPos, float decayTime)
+    public ulong TakeFromPool(int msID, Vector3 newPos, Vector2 trajectory, float decayTime, bool isVomitting)
     {
         int id_Iterator = 1;
         foreach(List<ulong>objPool in objPools)
@@ -116,8 +116,13 @@ public class MS_Manager : SystemBase
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 
-                InitPoolObj(newPos, pulledObjId, decayTime);
+                InitPoolObj(newPos, trajectory, pulledObjId, decayTime);
 
+                if (isVomitting) 
+                {
+                    Log("Setting cooldown collison for " + pulledObjId);
+                    MS_ID.instance.SetCooldown(1.85f, pulledObjId); 
+                }
                 ////Log($"Taken from Pool {id_Iterator}!",LogLevel.Debug);
                 return pulledObjId;
             }
@@ -150,7 +155,7 @@ public class MS_Manager : SystemBase
         
     }        
     
-    private void InitPoolObj(Vector3 newPos, ulong pulledObjId, float decayTime)
+    private void InitPoolObj(Vector3 newPos, Vector2 trajectory, ulong pulledObjId, float decayTime)
     {
         //Set to new transform
         Entity pulledEntity = Entity.FromId(World!, pulledObjId);
@@ -171,7 +176,8 @@ public class MS_Manager : SystemBase
         rb.Flags |= Rigidbody2D.FLAG_KINEMATIC | Rigidbody2D.FLAG_USE_GRAVITY;
 
         ref LinearVelocity2D lv = ref pulledEntity.AddComponent<LinearVelocity2D>();
-        lv.Value.X = GMath.Random(0.5f, 2f);
+        lv.Value = trajectory;
+
         pulledEntity.AddComponent<AngularVelocity2D>();
         //Add Decay Component HARDCODED
         if(Entity.FromId(World!, pulledObjId).GetComponent<MS_IDComponent>().msID == 1 || Entity.FromId(World!, pulledObjId).GetComponent<MS_IDComponent>().msID == 2)

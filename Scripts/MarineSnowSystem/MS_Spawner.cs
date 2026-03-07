@@ -85,7 +85,7 @@ public class MS_Spawner : SystemBase
                     float xValue = GMath.Random(xBoundaryMin, xBoundaryMax);
                     Vector3 spawnPos = new Vector3(xValue, transform.Position.Y, 0);
                     
-                    if(MS_Manager.instance.TakeFromPool(msID, spawnPos,gameObject.Component1.decayTime) == MS_Manager.instance.emptyId) continue;
+                    if(MS_Manager.instance.TakeFromPool(msID, spawnPos, new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)),gameObject.Component1.decayTime, false) == MS_Manager.instance.emptyId) continue;
                 }
             }
         }
