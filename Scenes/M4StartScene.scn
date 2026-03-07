@@ -32,7 +32,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 1.7777777910232544,
+                        "AspectRatio": 2.469543218612671,
                         "FOV": 45.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -63,6 +63,447 @@
                             "m21": 0.0,
                             "m22": 1.0,
                             "m23": 1.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -9.74657154083252,
+                            "Y": 0.5830507278442383,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.5099999904632568,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "BigWall (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Value": 0.0
+                    },
+                    "TypeName": "AngularVelocity2D"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "HalfExtents": {
+                            "X": 11.5,
+                            "Y": 4.5
+                        },
+                        "LayerMask": 4294967295,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Value": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        }
+                    },
+                    "TypeName": "LinearVelocity2D"
+                },
+                {
+                    "Data": {
+                        "AOStrength": 1.0,
+                        "AlphaCutoff": 0.5,
+                        "Flags": 32,
+                        "MRA_TextureId": 0,
+                        "MRA_TexturePath": "",
+                        "Metallic": 0.0,
+                        "NormalStrength": 1.0,
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Smoothness": 0.0
+                    },
+                    "TypeName": "Material2D"
+                },
+                {
+                    "Data": {
+                        "Friction": 0.5,
+                        "PositionCorrectPercent": 0.20000000298023224,
+                        "Restitution": 4.389999866485596
+                    },
+                    "TypeName": "PhysicsMaterial2D"
+                },
+                {
+                    "Data": {
+                        "AngularDamping": 0.0,
+                        "Flags": 0,
+                        "GravityScale": 1.0,
+                        "InverseMass": 0.0,
+                        "LinearDamping": 0.0,
+                        "Mass": 0.0
+                    },
+                    "TypeName": "Rigidbody2D"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 9.998999303206801e-05,
+                            "G": 9.998999303206801e-05,
+                            "R": 9.999999747378752e-05
+                        },
+                        "Filled": true,
+                        "HalfExtents": {
+                            "X": 11.5,
+                            "Y": 4.5
+                        },
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Thickness": 0.0
+                    },
+                    "TypeName": "ShapeBox2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.5099999904632568,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": -9.74657154083252,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.5830507278442383,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.24557340145111084,
+                            "Y": 6.610993385314941,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.5099999904632568,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "BigWall (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Value": 0.0
+                    },
+                    "TypeName": "AngularVelocity2D"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "HalfExtents": {
+                            "X": 11.5,
+                            "Y": 4.5
+                        },
+                        "LayerMask": 4294967295,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Value": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        }
+                    },
+                    "TypeName": "LinearVelocity2D"
+                },
+                {
+                    "Data": {
+                        "AOStrength": 1.0,
+                        "AlphaCutoff": 0.5,
+                        "Flags": 32,
+                        "MRA_TextureId": 0,
+                        "MRA_TexturePath": "",
+                        "Metallic": 0.0,
+                        "NormalStrength": 1.0,
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Smoothness": 0.0
+                    },
+                    "TypeName": "Material2D"
+                },
+                {
+                    "Data": {
+                        "Friction": 0.5,
+                        "PositionCorrectPercent": 0.20000000298023224,
+                        "Restitution": 4.389999866485596
+                    },
+                    "TypeName": "PhysicsMaterial2D"
+                },
+                {
+                    "Data": {
+                        "AngularDamping": 0.0,
+                        "Flags": 0,
+                        "GravityScale": 1.0,
+                        "InverseMass": 0.0,
+                        "LinearDamping": 0.0,
+                        "Mass": 0.0
+                    },
+                    "TypeName": "Rigidbody2D"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 9.998999303206801e-05,
+                            "G": 9.998999303206801e-05,
+                            "R": 9.999999747378752e-05
+                        },
+                        "Filled": true,
+                        "HalfExtents": {
+                            "X": 11.5,
+                            "Y": 4.5
+                        },
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Thickness": 0.0
+                    },
+                    "TypeName": "ShapeBox2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.5099999904632568,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": -0.24557340145111084,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 6.610993385314941,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.24557340145111084,
+                            "Y": -6.682419776916504,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.5099999904632568,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "BigWall (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Value": 0.0
+                    },
+                    "TypeName": "AngularVelocity2D"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "HalfExtents": {
+                            "X": 11.5,
+                            "Y": 4.5
+                        },
+                        "LayerMask": 4294967295,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Value": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        }
+                    },
+                    "TypeName": "LinearVelocity2D"
+                },
+                {
+                    "Data": {
+                        "AOStrength": 1.0,
+                        "AlphaCutoff": 0.5,
+                        "Flags": 32,
+                        "MRA_TextureId": 0,
+                        "MRA_TexturePath": "",
+                        "Metallic": 0.0,
+                        "NormalStrength": 1.0,
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Smoothness": 0.0
+                    },
+                    "TypeName": "Material2D"
+                },
+                {
+                    "Data": {
+                        "Friction": 0.5,
+                        "PositionCorrectPercent": 0.20000000298023224,
+                        "Restitution": 4.389999866485596
+                    },
+                    "TypeName": "PhysicsMaterial2D"
+                },
+                {
+                    "Data": {
+                        "AngularDamping": 0.0,
+                        "Flags": 0,
+                        "GravityScale": 1.0,
+                        "InverseMass": 0.0,
+                        "LinearDamping": 0.0,
+                        "Mass": 0.0
+                    },
+                    "TypeName": "Rigidbody2D"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 9.998999303206801e-05,
+                            "G": 9.998999303206801e-05,
+                            "R": 9.999999747378752e-05
+                        },
+                        "Filled": true,
+                        "HalfExtents": {
+                            "X": 11.5,
+                            "Y": 4.5
+                        },
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Thickness": 0.0
+                    },
+                    "TypeName": "ShapeBox2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.5099999904632568,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": -0.24557340145111084,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": -6.682419776916504,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
                             "m30": 0.0,
                             "m31": 0.0,
                             "m32": 0.0,
@@ -1254,13 +1695,15 @@
                         "NormalTexturePath": "",
                         "Playing": true,
                         "Row": 0,
+                        "Segments": [],
                         "SheetHeight": 298,
                         "SheetWidth": 21216,
                         "StartFrame": 0,
                         "TextureFilter": 0,
                         "TextureId": 18,
                         "TexturePath": "Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
-                        "UseRow": true
+                        "UseRow": true,
+                        "UseSegments": false
                     },
                     "TypeName": "SpriteSheetAnimation2D"
                 },
@@ -1379,13 +1822,15 @@
                         "NormalTexturePath": "",
                         "Playing": true,
                         "Row": 0,
+                        "Segments": [],
                         "SheetHeight": 298,
                         "SheetWidth": 21216,
                         "StartFrame": 0,
                         "TextureFilter": 0,
                         "TextureId": 18,
                         "TexturePath": "Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
-                        "UseRow": true
+                        "UseRow": true,
+                        "UseSegments": false
                     },
                     "TypeName": "SpriteSheetAnimation2D"
                 },
@@ -1710,128 +2155,6 @@
                 },
                 {
                     "Data": {
-                        "Value": "Settings_Button"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1153.0,
-                            "Y": 189.0
-                        },
-                        "Size": {
-                            "X": 417.0,
-                            "Y": 350.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 11
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 1,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 66670
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
                         "Value": "StartScene_Background"
                     },
                     "TypeName": "Name"
@@ -1920,128 +2243,6 @@
                         }
                     },
                     "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Settings_Button_Lighter"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Alignment": 0,
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1146.0,
-                            "Y": 189.0
-                        },
-                        "Size": {
-                            "X": 417.0,
-                            "Y": 350.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 13
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button_Lighter.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 66671
-                    },
-                    "TypeName": "Match Signifier"
                 }
             ]
         },
@@ -2284,6 +2485,250 @@
                 {
                     "Data": {
                         "signifierID": 55561
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Exit_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1161.0,
+                            "Y": 485.0
+                        },
+                        "Size": {
+                            "X": 437.0,
+                            "Y": 419.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 13
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 77780
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Exit_Button_Lighter"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Alignment": 0,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1148.0,
+                            "Y": 475.0
+                        },
+                        "Size": {
+                            "X": 457.0,
+                            "Y": 439.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 14
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button_Lighter.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 77781
                     },
                     "TypeName": "Match Signifier"
                 }
@@ -2558,7 +3003,7 @@
                 },
                 {
                     "Data": {
-                        "Value": "Exit_Button_Lighter"
+                        "Value": "Settings_Button"
                     },
                     "TypeName": "Name"
                 },
@@ -2578,15 +3023,15 @@
                             "Z": 0.0
                         },
                         "Position": {
-                            "X": 1148.0,
-                            "Y": 475.0
+                            "X": 1153.0,
+                            "Y": 189.0
                         },
                         "Size": {
-                            "X": 457.0,
-                            "Y": 439.0
+                            "X": 417.0,
+                            "Y": 350.0
                         },
                         "Visible": true,
-                        "ZOrder": 14
+                        "ZOrder": 11
                     },
                     "TypeName": "GUIElement"
                 },
@@ -2598,7 +3043,7 @@
                             "G": 1.0,
                             "R": 1.0
                         },
-                        "ScaleMode": 0,
+                        "ScaleMode": 1,
                         "SliceBorder": {
                             "W": 0.0,
                             "X": 0.0,
@@ -2606,7 +3051,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button_Lighter.png",
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -2649,7 +3094,7 @@
                 },
                 {
                     "Data": {
-                        "signifierID": 77781
+                        "signifierID": 66670
                     },
                     "TypeName": "Match Signifier"
                 }
@@ -2680,7 +3125,7 @@
                 },
                 {
                     "Data": {
-                        "Value": "Exit_Button"
+                        "Value": "Settings_Button_Lighter"
                     },
                     "TypeName": "Name"
                 },
@@ -2700,12 +3145,12 @@
                             "Z": 0.0
                         },
                         "Position": {
-                            "X": 1161.0,
-                            "Y": 485.0
+                            "X": 1146.0,
+                            "Y": 189.0
                         },
                         "Size": {
-                            "X": 437.0,
-                            "Y": 419.0
+                            "X": 417.0,
+                            "Y": 350.0
                         },
                         "Visible": true,
                         "ZOrder": 13
@@ -2728,7 +3173,7 @@
                             "Z": 0.0
                         },
                         "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button.png",
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button_Lighter.png",
                         "UVRect": {
                             "W": 1.0,
                             "X": 0.0,
@@ -2771,9 +3216,95 @@
                 },
                 {
                     "Data": {
-                        "signifierID": 77780
+                        "signifierID": 66671
                     },
                     "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "GlobalLight"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "CastsShadows": false,
+                        "Color": {
+                            "A": 1.0,
+                            "B": 0.7349420785903931,
+                            "G": 0.0,
+                            "R": 0.9228070378303528
+                        },
+                        "Direction": {
+                            "X": 0.0,
+                            "Y": -1.0,
+                            "Z": -3.5999999046325684
+                        },
+                        "Intensity": 2.0,
+                        "LightType": 0,
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Range": 10.0
+                    },
+                    "TypeName": "Light2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
                 }
             ]
         },
@@ -2877,533 +3408,6 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": -0.24557340145111084,
-                            "Y": 6.610993385314941,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 0.5099999904632568,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "BigWall (Clone)"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Value": 0.0
-                    },
-                    "TypeName": "AngularVelocity2D"
-                },
-                {
-                    "Data": {
-                        "Flags": 0,
-                        "HalfExtents": {
-                            "X": 11.5,
-                            "Y": 4.5
-                        },
-                        "LayerMask": 4294967295,
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Rotation": 0.0
-                    },
-                    "TypeName": "BoxCollider2D"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Value": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        }
-                    },
-                    "TypeName": "LinearVelocity2D"
-                },
-                {
-                    "Data": {
-                        "AOStrength": 1.0,
-                        "AlphaCutoff": 0.5,
-                        "Flags": 32,
-                        "MRA_TextureId": 0,
-                        "MRA_TexturePath": "",
-                        "Metallic": 0.0,
-                        "NormalStrength": 1.0,
-                        "NormalTextureId": 0,
-                        "NormalTexturePath": "",
-                        "Smoothness": 0.0
-                    },
-                    "TypeName": "Material2D"
-                },
-                {
-                    "Data": {
-                        "Friction": 0.5,
-                        "PositionCorrectPercent": 0.20000000298023224,
-                        "Restitution": 4.389999866485596
-                    },
-                    "TypeName": "PhysicsMaterial2D"
-                },
-                {
-                    "Data": {
-                        "AngularDamping": 0.0,
-                        "Flags": 0,
-                        "GravityScale": 1.0,
-                        "InverseMass": 0.0,
-                        "LinearDamping": 0.0,
-                        "Mass": 0.0
-                    },
-                    "TypeName": "Rigidbody2D"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 9.998999303206801e-05,
-                            "G": 9.998999303206801e-05,
-                            "R": 9.999999747378752e-05
-                        },
-                        "Filled": true,
-                        "HalfExtents": {
-                            "X": 11.5,
-                            "Y": 4.5
-                        },
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Thickness": 0.0
-                    },
-                    "TypeName": "ShapeBox2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 0.5099999904632568,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": -0.24557340145111084,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 6.610993385314941,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": -0.24557340145111084,
-                            "Y": -6.682419776916504,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 0.5099999904632568,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "BigWall (Clone)"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Value": 0.0
-                    },
-                    "TypeName": "AngularVelocity2D"
-                },
-                {
-                    "Data": {
-                        "Flags": 0,
-                        "HalfExtents": {
-                            "X": 11.5,
-                            "Y": 4.5
-                        },
-                        "LayerMask": 4294967295,
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Rotation": 0.0
-                    },
-                    "TypeName": "BoxCollider2D"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Value": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        }
-                    },
-                    "TypeName": "LinearVelocity2D"
-                },
-                {
-                    "Data": {
-                        "AOStrength": 1.0,
-                        "AlphaCutoff": 0.5,
-                        "Flags": 32,
-                        "MRA_TextureId": 0,
-                        "MRA_TexturePath": "",
-                        "Metallic": 0.0,
-                        "NormalStrength": 1.0,
-                        "NormalTextureId": 0,
-                        "NormalTexturePath": "",
-                        "Smoothness": 0.0
-                    },
-                    "TypeName": "Material2D"
-                },
-                {
-                    "Data": {
-                        "Friction": 0.5,
-                        "PositionCorrectPercent": 0.20000000298023224,
-                        "Restitution": 4.389999866485596
-                    },
-                    "TypeName": "PhysicsMaterial2D"
-                },
-                {
-                    "Data": {
-                        "AngularDamping": 0.0,
-                        "Flags": 0,
-                        "GravityScale": 1.0,
-                        "InverseMass": 0.0,
-                        "LinearDamping": 0.0,
-                        "Mass": 0.0
-                    },
-                    "TypeName": "Rigidbody2D"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 9.998999303206801e-05,
-                            "G": 9.998999303206801e-05,
-                            "R": 9.999999747378752e-05
-                        },
-                        "Filled": true,
-                        "HalfExtents": {
-                            "X": 11.5,
-                            "Y": 4.5
-                        },
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Thickness": 0.0
-                    },
-                    "TypeName": "ShapeBox2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 0.5099999904632568,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": -0.24557340145111084,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": -6.682419776916504,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": -9.74657154083252,
-                            "Y": 0.5830507278442383,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 0.5099999904632568,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "BigWall (Clone)"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Value": 0.0
-                    },
-                    "TypeName": "AngularVelocity2D"
-                },
-                {
-                    "Data": {
-                        "Flags": 0,
-                        "HalfExtents": {
-                            "X": 11.5,
-                            "Y": 4.5
-                        },
-                        "LayerMask": 4294967295,
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Rotation": 0.0
-                    },
-                    "TypeName": "BoxCollider2D"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Value": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        }
-                    },
-                    "TypeName": "LinearVelocity2D"
-                },
-                {
-                    "Data": {
-                        "AOStrength": 1.0,
-                        "AlphaCutoff": 0.5,
-                        "Flags": 32,
-                        "MRA_TextureId": 0,
-                        "MRA_TexturePath": "",
-                        "Metallic": 0.0,
-                        "NormalStrength": 1.0,
-                        "NormalTextureId": 0,
-                        "NormalTexturePath": "",
-                        "Smoothness": 0.0
-                    },
-                    "TypeName": "Material2D"
-                },
-                {
-                    "Data": {
-                        "Friction": 0.5,
-                        "PositionCorrectPercent": 0.20000000298023224,
-                        "Restitution": 4.389999866485596
-                    },
-                    "TypeName": "PhysicsMaterial2D"
-                },
-                {
-                    "Data": {
-                        "AngularDamping": 0.0,
-                        "Flags": 0,
-                        "GravityScale": 1.0,
-                        "InverseMass": 0.0,
-                        "LinearDamping": 0.0,
-                        "Mass": 0.0
-                    },
-                    "TypeName": "Rigidbody2D"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 9.998999303206801e-05,
-                            "G": 9.998999303206801e-05,
-                            "R": 9.999999747378752e-05
-                        },
-                        "Filled": true,
-                        "HalfExtents": {
-                            "X": 11.5,
-                            "Y": 4.5
-                        },
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Thickness": 0.0
-                    },
-                    "TypeName": "ShapeBox2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 0.5099999904632568,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": -9.74657154083252,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.5830507278442383,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "GlobalLight"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "CastsShadows": false,
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.7349420785903931,
-                            "G": 0.0,
-                            "R": 0.9228070378303528
-                        },
-                        "Direction": {
-                            "X": 0.0,
-                            "Y": -1.0,
-                            "Z": -3.5999999046325684
-                        },
-                        "Intensity": 2.0,
-                        "LightType": 0,
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Range": 10.0
-                    },
-                    "TypeName": "Light2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
                             "X": 0.0,
                             "Y": 0.0,
                             "Z": 0.0
@@ -3467,6 +3471,80 @@
                         "timer": 7
                     },
                     "TypeName": "Start Menu Controller"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Tilemap"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "DefaultHeight": 64,
+                        "DefaultWidth": 64,
+                        "LayerIndex": 0,
+                        "TileMapPath": "Scenes\\M4StartScene.tilemap",
+                        "TilePixelSize": 32,
+                        "TileWorldSize": 1.0,
+                        "TilesetTexturePath": "Assets\\Sprites\\7.2-StartScene\\Credits_Button.png",
+                        "Visible": true
+                    },
+                    "TypeName": "TileMapComponent"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
                 }
             ]
         },
@@ -3571,6 +3649,12 @@
                 },
                 {
                     "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
                         "Bus": 1,
                         "CuePath": "Assets/Audio/BGM/Obelisk_Chapter_1&2_BGM_Loop.wav",
                         "EnableFadeIn": true,
@@ -3588,9 +3672,56 @@
                 },
                 {
                     "Data": {
+                        "Alignment": 8,
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 30.0,
+                            "Y": -827.0
+                        },
+                        "Size": {
+                            "X": 16.0,
+                            "Y": 200.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 0
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 0.6304553747177124,
+                            "G": 0.0,
+                            "R": 0.7000782489776611
+                        },
+                        "CornerRadius": 0.0
+                    },
+                    "TypeName": "GUIPanel"
+                },
+                {
+                    "Data": {
                         "Id": 0
                     },
                     "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "PrefabHash": 3618333922
+                    },
+                    "TypeName": "PrefabInstanceMetadata"
                 },
                 {
                     "Data": {
@@ -3618,7 +3749,10 @@
                 },
                 {
                     "Data": {
-                        "start": false
+                        "globalBGMVolume": 50,
+                        "globalSFXVolume": 100,
+                        "start": false,
+                        "volumeStep": 5
                     },
                     "TypeName": "Audio Manager"
                 }
@@ -3649,14 +3783,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX01"
+                        "Value": "SFX001"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX001_SwimPizzaArms.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3699,6 +3833,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -3727,14 +3868,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX02"
+                        "Value": "SFX002"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX02_BarnacleSnatchin.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX002_BarnacleSnatchin.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3777,6 +3918,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -3805,14 +3953,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX03"
+                        "Value": "SFX003"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX03_Pickup MS.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX003_Pickup MS.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -3822,7 +3970,7 @@
                         "Pitch": 1.0,
                         "PlayOnStart": false,
                         "Spatial3D": false,
-                        "Volume": 2.5
+                        "Volume": 3.0999999046325684
                     },
                     "TypeName": "AudioSource"
                 },
@@ -3855,6 +4003,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -3883,92 +4038,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX04"
+                        "Value": "SFX004"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX04_Hit Sound.wav",
-                        "EnableFadeIn": false,
-                        "EnableFadeOut": false,
-                        "FadeInDuration": 1.0,
-                        "FadeOutDuration": 1.0,
-                        "Loop": false,
-                        "Pan": 0.0,
-                        "Pitch": 1.0,
-                        "PlayOnStart": false,
-                        "Spatial3D": false,
-                        "Volume": 1.0
-                    },
-                    "TypeName": "AudioSource"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "SFX05"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX05_SustainedSwimEntry.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX004_Hit Sound.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -4011,6 +4088,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -4039,14 +4123,99 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX01_alt"
+                        "Value": "SFX005"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX01_SwimPizzaArms.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX005_SustainedSwimEntry.wav",
+                        "EnableFadeIn": false,
+                        "EnableFadeOut": false,
+                        "FadeInDuration": 1.0,
+                        "FadeOutDuration": 1.0,
+                        "Loop": false,
+                        "Pan": 0.0,
+                        "Pitch": 1.0,
+                        "PlayOnStart": false,
+                        "Spatial3D": false,
+                        "Volume": 3.0
+                    },
+                    "TypeName": "AudioSource"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "SFX001_alt"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Bus": 2,
+                        "CuePath": "Assets/Audio/SFX/SFX001_SwimPizzaArms.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -4089,6 +4258,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -4117,14 +4293,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX06"
+                        "Value": "SFX006"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX06_Door Opening.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX006_Door Opening.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -4167,6 +4343,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -4195,14 +4378,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX07"
+                        "Value": "SFX007"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX07_MenuSound.mp3",
+                        "CuePath": "Assets/Audio/SFX/SFX007_MenuSound.mp3",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -4245,6 +4428,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -4273,14 +4463,14 @@
                 },
                 {
                     "Data": {
-                        "Value": "SFX08"
+                        "Value": "SFX008"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
                         "Bus": 2,
-                        "CuePath": "Assets/Audio/SFX/SFX08_Zooming thru Grapevine.wav",
+                        "CuePath": "Assets/Audio/SFX/SFX008_Zooming thru Grapevine.wav",
                         "EnableFadeIn": false,
                         "EnableFadeOut": false,
                         "FadeInDuration": 1.0,
@@ -4323,6 +4513,13 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         },
@@ -4351,28 +4548,32 @@
                 },
                 {
                     "Data": {
-                        "Value": "Tilemap"
+                        "Value": "SFX009"
                     },
                     "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Bus": 2,
+                        "CuePath": "Assets/Audio/SFX/SFX_009_Attach to Crafting Screen.wav",
+                        "EnableFadeIn": false,
+                        "EnableFadeOut": false,
+                        "FadeInDuration": 1.0,
+                        "FadeOutDuration": 1.0,
+                        "Loop": false,
+                        "Pan": 0.0,
+                        "Pitch": 1.0,
+                        "PlayOnStart": false,
+                        "Spatial3D": false,
+                        "Volume": 1.0
+                    },
+                    "TypeName": "AudioSource"
                 },
                 {
                     "Data": {
                         "Id": 0
                     },
                     "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "DefaultHeight": 64,
-                        "DefaultWidth": 64,
-                        "LayerIndex": 0,
-                        "TileMapPath": "Scenes\\M4StartScene.tilemap",
-                        "TilePixelSize": 32,
-                        "TileWorldSize": 1.0,
-                        "TilesetTexturePath": "Assets\\Sprites\\7.2-StartScene\\Credits_Button.png",
-                        "Visible": true
-                    },
-                    "TypeName": "TileMapComponent"
                 },
                 {
                     "Data": {
@@ -4397,131 +4598,231 @@
                         }
                     },
                     "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "SFX010"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Bus": 2,
+                        "CuePath": "Assets/Audio/SFX/SFX010_PopVomit.wav",
+                        "EnableFadeIn": false,
+                        "EnableFadeOut": false,
+                        "FadeInDuration": 1.0,
+                        "FadeOutDuration": 1.0,
+                        "Loop": false,
+                        "Pan": 0.0,
+                        "Pitch": 1.0,
+                        "PlayOnStart": false,
+                        "Spatial3D": false,
+                        "Volume": 2.0
+                    },
+                    "TypeName": "AudioSource"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "start": false,
+                        "startVolume": 0
+                    },
+                    "TypeName": "Audio SFX"
                 }
             ]
         }
     ],
-    "EntityCount": 44,
+    "EntityCount": 46,
     "Hierarchy": [
         {
             "child": 12,
             "parent": 11
         },
         {
+            "child": 7,
+            "parent": 4
+        },
+        {
+            "child": 8,
+            "parent": 4
+        },
+        {
+            "child": 15,
+            "parent": 14
+        },
+        {
+            "child": 16,
+            "parent": 14
+        },
+        {
+            "child": 21,
+            "parent": 19
+        },
+        {
+            "child": 22,
+            "parent": 19
+        },
+        {
+            "child": 23,
+            "parent": 19
+        },
+        {
+            "child": 24,
+            "parent": 19
+        },
+        {
+            "child": 25,
+            "parent": 19
+        },
+        {
+            "child": 26,
+            "parent": 19
+        },
+        {
+            "child": 27,
+            "parent": 19
+        },
+        {
+            "child": 28,
+            "parent": 19
+        },
+        {
+            "child": 35,
+            "parent": 34
+        },
+        {
+            "child": 36,
+            "parent": 34
+        },
+        {
+            "child": 37,
+            "parent": 34
+        },
+        {
+            "child": 38,
+            "parent": 34
+        },
+        {
+            "child": 39,
+            "parent": 34
+        },
+        {
+            "child": 40,
+            "parent": 34
+        },
+        {
+            "child": 41,
+            "parent": 34
+        },
+        {
+            "child": 42,
+            "parent": 34
+        },
+        {
+            "child": 43,
+            "parent": 34
+        },
+        {
+            "child": 44,
+            "parent": 34
+        },
+        {
+            "child": 45,
+            "parent": 34
+        },
+        {
+            "child": 20,
+            "parent": 19
+        },
+        {
+            "child": 5,
+            "parent": 4
+        },
+        {
+            "child": 6,
+            "parent": 4
+        },
+        {
+            "child": 17,
+            "parent": 14
+        },
+        {
+            "child": 9,
+            "parent": 4
+        },
+        {
+            "child": 10,
+            "parent": 4
+        },
+        {
             "child": 13,
             "parent": 11
         },
         {
-            "child": 2,
-            "parent": 1
-        },
-        {
-            "child": 3,
-            "parent": 1
-        },
-        {
-            "child": 9,
-            "parent": 8
-        },
-        {
-            "child": 4,
-            "parent": 1
-        },
-        {
-            "child": 5,
-            "parent": 1
-        },
-        {
-            "child": 6,
-            "parent": 1
-        },
-        {
-            "child": 7,
-            "parent": 1
-        },
-        {
-            "child": 14,
-            "parent": 11
-        },
-        {
-            "child": 10,
-            "parent": 8
-        },
-        {
-            "child": 15,
-            "parent": 11
-        },
-        {
-            "child": 34,
-            "parent": 33
-        },
-        {
-            "child": 35,
-            "parent": 33
-        },
-        {
-            "child": 36,
-            "parent": 33
-        },
-        {
-            "child": 37,
-            "parent": 33
-        },
-        {
-            "child": 38,
-            "parent": 33
-        },
-        {
-            "child": 39,
-            "parent": 33
-        },
-        {
-            "child": 40,
-            "parent": 33
-        },
-        {
-            "child": 41,
-            "parent": 33
-        },
-        {
-            "child": 42,
-            "parent": 33
-        },
-        {
             "child": 18,
-            "parent": 16
-        },
-        {
-            "child": 20,
-            "parent": 16
-        },
-        {
-            "child": 21,
-            "parent": 16
-        },
-        {
-            "child": 25,
-            "parent": 16
-        },
-        {
-            "child": 24,
-            "parent": 16
-        },
-        {
-            "child": 22,
-            "parent": 16
-        },
-        {
-            "child": 23,
-            "parent": 16
-        },
-        {
-            "child": 17,
-            "parent": 16
-        },
-        {
-            "child": 19,
-            "parent": 16
+            "parent": 14
         }
     ],
     "Layers": [
