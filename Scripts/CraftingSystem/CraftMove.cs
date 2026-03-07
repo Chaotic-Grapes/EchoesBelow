@@ -23,7 +23,7 @@ public class CraftMove : SystemBase
     bool isKeyDown_D = false;
     bool isKeyPressed_Space = false;
 
-    Vector2 moveDir = new Vector2();
+    Vector2 moveDir = new Vector2(0,0);
     float lerpFac = 0.2f;
     protected override void OnUpdate()
     {
@@ -56,7 +56,7 @@ public class CraftMove : SystemBase
             if (isKeyDown_D) moveDir.X = GMath.Lerp(moveDir.X, 1, lerpFac);
             
             ref LinearVelocity2D lv = ref Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LinearVelocity2D>();
-            lv.Value = moveDir.Normalized * gameObject.Component1.moveSpeed * Time.DeltaTime;
+            //lv.Value = moveDir.Normalized * gameObject.Component1.moveSpeed * Time.DeltaTime;
 
         }
     }

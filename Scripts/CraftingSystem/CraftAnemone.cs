@@ -146,11 +146,13 @@ public class CraftAnemone : SystemBase
  
             Anemone cr = instances[gameObject.Entity.Id];
 
+            float yBloom = 1.55f;
+            //float yWilt = -0.86f; // might be unused but good to know!
+
             //Inputs
             if (cr.isCaptured)
             {   
-                float yBloom = 1.55f;
-                float yWilt = -0.86f; // might be unused but good to know!
+
                 isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
 
                 if (isKeyPressed_X)

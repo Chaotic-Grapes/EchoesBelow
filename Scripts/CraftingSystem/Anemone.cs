@@ -81,6 +81,7 @@ public class Anemone :SystemBase
 
     public void UpdateSelection(World world, int msID, Vector3 newPos)
     {
+        Log("START ==============");
         //First we iterate thru the sorted child list
         //We reset EVERYTHING, turn off active for active children
         //Then we add any active children back to the relevant lists
@@ -95,12 +96,14 @@ public class Anemone :SystemBase
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
                         objPools[i-1].Add(queriedObj.Id);
+                        Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}!", LogLevel.Warning);
                         break;
                     }
                 }
             }
             //Reset all children
             ResetPoolObj(world, childID);
+            Log("Obj Reset>>>");
         }
 
         //Skip the spawning step if msID is 0 , i.e empty slot
@@ -109,22 +112,21 @@ public class Anemone :SystemBase
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
-            Log("1b - Looking thru pools");
             //Check if obj pool is empty
             if (msID == id_Iterator && objPool.Count > 0)
             {
-                Log("2b - Finding in pool");
+                
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 
                 InitPoolObj(world, newPos, pulledObjId);
 
-                Log($"4b - Taken from Pool {id_Iterator}!", LogLevel.Debug);
+                Log($"Initialized {Entity.FromId(world,pulledObjId).GetComponent<Name>().Value.ToString()} in objPool {id_Iterator}!", LogLevel.Debug);
                 return;
             }
             id_Iterator++;
         }
-        Log("5b Nothing found");
+        Log("5b Nothing found, out to you");
         return;
     }
 

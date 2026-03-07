@@ -14,7 +14,7 @@ namespace EchoesBelow.Scripts;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class Checkpoint : SystemBase
 {
-    bool isHit = false;
+    //bool isHit = false;
     public static Checkpoint instance;
     public static Vector2 checkPointPos;
     protected override void OnCreate()
