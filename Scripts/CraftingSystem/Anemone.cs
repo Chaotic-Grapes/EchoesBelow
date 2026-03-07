@@ -28,6 +28,7 @@ public class Anemone :SystemBase
 
     //Obj Pool
     public List<ulong> rawChildList { get; set; }
+    public List<ulong> sortedChildList { get; set; }
 
     public List<ulong> ms01_ObjectPool { get; set; }
     public List<ulong> ms02_ObjectPool { get; set; }
@@ -77,33 +78,68 @@ public class Anemone :SystemBase
         objPools[6] = ms07_ObjectPool;
     }
 
-    public ulong UpdateSelection_TakeFromPool(int msID)
+    public ulong UpdateSelection(World world, int msID, Vector3 newPos)
     {
+
+        //shld check inside each child obj , maybe after the raw List is sorted, store that list of items
+        // order of foreach sortedList > check against every objpool in objpools > do the query , so 3 levels of foreach and 1 conditional operator
+        //foreach(ulong childID in sortedChildList)
+        //{
+        //    int id_Iterator2 = 1;
+        //    foreach (List<ulong> objPool in objPools)
+        //    {
+        //        Log("1a");
+       
+        //        Entity queriedObj = Entity.FromId(world, childID);
+         
+        //        if (queriedObj.GetComponent<CraftMoveComponent>().msID == id_Iterator2)
+        //        {
+        //            Log("3a");
+        //            if (queriedObj.GetComponent<Active>().Enabled)
+        //            {
+        //                Log("4a");
+        //                objPool.Add(queriedObj.Id);
+        //                ResetPoolObj(world, queriedObj.Id);
+        //            }
+        //            Log("5a");
+        //        }
+        //        Log("6a");
+    
+        //        id_Iterator2++;
+        //    }
+        //}
+        
+        
+        
+
+
+
+
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
-            Log("1 - Looking thru pools");
+            Log("1b - Looking thru pools");
             //Check if obj pool is empty
             if (msID == id_Iterator && objPool.Count > 0)
             {
-                Log("2 - Finding in pool");
+                Log("2b - Finding in pool");
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 
-                //InitPoolObj(newPos, pulledObjId);
+                InitPoolObj(world, newPos, pulledObjId);
 
-                Log($"4 - Taken from Pool {id_Iterator}!", LogLevel.Debug);
+                Log($"4b - Taken from Pool {id_Iterator}!", LogLevel.Debug);
                 return pulledObjId;
             }
             id_Iterator++;
         }
-        Log("Nothing found");
+        Log("5b Nothing found");
         return emptyId;
     }
 
 
 
-    public void SendToPool(ulong returningObjId)
+    public void SendToPool(World world, ulong returningObjId)
     {
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
@@ -113,7 +149,7 @@ public class Anemone :SystemBase
             {
                 //add the obj back into the pool, reset its transforms
                 objPool.Add(returningObjId);
-                ResetPoolObj(returningObjId);
+                ResetPoolObj(world, returningObjId);
 
                 //returningEntity.GetComponent<Active>().Enabled = false;
 
@@ -127,22 +163,20 @@ public class Anemone :SystemBase
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
     {
-        Log("1: pulledObjId: " + pulledObjId);
+      
         Entity pulledObj = Entity.FromId(world, pulledObjId);
-        Log("2");
+
         //Enable active
         ref Active active = ref pulledObj.GetComponent<Active>();
         active.Enabled = true;
-        Log("3");
+
         //Set to new transform
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
-        Log("4 >>Tried to initialise objid: " + pulledObjId);
-        //Set Everything anew, every field that must be set is set here
 
-        Log("5 Complete");
+        //Set Everything anew, every field that must be set is set here
     }
-    private void ResetPoolObj(ulong returningObjId)
+    private void ResetPoolObj(World world, ulong returningObjId)
     {
         Entity returningObj = Entity.FromId(World!, returningObjId);
 

@@ -172,10 +172,9 @@ public class CraftAnemone : SystemBase
                     //Take from Pool, if InventoryController.currentSelected_msID == 0, ignore it
                     if (InventoryController.currentSelected_msID != 0)
                     {
-                        ulong query = cr.UpdateSelection_TakeFromPool(InventoryController.currentSelected_msID);
-                        Log($"Updated Selection : objId pulled {query} / {Entity.FromId(World!, query).GetComponent<Name>().Value.ToString()}");
+                        ulong spawningObjId = cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(4, 0, 0));
+                        Log($"Updated Selection : objId pulled {spawningObjId} / {Entity.FromId(World!, spawningObjId).GetComponent<Name>().Value.ToString()}");
 
-                        cr.InitPoolObj(World!,new Vector3(4, 0, 0), query);
                     }
 
                 }
