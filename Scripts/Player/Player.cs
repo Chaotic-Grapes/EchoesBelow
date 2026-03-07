@@ -210,7 +210,7 @@ public class Player : SystemBase
     }
     private void AddInstantaneousForce(ref LinearVelocity2D lv, Vector2 playerDir, float dashSpeed)
     {
-        AudioManager.instance.PlaySFX("SFX05");
+        AudioManager.instance.PlaySFX("SFX005");
         //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
         //lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
 
@@ -235,13 +235,13 @@ public class Player : SystemBase
             lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
             lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
 
-            if (!AudioManager.sfxEntityDictionary["SFX01"].GetComponent<AudioSource>().PlayOnStart)
+            if (!AudioManager.sfxEntityDictionary["SFX001"].GetComponent<AudioSource>().PlayOnStart)
             {
-                AudioManager.instance.PlaySFX("SFX01");
+                AudioManager.instance.PlaySFX("SFX001");
             }
             else
             {
-                AudioManager.instance.PlaySFX("SFX01_alt");
+                AudioManager.instance.PlaySFX("SFX001_alt");
             }
         }
     }
@@ -353,7 +353,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
             
             if (tg.Mask == 4)
             {
-                AudioManager.instance.PlaySFX("SFX06");
+                AudioManager.instance.PlaySFX("SFX006");
                 //door detected
                 other.GetComponent<Active>().Enabled = false;
                 Log("Door Detected!");
@@ -364,7 +364,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM))
         {
             if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
-            AudioManager.instance.PlaySFX("SFX03");
+            AudioManager.instance.PlaySFX("SFX003");
             
             //MS_Manager.instance.SendToPool(other.Id);
             InventoryController.instance.AddToInventory(other.GetComponent<MS_IDComponent>().msID, other.Id);

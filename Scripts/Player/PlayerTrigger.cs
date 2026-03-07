@@ -55,7 +55,7 @@ public class PlayerTriggerHandler : TriggerSystemBase
         if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM))
         {
             if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
-            AudioManager.instance.PlaySFX("SFX03");
+            AudioManager.instance.PlaySFX("SFX003");
             //MS_Manager.instance.SendToPool(other.Id);
             InventoryController.instance.AddToInventory(other.GetComponent<MS_IDComponent>().msID, other.Id);
         }

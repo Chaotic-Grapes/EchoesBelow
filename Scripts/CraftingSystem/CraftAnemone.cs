@@ -360,7 +360,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
         CraftAnemone.instances[self.Id].isExitingAnemone = false;
 
 
-        AudioManager.instance.PlaySFX("SFX09");
+        AudioManager.instance.PlaySFX("SFX009");
         //This is everything that happens when a player is captured by the anemone
         capturedEntity = other;
 

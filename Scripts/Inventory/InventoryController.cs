@@ -137,7 +137,7 @@ public class InventoryController : SystemBase
             //Iterator
             if (isPressed_Q)
             {
-                AudioManager.instance.PlaySFX("SFX07");
+                AudioManager.instance.PlaySFX("SFX007");
 
                 Iterator(ref iterator);
 
@@ -156,6 +156,8 @@ public class InventoryController : SystemBase
             //Remove from slot / Vomitting
             if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
+                AudioManager.instance.PlaySFX("SFX010");
+
                 Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
                 Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
                 if (iterator == 6)
@@ -365,7 +367,7 @@ public class InventoryController : SystemBase
 
     public void AddItemToNonStackableSlot(string msIdCheck, ulong otherId, int msId)
     {
-        AudioManager.instance.PlaySFX("SFX04");
+        AudioManager.instance.PlaySFX("SFX004");
         FindAvailableSlot(out Entity slotEntity);
         foreach (Entity image in slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
         {
