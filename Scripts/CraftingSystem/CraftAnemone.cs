@@ -148,7 +148,9 @@ public class CraftAnemone : SystemBase
 
             //Inputs
             if (cr.isCaptured)
-            {
+            {   
+                float yBloom = 1.55f;
+                float yWilt = -0.86f; // might be unused but good to know!
                 isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
 
                 if (isKeyPressed_X)
@@ -167,13 +169,13 @@ public class CraftAnemone : SystemBase
 
                     cr.isCaptured = false;
 
-                    cr.UpdateSelection(World!, 0, new Vector3(0, 1.5f, 0));
+                    cr.UpdateSelection(World!, 0, new Vector3(0, yBloom, 0));
                 }
 
                 if (InventoryController.isPressed_Q)
                 {
                     Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
-                    cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.5f, 0));
+                    cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
 
             }
@@ -185,8 +187,7 @@ public class CraftAnemone : SystemBase
             }
 
             //BLOOM THE START NODE
-            float yBloom = 1.55f;
-            float yWilt = -0.86f; // might be unused but good to know!
+
             if (cr.isOpened) //if it hasnt been opened, open the craftanemone start node!
             Bloom(cr, yBloom,lerpFac * 0.8f);
             //else if (!isOpened) Bloom with yWilt; 

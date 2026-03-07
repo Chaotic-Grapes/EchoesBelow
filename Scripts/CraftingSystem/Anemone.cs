@@ -162,6 +162,8 @@ public class Anemone :SystemBase
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
 
+
+        pulledObj.GetComponent<CraftMoveComponent>().Enabled = true;
         //Set Everything anew, every field that must be set is set here
     }
     private void ResetPoolObj(World world, ulong returningObjId)
@@ -177,6 +179,8 @@ public class Anemone :SystemBase
         //set to original transform
         ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
         returningObjTransform.Position = Vector3.Zero;
+
+        returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
         Log("3HEI");
 
     }
