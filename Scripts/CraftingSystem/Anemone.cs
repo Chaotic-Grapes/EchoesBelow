@@ -96,6 +96,7 @@ public class Anemone :SystemBase
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
                         objPools[i-1].Add(queriedObj.Id);
+                        queriedObj.GetComponent<CraftMoveComponent>().Enabled = false;
                         Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}!", LogLevel.Warning);
                         break;
                     }
@@ -119,6 +120,8 @@ public class Anemone :SystemBase
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 
+                Entity.FromId(world, pulledObjId).GetComponent<CraftMoveComponent>().Enabled = true;
+
                 InitPoolObj(world, newPos, pulledObjId);
 
                 Log($"Initialized {Entity.FromId(world,pulledObjId).GetComponent<Name>().Value.ToString()} in objPool {id_Iterator}!", LogLevel.Debug);
@@ -129,28 +132,6 @@ public class Anemone :SystemBase
         Log("5b Nothing found, out to you");
         return;
     }
-
-
-
-    public void SendToPool(World world, ulong returningObjId)
-    {
-        int id_Iterator = 1;
-        foreach (List<ulong> objPool in objPools)
-        {
-            //check if i++ == target msID
-            if (Entity.FromId(world, returningObjId).GetComponent<CraftMoveComponent>().msID == id_Iterator)
-            {
-                //add the obj back into the pool, reset its transforms
-                objPool.Add(returningObjId);
-                
-                return;
-            }
-            id_Iterator++;
-
-        }
-
-    }
-
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
     {
       

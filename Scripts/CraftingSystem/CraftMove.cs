@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace Scripts.CraftingSystem;
 
-[Component] public record struct CraftMoveComponent(bool start, int msID, bool Enabled, float moveSpeed);
+[Component] public record struct CraftMoveComponent(bool start, int msID, bool Enabled, float moveSpeed, float maxSpeed);
 [RequireForUpdate<CraftMoveComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftMove : SystemBase
@@ -23,11 +23,33 @@ public class CraftMove : SystemBase
     bool isKeyDown_D = false;
     bool isKeyPressed_Space = false;
 
-    Vector2 moveDir = new Vector2(0,0);
-    float lerpFac = 0.2f;
+    Vector2 moveDir;
+    private const float lerpFac = 1f;
+
+    private bool OnStart(ref bool startBool)
+    {
+        if (startBool == true) return true;
+        startBool = true;
+        //Todo
+
+        moveDir = Vector2.Zero;
+
+        //End of Start
+        return true;
+    }
+
     protected override void OnUpdate()
     {
-        foreach(var gameObject in World!.Query<CraftMoveComponent>())
+        foreach (var gameObject in World!.Query<CraftMoveComponent>())
+        {
+            bool start = gameObject.Component1.start;
+            gameObject.Component1.start = OnStart(ref start);
+
+            //Do everyth else
+
+        }
+
+        foreach (var gameObject in World!.Query<CraftMoveComponent>())
         {
             if (!gameObject.Component1.Enabled) continue;
 
@@ -54,10 +76,22 @@ public class CraftMove : SystemBase
             if (isKeyDown_S) moveDir.Y = GMath.Lerp(moveDir.Y, -1, lerpFac);
             if (isKeyDown_A) moveDir.X = GMath.Lerp(moveDir.X, -1, lerpFac);
             if (isKeyDown_D) moveDir.X = GMath.Lerp(moveDir.X, 1, lerpFac);
-            
-            ref LinearVelocity2D lv = ref Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LinearVelocity2D>();
-            //lv.Value = moveDir.Normalized * gameObject.Component1.moveSpeed * Time.DeltaTime;
+            moveDir.X = GMath.Lerp(moveDir.X, 0, lerpFac / 2);
+            moveDir.Y = GMath.Lerp(moveDir.Y, 0, lerpFac / 2);
+            Log("AAAAAAAAAAAAAH");
+            //NaN protection for normalization
+            Vector2 moveDirNormalized = (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f)? Vector2.Zero : moveDir.Normalized;
 
+            ref LinearVelocity2D lv = ref Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LinearVelocity2D>();
+            //lv.Value = moveDirNormalized * gameObject.Component1.moveSpeed * Time.DeltaTime;
+
+            lv.Value.X += moveDirNormalized.X * gameObject.Component1.moveSpeed * Time.DeltaTime;
+            lv.Value.Y += moveDirNormalized.Y * gameObject.Component1.moveSpeed * Time.DeltaTime;
+
+            Log("lv speeds: " + lv.Value);
+            //Clamping these values to a maxSpeed
+            lv.Value.X = GMath.Clamp(lv.Value.X, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
+            lv.Value.Y = GMath.Clamp(lv.Value.Y, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
         }
     }
 
