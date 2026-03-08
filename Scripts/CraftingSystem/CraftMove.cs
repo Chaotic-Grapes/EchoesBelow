@@ -78,7 +78,7 @@ public class CraftMove : SystemBase
             if (isKeyDown_D) moveDir.X = GMath.Lerp(moveDir.X, 1, lerpFac);
             moveDir.X = GMath.Lerp(moveDir.X, 0, lerpFac / 2);
             moveDir.Y = GMath.Lerp(moveDir.Y, 0, lerpFac / 2);
-            Log("AAAAAAAAAAAAAH");
+          
             //NaN protection for normalization
             Vector2 moveDirNormalized = (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f)? Vector2.Zero : moveDir.Normalized;
 
@@ -88,7 +88,6 @@ public class CraftMove : SystemBase
             lv.Value.X += moveDirNormalized.X * gameObject.Component1.moveSpeed * Time.DeltaTime;
             lv.Value.Y += moveDirNormalized.Y * gameObject.Component1.moveSpeed * Time.DeltaTime;
 
-            Log("lv speeds: " + lv.Value);
             //Clamping these values to a maxSpeed
             lv.Value.X = GMath.Clamp(lv.Value.X, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
             lv.Value.Y = GMath.Clamp(lv.Value.Y, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);

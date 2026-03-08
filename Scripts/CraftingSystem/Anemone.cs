@@ -19,10 +19,11 @@ public class Anemone :SystemBase
     public ulong objId { get; set; }
     public string name { get; set; }
     public bool isLerpingToAnemone { get; set; }
-    public bool isOpened { get; set; }
+    public bool isOpening { get; set; }
     public bool isEnteredAnemone {  get; set; }
     public bool isExitingAnemone { get; set; }
     public bool isCaptured { get; set; }
+    public bool isOpened { get; set; }
     public Vector3 startNodePos { get; set; }
     public Entity startNode { get; set; }
 
@@ -50,12 +51,13 @@ public class Anemone :SystemBase
         //Set everything!
         this.objId = objId;
         this.name = name;
-        this.isOpened = false;
+        this.isOpening = false;
         this.isLerpingToAnemone = false;
-        this.isOpened = false;
+        this.isOpening = false;
         this.isEnteredAnemone = false;
         this.isExitingAnemone = false;
         this.isCaptured = false;
+        this.isOpened = false;
 
         //Obj Pool Assignments
         rawChildList = new List<ulong>();
@@ -87,7 +89,7 @@ public class Anemone :SystemBase
         //Then we add any active children back to the relevant lists
         foreach (ulong childID in sortedChildList)
         {
-            for (int i = 1; i < 7; i++)
+            for (int i = 1; i < 8; i++)
             {
                 Entity queriedObj = Entity.FromId(world, childID);
 
@@ -97,14 +99,22 @@ public class Anemone :SystemBase
                     {
                         objPools[i-1].Add(queriedObj.Id);
                         queriedObj.GetComponent<CraftMoveComponent>().Enabled = false;
-                        Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}!", LogLevel.Warning);
+                        Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}_+_+_+_+_+_+__+!", LogLevel.Warning);
+                        //Check what is in each pool
+                        //foreach(var objPool in objPools)
+                        //{
+                        //    foreach(var obj in objPool)
+                        //    {
+                        //        Log($"     > {Entity.FromId(world,obj).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
+                        //    }
+                        //}
                         break;
                     }
                 }
             }
             //Reset all children
             ResetPoolObj(world, childID);
-            Log("Obj Reset>>>");
+            Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
         }
 
         //Skip the spawning step if msID is 0 , i.e empty slot
@@ -141,6 +151,10 @@ public class Anemone :SystemBase
         ref Active active = ref pulledObj.GetComponent<Active>();
         active.Enabled = true;
 
+        //Zero out the Linear Velocity before we do any other initialization of parameters
+        ref LinearVelocity2D lv = ref pulledObj.GetComponent<LinearVelocity2D>();
+        lv.Value = Vector2.Zero;
+
         //Set to new transform
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
@@ -163,8 +177,9 @@ public class Anemone :SystemBase
         ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
         returningObjTransform.Position = Vector3.Zero;
 
-        returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
-        Log("3HEI");
+        ref LinearVelocity2D lv = ref returningObj.GetComponent<LinearVelocity2D>();
+        lv.Value = Vector2.Zero;
 
+        returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
     }
 }

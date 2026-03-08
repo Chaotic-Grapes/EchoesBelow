@@ -172,6 +172,8 @@ public class CraftAnemone : SystemBase
                     cr.isCaptured = false;
 
                     cr.UpdateSelection(World!, 0, new Vector3(0, yBloom, 0));
+
+                    //InventoryController.instance.isEnabled_xInput = true;
                 }
 
                 if (InventoryController.isPressed_Q)
@@ -190,7 +192,7 @@ public class CraftAnemone : SystemBase
 
             //BLOOM THE START NODE
 
-            if (cr.isOpened) //if it hasnt been opened, open the craftanemone start node!
+            if (cr.isOpening) //if it hasnt been opened, open the craftanemone start node!
             Bloom(cr, yBloom,lerpFac * 0.8f);
             //else if (!isOpened) Bloom with yWilt; 
             //if you want it to wilt, plug in the yWilt value!
@@ -226,7 +228,10 @@ public class CraftAnemone : SystemBase
 
         if (startNodeTransform.Position.Y >= yOffset - marginAllowance)
         {
-            cr.isOpened = true;
+            cr.isOpening = true;
+            //cr.isOpened = true;
+            //if(cr.isCaptured)
+            //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));
         }
     }
     public void TransitionCamera(Anemone cr, float lerpFac)
@@ -268,6 +273,8 @@ public class CraftAnemone : SystemBase
             {   //When done exiting
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
+
+                InventoryController.instance.isEnabled_xInput = true;
                 Log("Done Exiting!");
             }
 
@@ -363,12 +370,15 @@ public class CraftAnemoneHandler : TriggerSystemBase
         //This is everything that happens when a player is captured by the anemone
         capturedEntity = other;
 
-        CraftAnemone.instances[self.Id].isOpened = true;
+        CraftAnemone.instances[self.Id].isOpening = true;
 
         CraftAnemone.instances[self.Id].isLerpingToAnemone = true;
  
         CraftAnemone.instances[self.Id].isEnteredAnemone = true;
         CraftAnemone.instances[self.Id].isExitingAnemone = false;
+
+        //if(CraftAnemone.instances[self.Id].isOpened)
+        CraftAnemone.instances[self.Id].UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));
     }
 
 }
