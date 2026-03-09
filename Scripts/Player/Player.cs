@@ -27,10 +27,11 @@ public class Player : SystemBase
 {
     public static Player instance;
     public Entity player {  get; set; }
-
+    
     //Make anim states here
-    PlayerAnimPreset dashState = new PlayerAnimPreset(0, 0, 20, 24f);
-    PlayerAnimPreset idleState = new PlayerAnimPreset(0, 20, 65, 30f);
+    PlayerAnimPreset moveState = new PlayerAnimPreset(0, 0, 20, 24f);
+    PlayerAnimPreset idleState = new PlayerAnimPreset(1, 5, 65, 30f);
+    PlayerAnimPreset dashState = new PlayerAnimPreset(5, 6, 26, 30f);
 
     public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;
@@ -49,6 +50,7 @@ public class Player : SystemBase
     static bool isKeyDown_S = false;
     static bool isKeyDown_D = false;
     static bool isKeyPressed_Space = false;
+    static bool isDashing = false;
 
     public bool isEnabled;
 
@@ -87,7 +89,6 @@ public class Player : SystemBase
             isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         }
 
-        Log("AHHH hohohohoh");
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())
         {
             //A Pseudo Start function, called once per obj at runtime
@@ -95,23 +96,9 @@ public class Player : SystemBase
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
 
+            //Variables
             vomitSpeed = gameObject.Component1.vomitSpeed;
 
-            //Anim
-            if (isKeyDown_A || isKeyDown_D || isKeyDown_W || isKeyDown_S)
-            {
-                PlayerAnimManager.instance.SetAnimState(dashState);
-            } // can add an else if in between for spacebar soon
-            else
-            {
-                PlayerAnimManager.instance.SetAnimState(idleState);
-                timer_forPeriodicForce = 0;
-            }
-
-
-
-
-            //Variables
             ref LocalTransform transform = ref gameObject.Component4;
             ref LinearVelocity2D lv = ref gameObject.Component2;
             ref AngularVelocity2D av = ref gameObject.Component3;
@@ -124,6 +111,30 @@ public class Player : SystemBase
             float periodicForceInterval = gameObject.Component1.periodicForceIntervalinMS/1000;
 
             moveDir = ProcessInput(moveDir, lerpFac);
+
+            //Anim
+            if (isDashing)
+            {
+                Log("DASH!");
+
+                PlayerAnimManager.instance.SetAnimState(dashState);
+                //if (!isDashing) isDashing = true;
+
+                if(Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
+                {
+                    isDashing = false;
+                }
+            }
+            else if (!isDashing && (isKeyDown_A || isKeyDown_D || isKeyDown_W || isKeyDown_S))
+            {
+                PlayerAnimManager.instance.SetAnimState(moveState);
+            } // can add an else if in between for spacebar soon
+            else
+            {
+                PlayerAnimManager.instance.SetAnimState(idleState);
+                timer_forPeriodicForce = 0;
+            }
+
 
             //NaN protection for normalization
             if (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f) moveDirNormalized = Vector2.Zero;
@@ -175,6 +186,16 @@ public class Player : SystemBase
                 AddInstantaneousForce(ref lv, playerDir, dashSpeed);
                 isCoolingDown = true;
                 dashCoolDownTimer = 1.5f;
+
+                //for accessing the particle system
+                //foreach(var ps in World!.Query<MatchSignifierComponent>())
+                //{
+                //    if(ps.Component1.signifierID == 2)
+                //    {
+                       
+                //    }
+                //}
+
             }
             else if (isKeyDown_W || isKeyDown_S
             || isKeyDown_A || isKeyDown_D)
@@ -200,6 +221,9 @@ public class Player : SystemBase
             currentPos = transform.Position;
 
             
+
+
+
         }
     }
     private void SpeedLimit(ref LinearVelocity2D lv,float maxSpeed)
@@ -210,16 +234,25 @@ public class Player : SystemBase
     }
     private void AddInstantaneousForce(ref LinearVelocity2D lv, Vector2 playerDir, float dashSpeed)
     {
-        AudioManager.instance.PlaySFX("SFX005");
+        //AudioManager.instance.PlaySFX("SFX005");
+
+        if (!AudioManager.sfxEntityDictionary["SFX005"].GetComponent<AudioSource>().PlayOnStart)
+        {
+            AudioManager.instance.PlaySFX("SFX005");
+        }
+        else
+        {
+            AudioManager.instance.PlaySFX("SFX005_alt");
+        }
         //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
         //lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
-
-        lv.Value = playerDir.Normalized * dashSpeed;
+        isDashing = true;
+        lv.Value = playerDir.Normalized * dashSpeed * Time.DeltaTime;
     }
     private static void AddDriftForce(ref LinearVelocity2D lv, Vector2 playerDir, float moveSpeed, float maxSpeed)
     {
-        lv.Value.X += playerDir.X * moveSpeed;
-        lv.Value.Y += playerDir.Y * moveSpeed;
+        lv.Value.X += playerDir.X * moveSpeed * Time.DeltaTime;
+        lv.Value.Y += playerDir.Y * moveSpeed * Time.DeltaTime;
         //Clamping these values to a maxSpeed
         lv.Value.X = GMath.Clamp(lv.Value.X, -maxSpeed, maxSpeed);
         lv.Value.Y = GMath.Clamp(lv.Value.Y, -maxSpeed, maxSpeed);
@@ -232,8 +265,8 @@ public class Player : SystemBase
         if(timer_forPeriodicForce > periodicForceInterval)
         {
             timer_forPeriodicForce = 0;
-            lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
-            lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
+            lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10) * Time.DeltaTime;
+            lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10) * Time.DeltaTime;
 
             if (!AudioManager.sfxEntityDictionary["SFX001"].GetComponent<AudioSource>().PlayOnStart)
             {
