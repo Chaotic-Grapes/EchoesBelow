@@ -14,6 +14,7 @@ namespace EchoesBelow.Scripts;
 public class PlayerAnimManager : SystemBase
 {
     public static PlayerAnimManager instance;
+    public string currentState;
     protected override void OnCreate()
     {
         instance = this;
@@ -23,6 +24,7 @@ public class PlayerAnimManager : SystemBase
     {
         foreach(var animator in  World!.Query<PlayerComponent, SpriteSheetAnimation2D>())
         {
+            currentState = animState.name;
             animator.Component2.Row = animState.row;
             animator.Component2.FrameOffset = animState.frameOffset;
             animator.Component2.FrameLength = animState.frameLength;

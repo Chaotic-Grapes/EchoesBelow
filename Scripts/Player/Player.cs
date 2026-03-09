@@ -29,9 +29,9 @@ public class Player : SystemBase
     public Entity player {  get; set; }
     
     //Make anim states here
-    PlayerAnimPreset moveState = new PlayerAnimPreset(0, 0, 20, 24f);
-    PlayerAnimPreset idleState = new PlayerAnimPreset(1, 5, 65, 30f);
-    PlayerAnimPreset dashState = new PlayerAnimPreset(5, 6, 26, 30f);
+    PlayerAnimPreset moveState = new PlayerAnimPreset("moveState",0, 0, 20, 24f);
+    PlayerAnimPreset idleState = new PlayerAnimPreset("idleState",1, 5, 65, 30f);
+    PlayerAnimPreset dashState = new PlayerAnimPreset("dashState",5, 6, 26, 30f);
 
     public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;
@@ -113,16 +113,23 @@ public class Player : SystemBase
             moveDir = ProcessInput(moveDir, lerpFac);
 
             //Anim
-            if (isDashing)
+            if (isDashing )
             {
                 Log("DASH!");
 
                 PlayerAnimManager.instance.SetAnimState(dashState);
                 //if (!isDashing) isDashing = true;
 
-                if(Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
+                if(PlayerAnimManager.instance.currentState == "dashState" && Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
                 {
                     isDashing = false;
+                    foreach (var ps in World!.Query<MatchSignifierComponent, ParticleEmitter>())
+                    {
+                        if (ps.Component1.signifierID == 2)
+                        {
+                            ps.Component2.EmissionRate = 1.5f;
+                        }
+                    }
                 }
             }
             else if (!isDashing && (isKeyDown_A || isKeyDown_D || isKeyDown_W || isKeyDown_S))
@@ -188,13 +195,13 @@ public class Player : SystemBase
                 dashCoolDownTimer = 1.5f;
 
                 //for accessing the particle system
-                //foreach(var ps in World!.Query<MatchSignifierComponent>())
-                //{
-                //    if(ps.Component1.signifierID == 2)
-                //    {
-                       
-                //    }
-                //}
+                foreach (var ps in World!.Query<MatchSignifierComponent, ParticleEmitter>())
+                {
+                    if (ps.Component1.signifierID == 2)
+                    {
+                        ps.Component2.EmissionRate = 25;
+                    }
+                }
 
             }
             else if (isKeyDown_W || isKeyDown_S
