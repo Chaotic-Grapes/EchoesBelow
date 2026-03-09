@@ -166,6 +166,14 @@ public class CraftAnemone : SystemBase
                     ref LinearVelocity2D lv = ref Player.instance.player.GetComponent<LinearVelocity2D>();
                     lv.Value = new Vector2(0, gameObject.Component1.exitSpeed);
 
+                    //Add the Rigidbody back to the player
+                    ref Rigidbody2D rb = ref Entity.FromId(World!, Player.instance.player.Id).AddComponent<Rigidbody2D>();
+                    rb.Mass = 1;
+                    rb.LinearDamping = 1f;
+                    rb.AngularDamping = 2.4f;
+                    rb.GravityScale = 1;
+                    rb.Flags = 0;
+
                     cr.isExitingAnemone = true;
                     cr.isEnteredAnemone = false;
 
@@ -339,6 +347,9 @@ public class CraftAnemoneHandler : TriggerSystemBase
             Player.instance.isEnabled = false;
             InventoryController.instance.isEnabled_xInput = false;
             Player.instance.ResetInputs();
+
+            //Remove Rigidbody on the Player!
+            Entity.FromId(World!, Player.instance.player.Id).RemoveComponent<Rigidbody2D>();
         }
         
 

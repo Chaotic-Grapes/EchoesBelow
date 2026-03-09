@@ -86,8 +86,8 @@ public class Player : SystemBase
             isKeyDown_D = Input.IsKeyDown(KeyCode.D);
             isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         }
-        
 
+        Log("AHHH hohohohoh");
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())
         {
             //A Pseudo Start function, called once per obj at runtime
