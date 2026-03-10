@@ -196,7 +196,7 @@ public class Player : SystemBase
 
                 AddInstantaneousForce(ref lv, playerDir, dashSpeed);
                 isCoolingDown = true;
-                dashCoolDownTimer = 1.5f;
+                dashCoolDownTimer = 1.25f;
 
                 //for accessing the particle system
                 foreach (var ps in World!.Query<MatchSignifierComponent, ParticleEmitter>())
@@ -249,10 +249,12 @@ public class Player : SystemBase
 
         if (!AudioManager.sfxEntityDictionary["SFX005"].GetComponent<AudioSource>().PlayOnStart)
         {
+            AudioManager.instance.StopSFX("SFX005");
             AudioManager.instance.PlaySFX("SFX005");
         }
         else
         {
+            AudioManager.instance.StopSFX("SFX005_alt");
             AudioManager.instance.PlaySFX("SFX005_alt");
         }
         //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
@@ -393,6 +395,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
             if (tg.Mask == 32)
             {
                 //Take damage
+                AudioManager.instance.PlaySFX("VO001");
                 ProcessDeath.instance.TakeHit(evt.OtherEntityId, self.Id);
                 Log("Take Damage!");
             }
