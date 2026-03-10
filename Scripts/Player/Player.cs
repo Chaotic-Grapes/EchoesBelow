@@ -113,15 +113,15 @@ public class Player : SystemBase
             moveDir = ProcessInput(moveDir, lerpFac);
 
             //Anim
-            if (isDashing )
+            if (isDashing)
             {
-                Log("DASH!");
-
+              
                 PlayerAnimManager.instance.SetAnimState(dashState);
-                //if (!isDashing) isDashing = true;
 
-                if(PlayerAnimManager.instance.currentState == "dashState" && Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
+                //When dashing ends
+                if(Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
                 {
+                    //Log($"currentState : {PlayerAnimManager.instance.currentState}");
                     isDashing = false;
                     foreach (var ps in World!.Query<MatchSignifierComponent, ParticleEmitter>())
                     {
@@ -189,7 +189,11 @@ public class Player : SystemBase
             }
 
             if(isKeyPressed_Space && !isCoolingDown)
-            { 
+            {
+                //Zero out animstate2D
+                Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame = 0;
+
+
                 AddInstantaneousForce(ref lv, playerDir, dashSpeed);
                 isCoolingDown = true;
                 dashCoolDownTimer = 1.5f;
@@ -254,7 +258,7 @@ public class Player : SystemBase
         //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
         //lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
         isDashing = true;
-        lv.Value = playerDir.Normalized * dashSpeed * Time.DeltaTime;
+        lv.Value = playerDir.Normalized * dashSpeed;
     }
     private static void AddDriftForce(ref LinearVelocity2D lv, Vector2 playerDir, float moveSpeed, float maxSpeed)
     {

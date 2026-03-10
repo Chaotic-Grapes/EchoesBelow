@@ -58,6 +58,8 @@ public class InventoryController : SystemBase
 
         currentSelected_msID = 0;
 
+        isEnabled_xInput = true;
+
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
         foreach (var slot in World!.Query<SlotComponent>())
