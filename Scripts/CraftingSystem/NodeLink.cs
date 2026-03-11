@@ -49,22 +49,14 @@ public class NodeLink : SystemBase
 
 
         //in editor, use isRootNode1, it will point to isRootNode4 ! Weird and buggy Engine behaviour sadly
-        if (Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
-        {
-            //if root node, the south port is always filled
-            NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, true, false, false);
-            instances.Add(objId, nodeLinkData);
-            Log("Created and Added a node");
-        }
-        //else
+        //if (Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
         //{
-        //    //default unfilled?
-        //    NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, false, false, false);
+        //    //if root node, the south port is always filled
+        //    NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, true, false, false);
         //    instances.Add(objId, nodeLinkData);
-        //    Log("Created and added DEFAULT node");
+        //    Log("Created and Added a node");
         //}
 
-        Log("HI");
         //End of Start
         return true;
     }
