@@ -26,6 +26,8 @@ public class NodeLinkData : SystemBase
     public Entity Port_E { get; set; }
     public Entity Port_W { get; set; }
 
+    public ulong currentActiveTrigger { get; set; }
+
 
     // I can have multiple unique fields in here, these cant be set from the outset
     // But colliders can query and send info to the corresponding CMachineData container

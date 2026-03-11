@@ -89,23 +89,29 @@ public class Anemone :SystemBase
         //Then we add any active children back to the relevant lists
         foreach (ulong childID in sortedChildList)
         {
+            Log("1 Node==============================================");
             for (int i = 1; i < 8; i++)
             {
+                Log("2 Node");
                 Entity queriedObj = Entity.FromId(world, childID);
-
-                if (queriedObj.GetComponent<CraftMoveComponent>().msID == i)
+                Log($"3 Node: {queriedObj.GetComponent<Name>().Value.ToString()}");
+                //if (!queriedObj.HasComponent<CraftMoveComponent>()) continue;
+                if (queriedObj.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM) && queriedObj.GetComponent<CraftMoveComponent>().msID == i)
                 {
+                    Log("4 Node");
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
+                        Log("5 Node");
                         objPools[i-1].Add(queriedObj.Id);
+                        Log("6 Node");
                         queriedObj.GetComponent<CraftMoveComponent>().Enabled = false;
                         Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}_+_+_+_+_+_+__+!", LogLevel.Warning);
                         //Check what is in each pool
-                        //foreach(var objPool in objPools)
+                        //foreach (var objPool in objPools)
                         //{
-                        //    foreach(var obj in objPool)
+                        //    foreach (var obj in objPool)
                         //    {
-                        //        Log($"     > {Entity.FromId(world,obj).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
+                        //        Log($"     > {Entity.FromId(world, obj).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
                         //    }
                         //}
                         break;
@@ -113,16 +119,21 @@ public class Anemone :SystemBase
                 }
             }
             //Reset all children
-            ResetPoolObj(world, childID);
-            Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
+            if(Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
+            {
+                ResetPoolObj(world, childID);
+                Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
+            }
+
         }
 
         //Skip the spawning step if msID is 0 , i.e empty slot
         if (msID == 0) return;
-
+        //Log("1 Node");
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
+            //Log("2 Node");
             //Check if obj pool is empty
             if (msID == id_Iterator && objPool.Count > 0)
             {
@@ -138,8 +149,67 @@ public class Anemone :SystemBase
                 return;
             }
             id_Iterator++;
+            //Log("3 Node");
         }
         Log("5b Nothing found, out to you");
+        return;
+    }
+
+    public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
+    {
+        //Log("START ==============");
+        //First we iterate thru the sorted child list
+        //We detach craftmove and DONT send it back to the pool
+
+        foreach (ulong childID in sortedChildList)
+        {
+            for (int i = 1; i < 8; i++)
+            {
+                Entity queriedObj = Entity.FromId(world, childID);
+
+                //if (!queriedObj.HasComponent<CraftMoveComponent>()) continue;
+                if (queriedObj.GetComponent<CraftMoveComponent>().msID == i)
+                {
+                    if (queriedObj.GetComponent<Active>().Enabled)
+                    {
+                        queriedObj.RemoveComponent<CraftMoveComponent>();
+                        queriedObj.RemoveComponent<Rigidbody2D>();
+                        queriedObj.RemoveComponent<LinearVelocity2D>();
+                        queriedObj.RemoveComponent <AngularVelocity2D>();
+                        break;
+                    }
+                }
+            }
+            if (Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
+            {
+                ResetPoolObj(world, childID);
+                Log($"Obj: {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
+            }
+        }
+
+        //Spawn based on the iterator
+        //Skip the spawning step if msID is 0 , i.e empty slot
+        if (msID == 0) return;
+
+        int id_Iterator = 1;
+        foreach (List<ulong> objPool in objPools)
+        {
+            //Check if obj pool is empty
+            if (msID == id_Iterator && objPool.Count > 0)
+            {
+
+                ulong pulledObjId = objPool[objPool.Count - 1];
+                objPool.Remove(pulledObjId);
+
+                Entity.FromId(world, pulledObjId).GetComponent<CraftMoveComponent>().Enabled = true;
+
+                InitPoolObj(world, newPos, pulledObjId);
+
+                return;
+            }
+            id_Iterator++;
+        }
+
         return;
     }
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)

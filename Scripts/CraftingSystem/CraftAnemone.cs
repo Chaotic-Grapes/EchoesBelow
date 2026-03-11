@@ -10,6 +10,7 @@ using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts.CraftingSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 
 namespace EchoesBelow.Scripts;
@@ -26,6 +27,7 @@ public class CraftAnemone : SystemBase
     private const float marginAllowance = 0.25f;
 
     static bool isKeyPressed_X = false;
+    static bool isKeyPressed_E = false;
 
     #region SystemBehaviours
     private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
@@ -91,13 +93,7 @@ public class CraftAnemone : SystemBase
                 id_Iterator++;
             }
         }
-        //foreach(List<ulong> objPool in anemone.objPools)
-        //{
-        //    foreach (ulong item in objPool)
-        //    {
-        //        Log($"I contain: {Entity.FromId(World!, item).GetComponent<Name>().Value.ToString()}");
-        //    }
-        //}
+
         //Add the instance! AFTER everything is set
         instances.Add(objId, anemone);
   
@@ -105,7 +101,7 @@ public class CraftAnemone : SystemBase
         return true;
     }
     protected override void OnUpdate()
-    { 
+    {
         if (Input.IsKeyPressed(KeyCode.K))
         {
             foreach (Anemone l in CraftAnemone.instances.Values)
@@ -154,6 +150,7 @@ public class CraftAnemone : SystemBase
             {   
 
                 isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
+                isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
 
                 if (isKeyPressed_X)
                 {
@@ -186,8 +183,66 @@ public class CraftAnemone : SystemBase
 
                 if (InventoryController.isPressed_Q)
                 {
-                    Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
+                    //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
+                }
+
+                if (isKeyPressed_E)
+                {
+                    //Do NodeLink related actions here
+
+                    //Remove the item from the inventory
+                    if (InventoryController.globalInvIterator == 6)
+                    {
+                        InventoryController.instance.RemoveFromInventory(2, true, new Vector3(100,100, 0), Vector2.Zero);
+                    }
+                    else if (InventoryController.globalInvIterator == 5)
+                    {
+                        InventoryController.instance.RemoveFromInventory(1, true, new Vector3(100, 100, 0), Vector2.Zero);
+                    }
+                    else
+                    {
+                        InventoryController.instance.RemoveFromInventory(InventoryController.slotInstances[Entity.FromId(World!, 
+                                                                         InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, 
+                                                                         true, new Vector3(100, 100, 0), Vector2.Zero);
+                    }
+                    Log($"[NodeLink] 1) Item removed!");
+
+                    //Update the selection
+                    cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
+
+                    Log($"[NodeLink] 2) Updated Selection");
+
+                    //Tell the trigger: If you are a certain NSEW trigger, tick the corr isFilled.
+                    Anemone anemone = instances[gameObject.Entity.Id];
+                    foreach (ulong childID in anemone.rawChildList)
+                    {
+                        if (Entity.FromId(World!, childID).TryGetComponent<NodeLinkComponent>(out NodeLinkComponent nl))
+                        {
+                            //NodeLink.instances[childID].port
+                            //if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
+                            if(Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1)
+                            {
+                                NodeLink.instances[childID].port_N_isFilled = true;
+                            }
+                            else if (Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2)
+                            {
+                                NodeLink.instances[childID].port_S_isFilled = true;
+                            }
+                            else if (Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3)
+                            {
+                                NodeLink.instances[childID].port_E_isFilled = true;
+                            }
+                            else if (Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4)
+                            {
+                                NodeLink.instances[childID].port_W_isFilled = true;
+                            }
+                        }
+                    }
+
+                    //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
+                    Log($"[NodeLink] 3) Trigger is disabled");
+
                 }
 
             }

@@ -31,7 +31,7 @@ public class InventoryController : SystemBase
 
     public bool isEnabled_xInput = true;
 
-    static int iterator;
+    public static int globalInvIterator;
     public static int currentSelected_msID;
 
     protected override void OnCreate()
@@ -54,7 +54,7 @@ public class InventoryController : SystemBase
         slotObjIds = new ulong[7];
         slotInstances = new Dictionary<string, Slot>();
 
-        iterator = slotObjIds.Length - 1;
+        globalInvIterator = slotObjIds.Length - 1;
 
         currentSelected_msID = 0;
 
@@ -116,7 +116,7 @@ public class InventoryController : SystemBase
         }
 
         //Set the selection
-        ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[iterator]).GetComponent<GUIImage>();
+        ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<GUIImage>();
         guiImage.Color = new Color(100, 100, 100, 255);
         Log("Set to Black!");
 
@@ -141,38 +141,38 @@ public class InventoryController : SystemBase
             {
                 AudioManager.instance.PlaySFX("SFX007");
 
-                Iterator(ref iterator);
+                Iterator(ref globalInvIterator);
 
-                if(!slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+                if(!slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
                 {//if slot not storing item
                     currentSelected_msID = 0; //default case
                 }
                 else
                 {//if slot stores an item
-                    currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
-                    if (iterator == 6) currentSelected_msID = 2;
-                    else if (iterator == 5) currentSelected_msID = 1;
-                    else currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
+                    currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId;
+                    if (globalInvIterator == 6) currentSelected_msID = 2;
+                    else if (globalInvIterator == 5) currentSelected_msID = 1;
+                    else currentSelected_msID = slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId;
                 }
             }
             //Remove from slot / Vomitting
-            if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+            if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 AudioManager.instance.PlaySFX("SFX010");
 
                 Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
                 Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
-                if (iterator == 6)
+                if (globalInvIterator == 6)
                 { 
                     RemoveFromInventory(2, true, newPos, trajectory); 
                 }
-                else if (iterator == 5)
+                else if (globalInvIterator == 5)
                 { 
                     RemoveFromInventory(1, true, newPos, trajectory); 
                 }
                 else 
                 { 
-                    RemoveFromInventory(slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId, true, newPos, trajectory); 
+                    RemoveFromInventory(slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, true, newPos, trajectory); 
                 }
             }
 
@@ -247,7 +247,7 @@ public class InventoryController : SystemBase
    
     private void UpdateSelection()
     {
-        int msIdInSlot = slotInstances[Entity.FromId(World!, slotObjIds[iterator]).GetComponent<Name>().Value.ToString()].storedMsId;
+        int msIdInSlot = slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId;
         foreach (var gameObject in World!.Query<MatchSignifierComponent>())
         {
             if(gameObject.Component1.signifierID == 787878)
@@ -432,7 +432,7 @@ public class InventoryController : SystemBase
                 }
                 break;
             default:
-                Entity slotEntity = Entity.FromId(World!, slotObjIds[iterator]);
+                Entity slotEntity = Entity.FromId(World!, slotObjIds[globalInvIterator]);
                 string slotName = slotEntity.GetComponent<Name>().Value.ToString();
                 foreach (Entity image in slotInstances[slotName].ms_ImageRefList)
                 {
