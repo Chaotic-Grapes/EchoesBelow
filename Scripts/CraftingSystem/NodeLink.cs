@@ -53,7 +53,7 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
-        //Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} triggered by {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
+        Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} triggered by {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
         //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
         {
@@ -67,10 +67,10 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
             //Very important, asign this for everyone
             NodeLink.currentNodeLinkObj = parentObj;
 
-            foreach (NodeLinkData n in NodeLink.instances.Values)
-            {
-                Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}", LogLevel.Debug);
-            }
+            //foreach (NodeLinkData n in NodeLink.instances.Values)
+            //{
+            //    Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}", LogLevel.Debug);
+            //}
 
 
             NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];

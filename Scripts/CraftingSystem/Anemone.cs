@@ -203,12 +203,17 @@ public class Anemone :SystemBase
 
     private void FreezeNode(World world, Entity queriedObj)
     {
+        //General Initialization
         queriedObj.RemoveComponent<CraftMoveComponent>();
         queriedObj.RemoveComponent<Rigidbody2D>();
         queriedObj.RemoveComponent<CircleCollider2D>();
         queriedObj.RemoveComponent<LinearVelocity2D>();
         queriedObj.RemoveComponent<AngularVelocity2D>();
 
+        //Set to Background
+        //Entity.FromId(World!, queriedObj.Id).GetComponent<Layer>().Id = 0;
+
+        //NodeLink initialization
         ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
 
         nl.start = true;

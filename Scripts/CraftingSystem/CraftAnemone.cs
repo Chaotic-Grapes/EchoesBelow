@@ -43,10 +43,10 @@ public class CraftAnemone : SystemBase
         
         NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
-        Log("runnin");
+       
+        //Migrate these to NodeLink after M5! and incorporate component values instead of storing port bools in NodeLinkData
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
         {
-            Log("Still runnin");
             if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode1)
             {
                 //if root node, the south port is always filled

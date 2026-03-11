@@ -40,13 +40,15 @@ public class CraftMove : SystemBase
 
     protected override void OnUpdate()
     {
+
+
         foreach (var gameObject in World!.Query<CraftMoveComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
 
             //Do everyth else
-            
+            //Log($"{Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString()} / Layer id: {Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Layer>().Id}");
         }
         foreach (var gameObject in World!.Query<CraftMoveComponent>())
         {
