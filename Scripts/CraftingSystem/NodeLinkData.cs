@@ -64,6 +64,7 @@ public class NodeLinkData : SystemBase
 
             ref NodeLinkTriggerComponent nlTrigger2 = ref child.GetComponent<NodeLinkTriggerComponent>();
             nlTrigger2.parentObjId = objId;
+            nlTrigger2.parentAnemone = Entity.FromId(world, objId).GetParent()!.Id;
         }
 
         this.port_N_isFilled = port_N_isFilled;

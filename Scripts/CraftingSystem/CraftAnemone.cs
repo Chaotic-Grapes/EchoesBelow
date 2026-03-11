@@ -388,8 +388,16 @@ public class CraftAnemoneHandler : TriggerSystemBase
     {
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
+
+        foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
+        {
+            if (gameObject.Component1.parentAnemone != self.Id) continue;
+            ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
+            active.Enabled = true;
+            Log($"Enabled! : {Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString()}");
+        }
 
         if (other.HasComponent<PlayerComponent>())
         {
@@ -411,9 +419,16 @@ public class CraftAnemoneHandler : TriggerSystemBase
     {
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>()) { }
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<PlayerTriggerComponent>()) { }
         else return;
 
+        foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
+        {
+            if (gameObject.Component1.parentAnemone != self.Id) continue;
+            ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
+            active.Enabled = false;
+            Log($"Disabled! : {Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString()}");
+        }
 
         if (other.HasComponent<PlayerTriggerComponent>())
         {

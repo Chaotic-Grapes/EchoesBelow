@@ -38,7 +38,7 @@ public class NodeLink : SystemBase
 
     }
 }
-[Component] public record struct NodeLinkTriggerComponent(int NSEW_1234, ulong parentObjId);
+[Component] public record struct NodeLinkTriggerComponent(int NSEW_1234, ulong parentObjId, ulong parentAnemone);
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
 public class NodeLinkTrigger
 {
