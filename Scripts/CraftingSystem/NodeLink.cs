@@ -31,7 +31,7 @@ public class NodeLink : SystemBase
         startBool = true;
         //Todo
 
-        Log("NodeLink Alive! is instances null?: " + (instances == null));
+        //Log("NodeLink Alive! is instances null?: " + (instances == null));
 
         //This ensures that it only runs once at the start across all calls of OnStart() during runtime
         if (instances == null)
