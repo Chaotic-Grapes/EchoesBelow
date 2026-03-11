@@ -46,13 +46,11 @@ public class CraftMove : SystemBase
             gameObject.Component1.start = OnStart(ref start);
 
             //Do everyth else
-
+            
         }
-
         foreach (var gameObject in World!.Query<CraftMoveComponent>())
         {
             if (!gameObject.Component1.Enabled) continue;
-
 
             if (!Player.instance.isEnabled)
             {

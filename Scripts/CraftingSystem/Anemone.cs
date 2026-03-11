@@ -213,6 +213,7 @@ public class Anemone :SystemBase
 
         nl.start = true;
 
+        //Initialise and add NodeLinkData to the instances list
         NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, false, false, false, false);
         NodeLink.instances.Add(queriedObj.Id, nlD);
 
