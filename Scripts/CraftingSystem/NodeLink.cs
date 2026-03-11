@@ -84,7 +84,7 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
             if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3) return;
             if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4) return;
       
-            DrawLink(nodeTriggerObj, parentObj, playerMSobj);
+            DrawLink(nodeTriggerObj, Entity.FromId(World!, NodeLink.currentNodeLinkObj.Id), playerMSobj);
         }
 
     }
