@@ -22,6 +22,7 @@ namespace Scripts.CraftingSystem;
 public class NodeLink : SystemBase
 {
     public static Dictionary<ulong, NodeLinkData> instances;
+    public static Entity currentNodeLinkObj;
 
     private bool OnStart(ref bool startBool, ulong objId)
     {
@@ -57,7 +58,7 @@ public class NodeLink : SystemBase
             Log("Added!");
             foreach (NodeLinkData i in instances.Values)
             {
-                Log($"I have: {i.objId}");
+                Log($"I have: {i.parentObjId}");
             }
         }
 
@@ -106,12 +107,15 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
             CraftAnemone.isEnabled_EInput = true;
 
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
-            Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
+            Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetParent()!.Id);
             Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
 
-            NodeLinkData nodeLinkData = NodeLink.instances[parentObj.Id];
+            //Very important, asign this for everyone
+            NodeLink.currentNodeLinkObj = parentObj;
 
-            nodeLinkData.currentActiveTrigger = self.Id;
+            NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+
+            NodeLinkData.currentActiveTrigger = self.Id;
 
             //Check if ports are filled
             //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
@@ -124,7 +128,7 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 
             //Which Port did I pass by?
             //Log($"NodeLink Data Port: " + Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234);
-            //Log($"N:{NodeLink.instances[parentObj.Id].port_N_isFilled}  / S:{NodeLink.instances[parentObj.Id].port_S_isFilled}  / E:{NodeLink.instances[parentObj.Id].port_E_isFilled}  / W:{NodeLink.instances[parentObj.Id].port_W_isFilled}");
+            //Log($"N:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled}  / S:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled}  / E:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled}  / W:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled}");
         }
 
     }
@@ -138,9 +142,9 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
 
-            NodeLinkData nodeLinkData = NodeLink.instances[parentObj.Id];
+            NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
 
-            nodeLinkData.currentActiveTrigger = 9999; //default empty
+            NodeLinkData.currentActiveTrigger = 9999; //default empty
 
             //Check if ports are filled
             //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return

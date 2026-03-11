@@ -14,7 +14,7 @@ namespace Scripts.CraftingSystem;
 
 public class NodeLinkData : SystemBase
 {
-    public ulong objId { get; set; }
+    public ulong parentObjId { get; set; }
 
     public bool port_N_isFilled {  get; set; }
     public bool port_S_isFilled { get; set; }
@@ -26,7 +26,7 @@ public class NodeLinkData : SystemBase
     public Entity Port_E { get; set; }
     public Entity Port_W { get; set; }
 
-    public ulong currentActiveTrigger { get; set; }
+    public static ulong currentActiveTrigger { get; set; }
 
 
     // I can have multiple unique fields in here, these cant be set from the outset
@@ -34,7 +34,7 @@ public class NodeLinkData : SystemBase
     // Accessing thru ulong ids
     public NodeLinkData(World world, ulong objId, bool port_N_isFilled, bool port_S_isFilled, bool port_E_isFilled, bool port_W_isFilled)
     {
-        this.objId = objId;
+        this.parentObjId = objId;
 
         //Retrieve the list of children under the comboMachine and sort them appropriately
         List<Entity> rawChildList = Entity.FromId(world, objId).GetChildren();

@@ -212,42 +212,36 @@ public class CraftAnemone : SystemBase
                     }
                     Log($"[NodeLink] 1) Item removed!");
 
+
+                    //Tell the trigger: If you are a certain NSEW trigger, tick the corr isFilled.
+
+                    if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1)
+                    {
+                        NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled = true;
+                        Log("N: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled);
+                    }
+                    if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2)
+                    {
+                        NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled = true;
+                        Log("S: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled);
+                    }
+                    if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3)
+                    {
+                        NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled = true;
+                        Log("E: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled);
+                    }
+                    if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4)
+                    {
+                        NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled = true;
+                        Log("W: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled);
+                    }
+
+
+
                     //Update the selection
                     cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
 
                     Log($"[NodeLink] 2) Updated Selection");
-
-                    //Tell the trigger: If you are a certain NSEW trigger, tick the corr isFilled.
-                    foreach (Entity child in Entity.FromId(World!, gameObject.Entity.Id).GetChildren())
-                    {
-                        Log("child: " + Entity.FromId(World!, child.Id).GetComponent<Name>().Value.ToString());
-                        if (Entity.FromId(World!, child.Id).TryGetComponent<NodeLinkComponent>(out NodeLinkComponent nl))
-                        {
-                            //NodeLink.instances[childID].port
-                            //if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
-                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1)
-                            {
-                                NodeLink.instances[child.Id].port_N_isFilled = true;
-                                Log("N: " + NodeLink.instances[child.Id].port_N_isFilled);
-                            }
-                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2)
-                            {
-                                NodeLink.instances[child.Id].port_S_isFilled = true;
-                                Log("S: " + NodeLink.instances[child.Id].port_S_isFilled);
-                            }
-                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3)
-                            {
-                                NodeLink.instances[child.Id].port_E_isFilled = true;
-                                Log("E: " + NodeLink.instances[child.Id].port_E_isFilled);
-                            }
-                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4)
-                            {
-                                NodeLink.instances[child.Id].port_W_isFilled = true;
-                                Log("W: " + NodeLink.instances[child.Id].port_W_isFilled);
-                            }
-                        }
-                    }
-
                     //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                     Log($"[NodeLink] 3) Trigger is disabled");
 
