@@ -101,6 +101,7 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
         //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
         {
+            Entity nodeTriggerObj = Entity.FromId(World!,self.Id);
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
             Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
 
@@ -116,12 +117,14 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 
 
             //Retrieve positions
+            Vector2 nodeTriggerPos = new Vector2(nodeTriggerObj.GetComponent<LocalTransform>().Position.X, nodeTriggerObj.GetComponent<LocalTransform>().Position.Y);
             Vector2 parentObjPos = new Vector2(parentObj.GetComponent<LocalTransform>().Position.X, parentObj.GetComponent<LocalTransform>().Position.Y);
             Vector2 playerMSPos = new Vector2(playerMSobj.GetComponent<LocalTransform>().Position.X, playerMSobj.GetComponent<LocalTransform>().Position.Y);
 
             //Retrieve Shapeline, and map the position of the MS snow into parentObj's local space
-            ref ShapeLine2D lineRenderer = ref parentObj.GetComponent<ShapeLine2D>();
-            lineRenderer.B = new Vector2(playerMSPos.X - parentObjPos.X, playerMSPos.Y - parentObjPos.Y);
+            ref ShapeLine2D lineRenderer = ref nodeTriggerObj.GetComponent<ShapeLine2D>();
+            lineRenderer.A = new Vector2(0 -nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
+            lineRenderer.B = new Vector2(playerMSPos.X - parentObjPos.X - nodeTriggerPos.X, playerMSPos.Y - parentObjPos.Y - nodeTriggerPos.Y);
 
             //Which Port did I pass by?
             Log($"NodeLink Data Port: " + Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234);
@@ -135,10 +138,14 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
         {
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
+            Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
+
+            Vector2 nodeTriggerPos = new Vector2(nodeTriggerObj.GetComponent<LocalTransform>().Position.X, nodeTriggerObj.GetComponent<LocalTransform>().Position.Y);
 
             //Retrieve Shapeline
-            ref ShapeLine2D lineRenderer = ref parentObj.GetComponent<ShapeLine2D>();
-            lineRenderer.B = Vector2.Zero;
+            ref ShapeLine2D lineRenderer = ref nodeTriggerObj.GetComponent<ShapeLine2D>();
+            lineRenderer.A = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
+            lineRenderer.B = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
             Log("Exitted");
         }
     }
