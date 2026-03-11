@@ -224,35 +224,31 @@ public class Anemone :SystemBase
         //Initialise and add NodeLinkData to the instances list
         NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, false, false, false, false);
         NodeLink.instances.Add(queriedObj.Id, nlD);
-
-        NodeLinkData nodeLinkData = NodeLink.instances[queriedObj.Id];
+        NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
         //queried obj is the one I want to change
         int fromPort = Entity.FromId(world, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234;
 
+        //NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
+        //the new NodeLink is queriedobj N is S and E is W
         switch (fromPort)
         {
             //The corresponding opposite side shld be marked as filled
             case 1: //North N
-                //NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled = true;
-                nodeLinkData.port_S_isFilled = true;
-                ref Active portActive = ref Entity.FromId(world, nodeLinkData.Port_S.Id).GetComponent<Active>();
-                portActive.Enabled = false;
+                NodeLink.instances[NodeLink.currentNodeLinkObj.Id].DisablePort(1);
+                NodeLink.instances[queriedObj.Id].DisablePort(2);
                 break;
             case 2: //South S
-                nodeLinkData.port_N_isFilled = true;
-                ref Active portActive2 = ref Entity.FromId(world, nodeLinkData.Port_N.Id).GetComponent<Active>();
-                portActive2.Enabled = false;
+                NodeLink.instances[NodeLink.currentNodeLinkObj.Id].DisablePort(2);
+                NodeLink.instances[queriedObj.Id].DisablePort(1);
                 break;
             case 3: //East E
-                nodeLinkData.port_W_isFilled = true;
-                ref Active portActive3 = ref Entity.FromId(world, nodeLinkData.Port_W.Id).GetComponent<Active>();
-                portActive3.Enabled = false;
+                NodeLink.instances[NodeLink.currentNodeLinkObj.Id].DisablePort(3);
+                NodeLink.instances[queriedObj.Id].DisablePort(4);
                 break;
             case 4: //West W
-                nodeLinkData.port_E_isFilled = true;
-                ref Active portActive4 = ref Entity.FromId(world, nodeLinkData.Port_E.Id).GetComponent<Active>();
-                portActive4.Enabled = false;
+                NodeLink.instances[NodeLink.currentNodeLinkObj.Id].DisablePort(4);
+                NodeLink.instances[queriedObj.Id].DisablePort(3);
                 break;
             default:
                 break;

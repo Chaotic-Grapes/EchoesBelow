@@ -1,3 +1,4 @@
+using EchoesBelow.Scripts;
 using EchoesBelow.Scripts.Audio;
 using EchoesBelow.Scripts.MarineSnowSystem;
 using GrapeEngine.Math;
@@ -8,7 +9,6 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System.Collections.Generic;
-using System.Numerics;
 
 namespace Scripts.CraftingSystem;
 
@@ -71,4 +71,108 @@ public class NodeLinkData : SystemBase
         this.port_E_isFilled = port_E_isFilled;
         this.port_W_isFilled = port_W_isFilled;
     }
+
+    public void EnableAllPorts()
+    {
+        InitBoxCollider(ref Port_N.AddComponent<BoxCollider2D>(), (int)nodeSelect.North);
+        InitBoxCollider(ref Port_S.AddComponent<BoxCollider2D>(), (int)nodeSelect.South);
+        InitBoxCollider(ref Port_E.AddComponent<BoxCollider2D>(), (int)nodeSelect.East);
+        InitBoxCollider(ref Port_W.AddComponent<BoxCollider2D>(), (int)nodeSelect.West);
+
+        port_N_isFilled = false;
+        port_S_isFilled = false;
+        port_E_isFilled = false;
+        port_W_isFilled = false;
+
+        Log("Added 4 Triggers");
+    }
+
+    public void DisableAllPorts()
+    {
+        Port_N.RemoveComponent<BoxCollider2D>();
+        Port_S.RemoveComponent<BoxCollider2D>();
+        Port_E.RemoveComponent<BoxCollider2D>();
+        Port_W.RemoveComponent<BoxCollider2D>();
+
+        port_N_isFilled = true;
+        port_S_isFilled = true;
+        port_E_isFilled = true;
+        port_W_isFilled = true;
+
+        Log("Removed 4 Triggers");
+    }
+    public void EnablePort(int NSEW_1234)
+    {
+        //enable a specific collider
+        switch (NSEW_1234)
+        {
+            case (int)nodeSelect.North:
+                InitBoxCollider(ref Port_N.AddComponent<BoxCollider2D>(), (int)nodeSelect.North);
+                port_N_isFilled = false;
+                break;
+            case (int)nodeSelect.South:
+                InitBoxCollider(ref Port_S.AddComponent<BoxCollider2D>(), (int)nodeSelect.South);
+                port_S_isFilled = false;
+                break;
+            case (int)nodeSelect.East:
+                InitBoxCollider(ref Port_E.AddComponent<BoxCollider2D>(), (int)nodeSelect.East);
+                port_E_isFilled = false;
+                break;
+            case (int)nodeSelect.West:
+                InitBoxCollider(ref Port_W.AddComponent<BoxCollider2D>(), (int)nodeSelect.West);
+                port_W_isFilled = false;
+                break;
+            default:
+                break;
+
+        }
+
+        Log("Added a Trigger");
+    }
+
+    public void DisablePort(int NSEW_1234)
+    {
+        switch (NSEW_1234)
+        {
+            case (int)nodeSelect.North:
+                Port_N.RemoveComponent<BoxCollider2D>();
+                port_N_isFilled = true;
+                break;
+            case (int)nodeSelect.South:
+                Port_S.RemoveComponent<BoxCollider2D>();
+                port_S_isFilled = true;
+                break;
+            case (int)nodeSelect.East:
+                Port_E.RemoveComponent<BoxCollider2D>();
+                port_E_isFilled = true;
+                break;
+            case (int)nodeSelect.West:
+                Port_W.RemoveComponent<BoxCollider2D>();
+                port_W_isFilled = true;
+                break;
+            default:
+                break;
+
+        }
+        Log("Removed a trigger");
+    }
+    private void InitBoxCollider(ref BoxCollider2D bx, int NSEW_1234)
+    {
+        bx.IsTrigger = true;
+        bx.HalfExtents = new Vector2(0.8f, 0.3f);
+
+        switch (NSEW_1234)
+        {
+            case (int)nodeSelect.North:
+            case (int)nodeSelect.South:
+                bx.Rotation = 1.571f;
+                break;
+            case (int)nodeSelect.East:
+            case (int)nodeSelect.West:
+                //nothin
+                break;
+        }
+    }
+
+
 }
