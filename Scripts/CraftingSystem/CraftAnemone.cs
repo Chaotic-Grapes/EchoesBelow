@@ -28,6 +28,7 @@ public class CraftAnemone : SystemBase
 
     static bool isKeyPressed_X = false;
     static bool isKeyPressed_E = false;
+    public static bool isEnabled_EInput = true;
 
     #region SystemBehaviours
     private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
@@ -150,7 +151,7 @@ public class CraftAnemone : SystemBase
             {   
 
                 isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
-                isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
+                if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
 
                 if (isKeyPressed_X)
                 {
@@ -189,6 +190,9 @@ public class CraftAnemone : SystemBase
 
                 if (isKeyPressed_E)
                 {
+                    //Prevent E outside of the collider
+
+                    //}
                     //Do NodeLink related actions here
 
                     //Remove the item from the inventory
@@ -214,28 +218,32 @@ public class CraftAnemone : SystemBase
                     Log($"[NodeLink] 2) Updated Selection");
 
                     //Tell the trigger: If you are a certain NSEW trigger, tick the corr isFilled.
-                    Anemone anemone = instances[gameObject.Entity.Id];
-                    foreach (ulong childID in anemone.rawChildList)
+                    foreach (Entity child in Entity.FromId(World!, gameObject.Entity.Id).GetChildren())
                     {
-                        if (Entity.FromId(World!, childID).TryGetComponent<NodeLinkComponent>(out NodeLinkComponent nl))
+                        Log("child: " + Entity.FromId(World!, child.Id).GetComponent<Name>().Value.ToString());
+                        if (Entity.FromId(World!, child.Id).TryGetComponent<NodeLinkComponent>(out NodeLinkComponent nl))
                         {
                             //NodeLink.instances[childID].port
                             //if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
-                            if(Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1)
+                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1)
                             {
-                                NodeLink.instances[childID].port_N_isFilled = true;
+                                NodeLink.instances[child.Id].port_N_isFilled = true;
+                                Log("N: " + NodeLink.instances[child.Id].port_N_isFilled);
                             }
-                            else if (Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2)
+                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2)
                             {
-                                NodeLink.instances[childID].port_S_isFilled = true;
+                                NodeLink.instances[child.Id].port_S_isFilled = true;
+                                Log("S: " + NodeLink.instances[child.Id].port_S_isFilled);
                             }
-                            else if (Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3)
+                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3)
                             {
-                                NodeLink.instances[childID].port_E_isFilled = true;
+                                NodeLink.instances[child.Id].port_E_isFilled = true;
+                                Log("E: " + NodeLink.instances[child.Id].port_E_isFilled);
                             }
-                            else if (Entity.FromId(World!, NodeLink.instances[childID].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4)
+                            if (Entity.FromId(World!, NodeLink.instances[child.Id].currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4)
                             {
-                                NodeLink.instances[childID].port_W_isFilled = true;
+                                NodeLink.instances[child.Id].port_W_isFilled = true;
+                                Log("W: " + NodeLink.instances[child.Id].port_W_isFilled);
                             }
                         }
                     }

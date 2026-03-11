@@ -83,37 +83,29 @@ public class Anemone :SystemBase
 
     public void UpdateSelection(World world, int msID, Vector3 newPos)
     {
-        Log("START ==============");
+        //Log("START ==============");
         //First we iterate thru the sorted child list
         //We reset EVERYTHING, turn off active for active children
         //Then we add any active children back to the relevant lists
         foreach (ulong childID in sortedChildList)
         {
-            Log("1 Node==============================================");
+            //Log("1 Node==============================================");
             for (int i = 1; i < 8; i++)
             {
-                Log("2 Node");
+                //Log("2 Node");
                 Entity queriedObj = Entity.FromId(world, childID);
-                Log($"3 Node: {queriedObj.GetComponent<Name>().Value.ToString()}");
+                //Log($"3 Node: {queriedObj.GetComponent<Name>().Value.ToString()}");
                 //if (!queriedObj.HasComponent<CraftMoveComponent>()) continue;
                 if (queriedObj.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM) && queriedObj.GetComponent<CraftMoveComponent>().msID == i)
                 {
-                    Log("4 Node");
+                    //Log("4 Node");
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
-                        Log("5 Node");
+                        //Log("5 Node");
                         objPools[i-1].Add(queriedObj.Id);
-                        Log("6 Node");
+                        //Log("6 Node");
                         queriedObj.GetComponent<CraftMoveComponent>().Enabled = false;
-                        Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}_+_+_+_+_+_+__+!", LogLevel.Warning);
-                        //Check what is in each pool
-                        //foreach (var objPool in objPools)
-                        //{
-                        //    foreach (var obj in objPool)
-                        //    {
-                        //        Log($"     > {Entity.FromId(world, obj).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
-                        //    }
-                        //}
+                        Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}", LogLevel.Warning);
                         break;
                     }
                 }
@@ -122,7 +114,7 @@ public class Anemone :SystemBase
             if(Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
             {
                 ResetPoolObj(world, childID);
-                Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
+                //Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
             }
 
         }
@@ -151,7 +143,7 @@ public class Anemone :SystemBase
             id_Iterator++;
             //Log("3 Node");
         }
-        Log("5b Nothing found, out to you");
+        //Log("5b Nothing found, out to you");
         return;
     }
 
@@ -168,12 +160,13 @@ public class Anemone :SystemBase
                 Entity queriedObj = Entity.FromId(world, childID);
 
                 //if (!queriedObj.HasComponent<CraftMoveComponent>()) continue;
-                if (queriedObj.GetComponent<CraftMoveComponent>().msID == i)
+                if (queriedObj.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM) && queriedObj.GetComponent<CraftMoveComponent>().msID == i)
                 {
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
                         queriedObj.RemoveComponent<CraftMoveComponent>();
                         queriedObj.RemoveComponent<Rigidbody2D>();
+                        queriedObj.RemoveComponent<CircleCollider2D>();
                         queriedObj.RemoveComponent<LinearVelocity2D>();
                         queriedObj.RemoveComponent <AngularVelocity2D>();
                         break;
@@ -183,7 +176,6 @@ public class Anemone :SystemBase
             if (Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
             {
                 ResetPoolObj(world, childID);
-                Log($"Obj: {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
             }
         }
 

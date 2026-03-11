@@ -1,3 +1,4 @@
+using EchoesBelow.Scripts;
 using EchoesBelow.Scripts.Audio;
 using EchoesBelow.Scripts.MarineSnowSystem;
 using GrapeEngine.Math;
@@ -101,6 +102,9 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
         //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
         {
+            //Enable the E key
+            CraftAnemone.isEnabled_EInput = true;
+
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
             Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
@@ -128,6 +132,9 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
     {
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
         {
+            //Disable the E key
+            CraftAnemone.isEnabled_EInput = false;
+
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
 
