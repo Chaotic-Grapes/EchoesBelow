@@ -40,9 +40,27 @@ public class CraftAnemone : SystemBase
         //This effectively executes as many times as there are CraftAnemones. BUT if I place the foreach loop
         //before everything in update. Ultimately this sets something once at the beginning of the script 
         // 1 1 1 1 or 1 or 1 1 1 is effectively 1 in the end. So this can create a List instance once at the start every Scene Load / PlayMode Entrance
-
+        Log("how many times is this happening");
         NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
+
+        //foreach (var gameObject in World!.Query<NodeLinkComponent>())
+        //{
+        //    if (Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
+        //    {
+        //        //if root node, the south port is always filled
+        //        NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, true, false, false);
+        //        NodeLink.instances.Add(objId, nodeLinkData);
+        //        Log("Created and Added a node");
+        //    }
+        //    else
+        //    {
+        //        //default unfilled?
+        //        NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, false, false, false);
+        //        NodeLink.instances.Add(objId, nodeLinkData);
+        //        Log("Created and Added a default node");
+        //    }
+        //}
 
         return true;
     }

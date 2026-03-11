@@ -47,11 +47,6 @@ public class NodeLink : SystemBase
 
         //The above code is SEVERELY broken, something to do with a corrupted NodeLinkComponent, the params are everywhere. SO I've parked it in CraftAnemone.cs's OnStart function
 
-        //Log("1");
-        //Execute once for all instances
-
-        // Process component
-        //creates a new combination machine per NodeLinkComponent detected
 
         //in editor, use isRootNode1, it will point to isRootNode4 ! Weird and buggy Engine behaviour sadly
         if (Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
@@ -59,16 +54,17 @@ public class NodeLink : SystemBase
             //if root node, the south port is always filled
             NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, true, false, false);
             instances.Add(objId, nodeLinkData);
-            Log("am I still going");
+            Log("Created and Added a node");
         }
-        else
-        {
-            //default unfilled?
-            NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, false, false, false);
-            instances.Add(objId, nodeLinkData);
-            Log("am I still going2?");
-        }
+        //else
+        //{
+        //    //default unfilled?
+        //    NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, false, false, false);
+        //    instances.Add(objId, nodeLinkData);
+        //    Log("Created and added DEFAULT node");
+        //}
 
+        Log("HI");
         //End of Start
         return true;
     }

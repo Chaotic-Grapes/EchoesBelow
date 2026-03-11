@@ -213,6 +213,9 @@ public class Anemone :SystemBase
 
         nl.start = true;
 
+        NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, false, false, false, false);
+        NodeLink.instances.Add(queriedObj.Id, nlD);
+
         NodeLinkData nodeLinkData = NodeLink.instances[queriedObj.Id];
 
         //queried obj is the one I want to change
@@ -237,6 +240,7 @@ public class Anemone :SystemBase
             default:
                 break;
         }
+    }
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
     {
