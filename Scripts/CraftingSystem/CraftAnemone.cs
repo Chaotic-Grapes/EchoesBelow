@@ -40,6 +40,8 @@ public class CraftAnemone : SystemBase
         //This effectively executes as many times as there are CraftAnemones. BUT if I place the foreach loop
         //before everything in update. Ultimately this sets something once at the beginning of the script 
         // 1 1 1 1 or 1 or 1 1 1 is effectively 1 in the end. So this can create a List instance once at the start every Scene Load / PlayMode Entrance
+
+        NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
 
         return true;

@@ -164,7 +164,7 @@ public class Anemone :SystemBase
                 {
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
-                        FreezeNode(queriedObj);
+                        FreezeNode(world, queriedObj);
                         break;
                     }
                 }
@@ -201,7 +201,7 @@ public class Anemone :SystemBase
         return;
     }
 
-    private void FreezeNode(Entity queriedObj)
+    private void FreezeNode(World world, Entity queriedObj)
     {
         queriedObj.RemoveComponent<CraftMoveComponent>();
         queriedObj.RemoveComponent<Rigidbody2D>();
@@ -210,7 +210,33 @@ public class Anemone :SystemBase
         queriedObj.RemoveComponent<AngularVelocity2D>();
 
         ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
-    }
+
+        nl.start = true;
+
+        NodeLinkData nodeLinkData = NodeLink.instances[queriedObj.Id];
+
+        //queried obj is the one I want to change
+        int fromPort = Entity.FromId(world, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234;
+
+        switch (fromPort)
+        {
+            //The corresponding opposite side shld be marked as filled
+            case 1: //North N
+                //NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled = true;
+                nodeLinkData.port_S_isFilled = true;
+                break;
+            case 2: //South S
+                nodeLinkData.port_N_isFilled = true;
+                break;
+            case 3: //East E
+                nodeLinkData.port_W_isFilled = true;
+                break;
+            case 4: //West W
+                nodeLinkData.port_E_isFilled = true;
+                break;
+            default:
+                break;
+        }
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
     {

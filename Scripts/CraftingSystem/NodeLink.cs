@@ -34,11 +34,18 @@ public class NodeLink : SystemBase
         //Log("NodeLink Alive! is instances null?: " + (instances == null));
 
         //This ensures that it only runs once at the start across all calls of OnStart() during runtime
-        if (instances == null)
-        {
-            Log("CREATING INSTANCES", LogLevel.Debug);
-            instances = new Dictionary<ulong, NodeLinkData>();
-        }
+        //if (instances == null)
+        //{
+        //    Log("CREATING INSTANCES", LogLevel.Debug);
+        //    instances = new Dictionary<ulong, NodeLinkData>();
+        //}
+        //else if (instances.Count < 1)
+        //{
+        //    Log("CREATING INSTANCES 2", LogLevel.Debug);
+        //    instances = new Dictionary<ulong, NodeLinkData>();
+        //}
+
+        //The above code is SEVERELY broken, something to do with a corrupted NodeLinkComponent, the params are everywhere. SO I've parked it in CraftAnemone.cs's OnStart function
 
         //Log("1");
         //Execute once for all instances
@@ -47,17 +54,19 @@ public class NodeLink : SystemBase
         //creates a new combination machine per NodeLinkComponent detected
 
         //in editor, use isRootNode1, it will point to isRootNode4 ! Weird and buggy Engine behaviour sadly
-        if(Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
+        if (Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
         {
             //if root node, the south port is always filled
             NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, true, false, false);
             instances.Add(objId, nodeLinkData);
+            Log("am I still going");
         }
         else
         {
             //default unfilled?
             NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, false, false, false);
             instances.Add(objId, nodeLinkData);
+            Log("am I still going2?");
         }
 
         //End of Start
