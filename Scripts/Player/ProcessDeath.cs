@@ -107,6 +107,8 @@ public class ProcessDeath : SystemBase
     }
     public void TakeHit(ulong otherId, ulong playerId)
     {
+        // Lowpass added to damage instance.  
+        AudioManager.instance?.TriggerDamageLowPass();
         AudioManager.instance.PlaySFX("SFX004");
 
         Entity other = Entity.FromId(World!, otherId);

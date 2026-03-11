@@ -160,7 +160,7 @@ public class NodeLinkData : SystemBase
     private void InitBoxCollider(ref BoxCollider2D bx, int NSEW_1234)
     {
         bx.IsTrigger = true;
-        bx.HalfExtents = new Vector2(0.8f, 0.3f);
+        bx.HalfExtents = new Vector2(0.6f, 0.15f);
 
         switch (NSEW_1234)
         {

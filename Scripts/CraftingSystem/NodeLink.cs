@@ -23,6 +23,7 @@ public class NodeLink : SystemBase
 {
     public static Dictionary<ulong, NodeLinkData> instances;
     public static Entity currentNodeLinkObj;
+    
 
     //No OnStart for NodeLink cause this component has weird buggy params
     protected override void OnUpdate()

@@ -203,8 +203,21 @@ public class Anemone :SystemBase
 
     private void FreezeNode(World world, Entity queriedObj)
     {
-        //General Initialization
-        queriedObj.RemoveComponent<CraftMoveComponent>();
+        if (!AudioManager.sfxEntityDictionary["SFX011"].GetComponent<AudioSource>().PlayOnStart)
+        {
+            AudioManager.instance.PlaySFX("SFX011");
+        }
+        else if(!AudioManager.sfxEntityDictionary["SFX011_alt"].GetComponent<AudioSource>().PlayOnStart)
+        {
+            AudioManager.instance.PlaySFX("SFX011_alt");
+        }
+        else
+        {
+            AudioManager.instance.PlaySFX("SFX011_alt2");
+        }
+
+            //General Initialization
+            queriedObj.RemoveComponent<CraftMoveComponent>();
         queriedObj.RemoveComponent<Rigidbody2D>();
         queriedObj.RemoveComponent<CircleCollider2D>();
         queriedObj.RemoveComponent<LinearVelocity2D>();
