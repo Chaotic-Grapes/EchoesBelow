@@ -66,12 +66,11 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 
             //Very important, asign this for everyone
             NodeLink.currentNodeLinkObj = parentObj;
-            //Log($"b5 parentObj: {Entity.FromId(World!,parentObj.Id).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}");
 
-            //foreach(NodeLinkData n in NodeLink.instances.Values)
-            //{
-            //    Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
-            //}
+            foreach (NodeLinkData n in NodeLink.instances.Values)
+            {
+                Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}", LogLevel.Debug);
+            }
 
 
             NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
@@ -94,7 +93,7 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
       
             DrawLink(nodeTriggerObj, parentObj, playerMSobj);
 
-            Log("In");
+            //Log("In");
             //Which Port did I pass by?
             //Log($"NodeLink Data Port: " + Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234);
             //Log($"N:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled}  / S:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled}  / E:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled}  / W:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled}");

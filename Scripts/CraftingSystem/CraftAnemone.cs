@@ -43,10 +43,11 @@ public class CraftAnemone : SystemBase
         
         NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
-
+        Log("runnin");
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
         {
-            if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode4)
+            Log("Still runnin");
+            if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode1)
             {
                 //if root node, the south port is always filled
                 NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, false, true, false, false);
