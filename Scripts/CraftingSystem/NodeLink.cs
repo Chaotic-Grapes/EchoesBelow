@@ -24,45 +24,42 @@ public class NodeLink : SystemBase
     public static Dictionary<ulong, NodeLinkData> instances;
     public static Entity currentNodeLinkObj;
 
+
     private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
 
-        Log("Combo Machine Alive!");
+        Log("NodeLink Alive! is instances null?: " + (instances == null));
 
-        instances = new Dictionary<ulong, NodeLinkData>();
-        //Log("1");
-        //Execute once for all instances
-        foreach (var gameObject in World!.Query<NodeLinkComponent>())
+        //This ensures that it only runs once at the start across all calls of OnStart() during runtime
+        if (instances == null)
         {
-            // Process component
-            //creates a new combination machine per NodeLinkComponent detected
-
-            //in editor, use isRootNode1, it will point to isRootNode4 ! Weird and buggy Engine behaviour sadly
-            if(Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
-            {
-                //if root node, the south port is always filled
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, false, true, false, false);
-                instances.Add(gameObject.Entity.Id, nodeLinkData);
-            }
-            else
-            {
-                //default unfilled?
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, false, false, false, false);
-                instances.Add(gameObject.Entity.Id, nodeLinkData);
-            }
-
-
-            Log("Added!");
-            foreach (NodeLinkData i in instances.Values)
-            {
-                Log($"I have: {i.parentObjId}");
-            }
+            Log("CREATING INSTANCES", LogLevel.Debug);
+            instances = new Dictionary<ulong, NodeLinkData>();
         }
 
-        Log($"I am a RootNode4? {Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4}");
+        //Log("1");
+        //Execute once for all instances
+
+        // Process component
+        //creates a new combination machine per NodeLinkComponent detected
+
+        //in editor, use isRootNode1, it will point to isRootNode4 ! Weird and buggy Engine behaviour sadly
+        if(Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4)
+        {
+            //if root node, the south port is always filled
+            NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, true, false, false);
+            instances.Add(objId, nodeLinkData);
+        }
+        else
+        {
+            //default unfilled?
+            NodeLinkData nodeLinkData = new NodeLinkData(World!, objId, false, false, false, false);
+            instances.Add(objId, nodeLinkData);
+        }
+
         //End of Start
         return true;
     }
@@ -105,27 +102,36 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
         {
             //Enable the E key
             CraftAnemone.isEnabled_EInput = true;
-
+            Log("b1");
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
+            Log("b2");
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetParent()!.Id);
+            Log("b3");
             Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
-
+            Log("b4");
             //Very important, asign this for everyone
             NodeLink.currentNodeLinkObj = parentObj;
+            Log($"b5 parentObj: {Entity.FromId(World!,parentObj.Id).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}");
+
+            foreach(NodeLinkData n in NodeLink.instances.Values)
+            {
+                Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
+            }
+
 
             NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-
+            Log("1");
             NodeLinkData.currentActiveTrigger = self.Id;
-
+            Log("2");
             //Check if ports are filled
             //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
             if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
             if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2) return;
             if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3) return;
             if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4) return;
-
+            Log("3");
             DrawLink(nodeTriggerObj, parentObj, playerMSobj);
-
+            Log("4");
             //Which Port did I pass by?
             //Log($"NodeLink Data Port: " + Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234);
             //Log($"N:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled}  / S:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled}  / E:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled}  / W:{NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled}");
@@ -144,7 +150,7 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 
             NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
 
-            NodeLinkData.currentActiveTrigger = 9999; //default empty
+            //NodeLinkData.currentActiveTrigger = 9999; //default empty
 
             //Check if ports are filled
             //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return

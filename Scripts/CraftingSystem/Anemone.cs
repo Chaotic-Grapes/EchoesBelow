@@ -164,11 +164,7 @@ public class Anemone :SystemBase
                 {
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
-                        queriedObj.RemoveComponent<CraftMoveComponent>();
-                        queriedObj.RemoveComponent<Rigidbody2D>();
-                        queriedObj.RemoveComponent<CircleCollider2D>();
-                        queriedObj.RemoveComponent<LinearVelocity2D>();
-                        queriedObj.RemoveComponent <AngularVelocity2D>();
+                        FreezeNode(queriedObj);
                         break;
                     }
                 }
@@ -204,6 +200,18 @@ public class Anemone :SystemBase
 
         return;
     }
+
+    private void FreezeNode(Entity queriedObj)
+    {
+        queriedObj.RemoveComponent<CraftMoveComponent>();
+        queriedObj.RemoveComponent<Rigidbody2D>();
+        queriedObj.RemoveComponent<CircleCollider2D>();
+        queriedObj.RemoveComponent<LinearVelocity2D>();
+        queriedObj.RemoveComponent<AngularVelocity2D>();
+
+        ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
+    }
+
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
     {
       

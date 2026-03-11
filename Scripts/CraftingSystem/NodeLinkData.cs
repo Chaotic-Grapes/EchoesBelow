@@ -43,9 +43,6 @@ public class NodeLinkData : SystemBase
             //Check only CMachine Triggers get thru
             if (!child.TryGetComponent<NodeLinkTriggerComponent>(out NodeLinkTriggerComponent nlTrigger)) continue;
 
-            ref BoxCollider2D bx = ref child.GetComponent<BoxCollider2D>();
-            bx.IsTrigger = true;
-
             switch (nlTrigger.NSEW_1234)
             {
                 case 1:

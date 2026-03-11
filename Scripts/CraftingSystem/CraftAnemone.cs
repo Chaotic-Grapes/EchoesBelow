@@ -136,6 +136,9 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
         }
 
+        isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
+        if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
+
         //Then all Update funcs
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
@@ -149,9 +152,6 @@ public class CraftAnemone : SystemBase
             //Inputs
             if (cr.isCaptured)
             {   
-
-                isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
-                if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
 
                 if (isKeyPressed_X)
                 {
@@ -210,8 +210,12 @@ public class CraftAnemone : SystemBase
                                                                          InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, 
                                                                          true, new Vector3(100, 100, 0), Vector2.Zero);
                     }
-                    Log($"[NodeLink] 1) Item removed!");
+                    //Log($"[NodeLink] 1) Item removed!");
 
+                    //Update the selection
+                    cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
+
+                    //Log($"[NodeLink] 2) Updated Selection");
 
                     //Tell the trigger: If you are a certain NSEW trigger, tick the corr isFilled.
 
@@ -238,13 +242,23 @@ public class CraftAnemone : SystemBase
 
 
 
-                    //Update the selection
-                    cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
-
-                    Log($"[NodeLink] 2) Updated Selection");
                     //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
-                    Log($"[NodeLink] 3) Trigger is disabled");
+                    //Log($"[NodeLink] 3) Trigger is disabled");
 
+                    Log("There are " + NodeLink.instances.Values.Count + " instances in NodeLink Instances");
+                    foreach(var node in NodeLink.instances.Values)
+                    {
+                        Log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                        
+                        Log("ParentObj: " + Entity.FromId(World!, node.parentObjId).GetComponent<Name>().Value.ToString(), LogLevel.Debug);
+                        Log($"N: {node.port_N_isFilled}");
+                        Log($"S: {node.port_S_isFilled}");
+                        Log($"E: {node.port_E_isFilled}");
+                        Log($"W: {node.port_W_isFilled}");
+                        Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+                    }
+                    
                 }
 
             }
