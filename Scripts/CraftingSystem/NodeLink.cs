@@ -60,9 +60,6 @@ public class NodeLink : SystemBase
             }
         }
 
-        Log($"I am a RootNode1? {Entity.FromId(World!,objId).GetComponent<NodeLinkComponent>().isRootNode1}");
-        Log($"I am a RootNode2? {Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode2}");
-        Log($"I am a RootNode3? {Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode3}");
         Log($"I am a RootNode4? {Entity.FromId(World!, objId).GetComponent<NodeLinkComponent>().isRootNode4}");
         //End of Start
         return true;
@@ -98,18 +95,33 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 {
 
 
-    protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
+    protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} triggered by {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
         //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
         {
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
-            ////Use this reference for everything
-            NodeLinkData nodeLink = NodeLink.instances[parentObj.Id];
+            Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
 
-            //TODO
-            ref NodeLinkComponent nl = ref Entity.FromId(World!, nodeLink.objId).GetComponent<NodeLinkComponent>();
+            NodeLinkData nodeLinkData = NodeLink.instances[parentObj.Id];
+
+            //Check if ports are filled
+            //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
+            if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
+            if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2) return;
+            if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3) return;
+            if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4) return;
+
+
+
+            //Retrieve positions
+            Vector2 parentObjPos = new Vector2(parentObj.GetComponent<LocalTransform>().Position.X, parentObj.GetComponent<LocalTransform>().Position.Y);
+            Vector2 playerMSPos = new Vector2(playerMSobj.GetComponent<LocalTransform>().Position.X, playerMSobj.GetComponent<LocalTransform>().Position.Y);
+
+            //Retrieve Shapeline, and map the position of the MS snow into parentObj's local space
+            ref ShapeLine2D lineRenderer = ref parentObj.GetComponent<ShapeLine2D>();
+            lineRenderer.B = new Vector2(playerMSPos.X - parentObjPos.X, playerMSPos.Y - parentObjPos.Y);
 
             //Which Port did I pass by?
             Log($"NodeLink Data Port: " + Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234);
@@ -120,8 +132,14 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
 
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
     {
+        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
+        {
+            Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
 
+            //Retrieve Shapeline
+            ref ShapeLine2D lineRenderer = ref parentObj.GetComponent<ShapeLine2D>();
+            lineRenderer.B = Vector2.Zero;
+            Log("Exitted");
+        }
     }
-
-
 }
