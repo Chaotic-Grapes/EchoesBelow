@@ -1,5 +1,4 @@
 using EchoesBelow.Scripts.Audio;
-using EchoesBelow.Scripts.MarineSnowSystem;
 using GrapeEngine.Math;
 using GrapeEngine.Scripting.Components;
 using GrapeEngine.Scripting.Core;
@@ -8,9 +7,6 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts.CraftingSystem;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 
 
 namespace EchoesBelow.Scripts;
@@ -236,22 +232,34 @@ public class CraftAnemone : SystemBase
                     if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1)
                     {
                         NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled = true;
-                        Log("N: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled);
+
+                        NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+                        ref Active portActive = ref Entity.FromId(World!, nodeLinkData.Port_E.Id).GetComponent<Active>();
+                        portActive.Enabled = false;
                     }
                     if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2)
                     {
                         NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled = true;
-                        Log("S: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_S_isFilled);
+
+                        NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+                        ref Active portActive = ref Entity.FromId(World!, nodeLinkData.Port_E.Id).GetComponent<Active>();
+                        portActive.Enabled = false;
                     }
                     if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3)
                     {
                         NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled = true;
-                        Log("E: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_E_isFilled);
+
+                        NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+                        ref Active portActive = ref Entity.FromId(World!, nodeLinkData.Port_E.Id).GetComponent<Active>();
+                        portActive.Enabled = false;
                     }
                     if (Entity.FromId(World!, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4)
                     {
                         NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled = true;
-                        Log("W: " + NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_W_isFilled);
+
+                        NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+                        ref Active portActive = ref Entity.FromId(World!, nodeLinkData.Port_E.Id).GetComponent<Active>();
+                        portActive.Enabled = false;
                     }
 
 
@@ -259,19 +267,19 @@ public class CraftAnemone : SystemBase
                     //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                     //Log($"[NodeLink] 3) Trigger is disabled");
 
-                    Log("There are " + NodeLink.instances.Values.Count + " instances in NodeLink Instances");
-                    foreach(var node in NodeLink.instances.Values)
-                    {
-                        Log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    //Log("There are " + NodeLink.instances.Values.Count + " instances in NodeLink Instances");
+                    //foreach(var node in NodeLink.instances.Values)
+                    //{
+                    //    Log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
                         
-                        Log("ParentObj: " + Entity.FromId(World!, node.parentObjId).GetComponent<Name>().Value.ToString(), LogLevel.Debug);
-                        Log($"N: {node.port_N_isFilled}");
-                        Log($"S: {node.port_S_isFilled}");
-                        Log($"E: {node.port_E_isFilled}");
-                        Log($"W: {node.port_W_isFilled}");
-                        Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                    //    Log("ParentObj: " + Entity.FromId(World!, node.parentObjId).GetComponent<Name>().Value.ToString(), LogLevel.Debug);
+                    //    Log($"N: {node.port_N_isFilled}");
+                    //    Log($"S: {node.port_S_isFilled}");
+                    //    Log($"E: {node.port_E_isFilled}");
+                    //    Log($"W: {node.port_W_isFilled}");
+                    //    Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-                    }
+                    //}
                     
                 }
 

@@ -211,7 +211,10 @@ public class Anemone :SystemBase
         queriedObj.RemoveComponent<AngularVelocity2D>();
 
         //Set to Background
-        //Entity.FromId(World!, queriedObj.Id).GetComponent<Layer>().Id = 0;
+        //Log("HEY");
+        //ushort l = 4;
+        //Log("Hey " + Entity.FromId(World!, queriedObj.Id).TryGetComponent<Layer>(out Layer ls));
+        //Log("Ho");
 
         //NodeLink initialization
         ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
@@ -233,15 +236,23 @@ public class Anemone :SystemBase
             case 1: //North N
                 //NodeLink.instances[NodeLink.currentNodeLinkObj.Id].port_N_isFilled = true;
                 nodeLinkData.port_S_isFilled = true;
+                ref Active portActive = ref Entity.FromId(world, nodeLinkData.Port_S.Id).GetComponent<Active>();
+                portActive.Enabled = false;
                 break;
             case 2: //South S
                 nodeLinkData.port_N_isFilled = true;
+                ref Active portActive2 = ref Entity.FromId(world, nodeLinkData.Port_N.Id).GetComponent<Active>();
+                portActive2.Enabled = false;
                 break;
             case 3: //East E
                 nodeLinkData.port_W_isFilled = true;
+                ref Active portActive3 = ref Entity.FromId(world, nodeLinkData.Port_W.Id).GetComponent<Active>();
+                portActive3.Enabled = false;
                 break;
             case 4: //West W
                 nodeLinkData.port_E_isFilled = true;
+                ref Active portActive4 = ref Entity.FromId(world, nodeLinkData.Port_E.Id).GetComponent<Active>();
+                portActive4.Enabled = false;
                 break;
             default:
                 break;
@@ -256,6 +267,12 @@ public class Anemone :SystemBase
         //Enable active
         ref Active active = ref pulledObj.GetComponent<Active>();
         active.Enabled = true;
+        
+        foreach(var child in pulledObj.GetChildren())
+        {
+            ref Active childActive = ref child.GetComponent<Active>();
+            childActive.Enabled = true;
+        }
 
         //Zero out the Linear Velocity before we do any other initialization of parameters
         ref LinearVelocity2D lv = ref pulledObj.GetComponent<LinearVelocity2D>();
@@ -279,6 +296,12 @@ public class Anemone :SystemBase
         //Disable active
         ref Active active = ref returningObj.GetComponent<Active>();
         active.Enabled = false;
+
+        foreach (var child in returningObj.GetChildren())
+        {
+            ref Active childActive = ref child.GetComponent<Active>();
+            childActive.Enabled = false;
+        }
         //set to original transform
         ref LocalTransform returningObjTransform = ref returningObj.GetComponent<LocalTransform>();
         returningObjTransform.Position = Vector3.Zero;
