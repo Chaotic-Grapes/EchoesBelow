@@ -124,7 +124,6 @@ public class BarnacleTriggerHandler : TriggerSystemBase
 
         if(selfEntity.HasComponent<BarnacleSnatcherComponent>() && otherEntity.HasComponent<PlayerTriggerComponent>())
         {
-            BarnacleSnatcher.instances[self.Id].SetAnimState(BarnacleSnatcher.attackState);
             
             for (int i = 0;   i <= InventoryController.slotInstances.Count-1; i++)
             {
@@ -135,7 +134,8 @@ public class BarnacleTriggerHandler : TriggerSystemBase
                 //If the slot is storing an item, remove the corresponding obj, from Left to right
                 if (slotInstance.isStoringItem)
                 {
-                   
+                    AudioManager.instance.PlaySFX("SFX002");
+                    BarnacleSnatcher.instances[self.Id].SetAnimState(BarnacleSnatcher.attackState);
                     InventoryController.instance.RemoveFromSlotInInventory(i);
                     break;
                 }

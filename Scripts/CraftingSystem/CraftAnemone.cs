@@ -27,6 +27,7 @@ public class CraftAnemone : SystemBase
 
     static bool isKeyPressed_X = false;
     static bool isKeyPressed_E = false;
+    static bool isKeyPressed_Space = false;
     public static bool isEnabled_EInput = true;
 
     #region SystemBehaviours
@@ -46,10 +47,10 @@ public class CraftAnemone : SystemBase
         //Migrate these to NodeLink after M5! and incorporate component values instead of storing port bools in NodeLinkData
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
         {
-            if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode1)
+            if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode)
             {
                 //if root node, the south port is always filled
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, false, true, false, false);
+                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 0, false, true, false, false);
                 NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
                 Log("Created and Added a node");
             }
@@ -70,8 +71,8 @@ public class CraftAnemone : SystemBase
         {
             if (child.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSignifier) && mSignifier.signifierID == 466)
             {
-                anemone.startNodePos = child.GetComponent<LocalTransform>().Position;
-                anemone.startNode = child;
+                anemone.rootNodePos = child.GetComponent<LocalTransform>().Position;
+                anemone.rootNode = child;
 
             }
         }
@@ -118,23 +119,25 @@ public class CraftAnemone : SystemBase
     {
         if (Input.IsKeyPressed(KeyCode.K))
         {
-            foreach (Anemone l in CraftAnemone.instances.Values)
-            {
-                Log("++++++++++++++++++++++++++++++++++++++++");
-                Log($"objID stored: {l.objId} name: {l.name}");
-                if (l != null)
-                {
-                    Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
-                    foreach (List<ulong> i in l.objPools)
-                    {
-                        foreach (ulong j in i)
-                        {
-                            Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
-                        }
-                    }
-                }
-                Log($"______________________________________");
-            }
+            //foreach (Anemone l in CraftAnemone.instances.Values)
+            //{
+            //    Log("++++++++++++++++++++++++++++++++++++++++");
+            //    Log($"objID stored: {l.objId} name: {l.name}");
+            //    if (l != null)
+            //    {
+            //        Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
+            //        foreach (List<ulong> i in l.objPools)
+            //        {
+            //            foreach (ulong j in i)
+            //            {
+            //                Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
+            //            }
+            //        }
+            //    }
+            //    Log($"______________________________________");
+            //}
+
+
         }
         //Call OnAwake 1st
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
@@ -150,6 +153,7 @@ public class CraftAnemone : SystemBase
         }
 
         isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
+        isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
 
         //Then all Update funcs
@@ -243,6 +247,25 @@ public class CraftAnemone : SystemBase
 
                 }
 
+                if (isKeyPressed_Space)
+                {
+                    Anemone anemone = instances[gameObject.Entity.Id];
+                    Entity rootNode = anemone.rootNode;
+
+                    NodeLinkData rootNodeLinkInstance = NodeLink.instances[rootNode.Id];
+
+                    List<ElementNode> eNodeList = [];
+                    rootNodeLinkInstance.node.GetNodeList(rootNodeLinkInstance.node, ref eNodeList);
+                    foreach (ElementNode e in eNodeList)
+                    {
+                        Log($"Name of Node: {e.parent.GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
+                    }
+
+                    string queryString = "";
+                    rootNodeLinkInstance.node.SearchNode(rootNodeLinkInstance.node, ref queryString);
+                    Log("queryString: " +  queryString);
+                }
+
             }
 
             // MOVE TOWARDS ANEMONE
@@ -274,7 +297,7 @@ public class CraftAnemone : SystemBase
     #region AnemoneFuncs
     public void Bloom(Anemone cr, float yOffset ,float lerpFac)
     {
-        Entity startNodeEntity = Entity.FromId(World!, cr.startNode.Id);
+        Entity startNodeEntity = Entity.FromId(World!, cr.rootNode.Id);
 
         startNodeEntity.GetComponent<Active>().Enabled = true;
         startNodeEntity.GetFirstChild()!.GetComponent<Active>().Enabled = true;

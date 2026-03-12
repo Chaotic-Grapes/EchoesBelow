@@ -16,7 +16,7 @@ namespace Scripts.CraftingSystem;
 /// System that processes entities with specific components.
 /// This is a pure ECS system: it queries entities and updates their components.
 /// </summary>
-[Component] public record struct NodeLinkComponent(bool start, bool isRootNode1, bool isRootNode2, bool isRootNode3, bool isRootNode4);
+[Component] public record struct NodeLinkComponent(bool start, bool isRootNode);
 [RequireForUpdate<NodeLinkComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class NodeLink : SystemBase
@@ -26,6 +26,7 @@ public class NodeLink : SystemBase
     
 
     //No OnStart for NodeLink cause this component has weird buggy params
+    //Thats in craftanemone
     protected override void OnUpdate()
     {
         // TODO: Query entities and update components

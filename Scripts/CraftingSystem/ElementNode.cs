@@ -15,11 +15,11 @@ using System.Collections.Generic;
 namespace EchoesBelow.Scripts;
 public class ElementNode
 {
-    public Entity parent { get; private set; }
-    public ElementNode node_N { get; private set; }
-    public ElementNode node_S { get; private set; }
-    public ElementNode node_E { get; private set; }
-    public ElementNode node_W { get; private set; }
+    public Entity parent { get; set; }
+    public ElementNode node_N { get; set; }
+    public ElementNode node_S { get; set; }
+    public ElementNode node_E { get; set; }
+    public ElementNode node_W { get; set; }
 
 
     public int msID {  get; set; }
@@ -40,19 +40,23 @@ public class ElementNode
         {
             case nodeSelect.North:
                 node_N = node;
-                //Assign each msID ?
+                msID_N = node.msID;
+             
                 break;
             case nodeSelect.South:
                 node_S = node;
-                
+                msID_S = node.msID;
+
                 break;
             case nodeSelect.East:
                 node_E = node;
-                
+                msID_E = node.msID;
+
                 break;            
             case nodeSelect.West:
                 node_W = node;
-                
+                msID_W = node.msID;
+
                 break;
             default:
                 break;

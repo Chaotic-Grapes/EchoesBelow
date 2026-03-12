@@ -26,13 +26,15 @@ public class NodeLinkData : SystemBase
     public Entity Port_E { get; set; }
     public Entity Port_W { get; set; }
 
+    public ElementNode node { get; set; }
+
     public static ulong currentActiveTrigger { get; set; }
 
 
     // I can have multiple unique fields in here, these cant be set from the outset
     // But colliders can query and send info to the corresponding CMachineData container
     // Accessing thru ulong ids
-    public NodeLinkData(World world, ulong objId, bool port_N_isFilled, bool port_S_isFilled, bool port_E_isFilled, bool port_W_isFilled)
+    public NodeLinkData(World world, ulong objId, int msID, bool port_N_isFilled, bool port_S_isFilled, bool port_E_isFilled, bool port_W_isFilled)
     {
         this.parentObjId = objId;
 
@@ -71,6 +73,10 @@ public class NodeLinkData : SystemBase
         this.port_S_isFilled = port_S_isFilled;
         this.port_E_isFilled = port_E_isFilled;
         this.port_W_isFilled = port_W_isFilled;
+
+        node = new ElementNode(msID, Entity.FromId(world, objId));
+
+       
     }
 
     public void EnableAllPorts()

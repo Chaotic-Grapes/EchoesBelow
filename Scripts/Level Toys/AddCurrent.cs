@@ -115,32 +115,25 @@ public class AddCurrentUtility : SystemBase
         startBool = true;
         //Todo
 
-        Log("a1", LogLevel.Warning);
         float objAngle = Quat2EulerAxisZ(obj.GetComponent<LocalTransform>().Rotation);
-        Log("a2");
         ref AddCurrentComponent ac = ref obj.GetComponent<AddCurrentComponent>();
-        Log("a3");
         Vector2 currentDir = new Vector2(GMath.Cos(objAngle + (90 * GMath.Deg2Rad)), GMath.Cos(objAngle));
-        Log("a4");
+
         ac.currentDirX = currentDir.X;
-        Log("a5");
         ac.currentDirY = currentDir.Y;
-        Log("a6");
+   
         ref ParticleEmitter pe = ref obj.GetComponent<ParticleEmitter>();
-        Log("a7");
+   
         pe.GravityX = currentDir.X * 4.3f;
-        Log("a8");
         pe.GravityY = currentDir.Y * 4.3f;
-        Log("a9");
         pe.EmissionAngle = objAngle * GMath.Deg2Rad;
-        Log("a10");
+
         //Log($"currentDir){currentDir} objAngle){objAngle} ");
-        Log("true? : " + obj.HasComponent<ShapeCircle2D>());
 
 
         ref ShapeBox2D shapeBox = ref obj.GetComponent<ShapeBox2D>();
         shapeBox.Filled = false;
-        Log("hmm");
+
         //Log("PARTICLE SET for : " + obj.GetComponent<Name>().Value.ToString());
         //End of Start
         return true;
@@ -163,11 +156,11 @@ public class AddCurrentUtility : SystemBase
         float y = quat.Y;
         float z = quat.Z;
         float w = quat.W;
-        Log("b1");
+     
         float a = 2 * (w * z + x * y);
         float b = 1 - (2 * ((y * y) + (z * z)));
         float outAngle = GMath.Atan2(a, b);
-        Log("b2");
+
         return outAngle;
     }
 }
