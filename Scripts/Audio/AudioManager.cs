@@ -23,10 +23,21 @@ namespace EchoesBelow.Scripts.Audio;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class AudioManager : SystemBase
 {
+    // normal bus state with no filter
+    private const float DefaultBusLowPassGain = 1.0f;
+    // damage muffle strength for the sfx bus
+    private const float DamageBusLowPassGain = 0.45f;
+    // how long the damage muffle stays active
+    private const float DamageBusLowPassDuration = 0.35f;
+
     public static AudioManager instance;
     public static List<Entity> sfxEntityList;
     public static Dictionary<string,Entity> sfxEntityDictionary;
-    
+
+    // countdown used to restore the sfx bus after damage
+    private float _damageLowPassTimer;
+
+
     private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
@@ -34,6 +45,11 @@ public class AudioManager : SystemBase
         //Todo
 
         instance = this;
+
+        // reset the damage filter timer
+        _damageLowPassTimer = 0.0f;
+        // make sure the sfx bus starts with no filter
+        GrapeEngine.Scripting.Services.Audio.ClearBusLowPassFilter(AudioBus.SFX);
 
         Entity audioManager = Entity.FromId(World!, objId);
 
@@ -58,6 +74,20 @@ public class AudioManager : SystemBase
     }
     protected override void OnUpdate()
     {
+
+        // count down the damage low pass effect
+        if (_damageLowPassTimer > 0.0f)
+        {
+            _damageLowPassTimer -= Time.DeltaTime;
+
+            // restore the bus when the timer ends
+            if (_damageLowPassTimer <= 0.0f)
+            {
+                _damageLowPassTimer = 0.0f;
+                GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(AudioBus.SFX, DefaultBusLowPassGain);
+            }
+        }
+
         foreach (var audioManager in World!.Query<AudioManagerComponent, AudioSource, GUIElement>()) //This shld only happen once
         {
             bool start_audioManager = audioManager.Component1.start;
@@ -91,6 +121,17 @@ public class AudioManager : SystemBase
 
 
     }
+
+    // applies the temporary damage filter to the sfx bus
+    public void TriggerDamageLowPass(float gain = DamageBusLowPassGain, float duration = DamageBusLowPassDuration)
+    {
+        // set the bus filter immediately
+        GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(AudioBus.SFX, gain);
+
+        // keep the longest active timer if this is called again quickly
+        _damageLowPassTimer = GMath.Max(_damageLowPassTimer, duration);
+    }
+
 
     public void PlaySFX(string sfxName)
     {

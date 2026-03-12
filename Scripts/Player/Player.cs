@@ -231,7 +231,12 @@ public class Player : SystemBase
             //update Position
             currentPos = transform.Position;
 
-            
+
+            GrapeEngine.Scripting.Services.Audio.SetListener(
+              transform.Position,
+             (transform.Position - currentPos) / (Time.DeltaTime > 0.0f ? Time.DeltaTime : 0.0001f),
+             new Vector3(playerDir.X, playerDir.Y, 0.0f), 
+             new Vector3(0.0f, 0.0f, 1.0f));
 
 
 

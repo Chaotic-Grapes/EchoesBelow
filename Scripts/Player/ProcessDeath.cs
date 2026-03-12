@@ -53,6 +53,7 @@ public class ProcessDeath : SystemBase
             //if the cooldown ends, you can repeat the process
             if (isHit)
             {
+
                 gameObject.Component1.hitCoolDownTimer += Time.DeltaTime;
 
                 //convert cooldown to percentage
@@ -107,7 +108,10 @@ public class ProcessDeath : SystemBase
     }
     public void TakeHit(ulong otherId, ulong playerId)
     {
+
         AudioManager.instance.PlaySFX("SFX004");
+        // Lowpass added to damage instance.  
+        AudioManager.instance?.TriggerDamageLowPass();
 
         Entity other = Entity.FromId(World!, otherId);
         Entity player = Entity.FromId(World!, playerId);
