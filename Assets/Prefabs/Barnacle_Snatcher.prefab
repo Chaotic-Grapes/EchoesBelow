@@ -1,0 +1,150 @@
+{
+    "Components": [
+        {
+            "Data": {
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Rotation": {
+                    "W": 1.0,
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Scale": {
+                    "X": 1.0,
+                    "Y": 1.0,
+                    "Z": 1.0
+                }
+            },
+            "TypeName": "LocalTransform"
+        },
+        {
+            "Data": {
+                "Value": "Barnacle Snatcher"
+            },
+            "TypeName": "Name"
+        },
+        {
+            "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "CurrentFrame": 15,
+                "Finished": false,
+                "TimeAccumulator": 0.003533758223056793
+            },
+            "TypeName": "AnimationState2D"
+        },
+        {
+            "Data": {
+                "Flags": 1,
+                "HalfExtents": {
+                    "X": 1.399999976158142,
+                    "Y": 0.23000000417232513
+                },
+                "LayerMask": 4294967295,
+                "Offset": {
+                    "X": 0.029999999329447746,
+                    "Y": 0.20000000298023224
+                },
+                "Rotation": 0.0
+            },
+            "TypeName": "BoxCollider2D"
+        },
+        {
+            "Data": {
+                "Id": 2
+            },
+            "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "Color": {
+                    "A": 1.0,
+                    "B": 1.0,
+                    "G": 1.0,
+                    "R": 1.0
+                },
+                "EmissiveStrength": 5.0,
+                "EmissiveTextureId": 0,
+                "EmissiveTexturePath": "",
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.7777777910232544
+                },
+                "TextureFilter": 0,
+                "TextureId": 44,
+                "TexturePath": "",
+                "Tiling": {
+                    "X": 0.3333333432674408,
+                    "Y": 0.037037014961242676
+                }
+            },
+            "TypeName": "SpriteRenderer2D"
+        },
+        {
+            "Data": {
+                "FrameCount": 58,
+                "FrameHeight": 220,
+                "FrameLength": 58,
+                "FrameOffset": 0,
+                "FrameWidth": 900,
+                "FramesPerSecond": 24.0,
+                "Loop": true,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Playing": true,
+                "Row": 0,
+                "Segments": [],
+                "SheetHeight": 5940,
+                "SheetWidth": 2700,
+                "StartFrame": 0,
+                "TextureFilter": 0,
+                "TextureId": 44,
+                "TexturePath": "Assets\\Sprites\\3.1-NPCsSpriteSheets\\BarnacleSnatcher_SpriteSheet.png",
+                "UseRow": true,
+                "UseSegments": false
+            },
+            "TypeName": "SpriteSheetAnimation2D"
+        },
+        {
+            "Data": {
+                "Dirty": false,
+                "Matrix": {
+                    "m00": 1.0,
+                    "m01": 0.0,
+                    "m02": 0.0,
+                    "m03": 3.7751200199127197,
+                    "m10": 0.0,
+                    "m11": 1.0,
+                    "m12": 0.0,
+                    "m13": -14.747846603393555,
+                    "m20": 0.0,
+                    "m21": 0.0,
+                    "m22": 1.0,
+                    "m23": 0.0,
+                    "m30": 0.0,
+                    "m31": 0.0,
+                    "m32": 0.0,
+                    "m33": 1.0
+                }
+            },
+            "TypeName": "WorldTransform"
+        },
+        {
+            "Data": {
+                "awake": false,
+                "start": false
+            },
+            "TypeName": "Barnacle Snatcher"
+        }
+    ]
+}

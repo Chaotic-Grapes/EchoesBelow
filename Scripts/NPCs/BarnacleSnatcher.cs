@@ -46,6 +46,10 @@ public class Barnacle : SystemBase
         spr.FrameOffset = animState.frameOffset;
         spr.FrameLength = animState.frameLength;
         spr.FramesPerSecond = animState.fps;
+
+        //Zero out the anim
+        ref AnimationState2D anim2D = ref Entity.FromId(world, objId).GetComponent<AnimationState2D>();
+        anim2D.CurrentFrame = 0;
     }
 }
 [Component(Name = "Barnacle Snatcher")] public record struct BarnacleSnatcherComponent(
@@ -67,9 +71,7 @@ public class BarnacleSnatcher : SystemBase
         if (awakeBool == true) return true;
         awakeBool = true;
         //Todo
-        Log("Awake2");
         instances = new Dictionary<ulong, Barnacle>();
-
         //End of Start
         return true;
     }
@@ -82,8 +84,6 @@ public class BarnacleSnatcher : SystemBase
         Barnacle barnacleData = new Barnacle(World!, objId, Entity.FromId(World!, objId).GetComponent<Name>().Value.ToString());
         barnacleData.SetAnimState(idleState);
         instances.Add(objId, barnacleData);
-
-        Log("START");
         //End of Start
         return true;
     }
@@ -106,8 +106,6 @@ public class BarnacleSnatcher : SystemBase
             Entity barnacleSnatcher = Entity.FromId(World!, instances[gameObject.Entity.Id].objId);
             Barnacle barnacleData = instances[gameObject.Entity.Id];
 
-            //Log($"IsFinished: " + (Entity.FromId(World!, barnacleData.objId).GetComponent<AnimationState2D>().CurrentFrame == 20));
-            //Log("currentState: " + barnacleData.currentState);
             if (barnacleData.currentState == attackState.name && (barnacleSnatcher.GetComponent<AnimationState2D>().CurrentFrame == (attackState.frameLength-1)))
             {
                 barnacleData.SetAnimState(idleState);
@@ -124,10 +122,25 @@ public class BarnacleTriggerHandler : TriggerSystemBase
         Entity selfEntity = Entity.FromId(World!, self.Id);
         Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
-        if(selfEntity.HasComponent<BarnacleSnatcherComponent>() && (otherEntity.HasComponent<PlayerTriggerComponent>()||otherEntity.HasComponent<PlayerComponent>()))
+        if(selfEntity.HasComponent<BarnacleSnatcherComponent>() && otherEntity.HasComponent<PlayerTriggerComponent>())
         {
-            Log("Snatch!");
             BarnacleSnatcher.instances[self.Id].SetAnimState(BarnacleSnatcher.attackState);
+            
+            for (int i = 0;   i <= InventoryController.slotInstances.Count-1; i++)
+            {
+
+                Entity slotEntity = Entity.FromId(World!, InventoryController.slotObjIds[i]);
+                string slotName = slotEntity.GetComponent<Name>().Value.ToString();
+                Slot slotInstance = InventoryController.slotInstances[slotName];
+                //If the slot is storing an item, remove the corresponding obj, from Left to right
+                if (slotInstance.isStoringItem)
+                {
+                   
+                    InventoryController.instance.RemoveFromSlotInInventory(i);
+                    break;
+                }
+                
+            }
         }
     }
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)

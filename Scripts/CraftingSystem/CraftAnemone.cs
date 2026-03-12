@@ -208,7 +208,8 @@ public class CraftAnemone : SystemBase
                     //}
                     //Do NodeLink related actions here
 
-                    //Remove the item from the inventory
+                    //
+                    //the item from the inventory
                     if (InventoryController.globalInvIterator == 6)
                     {
                         InventoryController.instance.RemoveFromInventory(2, true, new Vector3(100,100, 0), Vector2.Zero);

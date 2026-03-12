@@ -446,6 +446,68 @@ public class InventoryController : SystemBase
         MS_Manager.instance.TakeFromPool(msID, newPos, trajectory, 15f, isVomitting);
         
     }
+    public void RemoveFromSlotInInventory(int slotIndex)
+    {
+        //if (msID == 0) return;
+
+        switch (slotIndex)
+        {
+            case 5:
+                foreach (var gameObject in World!.Query<MatchSignifierComponent>())
+                {
+                    foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
+                    {
+                        if (gameObject.Component1.signifierID == gameObject2.Component1.ms01_signifier && ms01_Count > 0)
+                        {
+                            ms01_Count = GMath.Clamp(--ms01_Count, 0, 10);
+                            //MS_Manager.instance.SendToPool(otherId);
+                            if (ms01_Count <= 0)
+                            {
+                                slotInstances["Slot06"].isStoringItem = false;
+                                slotInstances["Slot06"].storedMsId = 0;
+                            }
+
+                            gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms01_Count}");
+                            UpdateSelection();
+                        }
+                    }
+                }
+                break;
+            case 6:
+                foreach (var gameObject in World!.Query<MatchSignifierComponent>())
+                {
+                    foreach (var gameObject2 in World!.Query<InventoryControllerComponent>())
+                    {
+                        if (gameObject.Component1.signifierID == gameObject2.Component1.ms02_signifier && ms02_Count > 0)
+                        {
+                            ms02_Count = GMath.Clamp(--ms02_Count, 0, 10);
+                            //MS_Manager.instance.SendToPool(otherId);
+                            if (ms02_Count <= 0)
+                            {
+                                slotInstances["Slot07"].isStoringItem = false;
+                                slotInstances["Slot07"].storedMsId = 0;
+                            }
+                            gameObject.Entity.GetComponent<GUIText>().TextId = Strings.Intern($"{ms02_Count}");
+                            UpdateSelection();
+                        }
+                    }
+                }
+                break;
+            default:
+                Entity slotEntity = Entity.FromId(World!, slotObjIds[slotIndex]);
+                string slotName = slotEntity.GetComponent<Name>().Value.ToString();
+                foreach (Entity image in slotInstances[slotName].ms_ImageRefList)
+                {
+                    image.GetComponent<GUIElement>().Visible = false;
+                    slotInstances[slotName].isStoringItem = false;
+                    slotInstances[slotName].storedMsId = 0;
+                }
+                UpdateSelection();
+                break;
+        }
+        //MS_Manager.instance.TakeFromPool(msID, newPos, trajectory, 15f, isVomitting);
+
+    }
     public bool FindAvailableSlot(out Entity slotEntity)
     {
         //Iterate thru the nonstackable era in sequence
