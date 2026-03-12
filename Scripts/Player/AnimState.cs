@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
 
-public class PlayerAnimPreset
+public class AnimState
 {
     public string name { get; set; }
     public int row         { get; set; }
@@ -12,7 +12,7 @@ public class PlayerAnimPreset
     public int frameLength { get; set; }
     public float fps       { get; set; }
     //This is a constructor
-    public PlayerAnimPreset(string name, int row, int frameOffset, int frameLength, float fps)
+    public AnimState(string name, int row, int frameOffset, int frameLength, float fps)
     {
         this.name = name;
         this.row = row;

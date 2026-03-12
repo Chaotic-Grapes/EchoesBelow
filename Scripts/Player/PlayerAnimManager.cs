@@ -20,7 +20,7 @@ public class PlayerAnimManager : SystemBase
         instance = this;
     }
 
-    public void SetAnimState(PlayerAnimPreset animState)
+    public void SetAnimState(AnimState animState)
     {
         foreach(var animator in  World!.Query<PlayerComponent, SpriteSheetAnimation2D>())
         {

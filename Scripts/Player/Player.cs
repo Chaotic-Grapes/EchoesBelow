@@ -29,9 +29,9 @@ public class Player : SystemBase
     public Entity player {  get; set; }
     
     //Make anim states here
-    PlayerAnimPreset moveState = new PlayerAnimPreset("moveState",0, 0, 20, 24f);
-    PlayerAnimPreset idleState = new PlayerAnimPreset("idleState",1, 5, 65, 30f);
-    PlayerAnimPreset dashState = new PlayerAnimPreset("dashState",5, 6, 26, 30f);
+    AnimState moveState = new AnimState("moveState",0, 0, 20, 24f);
+    AnimState idleState = new AnimState("idleState",1, 5, 65, 30f);
+    AnimState dashState = new AnimState("dashState",5, 6, 26, 30f);
 
     public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;
@@ -80,6 +80,7 @@ public class Player : SystemBase
     }
     protected override void OnUpdate()
     {
+
         if (isEnabled)
         {
             isKeyDown_W = Input.IsKeyDown(KeyCode.W);
