@@ -8,6 +8,7 @@ using GrapeEngine.Scripting.Events;
 using EchoesBelow.Scripts.MarineSnowSystem;
 using System;
 using EchoesBelow.Scripts.Audio;
+using EngineAudio = GrapeEngine.Scripting.Services.Audio;
 
 namespace EchoesBelow.Scripts;
 
@@ -232,7 +233,14 @@ public class Player : SystemBase
             //update Position
             currentPos = transform.Position;
 
-            
+
+
+
+             EngineAudio.SetListener(
+             transform.Position,
+             (transform.Position - currentPos) / (Time.DeltaTime > 0.0f ? Time.DeltaTime : 0.0001f),
+             new Vector3(playerDir.X, playerDir.Y, 0.0f), 
+             new Vector3(0.0f, 0.0f, 1.0f));
 
 
 
