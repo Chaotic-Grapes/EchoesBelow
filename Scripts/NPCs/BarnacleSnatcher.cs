@@ -1,21 +1,12 @@
-/**
- * @Name: Dalton koh, 2403250
- * @email: d.koh@digipen.edu
- * @file    BarnacleSnatcher.cs
- * 
- * @brief   Barnacle snatcher AI, animation, and collision handling.
- */
-
 using EchoesBelow.Scripts.Audio;
+using EchoesBelow.Scripts.MarineSnowSystem;
 using GrapeEngine.Math;
 using GrapeEngine.Scripting.Components;
 using GrapeEngine.Scripting.Core;
 using GrapeEngine.Scripting.Events;
-using GrapeEngine.Scripting.Gameplay;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -31,34 +22,30 @@ public class Barnacle : SystemBase
     public ulong objId { get; set; }
     public string name { get; set; }
     public string currentState {  get; set; }
+    public World world {  get; set; }
 
     // I can have multiple unique properties in here, these cant be set from the outset
     // But colliders can query and send info to the corresponding container
     // Accessing thru ulong ids
-    public Barnacle(ulong objId, string name)
+    public Barnacle(World world, ulong objId, string name)
     {
         //Set everything!
        this.objId = objId;
        this.name = name;
 
-        currentState = BarnacleSnatcher.idleState.name;
-        SetAnimState(BarnacleSnatcher.idleState);
+       this.world = world;
+
     }
 
     public void SetAnimState(AnimState animState)
     {
-        foreach (var animator in World!.Query<BarnacleSnatcherComponent, SpriteSheetAnimation2D>())
-        {
-            //If I find the corresponding obj, change the animstate!
-            if(animator.Entity.Id == objId)
-            {
-                Log($"___Setting for {Entity.FromId(World!, objId).GetComponent<Name>().Value.ToString()}");
-                animator.Component2.Row = animState.row;
-                animator.Component2.FrameOffset = animState.frameOffset;
-                animator.Component2.FrameLength = animState.frameLength;
-                animator.Component2.FramesPerSecond = animState.fps;
-            }
-        }
+        this.currentState = animState.name; 
+
+        ref SpriteSheetAnimation2D spr = ref Entity.FromId(world, objId).GetComponent<SpriteSheetAnimation2D>();
+        spr.Row = animState.row;
+        spr.FrameOffset = animState.frameOffset;
+        spr.FrameLength = animState.frameLength;
+        spr.FramesPerSecond = animState.fps;
     }
 }
 [Component(Name = "Barnacle Snatcher")] public record struct BarnacleSnatcherComponent(
@@ -80,9 +67,9 @@ public class BarnacleSnatcher : SystemBase
         if (awakeBool == true) return true;
         awakeBool = true;
         //Todo
-        Log("Awake");
-        //instances = new Dictionary<ulong, Barnacle>();
-        //Log($" instances count23: {instances.Count()}");
+        Log("Awake2");
+        instances = new Dictionary<ulong, Barnacle>();
+
         //End of Start
         return true;
     }
@@ -91,9 +78,12 @@ public class BarnacleSnatcher : SystemBase
         if (startBool == true) return true;
         startBool = true;
         //Todo
-        //Log($" instances count2: {instances.Count()}");
-        //instances.Add(objId, new Barnacle(objId, Entity.FromId(World!, objId).GetComponent<Name>().Value.ToString()));
-        Log("Start");
+
+        Barnacle barnacleData = new Barnacle(World!, objId, Entity.FromId(World!, objId).GetComponent<Name>().Value.ToString());
+        barnacleData.SetAnimState(idleState);
+        instances.Add(objId, barnacleData);
+
+        Log("START");
         //End of Start
         return true;
     }
@@ -112,15 +102,16 @@ public class BarnacleSnatcher : SystemBase
         
         foreach (var gameObject in World!.Query<BarnacleSnatcherComponent>())
         {
-      
             //Do everyth else
-            //Entity barnacleSnatcher = Entity.FromId(World!, instances[gameObject.Entity.Id].objId);
-            //Barnacle barnacleData = instances[gameObject.Entity.Id];
-            //if (barnacleData.currentState == attackState.name && barnacleSnatcher.GetComponent<AnimationState2D>().CurrentFrame == (attackState.frameLength - 1))
-            //{
-            //    barnacleData.SetAnimState(idleState);
-            //}
+            Entity barnacleSnatcher = Entity.FromId(World!, instances[gameObject.Entity.Id].objId);
+            Barnacle barnacleData = instances[gameObject.Entity.Id];
 
+            //Log($"IsFinished: " + (Entity.FromId(World!, barnacleData.objId).GetComponent<AnimationState2D>().CurrentFrame == 20));
+            //Log("currentState: " + barnacleData.currentState);
+            if (barnacleData.currentState == attackState.name && (barnacleSnatcher.GetComponent<AnimationState2D>().CurrentFrame == (attackState.frameLength-1)))
+            {
+                barnacleData.SetAnimState(idleState);
+            }
         }
 
     }
@@ -130,13 +121,12 @@ public class BarnacleTriggerHandler : TriggerSystemBase
 {
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
-        //Log("1");
         Entity selfEntity = Entity.FromId(World!, self.Id);
         Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
-        //Log($"2 / self: {selfEntity.GetComponent<Name>().Value.ToString()}  /  other: {otherEntity.GetComponent<Name>().Value.ToString()}");
+
         if(selfEntity.HasComponent<BarnacleSnatcherComponent>() && (otherEntity.HasComponent<PlayerTriggerComponent>()||otherEntity.HasComponent<PlayerComponent>()))
         {
-            Log("SNATCH4");
+            Log("Snatch!");
             BarnacleSnatcher.instances[self.Id].SetAnimState(BarnacleSnatcher.attackState);
         }
     }
