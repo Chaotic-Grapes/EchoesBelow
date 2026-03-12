@@ -1,0 +1,157 @@
+{
+    "Components": [
+        {
+            "Data": {
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Rotation": {
+                    "W": 1.0,
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Scale": {
+                    "X": 1.0000050067901611,
+                    "Y": 1.0000050067901611,
+                    "Z": 1.0
+                }
+            },
+            "TypeName": "LocalTransform"
+        },
+        {
+            "Data": {
+                "Value": "WaterColumn"
+            },
+            "TypeName": "Name"
+        },
+        {
+            "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "Flags": 1,
+                "HalfExtents": {
+                    "X": 0.20000000298023224,
+                    "Y": 3.0
+                },
+                "LayerMask": 4294967295,
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 3.0
+                },
+                "Rotation": 0.0
+            },
+            "TypeName": "BoxCollider2D"
+        },
+        {
+            "Data": {
+                "Id": 1
+            },
+            "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "TexturePath": "Assets\\Sprites\\5-ParticleAssets\\Bubble_Small.png",
+                "active": true,
+                "bounciness": 0.0,
+                "burstCount": 0,
+                "colorEndA": 0.0,
+                "colorEndB": 1.0,
+                "colorEndG": 1.0,
+                "colorEndR": 1.0,
+                "colorStartA": 1.0,
+                "colorStartB": 1.0,
+                "colorStartG": 1.0,
+                "colorStartR": 1.0,
+                "dieOnCollision": false,
+                "drag": 0.30000001192092896,
+                "emissionAngle": 0.0,
+                "emissionRadius": 0.20000000298023224,
+                "emissionRate": 50.0,
+                "emissionShape": 3,
+                "emissionSpread": 0.550000011920929,
+                "gravityX": 0.0,
+                "gravityY": 4.300000190734863,
+                "killOutOfBounds": false,
+                "lifetimeMax": 2.0,
+                "lifetimeMin": 1.0,
+                "maxParticles": 1000,
+                "particleSize": 0.30000001192092896,
+                "presetId": 0,
+                "rotationSpeedMax": 7.0,
+                "rotationSpeedMin": 4.0,
+                "sizeEnd": 0.6600000262260437,
+                "sizeStart": 0.03999999910593033,
+                "speedMax": 0.0,
+                "speedMin": 0.0,
+                "turbulence": 2.0,
+                "wobbleAmplitude": 0.0,
+                "wobbleFrequency": 0.0
+            },
+            "TypeName": "ParticleEmitter"
+        },
+        {
+            "Data": {
+                "Color": {
+                    "A": 1.0,
+                    "B": 1.0,
+                    "G": 1.0,
+                    "R": 1.0
+                },
+                "Filled": false,
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "Radius": 0.5,
+                "Thickness": 1.0
+            },
+            "TypeName": "ShapeCircle2D"
+        },
+        {
+            "Data": {
+                "Dirty": false,
+                "Matrix": {
+                    "m00": -1.192098864066793e-07,
+                    "m01": 1.0000048875808716,
+                    "m02": 0.0,
+                    "m03": -1.3446916341781616,
+                    "m10": -1.0000048875808716,
+                    "m11": -1.192098864066793e-07,
+                    "m12": 0.0,
+                    "m13": 10.436243057250977,
+                    "m20": 0.0,
+                    "m21": 0.0,
+                    "m22": 1.0,
+                    "m23": 0.0,
+                    "m30": 0.0,
+                    "m31": 0.0,
+                    "m32": 0.0,
+                    "m33": 1.0
+                }
+            },
+            "TypeName": "WorldTransform"
+        },
+        {
+            "Data": {
+                "ZOrder": 83
+            },
+            "TypeName": "ZIndex2D"
+        },
+        {
+            "Data": {
+                "currentDirX": 0,
+                "currentDirY": 0,
+                "pushSpeed": 5,
+                "start": false
+            },
+            "TypeName": "Add Current"
+        }
+    ]
+}
