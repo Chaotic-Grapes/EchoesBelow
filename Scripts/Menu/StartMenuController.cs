@@ -6,6 +6,7 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System;
+using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
 
@@ -14,28 +15,142 @@ namespace EchoesBelow.Scripts;
 public class StartMenuController : SystemBase
 {
     //For startscene
-    private const string SourceSceneName = "M4StartScene";
-    private const string TargetScenePath = "EchoesBelow/Scenes/Level_One.scn";
+    private const string SourceSceneName = "Newstartscene";
+    private const string TargetScenePath = "Scenes/FGym2.scn";
     //for endscene
     private const string EndSceneName = "EndScene";
-    private const string StartSceneName = "EchoesBelow/Scenes/M4StartScene.scn";
+    private const string StartSceneName = "Scenes/NewStartScene.scn";
 
-    public bool isKeyPressed_horizontal;
-    bool isLeftSelected;
+    // Requested navigation order: NewGame -> Continue -> Settings -> Exit.
+    private readonly string[] normalButtonNames =
+    {
+        "NewGame_Button",
+        "Continue_Button",
+        "Settings_Button",
+        "Exit_Button"
+    };
+
+    private readonly string[] lighterButtonNames =
+    {
+        "NewGame_Button_Lighter",
+        "Continue_Button_Lighter",
+        "Settings_Button_Lighter",
+        "Exit_Button_Lighter"
+    };
+
+    private readonly Dictionary<string, Entity> buttonEntities = new();
+    private int selectedIndex;
 
     private bool OnStart(ref bool startBool, ulong endSceneControllerId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
-        //Default
-        isLeftSelected = true;
+        // Start with all buttons in normal state; do not preselect/highlight any.
+        selectedIndex = -1;
 
         //reset endscene timer every time
         Entity.FromId(World!,endSceneControllerId).GetComponent<StartMenuControllerComponent>().timer = 1f;
+        CacheMenuButtonEntities();
+        ApplySelectionVisual();
         //End of Start
         return true;
     }
+
+    private void CacheMenuButtonEntities()
+    {
+        buttonEntities.Clear();
+
+        foreach (var ui in World!.Query<Name, GUIElement>())
+        {
+            string name = ui.Component1.Value.ToString();
+            buttonEntities[name] = ui.Entity;
+        }
+    }
+
+    private void SetVisible(string entityName, bool visible)
+    {
+        if (!buttonEntities.TryGetValue(entityName, out Entity entity) || !entity.IsAlive)
+        {
+            return;
+        }
+
+        if (!entity.TryGetComponent<GUIElement>(out _))
+        {
+            return;
+        }
+
+        entity.GetComponent<GUIElement>().Visible = visible;
+    }
+
+    private void ApplySelectionVisual()
+    {
+        for (int i = 0; i < normalButtonNames.Length; ++i)
+        {
+            bool selected = (selectedIndex >= 0) && (i == selectedIndex);
+            SetVisible(normalButtonNames[i], !selected);
+            SetVisible(lighterButtonNames[i], selected);
+        }
+    }
+
+    private void MoveSelection(int delta)
+    {
+        int count = normalButtonNames.Length;
+        if (count <= 0)
+        {
+            return;
+        }
+
+        if (selectedIndex < 0)
+        {
+            selectedIndex = 0;
+        }
+        else
+        {
+            selectedIndex = (selectedIndex + delta + count) % count;
+        }
+
+        ApplySelectionVisual();
+    }
+
+    private static void PlayMenuMoveSfx()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlaySFX("SFX007");
+        }
+    }
+
+    private void TriggerSelectedAction()
+    {
+        if (selectedIndex < 0)
+        {
+            return;
+        }
+
+        // New Game / Continue both transition to FGym2 with audio + visual fade.
+        if (selectedIndex == 0 || selectedIndex == 1)
+        {
+            PlayMenuMoveSfx();
+            SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
+            return;
+        }
+
+        // Settings currently has no dedicated scene/action in this flow.
+        if (selectedIndex == 2)
+        {
+            PlayMenuMoveSfx();
+            return;
+        }
+
+        // Exit
+        if (selectedIndex == 3)
+        {
+            PlayMenuMoveSfx();
+            Application.Quit();
+        }
+    }
+
     protected override void OnUpdate()
     {
         SceneManager sceneManager = SceneManager.Instance;
@@ -46,13 +161,7 @@ public class StartMenuController : SystemBase
                 controller.Component1.timer -= Time.DeltaTime;
                 if(Input.IsKeyDown(KeyCode.Space)) //controller.Component1.timer < 0 &&
                 {
-                    //Fade out music
-                    sceneManager.SetNextAudioTransition(2.0f, true);
-                    //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
-                    //Like creating a new scene / allocate a new scene in the registry
-                    var sceneIndex = SceneManager.Instance.AddScene();
-                    var ss = SceneManager.Instance.LoadScene(sceneIndex, StartSceneName);
-                    SceneManager.Instance.SetActive(sceneIndex);
+                    SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
                 }
             }
             else continue;
@@ -73,49 +182,31 @@ public class StartMenuController : SystemBase
             controller.Component1.start = OnStart(ref start, controller.Entity.Id);
         }
 
-        isKeyPressed_horizontal = Input.IsKeyPressed(KeyCode.A) || Input.IsKeyPressed(KeyCode.D);
-        if (isKeyPressed_horizontal)
+        // Re-cache if entities changed due to scene edits/hot reload.
+        if (buttonEntities.Count < 8)
         {
-            AudioManager.instance.PlaySFX("SFX007");
-            isLeftSelected = !isLeftSelected;
-            ////Log("isLeftSelected: " + isLeftSelected);
-            foreach(var controller in World!.Query<StartMenuControllerComponent>())
-            {
-                foreach(var ui in World!.Query<GUIElement, MatchSignifierComponent>())
-                {
-                    if (ui.Component2.signifierID == controller.Component1.startSignifier || ui.Component2.signifierID == controller.Component1.exitSignifier)
-                    {
-                        ui.Entity.GetComponent<GUIElement>().Visible = !ui.Entity.GetComponent<GUIElement>().Visible;
-                    }
-                }
-            }
+            CacheMenuButtonEntities();
+            ApplySelectionVisual();
         }
 
-        if (isLeftSelected && Input.IsKeyPressed(KeyCode.Space))
+        bool moveUp = Input.IsKeyPressed(KeyCode.W);
+        bool moveDown = Input.IsKeyPressed(KeyCode.D);
+
+        if (moveUp)
         {
-            AudioManager.instance.PlaySFX("SFX007");
-           
-            try
-            {
-                //Fade out music
-                sceneManager.SetNextAudioTransition(2.0f, true);
-                
-                //Like creating a new scene / allocate a new scene in the registry
-                var sceneIndex = SceneManager.Instance.AddScene();
-                var ss = SceneManager.Instance.LoadScene(sceneIndex, TargetScenePath);
-                SceneManager.Instance.SetActive(sceneIndex);
-                
-            }
-            catch (Exception ex)
-            {
-                Log($"{ex.Message}");
-            }
+            PlayMenuMoveSfx();
+            MoveSelection(-1);
         }
-        else if(!isLeftSelected && Input.IsKeyPressed(KeyCode.Space))
+
+        if (moveDown)
         {
-            AudioManager.instance.PlaySFX("SFX007");
-            ////Log("Quit");
-            Application.Quit();
+            PlayMenuMoveSfx();
+            MoveSelection(1);
+        }
+
+        if (Input.IsKeyPressed(KeyCode.Enter))
+        {
+            TriggerSelectedAction();
         }
     }
 }

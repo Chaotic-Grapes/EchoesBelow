@@ -73,7 +73,19 @@ public class AudioManager : SystemBase
 
         foreach(Entity e in sfxEntityList)
         {
-            sfxEntityDictionary.Add(e.GetComponent<Name>().Value.ToString(), e);
+            if (!e.TryGetComponent<Name>(out _))
+            {
+                continue;
+            }
+
+            // Use assignment to avoid hard failures when scene edits accidentally duplicate names.
+            sfxEntityDictionary[e.GetComponent<Name>().Value.ToString()] = e;
+
+            // SFX entries should not auto-play on scene load.
+            if (e.TryGetComponent<AudioSource>(out _))
+            {
+                e.GetComponent<AudioSource>().PlayOnStart = false;
+            }
         }
 
         foreach (var audio in World!.Query<AudioSource>())
@@ -186,9 +198,29 @@ public class AudioManager : SystemBase
             return;
         }
 
+        if (!sfxEntity.IsAlive)
+        {
+            Log("sfx entity is not alive for key " + sfxName, LogLevel.Warning);
+            return;
+        }
+
+        if (!sfxEntity.TryGetComponent<AudioSource>(out _))
+        {
+            Log("sfx entity missing AudioSource for key " + sfxName, LogLevel.Warning);
+            return;
+        }
+
         Entity chosenSfx = Entity.FromId(World!, sfxEntity.Id);
+        if (!chosenSfx.IsAlive)
+        {
+            Log("resolved sfx entity is not alive for key " + sfxName, LogLevel.Warning);
+            return;
+        }
+
         ref AudioSource audsrc = ref chosenSfx.GetComponent<AudioSource>();
-        
+
+        // Re-arm the edge-trigger so repeated key presses remain stable.
+        audsrc.PlayOnStart = false;
         audsrc.PlayOnStart = true;
     }
     public void StopSFX(string sfxName)
