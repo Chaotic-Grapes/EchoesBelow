@@ -1,0 +1,238 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 0.30000001192092896,
+                                "Y": 0.30000001192092896,
+                                "Z": 0.30000001192092896
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "WinConText"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": false
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "CastsShadows": false,
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.7343284487724304,
+                                "G": 0.0,
+                                "R": 0.7787598371505737
+                            },
+                            "Direction": {
+                                "X": 0.0,
+                                "Y": -1.0,
+                                "Z": 0.0
+                            },
+                            "Intensity": 5.599999904632568,
+                            "LightType": 1,
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 3.700000047683716
+                            },
+                            "Range": 10.5
+                        },
+                        "TypeName": "Light2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.8567022085189819,
+                                "G": 0.0,
+                                "R": 0.8806359767913818
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 48,
+                            "TexturePath": "Assets\\Sprites\\z-Placeholder Sprites\\WinConText.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.30000001192092896,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 4.978245735168457,
+                                "m10": 0.0,
+                                "m11": 0.30000001192092896,
+                                "m12": 0.0,
+                                "m13": 2.3773629665374756,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 0.30000001192092896,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": 10
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 1.0,
+                        "Y": 1.0,
+                        "Z": 1.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "LoadNextScene"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Flags": 1,
+                    "LayerMask": 4294967294,
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "Radius": 1.5
+                },
+                "TypeName": "CircleCollider2D"
+            },
+            {
+                "Data": {
+                    "Id": 2
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 0.6997033953666687,
+                        "G": 0.0,
+                        "R": 0.761298418045044
+                    },
+                    "Filled": false,
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "Radius": 1.5,
+                    "Thickness": 1.0
+                },
+                "TypeName": "ShapeCircle2D"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 1.0,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 4.978245735168457,
+                        "m10": 0.0,
+                        "m11": 1.0,
+                        "m12": 0.0,
+                        "m13": 2.3773629665374756,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            },
+            {
+                "Data": {
+                    "ZOrder": 10
+                },
+                "TypeName": "ZIndex2D"
+            },
+            {
+                "Data": {
+                    "signifierID": 86118001
+                },
+                "TypeName": "Match Signifier"
+            }
+        ]
+    }
+}
