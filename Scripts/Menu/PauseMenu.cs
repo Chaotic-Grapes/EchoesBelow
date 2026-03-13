@@ -23,6 +23,7 @@ public class PauseMenu : SystemBase
     private static readonly Vector2 BgmRangeStart = new(599.0f, 217.0f);
     private static readonly Vector2 BgmRangeEnd = new(940.0f, 140.0f);
     private const float SliderTrackHitRadius = 42.0f;
+    private const float VolumeHotkeyRepeatInterval = 0.12f;
 
     bool isPaused = false;
 
@@ -380,10 +381,10 @@ public class PauseMenu : SystemBase
 
     private void HandlePauseVolumeHotkeys()
     {
-        bool decSfx = Input.IsKeyPressed(KeyCode.I);
-        bool incSfx = Input.IsKeyPressed(KeyCode.O);
-        bool decBgm = Input.IsKeyPressed(KeyCode.Y);
-        bool incBgm = Input.IsKeyPressed(KeyCode.U);
+        bool decSfx = Input.IsKeyDown(KeyCode.I);
+        bool incSfx = Input.IsKeyDown(KeyCode.O);
+        bool decBgm = Input.IsKeyDown(KeyCode.Y);
+        bool incBgm = Input.IsKeyDown(KeyCode.U);
 
         if (!decSfx && !incSfx && !decBgm && !incBgm)
         {
@@ -397,22 +398,23 @@ public class PauseMenu : SystemBase
             {
                 step = 1.0f;
             }
+            float smoothStep = step * (Time.UnscaledDeltaTime / VolumeHotkeyRepeatInterval);
 
             if (decSfx)
             {
-                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume - step, 0.0f, 100.0f);
+                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume - smoothStep, 0.0f, 100.0f);
             }
             if (incSfx)
             {
-                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume + step, 0.0f, 100.0f);
+                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume + smoothStep, 0.0f, 100.0f);
             }
             if (decBgm)
             {
-                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume - step, 0.0f, 100.0f);
+                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume - smoothStep, 0.0f, 100.0f);
             }
             if (incBgm)
             {
-                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume + step, 0.0f, 100.0f);
+                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume + smoothStep, 0.0f, 100.0f);
             }
 
             break;
