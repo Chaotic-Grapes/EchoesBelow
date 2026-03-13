@@ -29,7 +29,7 @@
         },
         {
             "Data": {
-                "Enabled": false
+                "Enabled": true
             },
             "TypeName": "Active"
         },
@@ -94,7 +94,7 @@
                 "FontPath": "Assets\\Fonts\\Roboto\\static\\Roboto-Light.ttf",
                 "FontSize": 28.0,
                 "HAlign": 0,
-                "Text": "",
+                "Text": "FPS: 163",
                 "VAlign": 0,
                 "Wrap": false
             },
@@ -105,6 +105,13 @@
                 "Id": 0
             },
             "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "Flags": 0,
+                "PrefabHash": 3315285825
+            },
+            "TypeName": "PrefabInstanceMetadata"
         },
         {
             "Data": {
