@@ -237,6 +237,7 @@ public class Anemone :SystemBase
                 {
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
+
                         FreezeNode(world, queriedObj);
                         break;
                     }
