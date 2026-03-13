@@ -1,0 +1,137 @@
+{
+    "Components": [
+        {
+            "Data": {
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Rotation": {
+                    "W": 1.0,
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Scale": {
+                    "X": 2.9999301433563232,
+                    "Y": 2.9999301433563232,
+                    "Z": 3.0
+                }
+            },
+            "TypeName": "LocalTransform"
+        },
+        {
+            "Data": {
+                "Value": "Door"
+            },
+            "TypeName": "Name"
+        },
+        {
+            "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "Flags": 0,
+                "HalfExtents": {
+                    "X": 0.20000000298023224,
+                    "Y": 0.5
+                },
+                "LayerMask": 4294967294,
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "Rotation": 0.0
+            },
+            "TypeName": "BoxCollider2D"
+        },
+        {
+            "Data": {
+                "Id": 0
+            },
+            "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "AOStrength": 1.0,
+                "AlphaCutoff": 0.5,
+                "Flags": 32,
+                "MRA_TextureId": 0,
+                "MRA_TexturePath": "",
+                "Metallic": 0.0,
+                "NormalStrength": 1.0,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Smoothness": 0.0
+            },
+            "TypeName": "Material2D"
+        },
+        {
+            "Data": {
+                "Color": {
+                    "A": 1.0,
+                    "B": 1.0,
+                    "G": 1.0,
+                    "R": 1.0
+                },
+                "EmissiveStrength": 5.0,
+                "EmissiveTextureId": 0,
+                "EmissiveTexturePath": "",
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "TextureFilter": 0,
+                "TextureId": 24,
+                "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
+                "Tiling": {
+                    "X": 1.0,
+                    "Y": 1.0
+                }
+            },
+            "TypeName": "SpriteRenderer2D"
+        },
+        {
+            "Data": {
+                "Mask": 4
+            },
+            "TypeName": "TagMask"
+        },
+        {
+            "Data": {
+                "Dirty": false,
+                "Matrix": {
+                    "m00": 0.46350568532943726,
+                    "m01": -2.96390700340271,
+                    "m02": 0.0,
+                    "m03": 2.6544346809387207,
+                    "m10": 2.96390700340271,
+                    "m11": 0.46350568532943726,
+                    "m12": 0.0,
+                    "m13": -3.3485019207000732,
+                    "m20": 0.0,
+                    "m21": 0.0,
+                    "m22": 3.0,
+                    "m23": 0.0,
+                    "m30": 0.0,
+                    "m31": 0.0,
+                    "m32": 0.0,
+                    "m33": 1.0
+                }
+            },
+            "TypeName": "WorldTransform"
+        },
+        {
+            "Data": {
+                "ZOrder": -1
+            },
+            "TypeName": "ZIndex2D"
+        }
+    ]
+}

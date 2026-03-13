@@ -1,0 +1,645 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.17839956283569336,
+                                "Y": -0.16595005989074707,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.7981101274490356,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.6025117635726929
+                            },
+                            "Scale": {
+                                "X": 0.5400000214576721,
+                                "Y": 0.4199999272823334,
+                                "Z": 0.9999866485595703
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 26,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.22889643907546997,
+                                "m01": 0.38040122389793396,
+                                "m02": 0.0,
+                                "m03": 5.797739505767822,
+                                "m10": -0.4890873432159424,
+                                "m11": -0.17803052067756653,
+                                "m12": 0.0,
+                                "m13": -3.3595800399780273,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 2.999959945678711,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -2
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.18310046195983887,
+                                "Y": -0.33881354331970215,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.6996634602546692,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.7144725918769836
+                            },
+                            "Scale": {
+                                "X": 0.5400000214576721,
+                                "Y": 0.4199999272823334,
+                                "Z": 0.9999866485595703
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 26,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.07496627420186996,
+                                "m01": 0.4159330129623413,
+                                "m02": 0.0,
+                                "m03": 5.829957962036133,
+                                "m10": -0.5347710847854614,
+                                "m11": -0.058307092636823654,
+                                "m12": 0.0,
+                                "m13": -3.189680576324463,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 2.999959945678711,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -2
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.17979073524475098,
+                                "Y": 0.16527557373046875,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.7981101274490356,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.6025115847587585
+                            },
+                            "Scale": {
+                                "X": 0.5399999618530273,
+                                "Y": 0.4199999272823334,
+                                "Z": 0.9999866485595703
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 26,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.22889655828475952,
+                                "m01": 0.3804011642932892,
+                                "m02": 0.0,
+                                "m03": 5.746270656585693,
+                                "m10": -0.4890872538089752,
+                                "m11": -0.17803063988685608,
+                                "m12": 0.0,
+                                "m13": -3.6867854595184326,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 2.999959945678711,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -2
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.16988468170166016,
+                                "Y": 0.32199811935424805,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.6996634602546692,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.7144725918769836
+                            },
+                            "Scale": {
+                                "X": 0.5400000214576721,
+                                "Y": 0.4199999272823334,
+                                "Z": 0.9999866485595703
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 26,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.07496627420186996,
+                                "m01": 0.4159330129623413,
+                                "m02": 0.0,
+                                "m03": 5.711488723754883,
+                                "m10": -0.5347710847854614,
+                                "m11": -0.058307092636823654,
+                                "m12": 0.0,
+                                "m13": -3.8399202823638916,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 2.999959945678711,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -2
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.18037033081054688,
+                                "Y": -0.013481855392456055,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.6996634602546692,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.7144725918769836
+                            },
+                            "Scale": {
+                                "X": 0.5400000214576721,
+                                "Y": 0.4199999272823334,
+                                "Z": 0.9999866485595703
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "HalfExtents": {
+                                "X": 0.8600000143051147,
+                                "Y": 0.15000000596046448
+                            },
+                            "LayerMask": 4294967294,
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.10000000149011612
+                            },
+                            "Rotation": 0.0
+                        },
+                        "TypeName": "BoxCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 26,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 32
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.07496627420186996,
+                                "m01": 0.4159330129623413,
+                                "m02": 0.0,
+                                "m03": 5.775361061096191,
+                                "m10": -0.5347710847854614,
+                                "m11": -0.058307092636823654,
+                                "m12": 0.0,
+                                "m13": -3.5104098320007324,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 2.999959945678711,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -2
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 1.0,
+                        "Y": 1.0,
+                        "Z": 3.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "OneSidedDoor"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Flags": 0,
+                    "HalfExtents": {
+                        "X": 0.20000000298023224,
+                        "Y": 0.5
+                    },
+                    "LayerMask": 4294967294,
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "Rotation": 0.0
+                },
+                "TypeName": "BoxCollider2D"
+            },
+            {
+                "Data": {
+                    "Id": 0
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "AOStrength": 1.0,
+                    "AlphaCutoff": 0.5,
+                    "Flags": 32,
+                    "MRA_TextureId": 0,
+                    "MRA_TexturePath": "",
+                    "Metallic": 0.0,
+                    "NormalStrength": 1.0,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Smoothness": 0.0
+                },
+                "TypeName": "Material2D"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 1.0,
+                        "G": 1.0,
+                        "R": 1.0
+                    },
+                    "EmissiveStrength": 5.0,
+                    "EmissiveTextureId": 0,
+                    "EmissiveTexturePath": "",
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "TextureFilter": 0,
+                    "TextureId": 24,
+                    "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
+                    "Tiling": {
+                        "X": 1.0,
+                        "Y": 1.0
+                    }
+                },
+                "TypeName": "SpriteRenderer2D"
+            },
+            {
+                "Data": {
+                    "Mask": 4
+                },
+                "TypeName": "TagMask"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": -0.9871922731399536,
+                        "m01": -0.15953540802001953,
+                        "m02": 0.0,
+                        "m03": 5.595149993896484,
+                        "m10": 0.15953540802001953,
+                        "m11": -0.9871922731399536,
+                        "m12": 0.0,
+                        "m13": -3.494943618774414,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 3.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            },
+            {
+                "Data": {
+                    "ZOrder": -1
+                },
+                "TypeName": "ZIndex2D"
+            }
+        ]
+    }
+}
