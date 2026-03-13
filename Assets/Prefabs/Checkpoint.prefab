@@ -1,0 +1,146 @@
+{
+    "Components": [
+        {
+            "Data": {
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Rotation": {
+                    "W": 1.0,
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Scale": {
+                    "X": 1.0000001192092896,
+                    "Y": 1.0000001192092896,
+                    "Z": 1.0
+                }
+            },
+            "TypeName": "LocalTransform"
+        },
+        {
+            "Data": {
+                "Value": "Checkpoint"
+            },
+            "TypeName": "Name"
+        },
+        {
+            "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "Id": 0
+            },
+            "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "CastsShadows": false,
+                "Color": {
+                    "A": 1.0,
+                    "B": 0.1253647804260254,
+                    "G": 0.8984794020652771,
+                    "R": 0.7875197529792786
+                },
+                "Direction": {
+                    "X": 0.0,
+                    "Y": -1.0,
+                    "Z": -0.6000000238418579
+                },
+                "Intensity": 3.299999952316284,
+                "LightType": 1,
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.4000000059604645
+                },
+                "Range": 5.5
+            },
+            "TypeName": "Light2D"
+        },
+        {
+            "Data": {
+                "AOStrength": 1.0,
+                "AlphaCutoff": 0.5,
+                "Flags": 32,
+                "MRA_TextureId": 0,
+                "MRA_TexturePath": "",
+                "Metallic": 0.0,
+                "NormalStrength": 1.0,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Smoothness": 0.0
+            },
+            "TypeName": "Material2D"
+        },
+        {
+            "Data": {
+                "Color": {
+                    "A": 1.0,
+                    "B": 0.9998999834060669,
+                    "G": 1.0,
+                    "R": 0.9999850988388062
+                },
+                "EmissiveStrength": 5.0,
+                "EmissiveTextureId": 0,
+                "EmissiveTexturePath": "",
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "TextureFilter": 0,
+                "TextureId": 20,
+                "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SpawnGrape_Bulb.png",
+                "Tiling": {
+                    "X": 1.0,
+                    "Y": 1.0
+                }
+            },
+            "TypeName": "SpriteRenderer2D"
+        },
+        {
+            "Data": {
+                "Dirty": false,
+                "Matrix": {
+                    "m00": 0.10292454063892365,
+                    "m01": -0.9946893453598022,
+                    "m02": 0.0,
+                    "m03": 0.08734798431396484,
+                    "m10": 0.9946893453598022,
+                    "m11": 0.10292454063892365,
+                    "m12": 0.0,
+                    "m13": 0.9959334135055542,
+                    "m20": 0.0,
+                    "m21": 0.0,
+                    "m22": 1.0,
+                    "m23": 0.0,
+                    "m30": 0.0,
+                    "m31": 0.0,
+                    "m32": 0.0,
+                    "m33": 1.0
+                }
+            },
+            "TypeName": "WorldTransform"
+        },
+        {
+            "Data": {
+                "signifierID": 91822645
+            },
+            "TypeName": "Match Signifier"
+        },
+        {
+            "Data": {
+                "start": false
+            },
+            "TypeName": "Check Point"
+        }
+    ]
+}

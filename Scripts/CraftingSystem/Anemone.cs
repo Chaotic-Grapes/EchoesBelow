@@ -379,6 +379,18 @@ public class Anemone :SystemBase
       
         Entity pulledObj = Entity.FromId(world, pulledObjId);
 
+        //ADD EVERYTHING BACK
+        ref LinearVelocity2D lv1 = ref pulledObj.AddComponent<LinearVelocity2D>();
+        ref AngularVelocity2D av = ref pulledObj.AddComponent<AngularVelocity2D>();
+        ref Rigidbody2D rb = ref pulledObj.AddComponent<Rigidbody2D>();
+        rb.Mass = 1;
+        rb.IsKinematic = true;
+        rb.LinearDamping = 1.28f;
+        ref CircleCollider2D circCollider = ref pulledObj.AddComponent<CircleCollider2D>();
+        circCollider.Radius = 0.3f;
+
+
+
         //Enable active
         ref Active active = ref pulledObj.GetComponent<Active>();
         active.Enabled = true;

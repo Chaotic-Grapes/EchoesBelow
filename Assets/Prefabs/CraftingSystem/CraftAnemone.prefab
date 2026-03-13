@@ -1292,12 +1292,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -1306,41 +1300,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Radius": 0.30000001192092896
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -1917,12 +1879,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -1931,41 +1887,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.003000000026077032,
-                                "Y": 0.019999999552965164
-                            },
-                            "Radius": 0.18000000715255737
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -2551,12 +2475,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -2565,41 +2483,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Radius": 0.25
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -3169,12 +3055,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -3183,41 +3063,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Radius": 0.4000000059604645
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -3787,12 +3635,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -3801,41 +3643,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Radius": 0.25
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -4405,12 +4215,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -4419,41 +4223,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.009999999776482582,
-                                "Y": 0.0
-                            },
-                            "Radius": 0.46000000834465027
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -5023,12 +4795,6 @@
                     },
                     {
                         "Data": {
-                            "Value": 0.0
-                        },
-                        "TypeName": "AngularVelocity2D"
-                    },
-                    {
-                        "Data": {
                             "CurrentFrame": 0,
                             "Finished": false,
                             "TimeAccumulator": 0.0
@@ -5037,41 +4803,9 @@
                     },
                     {
                         "Data": {
-                            "Flags": 0,
-                            "LayerMask": 4294967294,
-                            "Offset": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "Radius": 0.33000001311302185
-                        },
-                        "TypeName": "CircleCollider2D"
-                    },
-                    {
-                        "Data": {
                             "Id": 2
                         },
                         "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Value": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            }
-                        },
-                        "TypeName": "LinearVelocity2D"
-                    },
-                    {
-                        "Data": {
-                            "AngularDamping": 0.0,
-                            "Flags": 1,
-                            "GravityScale": 1.0,
-                            "InverseMass": 1.0,
-                            "LinearDamping": 1.2799999713897705,
-                            "Mass": 1.0
-                        },
-                        "TypeName": "Rigidbody2D"
                     },
                     {
                         "Data": {
@@ -5213,7 +4947,7 @@
                         "X": 0.0,
                         "Y": 0.0
                     },
-                    "Radius": 1.5
+                    "Radius": 0.6000000238418579
                 },
                 "TypeName": "CircleCollider2D"
             },
