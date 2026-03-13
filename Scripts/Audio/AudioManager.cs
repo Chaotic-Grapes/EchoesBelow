@@ -26,9 +26,11 @@ public class AudioManager : SystemBase
     // normal bus state with no filter
     private const float DefaultBusLowPassGain = 1.0f;
     // damage muffle strength for the sfx bus
-    private const float DamageBusLowPassGain = 0.23f;
+    private const float DamageBusLowPassGain = 0.18f;
     // how long the damage muffle stays active
-    private const float DamageBusLowPassDuration = 4.0f;
+    private const float DamageBusLowPassDuration = 6.0f;
+    // short attack to avoid audible click/pop when damage filter engages
+    private const float DamageBusLowPassAttackDuration = 0.12f;
 
     private static readonly AudioBus[] DamageLowPassBuses =
     {
@@ -40,11 +42,16 @@ public class AudioManager : SystemBase
     public static List<Entity> sfxEntityList;
     public static Dictionary<string,Entity> sfxEntityDictionary;
     private static Dictionary<ulong, float> baseAudioVolumeByEntityId;
+    private static HashSet<ulong> sfxTriggerResetQueue;
 
     // countdown used to restore the sfx bus after damage
     private float _damageLowPassTimer;
     private float _damageLowPassDurationActive;
     private float _damageLowPassStartGain;
+    private float _damageLowPassTargetGain;
+    private float _damageLowPassAttackTimer;
+    private float _damageLowPassAttackDurationActive;
+    private float _damageCurrentGain;
 
 
     private bool OnStart(ref bool startBool, ulong objId)
@@ -59,6 +66,10 @@ public class AudioManager : SystemBase
         _damageLowPassTimer = 0.0f;
         _damageLowPassDurationActive = 0.0f;
         _damageLowPassStartGain = DefaultBusLowPassGain;
+        _damageLowPassTargetGain = DamageBusLowPassGain;
+        _damageLowPassAttackTimer = 0.0f;
+        _damageLowPassAttackDurationActive = 0.0f;
+        _damageCurrentGain = DefaultBusLowPassGain;
         // make sure target buses start with no filter
         foreach (AudioBus bus in DamageLowPassBuses)
         {
@@ -70,6 +81,7 @@ public class AudioManager : SystemBase
         sfxEntityDictionary = [];
         sfxEntityList = audioManager.GetChildren();
         baseAudioVolumeByEntityId = [];
+        sfxTriggerResetQueue = [];
 
         foreach(Entity e in sfxEntityList)
         {
@@ -106,17 +118,52 @@ public class AudioManager : SystemBase
     }
     protected override void OnUpdate()
     {
+        // Clear one-shot SFX triggers from the previous frame.
+        if (sfxTriggerResetQueue != null && sfxTriggerResetQueue.Count > 0)
+        {
+            foreach (ulong entityId in sfxTriggerResetQueue)
+            {
+                Entity sfx = Entity.FromId(World!, entityId);
+                if (!sfx.IsAlive || !sfx.TryGetComponent<AudioSource>(out _))
+                {
+                    continue;
+                }
+
+                sfx.GetComponent<AudioSource>().PlayOnStart = false;
+            }
+
+            sfxTriggerResetQueue.Clear();
+        }
 
         // count down the damage low pass effect
         if (_damageLowPassTimer > 0.0f)
         {
             _damageLowPassTimer -= Time.DeltaTime;
 
+            if (_damageLowPassAttackTimer > 0.0f)
+            {
+                _damageLowPassAttackTimer -= Time.DeltaTime;
+                if (_damageLowPassAttackTimer < 0.0f)
+                {
+                    _damageLowPassAttackTimer = 0.0f;
+                }
+            }
+
             if (_damageLowPassDurationActive > 0.0f)
             {
-                float progress = 1.0f - (_damageLowPassTimer / _damageLowPassDurationActive);
-                progress = GMath.Clamp(progress, 0.0f, 1.0f);
-                float gain = GMath.Lerp(_damageLowPassStartGain, DefaultBusLowPassGain, progress);
+                float releaseProgress = 1.0f - (_damageLowPassTimer / _damageLowPassDurationActive);
+                releaseProgress = GMath.Clamp(releaseProgress, 0.0f, 1.0f);
+                float releaseGain = GMath.Lerp(_damageLowPassTargetGain, DefaultBusLowPassGain, releaseProgress);
+
+                float gain = releaseGain;
+                if (_damageLowPassAttackDurationActive > 0.0f && _damageLowPassAttackTimer > 0.0f)
+                {
+                    float attackProgress = 1.0f - (_damageLowPassAttackTimer / _damageLowPassAttackDurationActive);
+                    attackProgress = GMath.Clamp(attackProgress, 0.0f, 1.0f);
+                    gain = GMath.Lerp(_damageLowPassStartGain, releaseGain, attackProgress);
+                }
+
+                _damageCurrentGain = gain;
 
                 foreach (AudioBus bus in DamageLowPassBuses)
                 {
@@ -128,6 +175,7 @@ public class AudioManager : SystemBase
             if (_damageLowPassTimer <= 0.0f)
             {
                 _damageLowPassTimer = 0.0f;
+                _damageCurrentGain = DefaultBusLowPassGain;
                 foreach (AudioBus bus in DamageLowPassBuses)
                 {
                     GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, DefaultBusLowPassGain);
@@ -176,17 +224,16 @@ public class AudioManager : SystemBase
     {
         gain = GMath.Clamp(gain, 0.0f, 1.0f);
 
-        // set filters immediately
-        foreach (AudioBus bus in DamageLowPassBuses)
-        {
-            GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, gain);
-        }
+        float activeDuration = duration > 0.0f ? duration : 0.0f;
+        float newTimer = GMath.Max(_damageLowPassTimer, activeDuration);
 
-        _damageLowPassStartGain = gain;
-        _damageLowPassDurationActive = duration > 0.0f ? duration : 0.0f;
+        _damageLowPassStartGain = _damageCurrentGain;
+        _damageLowPassTargetGain = gain;
+        _damageLowPassDurationActive = newTimer;
+        _damageLowPassTimer = newTimer;
 
-        // keep the longest active timer if this is called again quickly
-        _damageLowPassTimer = GMath.Max(_damageLowPassTimer, duration);
+        _damageLowPassAttackDurationActive = GMath.Clamp(DamageBusLowPassAttackDuration, 0.0f, _damageLowPassDurationActive);
+        _damageLowPassAttackTimer = _damageLowPassAttackDurationActive;
     }
 
 
@@ -222,6 +269,12 @@ public class AudioManager : SystemBase
         // Re-arm the edge-trigger so repeated key presses remain stable.
         audsrc.PlayOnStart = false;
         audsrc.PlayOnStart = true;
+
+        if (sfxTriggerResetQueue == null)
+        {
+            sfxTriggerResetQueue = [];
+        }
+        sfxTriggerResetQueue.Add(chosenSfx.Id);
     }
     public void StopSFX(string sfxName)
     {

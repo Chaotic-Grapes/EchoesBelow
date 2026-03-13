@@ -42,6 +42,8 @@ public class SceneCrossFadeTransition : SystemBase
             return;
         }
 
+        Log($"SceneCrossFadeTransition.Request target='{targetScenePath}' duration={duration} audio={allowAudioCrossfade}");
+
         s_hasRequest = true;
         s_targetScenePath = targetScenePath;
         s_duration = duration <= 0.01f ? 0.01f : duration;
@@ -90,7 +92,8 @@ public class SceneCrossFadeTransition : SystemBase
         ref GUIPanel overlayPanel = ref overlay.GetComponent<GUIPanel>();
 
         overlayElement.Visible = true;
-        _timer += Time.DeltaTime;
+        // Use unscaled time so transitions still run while gameplay is paused.
+        _timer += Time.UnscaledDeltaTime;
 
         float t = _activeDuration > 0.0001f ? _timer / _activeDuration : 1.0f;
         t = GMath.Clamp(t, 0.0f, 1.0f);
@@ -151,15 +154,23 @@ public class SceneCrossFadeTransition : SystemBase
         }
 
         SceneManager sceneManager = SceneManager.Instance;
+        Log($"SceneCrossFadeTransition.PerformSceneSwap begin target='{s_targetScenePath}'");
         sceneManager.SetNextAudioTransition(_activeDuration, s_allowAudioCrossfade);
 
         ulong sceneIndex = sceneManager.AddScene();
-        if (sceneManager.LoadScene(sceneIndex, s_targetScenePath))
+        bool loaded = sceneManager.LoadScene(sceneIndex, s_targetScenePath);
+        Log($"SceneCrossFadeTransition.LoadScene loaded={loaded} index={sceneIndex} target='{s_targetScenePath}'");
+        if (loaded)
         {
             sceneManager.SetActive(sceneIndex);
+            Log($"SceneCrossFadeTransition.SetActive index={sceneIndex}");
             s_pendingFadeIn = true;
             s_pendingFadeInDuration = _activeDuration;
             s_pendingFadeInOverlaySignifierId = _activeOverlaySignifierId;
+        }
+        else
+        {
+            Log($"SceneCrossFadeTransition failed to load '{s_targetScenePath}'", LogLevel.Error);
         }
     }
 }
