@@ -8,6 +8,7 @@ using GrapeEngine.Scripting.Events;
 using EchoesBelow.Scripts.MarineSnowSystem;
 using System;
 using EchoesBelow.Scripts.Audio;
+using Scripts.CraftingSystem;
 
 namespace EchoesBelow.Scripts;
 
@@ -411,7 +412,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         }
 
         //Marine Snow Trigger detection is handled by the Squidward!
-        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM))
+        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM) && !Entity.FromId(World!, other.Id).HasComponent<CraftMoveComponent>())
         {
             if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
             AudioManager.instance.PlaySFX("SFX003");
