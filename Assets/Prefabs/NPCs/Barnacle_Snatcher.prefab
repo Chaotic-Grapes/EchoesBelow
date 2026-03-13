@@ -81,7 +81,7 @@
                     "Y": 0.7777777910232544
                 },
                 "TextureFilter": 0,
-                "TextureId": 44,
+                "TextureId": 31,
                 "TexturePath": "",
                 "Tiling": {
                     "X": 0.3333333432674408,
@@ -108,7 +108,7 @@
                 "SheetWidth": 2700,
                 "StartFrame": 0,
                 "TextureFilter": 0,
-                "TextureId": 44,
+                "TextureId": 31,
                 "TexturePath": "Assets\\Sprites\\3.1-NPCsSpriteSheets\\BarnacleSnatcher_SpriteSheet.png",
                 "UseRow": true,
                 "UseSegments": false

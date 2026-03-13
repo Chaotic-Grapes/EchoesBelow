@@ -38,7 +38,7 @@ public class PlayerTriggerHandler : TriggerSystemBase
         }
 
         if (other.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign) && other.GetComponent<MatchSignifierComponent>().signifierID == 86118001 &&
-            InventoryController.ms02_Count >= 5 && InventoryController.ms01_Count >= 5)
+            InventoryController.ms02_Count >= 0 && InventoryController.ms01_Count >= 0)
         {
             Log("Endscene Entering. . . ");
             SceneManager sceneManager = SceneManager.Instance;

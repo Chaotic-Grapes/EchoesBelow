@@ -316,12 +316,49 @@ public class CraftAnemone : SystemBase
                         Log("WRONG", LogLevel.Warning);
                         foreach (ElementNode e in eNodeList)
                         {
+                            //for all elementNodes
+                            Log("e.parent = " + e.parent.GetComponent<Name>().Value.ToString());
+                            if(e.parent == rootNode)
+                            {
+                                NodeLinkData nodeLink = NodeLink.instances[e.parent.Id];
+                                nodeLink.EnablePort(1);
+                                nodeLink.DisablePort(2);
+                                nodeLink.EnablePort(3);
+                                nodeLink.EnablePort(4);
+                                Log("1) Cleared for root");
+                            }
+                            else
+                            {
+                                NodeLinkData nodeLink = NodeLink.instances[e.parent.Id];
+                                nodeLink.EnableAllPorts();
+                                Log("2) cleared for everyone else");
+                            }
+
+                            //Reset Shapelines of triggers
+                            foreach (Entity trigger in e.parent.GetChildren())
+                            {
+                                //Reset ALL shapelines
+                                if (trigger.HasComponent<ShapeLine2D>())
+                                {
+                                    ref ShapeLine2D shapeLine = ref trigger.GetComponent<ShapeLine2D>();
+                                    shapeLine.A = Vector2.Zero;
+                                    shapeLine.B = Vector2.Zero;
+                                    Log("Cleared shapelines: ");
+                                }
+                            }
+
+                            e.ClearNode();
+
+                            //=======================================================
                             if (!e.parent.HasComponent<MS_IDComponent>()) continue;
+                            //=======================================================
+                            //For non rootnodes
                             int msID = e.parent.GetComponent<MS_IDComponent>().msID;
                             Log($"Available ID: {msID}", LogLevel.Warning);
 
                             cr.ResetSelection(World!);
 
+                            //Instantiate the particles
                             if (MS_Manager.instance.TakeFromPool(msID, 
                                 rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
                                 new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
