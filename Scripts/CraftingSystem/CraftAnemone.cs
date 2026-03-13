@@ -569,6 +569,11 @@ public class CraftAnemoneHandler : TriggerSystemBase
             if (gameObject.Component1.parentAnemone != self.Id) continue;
             ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
             active.Enabled = false;
+
+            //foreach(var child in Entity.FromId(World!, gameObject.Entity.Id).GetChildren())
+            //{
+
+            //}
             Log($"Disabled! : {Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString()}");
         }
 

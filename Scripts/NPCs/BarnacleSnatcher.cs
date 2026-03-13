@@ -134,6 +134,7 @@ public class BarnacleTriggerHandler : TriggerSystemBase
                 //If the slot is storing an item, remove the corresponding obj, from Left to right
                 if (slotInstance.isStoringItem)
                 {
+                    //selfEntity.GetComponent<AudioSource>().PlayOnStart = true;
                     AudioManager.instance.PlaySFX("SFX002");
                     BarnacleSnatcher.instances[self.Id].SetAnimState(BarnacleSnatcher.attackState);
                     InventoryController.instance.RemoveFromSlotInInventory(i);

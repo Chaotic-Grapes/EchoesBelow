@@ -379,6 +379,7 @@ public class Anemone :SystemBase
       
         Entity pulledObj = Entity.FromId(world, pulledObjId);
 
+        Log("1");
         //ADD EVERYTHING BACK
         ref LinearVelocity2D lv1 = ref pulledObj.AddComponent<LinearVelocity2D>();
         ref AngularVelocity2D av = ref pulledObj.AddComponent<AngularVelocity2D>();
@@ -389,7 +390,7 @@ public class Anemone :SystemBase
         ref CircleCollider2D circCollider = ref pulledObj.AddComponent<CircleCollider2D>();
         circCollider.Radius = 0.3f;
 
-
+        Log("2");
 
         //Enable active
         ref Active active = ref pulledObj.GetComponent<Active>();
@@ -400,11 +401,11 @@ public class Anemone :SystemBase
             ref Active childActive = ref child.GetComponent<Active>();
             childActive.Enabled = true;
         }
-
+        Log("3");
         //Zero out the Linear Velocity before we do any other initialization of parameters
         ref LinearVelocity2D lv = ref pulledObj.GetComponent<LinearVelocity2D>();
         lv.Value = Vector2.Zero;
-
+        Log("4");
         //Set to new transform
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
