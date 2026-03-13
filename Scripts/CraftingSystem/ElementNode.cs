@@ -119,6 +119,21 @@ public class ElementNode
         GetPosOnTree(n.node_E, ref v);
         GetPosOnTree(n.node_W, ref v);
     }
+
+    public void ClearNode()
+    {
+        node_N = null;
+        node_S = null;
+        node_E = null;
+        node_W = null;
+
+        frozenPos = Vector3.Zero;
+
+        msID_N = 0;
+        msID_S = 0;
+        msID_E = 0;
+        msID_W = 0;
+}
 }
 public enum nodeSelect {
     North = 1, South = 2, East = 3, West = 4

@@ -152,39 +152,72 @@ public class Anemone :SystemBase
         //First we iterate thru the sorted child list
         //We reset EVERYTHING, turn off active for active children
         //Then we add any active children back to the relevant lists
+
+        //ref ShapeLine2D shapeLineRoot = ref rootNode.GetComponent<ShapeLine2D>();
+        //shapeLineRoot.A = Vector2.Zero;
+        //shapeLineRoot.B = Vector2.Zero;
+
+        //NodeLink.instances[rootNode.Id].port_N_isFilled = false;
+        //NodeLink.instances[rootNode.Id].port_S_isFilled = true;
+        //NodeLink.instances[rootNode.Id].port_E_isFilled = false;
+        //NodeLink.instances[rootNode.Id].port_W_isFilled = false;
+
+
+        //foreach (ulong childID in rawChildList)
+        //{
+        //    Entity queriedObj = Entity.FromId(world, childID);
+        //    //Reset ALL shapelines
+        //    if (queriedObj.HasComponent<ShapeLine2D>())
+        //    {
+        //        ref ShapeLine2D shapeLine = ref queriedObj.GetComponent<ShapeLine2D>();
+        //        shapeLine.A = Vector2.Zero;
+        //        shapeLine.B = Vector2.Zero;
+        //    }
+        //}
+
         foreach (ulong childID in sortedChildList)
         {
-            if (!Entity.FromId(world,childID).HasComponent<MS_IDComponent>()) continue;
-            Log($"==={Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()}==================================");
+            Entity queriedObj = Entity.FromId(world, childID);
+
+            if (!queriedObj.HasComponent<MS_IDComponent>()) continue;
+            Log($"==={queriedObj.GetComponent<Name>().Value.ToString()}==================================");
+
             //Reset objs
 
-            Entity queriedObj = Entity.FromId(world, childID);
-               
-            //if (!queriedObj.HasComponent<CraftMoveComponent>())
+            //Log("Null? " + (NodeLink.instances[queriedObj.Id] == null));
+                
+            if (!queriedObj.HasComponent<CraftMoveComponent>())
+            {
+                int msID = queriedObj.GetComponent<MS_IDComponent>().msID;
+                objPools[msID-1].Add(queriedObj.Id);
+                //Add
+                ref LinearVelocity2D lv = ref queriedObj.AddComponent<LinearVelocity2D>();
+                ref AngularVelocity2D av = ref queriedObj.AddComponent<AngularVelocity2D>();
+                ref Rigidbody2D rb = ref queriedObj.AddComponent<Rigidbody2D>();
+                rb.Mass = 1;
+                rb.IsKinematic = true;
+                rb.LinearDamping = 1.28f;
+                ref CircleCollider2D circCollider = ref queriedObj.AddComponent<CircleCollider2D>();
+                circCollider.Radius = 0.3f;
+                ref CraftMoveComponent crMove = ref queriedObj.AddComponent<CraftMoveComponent>();
+                //Initialize
+                Log("HELLO");
+
+
+                crMove.moveSpeed = 4f;
+                crMove.maxSpeed = 4f;
+                crMove.msID = queriedObj.GetComponent<MS_IDComponent>().msID;
+
+                queriedObj.RemoveComponent<NodeLinkComponent>();
+            }
+            ResetPoolObj(world, childID);
+
+            //foreach(Entity trigger in queriedObj.GetChildren())
             //{
-            //    //Add
-            //    ref LinearVelocity2D lv = ref queriedObj.AddComponent<LinearVelocity2D>();
-            //    ref AngularVelocity2D av = ref queriedObj.AddComponent<AngularVelocity2D>();
-            //    ref Rigidbody2D rb = ref queriedObj.AddComponent<Rigidbody2D>();
-            //    ref CircleCollider2D circCollider = ref queriedObj.AddComponent<CircleCollider2D>();
-            //    ref CraftMoveComponent crMove = ref queriedObj.AddComponent<CraftMoveComponent>();
-            //    //Initialize
-            //    rb.Mass = 1;
-            //    rb.IsKinematic = true;
-
-
-            //    queriedObj.RemoveComponent<NodeLinkComponent>();
+            //    ref ShapeLine2D shapeLine = ref trigger.GetComponent<ShapeLine2D>();
+            //    shapeLine.A = Vector2.Zero;
+            //    shapeLine.B = Vector2.Zero;
             //}
-
-            //Reset all children
-            //if (Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
-            //{
-            //    Log("8a");
-            //    //ResetPoolObj(world, childID);
-            //    Log("8b");
-            //    //Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
-            //}
-            //Log("9");
         }
     }
     public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
