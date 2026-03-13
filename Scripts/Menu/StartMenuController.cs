@@ -40,18 +40,14 @@ public class StartMenuController : SystemBase
 
     private readonly Dictionary<string, Entity> buttonEntities = new();
     private int selectedIndex;
-    private int enterLockFrames;
-    private bool wasSpaceDown;
 
     private bool OnStart(ref bool startBool, ulong endSceneControllerId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
-        // Default to New Game selected so Space confirm works immediately.
-        selectedIndex = 0;
-        enterLockFrames = 0;
-        wasSpaceDown = false;
+        // Start with all buttons in normal state; do not preselect/highlight any.
+        selectedIndex = -1;
 
         //reset endscene timer every time
         Entity.FromId(World!,endSceneControllerId).GetComponent<StartMenuControllerComponent>().timer = 1f;
@@ -87,35 +83,13 @@ public class StartMenuController : SystemBase
         entity.GetComponent<GUIElement>().Visible = visible;
     }
 
-    private void SetImageAlpha(string entityName, float alpha)
-    {
-        if (!buttonEntities.TryGetValue(entityName, out Entity entity) || !entity.IsAlive)
-        {
-            return;
-        }
-
-        if (!entity.TryGetComponent<GUIImage>(out _))
-        {
-            return;
-        }
-
-        ref GUIImage image = ref entity.GetComponent<GUIImage>();
-        Color color = image.Color;
-        color.A = alpha;
-        image.Color = color;
-    }
-
     private void ApplySelectionVisual()
     {
         for (int i = 0; i < normalButtonNames.Length; ++i)
         {
             bool selected = (selectedIndex >= 0) && (i == selectedIndex);
-
-            // Keep both entities visible and crossfade via alpha.
-            SetVisible(normalButtonNames[i], true);
-            SetVisible(lighterButtonNames[i], true);
-            SetImageAlpha(normalButtonNames[i], selected ? 0.0f : 1.0f);
-            SetImageAlpha(lighterButtonNames[i], selected ? 1.0f : 0.0f);
+            SetVisible(normalButtonNames[i], !selected);
+            SetVisible(lighterButtonNames[i], selected);
         }
     }
 
@@ -147,25 +121,6 @@ public class StartMenuController : SystemBase
         }
     }
 
-    private void TransitionToGameScene()
-    {
-        SceneManager sceneManager = SceneManager.Instance;
-        sceneManager.SetNextAudioTransition(0.8f, true);
-
-        ulong sceneIndex = sceneManager.AddScene();
-        bool loaded = sceneManager.LoadScene(sceneIndex, TargetScenePath);
-        Log("StartMenu direct load FGym2 loaded=" + loaded + " index=" + sceneIndex);
-
-        if (loaded)
-        {
-            sceneManager.SetActive(sceneIndex);
-            return;
-        }
-
-        // Fallback to existing transition request path.
-        SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
-    }
-
     private void TriggerSelectedAction()
     {
         if (selectedIndex < 0)
@@ -176,19 +131,22 @@ public class StartMenuController : SystemBase
         // New Game / Continue both transition to FGym2 with audio + visual fade.
         if (selectedIndex == 0 || selectedIndex == 1)
         {
-            TransitionToGameScene();
+            PlayMenuMoveSfx();
+            SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
             return;
         }
 
         // Settings currently has no dedicated scene/action in this flow.
         if (selectedIndex == 2)
         {
+            PlayMenuMoveSfx();
             return;
         }
 
         // Exit
         if (selectedIndex == 3)
         {
+            PlayMenuMoveSfx();
             Application.Quit();
         }
     }
@@ -201,9 +159,7 @@ public class StartMenuController : SystemBase
             if (controller.Component1.isEndScene)
             {
                 controller.Component1.timer -= Time.DeltaTime;
-                bool spaceDownEndScene = Input.IsKeyDown(KeyCode.Space);
-                bool spacePressedEndScene = spaceDownEndScene && !wasSpaceDown;
-                if(spacePressedEndScene) //controller.Component1.timer < 0 &&
+                if(Input.IsKeyDown(KeyCode.Space)) //controller.Component1.timer < 0 &&
                 {
                     SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
                 }
@@ -233,41 +189,24 @@ public class StartMenuController : SystemBase
             ApplySelectionVisual();
         }
 
-        bool moveLeft = Input.IsKeyPressed(KeyCode.A);
-        bool moveRight = Input.IsKeyPressed(KeyCode.D);
-        bool movedSelection = false;
-        bool spaceDown = Input.IsKeyDown(KeyCode.Space);
-        bool spacePressed = spaceDown && !wasSpaceDown;
+        bool moveUp = Input.IsKeyPressed(KeyCode.W);
+        bool moveDown = Input.IsKeyPressed(KeyCode.D);
 
-        if (moveLeft)
+        if (moveUp)
         {
+            PlayMenuMoveSfx();
             MoveSelection(-1);
-            movedSelection = true;
         }
 
-        if (moveRight)
+        if (moveDown)
         {
+            PlayMenuMoveSfx();
             MoveSelection(1);
-            movedSelection = true;
         }
 
-        if (movedSelection)
+        if (Input.IsKeyPressed(KeyCode.Enter))
         {
-            // Block confirm briefly after navigation so actions cannot trigger from stale input.
-            enterLockFrames = 2;
-        }
-        else if (enterLockFrames > 0)
-        {
-            enterLockFrames -= 1;
-        }
-
-        // Guard against accidental action confirmation on movement frames.
-        if (!movedSelection && enterLockFrames == 0 && spacePressed)
-        {
-            Log("StartMenu Space confirm fired; selectedIndex=" + selectedIndex);
             TriggerSelectedAction();
         }
-
-        wasSpaceDown = spaceDown;
     }
 }
