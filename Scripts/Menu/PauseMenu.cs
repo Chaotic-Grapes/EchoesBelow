@@ -17,7 +17,7 @@ namespace Scripts.Menu;
 public class PauseMenu : SystemBase
 {
     private const string SourceSceneName = "Level_One";
-    private const string TargetScenePath = "Scenes/M4StartScene.scn";
+    private const string TargetScenePath = "Scenes/Newstartscene.scn";
     private static readonly Vector2 SfxRangeStart = new(570.0f, 384.0f);
     private static readonly Vector2 SfxRangeEnd = new(930.0f, 440.0f);
     private static readonly Vector2 BgmRangeStart = new(599.0f, 217.0f);
@@ -42,10 +42,13 @@ public class PauseMenu : SystemBase
     private float cachedSfxVolume = 100.0f;
     private float cachedBgmVolume = 100.0f;
 
-    Color selectedCol = new Color(0.370f, 0.376f, 0.584f, 1f);
-    Color unselectedCol = new Color(0.071f, 0.078f, 0.305f, 1f);
+
+    private Entity resumeButton_Lighter;
+    private Entity exitButton_Lighter;
+
 
     public static List<Entity> pauseMenuElementObjIds;
+    #region System Behaviours
     private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
@@ -59,10 +62,129 @@ public class PauseMenu : SystemBase
 
         CacheAudioSliderEntities();
 
+        foreach(var obj in World!.Query<GUIElement, MatchSignifierComponent>())
+        {
+            if (obj.Component2.signifierID == 11121) resumeButton_Lighter = Entity.FromId(World!, obj.Entity.Id);
+            if (obj.Component2.signifierID == 22231) exitButton_Lighter = Entity.FromId(World!, obj.Entity.Id);
+
+            if (resumeButton_Lighter != null && exitButton_Lighter != null) break;
+        }
+
+
         //End of Start
         return true;
     }
+    protected override void OnUpdate()
+    {
+        bool isKeyPressed_P = Input.IsKeyPressed(KeyCode.P);
+        bool isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
+        
+        isKeyPressed_vertical = Input.IsKeyPressed(KeyCode.W) || Input.IsKeyPressed(KeyCode.A) || Input.IsKeyPressed(KeyCode.S) || Input.IsKeyPressed(KeyCode.D);
 
+        foreach (var pauseController in World!.Query<PauseMenuComponent>())
+        {
+            bool start = pauseController.Component1.start;
+            pauseController.Component1.start = OnStart(ref start, pauseController.Entity.Id);
+
+            if (!pauseController.Component1.isPauseable) return;
+        }
+
+        if (isKeyPressed_P && !isPaused)
+        {
+            Player.instance.isEnabled = false;
+            AudioManager.instance.PlaySFX("SFX007");
+            
+            Time.TimeScale = 0;
+            isPaused = true;
+            foreach (Entity menuElement in pauseMenuElementObjIds)
+            {
+                if (!Entity.FromId(World!, menuElement.Id).HasComponent<GUIElement>()) continue;
+                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = true;
+                Log("Launch Pause Menuz");
+            }
+            //Launch Pause Menu
+
+            UpdateEssentialKeys();
+
+        }
+        else if (isKeyPressed_P && isPaused)
+        {
+            Player.instance.isEnabled = true;
+            AudioManager.instance.PlaySFX("SFX007");
+           
+            Time.TimeScale = 1;
+            isPaused = false;
+            foreach (Entity menuElement in pauseMenuElementObjIds)
+            {
+                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
+            Log("return to game w p Press");
+            }
+            //Close Pause Menu
+        }
+
+        if (isPaused)
+        {
+            HandlePauseVolumeHotkeys();
+            UpdatePauseAudioSliders();
+
+            if (isKeyPressed_vertical)
+            {
+                AudioManager.instance.PlaySFX("SFX007");
+                isFirstSelected = !isFirstSelected;
+                UpdateEssentialKeys();
+            }
+
+
+
+            if (isFirstSelected)
+            {
+                if (isKeyPressed_Space)
+                {
+                    Player.instance.isEnabled = true;
+                    Log("Resume");
+                    AudioManager.instance.PlaySFX("SFX007");
+
+                    Time.TimeScale = 1;
+                    isPaused = false;
+                    foreach (Entity menuElement in pauseMenuElementObjIds)
+                    {
+                        Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
+                        Log("Paused Game from resume Press");
+                    }
+                }
+            }
+            else
+            {
+                if (isKeyPressed_Space)
+                {
+                    Log("Exit");
+
+                    SceneManager sceneManager = SceneManager.Instance;
+                    sceneManager.SetNextAudioTransition(0.8f, true);
+
+                    ulong sceneIndex = sceneManager.AddScene();
+                    bool loaded = sceneManager.LoadScene(sceneIndex, TargetScenePath);
+                    Log("StartMenu direct load StartMenu loaded=" + loaded + " index=" + sceneIndex);
+
+                    if (loaded)
+                    {
+                        sceneManager.SetActive(sceneIndex);
+                        return;
+                    }
+
+                    // Fallback to existing transition request path.
+                    SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
+                    //SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
+                }
+            }
+        }
+    }
+    private void UpdateEssentialKeys()
+    {
+        resumeButton_Lighter.GetComponent<GUIElement>().Visible = isFirstSelected;
+        exitButton_Lighter.GetComponent<GUIElement>().Visible = !isFirstSelected;
+    }
+    #endregion
     private void CacheAudioSliderEntities()
     {
         hasAudioSliderRefs = false;
@@ -423,108 +545,5 @@ public class PauseMenu : SystemBase
         }
     }
     //Pause Menu is off by default
-    protected override void OnUpdate()
-    {
-        bool isKeyPressed_P = Input.IsKeyPressed(KeyCode.P);
-        bool isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
-        
-        isKeyPressed_vertical = Input.IsKeyPressed(KeyCode.W) || Input.IsKeyPressed(KeyCode.A) || Input.IsKeyPressed(KeyCode.S) || Input.IsKeyPressed(KeyCode.D);
 
-        foreach (var pauseController in World!.Query<PauseMenuComponent>())
-        {
-            bool start = pauseController.Component1.start;
-            pauseController.Component1.start = OnStart(ref start, pauseController.Entity.Id);
-
-            if (!pauseController.Component1.isPauseable) return;
-        }
-      
-        SceneManager sceneManager = SceneManager.Instance;
-
-        if (isKeyPressed_P && !isPaused)
-        {
-            AudioManager.instance.PlaySFX("SFX007");
-            
-            Time.TimeScale = 0;
-            isPaused = true;
-            foreach (Entity menuElement in pauseMenuElementObjIds)
-            {
-                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = true;
-            Log("Launch Pause Menu");
-            }
-            //Launch Pause Menu
-
-        }
-        else if (isKeyPressed_P && isPaused)
-        {
-            AudioManager.instance.PlaySFX("SFX007");
-           
-            Time.TimeScale = 1;
-            isPaused = false;
-            foreach (Entity menuElement in pauseMenuElementObjIds)
-            {
-                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
-            Log("Paused Game from Esc Press");
-            }
-            //Close Pause Menu
-
-        }
-
-        if (isPaused)
-        {
-            HandlePauseVolumeHotkeys();
-            UpdatePauseAudioSliders();
-
-            if (isKeyPressed_vertical)
-            {
-                AudioManager.instance.PlaySFX("SFX007");
-                isFirstSelected = !isFirstSelected;
-                ////Log("isLeftSelected: " + isFirstSelected);
-                foreach (var controller in World!.Query<PauseMenuComponent>())
-                {
-                    foreach (var ui in World!.Query<GUIElement, MatchSignifierComponent>())
-                    {
-                        if (ui.Component2.signifierID == controller.Component1.resumeSiginifier || ui.Component2.signifierID == controller.Component1.exitSignifier)
-                        {
-                            ref GUIImage panel = ref ui.Entity.GetComponent<GUIImage>();
-                            if (panel.Color.R == unselectedCol.R)
-                            {
-                                panel.Color = selectedCol;
-                            }
-                            else if (panel.Color.R == selectedCol.R)
-                            {
-                                panel.Color = unselectedCol;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        //Temporary, turn this back on soon!
-        if (isPaused && isKeyPressed_Space && isFirstSelected)
-        {
-            AudioManager.instance.PlaySFX("SFX007");
-            Time.TimeScale = 1;
-            isPaused = false;
-            foreach (Entity menuElement in pauseMenuElementObjIds)
-            {
-                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
-            }
-            //Close Pause Menu
-            Log("Unpaused from Pressing Resume with Spacebar");
-            
-        }
-        else if (isPaused && isKeyPressed_Space && !isFirstSelected)
-        {
-            AudioManager.instance.PlaySFX("SFX007");
-            Time.TimeScale = 1;
-            isPaused = false;
-            foreach (Entity menuElement in pauseMenuElementObjIds)
-            {
-                Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
-            }
-
-            SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
-        }
-
-    }
 }
