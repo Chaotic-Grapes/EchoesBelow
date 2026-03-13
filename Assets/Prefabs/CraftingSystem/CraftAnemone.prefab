@@ -1421,8 +1421,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 3,
                             "start": false
                         },
@@ -2046,8 +2046,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 1,
                             "start": false
                         },
@@ -2680,8 +2680,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 2,
                             "start": false
                         },
@@ -3298,8 +3298,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 7,
                             "start": false
                         },
@@ -3916,8 +3916,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 6,
                             "start": false
                         },
@@ -4534,8 +4534,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 5,
                             "start": false
                         },
@@ -5152,8 +5152,8 @@
                     {
                         "Data": {
                             "Enabled": false,
-                            "maxSpeed": 4,
-                            "moveSpeed": 4,
+                            "maxSpeed": 2,
+                            "moveSpeed": 2,
                             "msID": 4,
                             "start": false
                         },

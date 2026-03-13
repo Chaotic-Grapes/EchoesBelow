@@ -204,8 +204,8 @@ public class Anemone :SystemBase
                 Log("HELLO");
 
 
-                crMove.moveSpeed = 4f;
-                crMove.maxSpeed = 4f;
+                crMove.moveSpeed = 2.5f;
+                crMove.maxSpeed = 2.5f;
                 crMove.msID = queriedObj.GetComponent<MS_IDComponent>().msID;
 
                 queriedObj.RemoveComponent<NodeLinkComponent>();
