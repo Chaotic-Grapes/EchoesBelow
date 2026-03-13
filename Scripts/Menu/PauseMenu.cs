@@ -18,10 +18,25 @@ public class PauseMenu : SystemBase
 {
     private const string SourceSceneName = "Level_One";
     private const string TargetScenePath = "Scenes/M4StartScene.scn";
+    private static readonly Vector2 SfxRangeStart = new(570.0f, 384.0f);
+    private static readonly Vector2 SfxRangeEnd = new(930.0f, 440.0f);
+    private static readonly Vector2 BgmRangeStart = new(599.0f, 217.0f);
+    private static readonly Vector2 BgmRangeEnd = new(940.0f, 140.0f);
+
     bool isPaused = false;
 
     public bool isKeyPressed_vertical;
     bool isFirstSelected;
+    bool isDraggingSfx;
+    bool isDraggingBgm;
+
+    private Entity? sfxBubbleEntity;
+    private Entity? sfxSliderEntity;
+    private Entity? bgmBubbleEntity;
+    private Entity? bgmSliderEntity;
+    private bool hasAudioSliderRefs;
+    private float cachedSfxVolume = 100.0f;
+    private float cachedBgmVolume = 100.0f;
 
     Color selectedCol = new Color(0.370f, 0.376f, 0.584f, 1f);
     Color unselectedCol = new Color(0.071f, 0.078f, 0.305f, 1f);
@@ -36,9 +51,249 @@ public class PauseMenu : SystemBase
 
         Entity pauseMenuObj = Entity.FromId(World!, objId);
         pauseMenuElementObjIds = pauseMenuObj.GetChildren();
+        CacheAudioSliderEntities();
 
         //End of Start
         return true;
+    }
+
+    private void CacheAudioSliderEntities()
+    {
+        hasAudioSliderRefs = false;
+
+        foreach (Entity child in pauseMenuElementObjIds)
+        {
+            Entity entity = Entity.FromId(World!, child.Id);
+            if (!entity.TryGetComponent<Name>(out var name))
+            {
+                continue;
+            }
+
+            string value = name.Value.ToString();
+            if (value == "SFX_Bubble")
+            {
+                sfxBubbleEntity = entity;
+            }
+            else if (value == "SFX_Slider")
+            {
+                sfxSliderEntity = entity;
+            }
+            else if (value == "BGM_Bubble")
+            {
+                bgmBubbleEntity = entity;
+            }
+            else if (value == "BGM_Slider")
+            {
+                bgmSliderEntity = entity;
+            }
+        }
+
+        // Fallback by known signifiers in case names are changed or duplicated.
+        foreach (var tagged in World!.Query<MatchSignifierComponent>())
+        {
+            int id = tagged.Component1.signifierID;
+            if (id == 33342)
+            {
+                sfxBubbleEntity = tagged.Entity;
+            }
+            else if (id == 33343)
+            {
+                sfxSliderEntity = tagged.Entity;
+            }
+            else if (id == 44452)
+            {
+                bgmBubbleEntity = tagged.Entity;
+            }
+            else if (id == 44453)
+            {
+                bgmSliderEntity = tagged.Entity;
+            }
+        }
+
+        hasAudioSliderRefs = sfxBubbleEntity is { IsAlive: true }
+            && sfxSliderEntity is { IsAlive: true }
+            && bgmBubbleEntity is { IsAlive: true }
+            && bgmSliderEntity is { IsAlive: true };
+    }
+
+    private static bool IsPointInRect(double mouseX, double mouseY, GUIElement element)
+    {
+        return mouseX >= element.Position.X
+            && mouseX <= element.Position.X + element.Size.X
+            && mouseY >= element.Position.Y
+            && mouseY <= element.Position.Y + element.Size.Y;
+    }
+
+    private static float Clamp01(float value)
+    {
+        if (value < 0.0f) return 0.0f;
+        if (value > 1.0f) return 1.0f;
+        return value;
+    }
+
+    private static float ComputeRangeT(Vector2 start, Vector2 end, double mouseX, double mouseY)
+    {
+        float dx = end.X - start.X;
+        float dy = end.Y - start.Y;
+        float lenSq = (dx * dx) + (dy * dy);
+        if (lenSq <= 0.0001f)
+        {
+            return 0.0f;
+        }
+
+        float px = (float)mouseX - start.X;
+        float py = (float)mouseY - start.Y;
+        float dot = (px * dx) + (py * dy);
+        return Clamp01(dot / lenSq);
+    }
+
+    private static void ApplyBubbleFromT(Entity bubbleEntity, Vector2 start, Vector2 end, float t)
+    {
+        ref GUIElement bubbleElement = ref bubbleEntity.GetComponent<GUIElement>();
+        bubbleElement.Position = new Vector2(
+            start.X + (end.X - start.X) * t,
+            start.Y + (end.Y - start.Y) * t
+        );
+    }
+
+    private static void UpdateDebugText(Entity entity, string label, float percent)
+    {
+        if (!entity.TryGetComponent<GUIText>(out _))
+        {
+            return;
+        }
+
+        ref GUIText bubbleText = ref entity.GetComponent<GUIText>();
+        int rounded = (int)(percent + 0.5f);
+        if (rounded < 0) rounded = 0;
+        if (rounded > 100) rounded = 100;
+        bubbleText.TextId = Strings.Intern($"{label} {rounded}");
+    }
+
+    private static bool IsEntityHeld(Entity entity)
+    {
+        if (!entity.TryGetComponent<GUIInput>(out _))
+        {
+            return false;
+        }
+
+        ref GUIInput input = ref entity.GetComponent<GUIInput>();
+        return input.Pressed || input.Dragging;
+    }
+
+    private void UpdatePauseAudioSliders()
+    {
+        if (!hasAudioSliderRefs)
+        {
+            return;
+        }
+
+        bool mousePressed = Input.IsMousePressed(MouseButton.Left);
+        double mouseX = Input.MouseX;
+        double mouseY = Input.MouseY;
+
+        ref GUIElement sfxBubble = ref sfxBubbleEntity!.GetComponent<GUIElement>();
+        ref GUIElement sfxSlider = ref sfxSliderEntity!.GetComponent<GUIElement>();
+        ref GUIElement bgmBubble = ref bgmBubbleEntity!.GetComponent<GUIElement>();
+        ref GUIElement bgmSlider = ref bgmSliderEntity!.GetComponent<GUIElement>();
+
+        // Primary path: true hold/drag from GUIInput state.
+        bool sfxHeld = IsEntityHeld(sfxBubbleEntity!) || IsEntityHeld(sfxSliderEntity!);
+        bool bgmHeld = IsEntityHeld(bgmBubbleEntity!) || IsEntityHeld(bgmSliderEntity!);
+
+        // Fallback path: preserve click-to-set behavior even if GUIInput is not active.
+        bool sfxClicked = mousePressed && (IsPointInRect(mouseX, mouseY, sfxBubble) || IsPointInRect(mouseX, mouseY, sfxSlider));
+        bool bgmClicked = mousePressed && (IsPointInRect(mouseX, mouseY, bgmBubble) || IsPointInRect(mouseX, mouseY, bgmSlider));
+
+        isDraggingSfx = sfxHeld || sfxClicked;
+        isDraggingBgm = bgmHeld || bgmClicked;
+
+        float sfxVolume = cachedSfxVolume;
+        float bgmVolume = cachedBgmVolume;
+        bool hasAudioManager = false;
+
+        foreach (var audioManager in World!.Query<AudioManagerComponent>())
+        {
+            hasAudioManager = true;
+            sfxVolume = audioManager.Component1.globalSFXVolume;
+            bgmVolume = audioManager.Component1.globalBGMVolume;
+
+            if (isDraggingSfx)
+            {
+                sfxVolume = ComputeRangeT(SfxRangeStart, SfxRangeEnd, mouseX, mouseY) * 100.0f;
+                audioManager.Component1.globalSFXVolume = sfxVolume;
+            }
+
+            if (isDraggingBgm)
+            {
+                bgmVolume = ComputeRangeT(BgmRangeStart, BgmRangeEnd, mouseX, mouseY) * 100.0f;
+                audioManager.Component1.globalBGMVolume = bgmVolume;
+            }
+
+            break;
+        }
+
+        if (!hasAudioManager)
+        {
+            if (isDraggingSfx)
+            {
+                sfxVolume = ComputeRangeT(SfxRangeStart, SfxRangeEnd, mouseX, mouseY) * 100.0f;
+            }
+
+            if (isDraggingBgm)
+            {
+                bgmVolume = ComputeRangeT(BgmRangeStart, BgmRangeEnd, mouseX, mouseY) * 100.0f;
+            }
+        }
+
+        cachedSfxVolume = sfxVolume;
+        cachedBgmVolume = bgmVolume;
+
+        ApplyBubbleFromT(sfxBubbleEntity!, SfxRangeStart, SfxRangeEnd, Clamp01(sfxVolume / 100.0f));
+        ApplyBubbleFromT(bgmBubbleEntity!, BgmRangeStart, BgmRangeEnd, Clamp01(bgmVolume / 100.0f));
+        UpdateDebugText(sfxSliderEntity!, "SFX", sfxVolume);
+        UpdateDebugText(bgmSliderEntity!, "BGM", bgmVolume);
+    }
+
+    private void HandlePauseVolumeHotkeys()
+    {
+        bool decSfx = Input.IsKeyPressed(KeyCode.I);
+        bool incSfx = Input.IsKeyPressed(KeyCode.O);
+        bool decBgm = Input.IsKeyPressed(KeyCode.Y);
+        bool incBgm = Input.IsKeyPressed(KeyCode.U);
+
+        if (!decSfx && !incSfx && !decBgm && !incBgm)
+        {
+            return;
+        }
+
+        foreach (var audioManager in World!.Query<AudioManagerComponent>())
+        {
+            float step = audioManager.Component1.volumeStep;
+            if (step <= 0.0f)
+            {
+                step = 1.0f;
+            }
+
+            if (decSfx)
+            {
+                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume - step, 0.0f, 100.0f);
+            }
+            if (incSfx)
+            {
+                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume + step, 0.0f, 100.0f);
+            }
+            if (decBgm)
+            {
+                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume - step, 0.0f, 100.0f);
+            }
+            if (incBgm)
+            {
+                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume + step, 0.0f, 100.0f);
+            }
+
+            break;
+        }
     }
     //Pause Menu is off by default
     protected override void OnUpdate()
@@ -87,6 +342,9 @@ public class PauseMenu : SystemBase
 
         if (isPaused)
         {
+            HandlePauseVolumeHotkeys();
+            UpdatePauseAudioSliders();
+
             if (isKeyPressed_vertical)
             {
                 AudioManager.instance.PlaySFX("SFX007");

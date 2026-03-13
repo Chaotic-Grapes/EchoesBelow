@@ -26,16 +26,25 @@ public class AudioManager : SystemBase
     // normal bus state with no filter
     private const float DefaultBusLowPassGain = 1.0f;
     // damage muffle strength for the sfx bus
-    private const float DamageBusLowPassGain = 0.45f;
+    private const float DamageBusLowPassGain = 0.23f;
     // how long the damage muffle stays active
-    private const float DamageBusLowPassDuration = 0.35f;
+    private const float DamageBusLowPassDuration = 4.0f;
+
+    private static readonly AudioBus[] DamageLowPassBuses =
+    {
+        AudioBus.SFX,
+        AudioBus.Music
+    };
 
     public static AudioManager instance;
     public static List<Entity> sfxEntityList;
     public static Dictionary<string,Entity> sfxEntityDictionary;
+    private static Dictionary<ulong, float> baseAudioVolumeByEntityId;
 
     // countdown used to restore the sfx bus after damage
     private float _damageLowPassTimer;
+    private float _damageLowPassDurationActive;
+    private float _damageLowPassStartGain;
 
 
     private bool OnStart(ref bool startBool, ulong objId)
@@ -48,17 +57,28 @@ public class AudioManager : SystemBase
 
         // reset the damage filter timer
         _damageLowPassTimer = 0.0f;
-        // make sure the sfx bus starts with no filter
-        GrapeEngine.Scripting.Services.Audio.ClearBusLowPassFilter(AudioBus.SFX);
+        _damageLowPassDurationActive = 0.0f;
+        _damageLowPassStartGain = DefaultBusLowPassGain;
+        // make sure target buses start with no filter
+        foreach (AudioBus bus in DamageLowPassBuses)
+        {
+            GrapeEngine.Scripting.Services.Audio.ClearBusLowPassFilter(bus);
+        }
 
         Entity audioManager = Entity.FromId(World!, objId);
 
         sfxEntityDictionary = [];
         sfxEntityList = audioManager.GetChildren();
+        baseAudioVolumeByEntityId = [];
 
         foreach(Entity e in sfxEntityList)
         {
             sfxEntityDictionary.Add(e.GetComponent<Name>().Value.ToString(), e);
+        }
+
+        foreach (var audio in World!.Query<AudioSource>())
+        {
+            baseAudioVolumeByEntityId[audio.Entity.Id] = audio.Component1.Volume;
         }
 
         //End of Start
@@ -80,11 +100,26 @@ public class AudioManager : SystemBase
         {
             _damageLowPassTimer -= Time.DeltaTime;
 
+            if (_damageLowPassDurationActive > 0.0f)
+            {
+                float progress = 1.0f - (_damageLowPassTimer / _damageLowPassDurationActive);
+                progress = GMath.Clamp(progress, 0.0f, 1.0f);
+                float gain = GMath.Lerp(_damageLowPassStartGain, DefaultBusLowPassGain, progress);
+
+                foreach (AudioBus bus in DamageLowPassBuses)
+                {
+                    GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, gain);
+                }
+            }
+
             // restore the bus when the timer ends
             if (_damageLowPassTimer <= 0.0f)
             {
                 _damageLowPassTimer = 0.0f;
-                GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(AudioBus.SFX, DefaultBusLowPassGain);
+                foreach (AudioBus bus in DamageLowPassBuses)
+                {
+                    GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, DefaultBusLowPassGain);
+                }
             }
         }
 
@@ -93,25 +128,27 @@ public class AudioManager : SystemBase
             bool start_audioManager = audioManager.Component1.start;
             audioManager.Component1.start = OnStart(ref start_audioManager, audioManager.Entity.Id);
 
+            foreach (var audio in World!.Query<AudioSource>())
+            {
+                if (!baseAudioVolumeByEntityId.TryGetValue(audio.Entity.Id, out float baseVolume))
+                {
+                    baseVolume = audio.Component1.Volume;
+                    baseAudioVolumeByEntityId[audio.Entity.Id] = baseVolume;
+                }
+
+                bool isSfx = audio.Entity.TryGetComponent<AudioSFXComponent>(out _);
+                float sliderPercent = isSfx
+                    ? (audioManager.Component1.globalSFXVolume / 100.0f)
+                    : (audioManager.Component1.globalBGMVolume / 100.0f);
+
+                audio.Component1.Volume = baseVolume * sliderPercent;
+            }
+
             //So this foreach will iterate thru all other audiosources once as well
             foreach (var sfxObject in World!.Query<AudioSource, AudioSFXComponent>()) //SFX objs only
             {
                 bool start_sfxObject = sfxObject.Component2.start;
                 sfxObject.Component2.start = OnStart2(ref start_sfxObject, ref sfxObject.Component1, ref sfxObject.Component2);
-
-                sfxObject.Component1.Volume = sfxObject.Component2.startVolume * (audioManager.Component1.globalSFXVolume / 100); //Divided by a 100 to act as a percentage
-            }
-
-            //Debug Volume Slider
-            if (Input.IsKeyPressed(KeyCode.I)) // -- sfx volume
-            {
-                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume - audioManager.Component1.volumeStep,0,100);
-                Log("-1 volume / percentage: " + audioManager.Component1.globalSFXVolume / 100);
-            }
-            else if (Input.IsKeyPressed(KeyCode.O)) // ++ sfx volume
-            {
-                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume + audioManager.Component1.volumeStep, 0, 100);
-                Log("+1 Volume / percentage: " + audioManager.Component1.globalSFXVolume / 100);
             }
 
             //Debug Volume Slider (ALWAYS ON)
@@ -122,11 +159,19 @@ public class AudioManager : SystemBase
 
     }
 
-    // applies the temporary damage filter to the sfx bus
+    // applies the temporary damage filter to target buses
     public void TriggerDamageLowPass(float gain = DamageBusLowPassGain, float duration = DamageBusLowPassDuration)
     {
-        // set the bus filter immediately
-        GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(AudioBus.SFX, gain);
+        gain = GMath.Clamp(gain, 0.0f, 1.0f);
+
+        // set filters immediately
+        foreach (AudioBus bus in DamageLowPassBuses)
+        {
+            GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, gain);
+        }
+
+        _damageLowPassStartGain = gain;
+        _damageLowPassDurationActive = duration > 0.0f ? duration : 0.0f;
 
         // keep the longest active timer if this is called again quickly
         _damageLowPassTimer = GMath.Max(_damageLowPassTimer, duration);
@@ -135,14 +180,26 @@ public class AudioManager : SystemBase
 
     public void PlaySFX(string sfxName)
     {
-        Entity chosenSfx = Entity.FromId(World!, sfxEntityDictionary[sfxName].Id);
+        if (sfxEntityDictionary == null || !sfxEntityDictionary.TryGetValue(sfxName, out Entity sfxEntity))
+        {
+            Log("missing sfx key " + sfxName, LogLevel.Warning);
+            return;
+        }
+
+        Entity chosenSfx = Entity.FromId(World!, sfxEntity.Id);
         ref AudioSource audsrc = ref chosenSfx.GetComponent<AudioSource>();
         
         audsrc.PlayOnStart = true;
     }
     public void StopSFX(string sfxName)
     {
-        Entity chosenSfx = Entity.FromId(World!, sfxEntityDictionary[sfxName].Id);
+        if (sfxEntityDictionary == null || !sfxEntityDictionary.TryGetValue(sfxName, out Entity sfxEntity))
+        {
+            Log("missing sfx key " + sfxName, LogLevel.Warning);
+            return;
+        }
+
+        Entity chosenSfx = Entity.FromId(World!, sfxEntity.Id);
         ref AudioSource audsrc = ref chosenSfx.GetComponent<AudioSource>();
      
         audsrc.PlayOnStart = false;

@@ -109,7 +109,7 @@ public class ProcessDeath : SystemBase
     public void TakeHit(ulong otherId, ulong playerId)
     {
 
-        AudioManager.instance.PlaySFX("SFX004");
+        AudioManager.instance?.PlaySFX("SFX004");
         // Lowpass added to damage instance.  
         AudioManager.instance?.TriggerDamageLowPass();
 
@@ -139,7 +139,7 @@ public class ProcessDeath : SystemBase
         {
             isHit = false;
             Death(playerId);
-            AudioManager.instance.PlaySFX("SFX008");
+            AudioManager.instance?.PlaySFX("SFX008");
         }
     }
     private void Death(ulong playerId)
