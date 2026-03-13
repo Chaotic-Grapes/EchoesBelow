@@ -24,38 +24,40 @@ namespace Scripts.Level_Toys;
 
 public class AddCurrent : TriggerSystemBase
 {
-    protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
-    {
-        //Add to lv of the passing obj
-        Entity selfEntity = Entity.FromId(World!, self.Id);
-        Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
+    //protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
+    //{
+    //    //Add to lv of the passing obj
+    //    Entity selfEntity = Entity.FromId(World!, self.Id);
+    //    Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
-        if (selfEntity.HasComponent<AddCurrentComponent>() && (otherEntity.HasComponent<PlayerTriggerComponent>() || otherEntity.HasComponent<MS_IDComponent>()))
-        {
+    //    if (selfEntity.HasComponent<AddCurrentComponent>() && (otherEntity.HasComponent<PlayerTriggerComponent>() || otherEntity.HasComponent<MS_IDComponent>()))
+    //    {
 
-            foreach (var gameObject in World!.Query<AddCurrentComponent>())
-            {
-                //If the id does not match, skip this obj
-                if (gameObject.Entity.Id != self.Id) continue;
-
-                //Zero out rigidbody, av and lv, with an exception for the player
-                if (otherEntity.HasComponent<PlayerTriggerComponent>())
-                {
-                    foreach (var gameObject2 in World!.Query<PlayerComponent>())
-                    {
-                        Entity playerEntity = Entity.FromId(World!, gameObject2.Entity.Id);
-                        ref LinearVelocity2D lv = ref playerEntity.GetComponent<LinearVelocity2D>();
-                        lv.Value = Vector2.Zero;
-                    }
-                }
-                else
-                {
-                    ref LinearVelocity2D lv = ref otherEntity.GetComponent<LinearVelocity2D>();
-                    lv.Value = Vector2.Zero;
-                }
-            }
-        }
-    }
+    //        foreach (var gameObject in World!.Query<AddCurrentComponent>())
+    //        {
+    //            //If the id does not match, skip this obj
+    //            if (gameObject.Entity.Id != self.Id) continue;
+    //            Entity playerEntity = Entity.FromId(World!, Player.instance.player.Id);
+    //            ref LinearVelocity2D lv = ref playerEntity.GetComponent<LinearVelocity2D>();
+    //            lv.Value = Vector2.Zero;
+    //            //Zero out rigidbody, av and lv, with an exception for the player
+    //            //if (otherEntity.HasComponent<PlayerTriggerComponent>())
+    //            //{
+    //            //    foreach (var gameObject2 in World!.Query<PlayerComponent>())
+    //            //    {
+    //            //        Entity playerEntity = Entity.FromId(World!, gameObject2.Entity.Id);
+    //            //        ref LinearVelocity2D lv = ref playerEntity.GetComponent<LinearVelocity2D>();
+    //            //        lv.Value = Vector2.Zero;
+    //            //    }
+    //            //}
+    //            //else
+    //            //{
+    //            //    ref LinearVelocity2D lv = ref otherEntity.GetComponent<LinearVelocity2D>();
+    //            //    lv.Value = Vector2.Zero;
+    //            //}
+    //        }
+    //    }
+    //}
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Add to lv of the passing obj
@@ -69,39 +71,37 @@ public class AddCurrent : TriggerSystemBase
             {
                 //If the id does not match, skip this obj
                 if (gameObject.Entity.Id != self.Id) continue;
-      
-                //Zero out rigidbody, av and lv, with an exception for the player
-                if (otherEntity.HasComponent<PlayerTriggerComponent>())
-                {
-                    foreach (var gameObject2 in World!.Query<PlayerComponent>())
-                    {
-      
-                        Entity playerEntity = Entity.FromId(World!, gameObject2.Entity.Id);
-                        ref Rigidbody2D rb = ref playerEntity.GetComponent<Rigidbody2D>();
-                        ref LinearVelocity2D lv = ref playerEntity.GetComponent<LinearVelocity2D>();
-                        ref AngularVelocity2D av = ref playerEntity.GetComponent<AngularVelocity2D>();
+                Entity playerEntity = Entity.FromId(World!, Player.instance.player.Id);
+                ref Rigidbody2D rb = ref playerEntity.GetComponent<Rigidbody2D>();
+                ref LinearVelocity2D lv = ref playerEntity.GetComponent<LinearVelocity2D>();
+                ref AngularVelocity2D av = ref playerEntity.GetComponent<AngularVelocity2D>();
 
-                        lv.Value += new Vector2(gameObject.Component1.currentDirX * gameObject.Component1.pushSpeed * Time.DeltaTime, gameObject.Component1.currentDirY * gameObject.Component1.pushSpeed * Time.DeltaTime);
-                    }
-                }
-                else
-                {
-                    ref Rigidbody2D rb = ref otherEntity.GetComponent<Rigidbody2D>();
-                    ref LinearVelocity2D lv = ref otherEntity.GetComponent<LinearVelocity2D>();
-                    ref AngularVelocity2D av = ref otherEntity.GetComponent<AngularVelocity2D>();
-
-                    lv.Value += new Vector2(gameObject.Component1.currentDirX * gameObject.Component1.pushSpeed * Time.DeltaTime, gameObject.Component1.currentDirY * gameObject.Component1.pushSpeed * Time.DeltaTime);
-                }
+                lv.Value += new Vector2(gameObject.Component1.currentDirX * gameObject.Component1.pushSpeed * Time.DeltaTime, gameObject.Component1.currentDirY * gameObject.Component1.pushSpeed * Time.DeltaTime);
+                lv.Value = new Vector2(GMath.Clamp(lv.Value.X, -3f, 3f), GMath.Clamp(lv.Value.Y, -3f, 3f));
             }
         }
 
 
     }
 
-    protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
-    {
-        //restore obj values
-    }
+    //protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
+    //{
+    //    //restore obj values
+    //    Entity selfEntity = Entity.FromId(World!, self.Id);
+    //    Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
+    //    if (selfEntity.HasComponent<AddCurrentComponent>() && (otherEntity.HasComponent<PlayerTriggerComponent>() || otherEntity.HasComponent<MS_IDComponent>()))
+    //    {
+
+    //        foreach (var gameObject in World!.Query<AddCurrentComponent>())
+    //        {
+    //            //If the id does not match, skip this obj
+    //            if (gameObject.Entity.Id != self.Id) continue;
+    //            Entity playerEntity = Entity.FromId(World!, Player.instance.player.Id);
+    //            ref LinearVelocity2D lv = ref playerEntity.GetComponent<LinearVelocity2D>();
+    //            lv.Value = Vector2.Zero;
+    //        }
+    //    }
+    //}
 
 
 }

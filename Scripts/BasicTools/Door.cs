@@ -15,30 +15,5 @@ namespace EchoesBelow.Scripts;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class Door : SystemBase
 {
-    protected override void OnCreate()
-    {
-       
-    }
-    
-    protected override void OnUpdate()
-    {
-        foreach(var gameObject in World!.Query<DoorComponent>())
-        {
-            ////skip if its not open
-            //if (!gameObject.Component1.isOpen) continue;
-
-            //ref LinearVelocity2D transform = ref gameObject.Entity.GetComponent<LocalTransform>();
-            //if (gameObject.Component1.isVertical)
-            //{
-
-
-            //}
-            //else
-            //{
-
-            //} //tagmask2 == 4
-            //Log("mask detected: " + gameObject.Entity.GetComponent<TagMask>().Mask);
-        }
-    }
 
 }
