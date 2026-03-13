@@ -158,7 +158,7 @@ public class PauseMenu : SystemBase
                 if (isKeyPressed_Space)
                 {
                     Log("Exit");
-
+                    Time.TimeScale = 1;
                     SceneManager sceneManager = SceneManager.Instance;
                     sceneManager.SetNextAudioTransition(0.8f, true);
 
