@@ -16,7 +16,7 @@ public class StartMenuController : SystemBase
 {
     //For startscene
     private const string SourceSceneName = "Newstartscene";
-    private const string TargetScenePath = "Scenes/FGym2.scn";
+    private const string TargetScenePath = "Scenes/M5_L1.scn";
     //for endscene
     private const string EndSceneName = "EndScene";
     private const string StartSceneName = "Scenes/NewStartScene.scn";
