@@ -11,6 +11,7 @@ using Scripts.CraftingSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Text;
 
 
 namespace EchoesBelow.Scripts;
@@ -32,6 +33,8 @@ namespace EchoesBelow.Scripts;
 public class CraftAnemone : SystemBase
 {
     public static Dictionary<ulong, Anemone> instances;
+    private Dictionary<int, List<ulong>> doorEntitiesBySignifier = new();
+    private bool hasInitializedGlobals = false;
     private const float cameraOffsetY = 3.0f;
     private const float FOVoffset = 151;
     private const float FOVoriginal = 128.5f;
@@ -54,21 +57,43 @@ public class CraftAnemone : SystemBase
         //before everything in update. Ultimately this sets something once at the beginning of the script 
         // 1 1 1 1 or 1 or 1 1 1 is effectively 1 in the end. So this can create a List instance once at the start every Scene Load / PlayMode Entrance
         
+        if (hasInitializedGlobals) return true;
+        hasInitializedGlobals = true;
+
         NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
-       
+        doorEntitiesBySignifier = new Dictionary<int, List<ulong>>();
+
         //Migrate these to NodeLink after M5! and incorporate component values instead of storing port bools in NodeLinkData
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
         {
-            if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode)
+            Entity nodeEntity = gameObject.Entity;
+            if (!nodeEntity.GetComponent<NodeLinkComponent>().isRootNode) continue;
+
+            //if root node, the south port is always filled
+            NodeLinkData nodeLinkData = new NodeLinkData(
+                World!,
+                nodeEntity.Id,
+                nodeEntity.GetComponent<LocalTransform>().Position,
+                9,
+                false,
+                true,
+                false,
+                false);
+            NodeLink.instances[nodeEntity.Id] = nodeLinkData;
+            Log("Created and Added a node");
+        }
+
+        foreach (var door in World!.Query<MatchSignifierComponent>())
+        {
+            int signifier = door.Component1.signifierID;
+            if (!doorEntitiesBySignifier.TryGetValue(signifier, out List<ulong> doorsForSignifier))
             {
-                //if root node, the south port is always filled
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 
-                                                             Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
-                                                             9, false, true, false, false);
-                NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
-                Log("Created and Added a node");
+                doorsForSignifier = new List<ulong>();
+                doorEntitiesBySignifier.Add(signifier, doorsForSignifier);
             }
+
+            doorsForSignifier.Add(door.Entity.Id);
         }
 
         return true;
@@ -81,8 +106,11 @@ public class CraftAnemone : SystemBase
         //creates a new anemone container per CraftAnemone detected
         Anemone anemone = new Anemone(objId, Entity.FromId(World!,objId).GetComponent<Name>().Value.ToString());
 
+        Entity anemoneEntity = Entity.FromId(World!, objId);
+        List<Entity> children = anemoneEntity.GetChildren();
+
         //Assign the appropriate start pos
-        foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
+        foreach (Entity child in children)
         {
             if (child.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSignifier) && mSignifier.signifierID == 466)
             {
@@ -95,7 +123,7 @@ public class CraftAnemone : SystemBase
         //Initialize Obj Pools per CraftAnemone Obj
 
         //Get a raw list of all children under the craftAnemone
-        foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
+        foreach (Entity child in children)
         {
             //If child does not have a craftmove, skip!
             if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
@@ -109,19 +137,12 @@ public class CraftAnemone : SystemBase
         //Sort everything
         foreach (ulong childID in anemone.rawChildList)
         {
-            int id_Iterator = 1;
-            foreach (List<ulong> ms_objPool in anemone.objPools)
-            {
-                //check if i++ == target msID
-                if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
-                {
-                    //add the obj back into the pool, reset its transforms
-                    ms_objPool.Add(childID);
+            int msId = Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID;
+            if (msId < 1 || msId > anemone.objPools.Length) continue;
 
-                    anemone.sortedChildList.Add(childID);
-                }
-                id_Iterator++;
-            }
+            //add the obj back into the pool, reset its transforms
+            anemone.objPools[msId - 1].Add(childID);
+            anemone.sortedChildList.Add(childID);
         }
 
         //Add the instance! AFTER everything is set
@@ -154,29 +175,21 @@ public class CraftAnemone : SystemBase
 
 
         }
-        //Call OnAwake 1st
-        foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
-        {
-            bool awake = gameObject.Component1.awake;
-            gameObject.Component1.awake = OnAwake(ref awake, gameObject.Entity.Id);
-        }
-        //Call OnStart 2nd - These MUST be called separately
-        foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
-        {
-            bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
-        }
-
         isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
         isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
 
-        //Then all Update funcs
+        //Initialize + update in one pass to avoid extra full world scans each frame.
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
+            bool awake = gameObject.Component1.awake;
+            gameObject.Component1.awake = OnAwake(ref awake, gameObject.Entity.Id);
+
+            bool start = gameObject.Component1.start;
+            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
+
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
- 
-            Anemone cr = instances[gameObject.Entity.Id];
+            if (!instances.TryGetValue(gameObject.Entity.Id, out Anemone cr)) continue;
 
             float yBloom = 1.55f;
             //float yWilt = -0.86f; // might be unused but good to know!
@@ -281,32 +294,30 @@ public class CraftAnemone : SystemBase
                     
                     Log("queryString: " +  queryString);
 
-                    string correctString = "";
-
-                    if (gameObject.Component1.zc1 > 0) correctString += gameObject.Component1.zc1;
-                    if (gameObject.Component1.zc2 > 0) correctString += gameObject.Component1.zc2;
-                    if (gameObject.Component1.zc3 > 0) correctString += gameObject.Component1.zc3;
-                    if (gameObject.Component1.zc4 > 0) correctString += gameObject.Component1.zc4;
-                    if (gameObject.Component1.zc5 > 0) correctString += gameObject.Component1.zc5;
-                    if (gameObject.Component1.zc6 > 0) correctString += gameObject.Component1.zc6;
-                    if (gameObject.Component1.zc7 > 0) correctString += gameObject.Component1.zc7;
+                    StringBuilder correctStringBuilder = new StringBuilder(32);
+                    if (gameObject.Component1.zc1 > 0) correctStringBuilder.Append(gameObject.Component1.zc1);
+                    if (gameObject.Component1.zc2 > 0) correctStringBuilder.Append(gameObject.Component1.zc2);
+                    if (gameObject.Component1.zc3 > 0) correctStringBuilder.Append(gameObject.Component1.zc3);
+                    if (gameObject.Component1.zc4 > 0) correctStringBuilder.Append(gameObject.Component1.zc4);
+                    if (gameObject.Component1.zc5 > 0) correctStringBuilder.Append(gameObject.Component1.zc5);
+                    if (gameObject.Component1.zc6 > 0) correctStringBuilder.Append(gameObject.Component1.zc6);
+                    if (gameObject.Component1.zc7 > 0) correctStringBuilder.Append(gameObject.Component1.zc7);
+                    string correctString = correctStringBuilder.ToString();
 
                     Log("Correct string: " + correctString);
                     if (queryString == correctString)
                     {
                         //correct
                         AudioManager.instance.PlaySFX("SFX012");
-
-                        foreach(var door in World!.Query<MatchSignifierComponent>())
+                        if (doorEntitiesBySignifier.TryGetValue(gameObject.Component1.z_doorSignifier, out List<ulong> doorIds))
                         {
-                            if(door.Component1.signifierID == gameObject.Component1.z_doorSignifier)
+                            foreach (ulong doorId in doorIds)
                             {
                                 //Deactivate Door!
                                 AudioManager.instance.PlaySFX("SFX006");
-                                ref Active doorActive = ref Entity.FromId(World!,door.Entity.Id).GetComponent<Active>();
+                                ref Active doorActive = ref Entity.FromId(World!, doorId).GetComponent<Active>();
                                 doorActive.Enabled = false;
                             }
-                            //else nothin, if no door found
                         }
                     }
                     else
@@ -401,13 +412,13 @@ public class CraftAnemone : SystemBase
 
 
             //CHANGE CAMERA
-            if (cr.isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
+            if (cr.isEnteredAnemone && !cr.isExitingAnemone)
             {
-                TransitionCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
+                TransitionCamera(cr, lerpFac * 1.6f);
             }
-            if (cr.isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
+            if (cr.isExitingAnemone && !cr.isEnteredAnemone)
             {
-                ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
+                ResetCamera(cr, lerpFac * 1.6f);
             }
         }
     }
@@ -440,15 +451,17 @@ public class CraftAnemone : SystemBase
     {
         foreach (var camera in World!.Query<Camera3D>())
         {
+            Entity cameraEntity = camera.Entity;
+            ref Camera3D camera3D = ref cameraEntity.GetComponent<Camera3D>();
 
-            ref LocalTransform cameraTransform = ref Entity.FromId(World!, camera.Entity.Id).GetComponent<LocalTransform>();
+            ref LocalTransform cameraTransform = ref cameraEntity.GetComponent<LocalTransform>();
 
             //Lerp transform to 2.2 on positive y
             //And change FOV to 141
             cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOffsetY, lerpFac * Time.DeltaTime), cameraTransform.Position.Z);
-            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoffset, lerpFac * Time.DeltaTime);
+            camera3D.FOV = GMath.Lerp(camera3D.FOV, FOVoffset, lerpFac * Time.DeltaTime);
 
-            if (cameraTransform.Position.Y >= cameraOffsetY - marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV >= FOVoffset - marginAllowance)
+            if (cameraTransform.Position.Y >= cameraOffsetY - marginAllowance && camera3D.FOV >= FOVoffset - marginAllowance)
             {   //When Done entering
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
@@ -461,17 +474,19 @@ public class CraftAnemone : SystemBase
     {
         foreach (var camera in World!.Query<Camera3D>())
         {
+            Entity cameraEntity = camera.Entity;
+            ref Camera3D camera3D = ref cameraEntity.GetComponent<Camera3D>();
 
-            ref LocalTransform cameraTransform = ref Entity.FromId(World!, camera.Entity.Id).GetComponent<LocalTransform>();
+            ref LocalTransform cameraTransform = ref cameraEntity.GetComponent<LocalTransform>();
 
             //Lerp transform to 2.2 on positive y
             //And change FOV to 141
 
             cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOriginalY, lerpFac * Time.DeltaTime), cameraTransform.Position.Z);
             
-            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoriginal, lerpFac * Time.DeltaTime);
+            camera3D.FOV = GMath.Lerp(camera3D.FOV, FOVoriginal, lerpFac * Time.DeltaTime);
 
-            if (cameraTransform.Position.Y <= cameraOriginalY + marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV <= FOVoriginal + marginAllowance)
+            if (cameraTransform.Position.Y <= cameraOriginalY + marginAllowance && camera3D.FOV <= FOVoriginal + marginAllowance)
             {   //When done exiting
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
@@ -505,10 +520,10 @@ public class CraftAnemone : SystemBase
                                                        GMath.Lerp(playerTransform.Position.Y, transform.Position.Y, lerpFac * 1.75f *Time.DeltaTime), 0);
     
         //If position is within the agreed allowance, stop the tractor beam
-        float playerXpos = player.GetComponent<LocalTransform>().Position.X;
+        float playerXpos = playerTransform.Position.X;
         float Xboundary = transform.Position.X;
      
-        float playerYpos = player.GetComponent<LocalTransform>().Position.Y;
+        float playerYpos = playerTransform.Position.Y;
         float yBoundary = transform.Position.Y;
   
         if (Xboundary - 0.125f < playerXpos && playerXpos < Xboundary + 0.125f &&
