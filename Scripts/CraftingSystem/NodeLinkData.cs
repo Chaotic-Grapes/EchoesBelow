@@ -16,6 +16,8 @@ public class NodeLinkData : SystemBase
 {
     public ulong parentObjId { get; set; }
 
+    public Vector3 frozenPos { get; set; }
+
     public bool port_N_isFilled {  get; set; }
     public bool port_S_isFilled { get; set; }
     public bool port_E_isFilled { get; set; }
@@ -34,9 +36,10 @@ public class NodeLinkData : SystemBase
     // I can have multiple unique fields in here, these cant be set from the outset
     // But colliders can query and send info to the corresponding CMachineData container
     // Accessing thru ulong ids
-    public NodeLinkData(World world, ulong objId, int msID, bool port_N_isFilled, bool port_S_isFilled, bool port_E_isFilled, bool port_W_isFilled)
+    public NodeLinkData(World world, ulong objId, Vector3 frozenPos, int msID, bool port_N_isFilled, bool port_S_isFilled, bool port_E_isFilled, bool port_W_isFilled)
     {
         this.parentObjId = objId;
+        this.frozenPos = frozenPos;
 
         //Retrieve the list of children under the comboMachine and sort them appropriately
         List<Entity> rawChildList = Entity.FromId(world, objId).GetChildren();
@@ -74,7 +77,7 @@ public class NodeLinkData : SystemBase
         this.port_E_isFilled = port_E_isFilled;
         this.port_W_isFilled = port_W_isFilled;
 
-        node = new ElementNode(msID, Entity.FromId(world, objId));
+        node = new ElementNode(msID, Entity.FromId(world, objId), this.frozenPos);
 
        
     }

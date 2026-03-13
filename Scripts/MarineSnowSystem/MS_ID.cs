@@ -5,6 +5,7 @@ using GrapeEngine.Scripting.Events;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts.CraftingSystem;
 using System.Collections.Generic;
 
 
@@ -31,13 +32,13 @@ public class MS_ID : SystemBase
     }
     protected override void OnUpdate()
     {
-        foreach(var gameObject in World!.Query<MS_IDComponent>())
+        foreach(var gameObject in World!.Query<MS_IDComponent>().Without<CraftMoveComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
         }
 
-        foreach (var gameObject in World!.Query<MS_IDComponent>())
+        foreach (var gameObject in World!.Query<MS_IDComponent>().Without<CraftMoveComponent>())
         {
             if(gameObject.Component1.collisionCooldown >= 0f)
             {

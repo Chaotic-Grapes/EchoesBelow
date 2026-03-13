@@ -21,6 +21,7 @@ public class ElementNode
     public ElementNode node_E { get; set; }
     public ElementNode node_W { get; set; }
 
+    public Vector3 frozenPos { get; set; }
 
     public int msID {  get; set; }
     public int msID_N { get; set; }
@@ -28,10 +29,11 @@ public class ElementNode
     public int msID_E { get; set; }
     public int msID_W { get; set; }
 
-    public ElementNode(int msID, Entity parentEntity)
+    public ElementNode(int msID, Entity parentEntity, Vector3 frozenPos)
     {
         this.msID = msID;
         parent = parentEntity;
+        this.frozenPos = frozenPos;
     }
 
     public void SetNode(ElementNode node, nodeSelect nodeSelector)
@@ -92,6 +94,30 @@ public class ElementNode
         GetNodeList(n.node_E, ref e);
         GetNodeList(n.node_W, ref e);
 
+    }
+
+    public void GetmsIDList(ElementNode n, ref List<int> e)
+    {
+        if (n == null) { return; }
+        //DOESNT WORK YET
+        e.Add(msID);
+
+        GetmsIDList(n.node_N, ref e);
+        GetmsIDList(n.node_S, ref e);
+        GetmsIDList(n.node_E, ref e);
+        GetmsIDList(n.node_W, ref e);
+
+    }
+    public void GetPosOnTree(ElementNode n, ref Dictionary<Entity, Vector3> v)
+    {
+        if (n == null) { return; }
+
+        v.Add(parent,frozenPos);
+
+        GetPosOnTree(n.node_N, ref v);
+        GetPosOnTree(n.node_S, ref v);
+        GetPosOnTree(n.node_E, ref v);
+        GetPosOnTree(n.node_W, ref v);
     }
 }
 public enum nodeSelect {

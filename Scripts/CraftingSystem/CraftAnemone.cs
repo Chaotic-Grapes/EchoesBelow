@@ -63,7 +63,9 @@ public class CraftAnemone : SystemBase
             if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode)
             {
                 //if root node, the south port is always filled
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 9, false, true, false, false);
+                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 
+                                                             Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
+                                                             9, false, true, false, false);
                 NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
                 Log("Created and Added a node");
             }
@@ -292,11 +294,56 @@ public class CraftAnemone : SystemBase
                     Log("Correct string: " + correctString);
                     if (queryString == correctString)
                     {
+                        //correct
                         AudioManager.instance.PlaySFX("SFX012");
+
+                        foreach(var door in World!.Query<MatchSignifierComponent>())
+                        {
+                            if(door.Component1.signifierID == gameObject.Component1.z_doorSignifier)
+                            {
+                                //Deactivate Door!
+                                AudioManager.instance.PlaySFX("SFX006");
+                                ref Active doorActive = ref Entity.FromId(World!,door.Entity.Id).GetComponent<Active>();
+                                doorActive.Enabled = false;
+                            }
+                            //else nothin, if no door found
+                        }
                     }
                     else
                     {
+                        //wrong
                         AudioManager.instance.PlaySFX("SFX013");
+                        Log("WRONG", LogLevel.Warning);
+                        foreach (ElementNode e in eNodeList)
+                        {
+                            if (!e.parent.HasComponent<MS_IDComponent>()) continue;
+                            int msID = e.parent.GetComponent<MS_IDComponent>().msID;
+                            Log($"Available ID: {msID}", LogLevel.Warning);
+
+                            cr.ResetSelection(World!);
+
+                            if (MS_Manager.instance.TakeFromPool(msID, 
+                                rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
+                                new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
+                            Log("LETS GO");
+                        }
+
+                        
+                        //List<int> msIdNodeList = [];
+                        //rootNodeLinkInstance.node.GetmsIDList(rootNodeLinkInstance.node, ref msIdNodeList);
+                        //foreach (int i in msIdNodeList)
+                        //{
+                        //    Log($"msID available: {i}", LogLevel.Debug);
+                        //}
+
+                        //For the future!
+                        //Dictionary<Entity, Vector3> listOfVectorsOnTheTree = [];
+                        //rootNodeLinkInstance.node.GetPosOnTree(rootNodeLinkInstance.node, ref listOfVectorsOnTheTree);
+
+                        //foreach (Entity e in listOfVectorsOnTheTree.Keys)
+                        //{
+                        //    Log($"Name of Node: {e.GetComponent<Name>().Value.ToString()} / Vector: {listOfVectorsOnTheTree[e]}", LogLevel.Debug);
+                        //}
                     }
                 }
 

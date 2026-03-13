@@ -147,7 +147,46 @@ public class Anemone :SystemBase
         //Log("5b Nothing found, out to you");
         return;
     }
+    public void ResetSelection(World world)
+    {
+        //First we iterate thru the sorted child list
+        //We reset EVERYTHING, turn off active for active children
+        //Then we add any active children back to the relevant lists
+        foreach (ulong childID in sortedChildList)
+        {
+            if (!Entity.FromId(world,childID).HasComponent<MS_IDComponent>()) continue;
+            Log($"==={Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()}==================================");
+            //Reset objs
 
+            Entity queriedObj = Entity.FromId(world, childID);
+               
+            //if (!queriedObj.HasComponent<CraftMoveComponent>())
+            //{
+            //    //Add
+            //    ref LinearVelocity2D lv = ref queriedObj.AddComponent<LinearVelocity2D>();
+            //    ref AngularVelocity2D av = ref queriedObj.AddComponent<AngularVelocity2D>();
+            //    ref Rigidbody2D rb = ref queriedObj.AddComponent<Rigidbody2D>();
+            //    ref CircleCollider2D circCollider = ref queriedObj.AddComponent<CircleCollider2D>();
+            //    ref CraftMoveComponent crMove = ref queriedObj.AddComponent<CraftMoveComponent>();
+            //    //Initialize
+            //    rb.Mass = 1;
+            //    rb.IsKinematic = true;
+
+
+            //    queriedObj.RemoveComponent<NodeLinkComponent>();
+            //}
+
+            //Reset all children
+            //if (Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
+            //{
+            //    Log("8a");
+            //    //ResetPoolObj(world, childID);
+            //    Log("8b");
+            //    //Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
+            //}
+            //Log("9");
+        }
+    }
     public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
     {
         //Log("START ==============");
@@ -238,7 +277,7 @@ public class Anemone :SystemBase
         nl.start = true;
 
         //Initialise and add NodeLinkData to the instances list
-        NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, msID, false, false, false, false);
+        NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, queriedObj.GetComponent<LocalTransform>().Position , msID, false, false, false, false);
         NodeLink.instances.Add(queriedObj.Id, nlD);
         NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
@@ -351,6 +390,7 @@ public class Anemone :SystemBase
         ref LinearVelocity2D lv = ref returningObj.GetComponent<LinearVelocity2D>();
         lv.Value = Vector2.Zero;
 
+        if(returningObj.HasComponent<CraftMoveComponent>())
         returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
     }
 }
