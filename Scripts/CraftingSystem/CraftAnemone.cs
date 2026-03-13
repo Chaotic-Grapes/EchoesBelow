@@ -10,11 +10,24 @@ using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts.CraftingSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 
 namespace EchoesBelow.Scripts;
 
-[Component] public record struct CraftAnemoneComponent(bool start, float lerpFacInMiliseconds, float exitSpeed, bool awake);
+[Component] public record struct CraftAnemoneComponent
+    (bool start,
+    float lerpFacInMiliseconds, 
+    float exitSpeed, 
+    bool awake, 
+    ulong zc1, 
+    ulong zc2, 
+    ulong zc3, 
+    ulong zc4, 
+    ulong zc5, 
+    ulong zc7, 
+    ulong zc6, 
+    int z_doorSignifier);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftAnemone : SystemBase
 {
@@ -50,7 +63,7 @@ public class CraftAnemone : SystemBase
             if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode)
             {
                 //if root node, the south port is always filled
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 0, false, true, false, false);
+                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 9, false, true, false, false);
                 NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
                 Log("Created and Added a node");
             }
@@ -263,7 +276,28 @@ public class CraftAnemone : SystemBase
 
                     string queryString = "";
                     rootNodeLinkInstance.node.SearchNode(rootNodeLinkInstance.node, ref queryString);
+                    
                     Log("queryString: " +  queryString);
+
+                    string correctString = "";
+
+                    if (gameObject.Component1.zc1 > 0) correctString += gameObject.Component1.zc1;
+                    if (gameObject.Component1.zc2 > 0) correctString += gameObject.Component1.zc2;
+                    if (gameObject.Component1.zc3 > 0) correctString += gameObject.Component1.zc3;
+                    if (gameObject.Component1.zc4 > 0) correctString += gameObject.Component1.zc4;
+                    if (gameObject.Component1.zc5 > 0) correctString += gameObject.Component1.zc5;
+                    if (gameObject.Component1.zc6 > 0) correctString += gameObject.Component1.zc6;
+                    if (gameObject.Component1.zc7 > 0) correctString += gameObject.Component1.zc7;
+
+                    Log("Correct string: " + correctString);
+                    if (queryString == correctString)
+                    {
+                        AudioManager.instance.PlaySFX("SFX012");
+                    }
+                    else
+                    {
+                        AudioManager.instance.PlaySFX("SFX013");
+                    }
                 }
 
             }
