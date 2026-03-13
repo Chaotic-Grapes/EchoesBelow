@@ -245,12 +245,14 @@ public class StartMenuController : SystemBase
 
         if (moveLeft)
         {
+            AudioManager.instance.PlaySFX("SFX007");
             MoveSelection(-1);
             movedSelection = true;
         }
 
         if (moveRight)
         {
+            AudioManager.instance.PlaySFX("SFX007");
             MoveSelection(1);
             movedSelection = true;
         }
