@@ -12,26 +12,28 @@ using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts.MarineSnowSystem;
 
-[Component] public record struct MS_SpawnerComponent(bool start, float spawnIntervalinMilliseconds, int toSpawn, float timer,float decayTime);
+[Component] public record struct MS_SpawnerComponent(bool start, float spawnIntervalinMilliseconds, int toSpawn, float timer,float decayTime, int spawnCountMin, int spawnCountMax);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class MS_Spawner : SystemBase
 {
-    const int toSpawnMin = 1;
-    const int toSpawnMax = 6;
+    int toSpawnMin;
+    int toSpawnMax;
     float spawnInterval = 0;
     //toSpawn is formatted as 10000000, the 7 0's after 1 represent the different MS particles
     protected override void OnCreate()
     {
         //Log("System MS_Spawner initialized");
     }
-    private bool OnStart(ref bool startBool, ulong objId)
+    private bool OnStart(ref bool startBool, ulong objId, int spawnCountMax, int spawnCountMin)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
-
+        toSpawnMax = spawnCountMax;
+        toSpawnMin = spawnCountMin;
         spawnInterval = Entity.FromId(World!, objId).GetComponent<MS_SpawnerComponent>().spawnIntervalinMilliseconds / 1000f;
-
+        ref ShapeBox2D shapeBox = ref Entity.FromId(World!, objId).GetComponent<ShapeBox2D>();
+        shapeBox.Filled = false;
         //End of Start
         return true;
     }
@@ -42,7 +44,7 @@ public class MS_Spawner : SystemBase
             //A Pseudo Start function, called once per obj at runtime
             //This allows onStart to work
             bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
+            gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id, gameObject.Component1.spawnCountMax, gameObject.Component1.spawnCountMin);
 
             gameObject.Component1.timer += Time.DeltaTime;
 
@@ -83,7 +85,8 @@ public class MS_Spawner : SystemBase
                 {
                     //Generate new spawn Coordinate
                     float xValue = GMath.Random(xBoundaryMin, xBoundaryMax);
-                    Vector3 spawnPos = new Vector3(xValue, transform.Position.Y, 0);
+                    //offset by player transform for now!
+                    Vector3 spawnPos = new Vector3(xValue + Player.instance.currentPos.X, transform.Position.Y + Player.instance.currentPos.Y, 0);
                     
                     if(MS_Manager.instance.TakeFromPool(msID, spawnPos, new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)),gameObject.Component1.decayTime, false) == MS_Manager.instance.emptyId) continue;
                 }
