@@ -54,7 +54,9 @@ public class PauseMenu : SystemBase
         isFirstSelected = true;
 
         Entity pauseMenuObj = Entity.FromId(World!, objId);
-        pauseMenuElementObjIds = pauseMenuObj.GetChildren();
+        pauseMenuElementObjIds = pauseMenuObj.GetFirstChild()!.GetChildren();
+        pauseMenuElementObjIds.Add(pauseMenuObj.GetFirstChild()!);
+
         CacheAudioSliderEntities();
 
         //End of Start
@@ -423,7 +425,7 @@ public class PauseMenu : SystemBase
     //Pause Menu is off by default
     protected override void OnUpdate()
     {
-        bool isKeyPressed_Esc = Input.IsKeyPressed(KeyCode.P);
+        bool isKeyPressed_P = Input.IsKeyPressed(KeyCode.P);
         bool isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         
         isKeyPressed_vertical = Input.IsKeyPressed(KeyCode.W) || Input.IsKeyPressed(KeyCode.A) || Input.IsKeyPressed(KeyCode.S) || Input.IsKeyPressed(KeyCode.D);
@@ -438,7 +440,7 @@ public class PauseMenu : SystemBase
       
         SceneManager sceneManager = SceneManager.Instance;
 
-        if (isKeyPressed_Esc && !isPaused)
+        if (isKeyPressed_P && !isPaused)
         {
             AudioManager.instance.PlaySFX("SFX007");
             
@@ -447,11 +449,12 @@ public class PauseMenu : SystemBase
             foreach (Entity menuElement in pauseMenuElementObjIds)
             {
                 Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = true;
+            Log("Launch Pause Menu");
             }
             //Launch Pause Menu
-            Log("Launch Pause Menu");
+
         }
-        else if (isKeyPressed_Esc && isPaused)
+        else if (isKeyPressed_P && isPaused)
         {
             AudioManager.instance.PlaySFX("SFX007");
            
@@ -460,9 +463,10 @@ public class PauseMenu : SystemBase
             foreach (Entity menuElement in pauseMenuElementObjIds)
             {
                 Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
+            Log("Paused Game from Esc Press");
             }
             //Close Pause Menu
-            Log("Paused Game from Esc Press");
+
         }
 
         if (isPaused)
@@ -481,7 +485,7 @@ public class PauseMenu : SystemBase
                     {
                         if (ui.Component2.signifierID == controller.Component1.resumeSiginifier || ui.Component2.signifierID == controller.Component1.exitSignifier)
                         {
-                            ref GUIPanel panel = ref ui.Entity.GetComponent<GUIPanel>();
+                            ref GUIImage panel = ref ui.Entity.GetComponent<GUIImage>();
                             if (panel.Color.R == unselectedCol.R)
                             {
                                 panel.Color = selectedCol;
