@@ -1,0 +1,2916 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX_Button"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 456.0,
+                                "Y": 308.0
+                            },
+                            "Size": {
+                                "X": 535.0,
+                                "Y": 194.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 15
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\SFX.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spicule_04"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 897.0,
+                                "Y": 110.0
+                            },
+                            "Size": {
+                                "X": 218.0,
+                                "Y": 190.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 13
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Spicule_04.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Coral_01"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 4,
+                            "AnchorMax": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "AnchorMin": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": -164.0,
+                                "Y": 412.0
+                            },
+                            "Size": {
+                                "X": 413.0,
+                                "Y": 187.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 13
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.1949329376220703,
+                                "G": 0.1949329376220703,
+                                "R": 0.8050670623779297
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Coral_01.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spicule_01"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 833.0,
+                                "Y": 515.0
+                            },
+                            "Size": {
+                                "X": 554.0,
+                                "Y": 480.0
+                            },
+                            "Visible": false,
+                            "ZOrder": 14
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Spicule_01.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spicule_02"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 38.0,
+                                "Y": 227.0
+                            },
+                            "Size": {
+                                "X": 780.0,
+                                "Y": 704.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 14
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Spicule_02.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spicule_03"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 521.0,
+                                "Y": 222.0
+                            },
+                            "Size": {
+                                "X": 149.0,
+                                "Y": 170.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 18
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Spicule_03.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spicule_05"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 827.0,
+                                "Y": 582.0
+                            },
+                            "Size": {
+                                "X": 500.0,
+                                "Y": 528.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 14
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Spicule_02.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Sound_Button"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 21.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 144.0,
+                                "Y": 82.0
+                            },
+                            "Size": {
+                                "X": 462.0,
+                                "Y": 413.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 17
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Sound.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "ControlsGuide"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 4,
+                            "AnchorMax": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "AnchorMin": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 114.0,
+                                "Y": 77.0
+                            },
+                            "Size": {
+                                "X": 1646.0,
+                                "Y": 1338.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 17
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7-UI\\MenuControls.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "PauseMenu_Background"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 4,
+                            "AnchorMax": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "AnchorMin": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": -23.0,
+                                "Y": 37.0
+                            },
+                            "Size": {
+                                "X": 1920.0,
+                                "Y": 1080.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 10
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\PauseMenu_BG.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Exit_Button"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 4,
+                            "AnchorMax": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "AnchorMin": {
+                                "X": 0.5,
+                                "Y": 0.5
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 13.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 70.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 220.0,
+                                "Y": -96.0
+                            },
+                            "Size": {
+                                "X": 824.0,
+                                "Y": 706.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 11
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Exit.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 22230
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "BGM_Button"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 416.0,
+                                "Y": 117.0
+                            },
+                            "Size": {
+                                "X": 558.0,
+                                "Y": 186.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 11
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\BGM.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 44450
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "BGM_Button_Lighter"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 464.0,
+                                "Y": 70.0
+                            },
+                            "Size": {
+                                "X": 645.0,
+                                "Y": 256.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 12
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\BGM_Lighter.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 44451
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Resume_Button_Lighter"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 462.0,
+                                "Y": 487.0
+                            },
+                            "Size": {
+                                "X": 648.0,
+                                "Y": 578.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 18
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Resume_Lighter.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 11121
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Resume_Button"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 489.0,
+                                "Y": 521.0
+                            },
+                            "Size": {
+                                "X": 581.0,
+                                "Y": 501.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 13
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Resume.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 11120
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Exit_Button_Lighter"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 785.0,
+                                "Y": 69.0
+                            },
+                            "Size": {
+                                "X": 876.0,
+                                "Y": 754.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 18
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\Exit_Lighter.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 22231
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX_Button"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 598.0,
+                                "Y": 368.0
+                            },
+                            "Size": {
+                                "X": 320.0,
+                                "Y": 78.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 16
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\SFX_Slider.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 33340
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX_Button_Lighter"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 469.0,
+                                "Y": 285.0
+                            },
+                            "Size": {
+                                "X": 585.0,
+                                "Y": 265.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 19
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\SFX_Lighter.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 33341
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX_Bubble"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 570.0,
+                                "Y": 384.0
+                            },
+                            "Size": {
+                                "X": 45.0,
+                                "Y": 47.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 21
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\SFX_Bubble.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 33342
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX_Slider"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 579.0,
+                                "Y": 311.0
+                            },
+                            "Size": {
+                                "X": 388.0,
+                                "Y": 254.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 20
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 1,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\SFX_Slider_Lighter.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 33343
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "BGM_Slider"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 617.0,
+                                "Y": 161.0
+                            },
+                            "Size": {
+                                "X": 353.0,
+                                "Y": 81.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 20
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\BGM_Slider_Lighter.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 44453
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "BGM_Bubble"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Alignment": 0,
+                            "AnchorMax": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "AnchorMin": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Margin": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Padding": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Position": {
+                                "X": 599.0,
+                                "Y": 217.0
+                            },
+                            "Size": {
+                                "X": 45.0,
+                                "Y": 47.0
+                            },
+                            "Visible": true,
+                            "ZOrder": 20
+                        },
+                        "TypeName": "GUIElement"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "ScaleMode": 0,
+                            "SliceBorder": {
+                                "W": 0.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TexturePath": "Assets\\Sprites\\7.1-PauseMenu\\BGM_Bubble.png",
+                            "UVRect": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 1.0
+                            },
+                            "UseSlicing": false
+                        },
+                        "TypeName": "GUIImage"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 44452
+                        },
+                        "TypeName": "Match Signifier"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 1.0,
+                        "Y": 1.0,
+                        "Z": 1.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "PauseMenuController"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Id": 0
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 1.0,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 0.0,
+                        "m10": 0.0,
+                        "m11": 1.0,
+                        "m12": 0.0,
+                        "m13": 0.0,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            },
+            {
+                "Data": {
+                    "exitSignifier": 22,
+                    "isPauseable": true,
+                    "resumeSiginifier": 23,
+                    "start": false
+                },
+                "TypeName": "Pause Menu"
+            },
+            {
+                "Data": {
+                    "signifierID": 0
+                },
+                "TypeName": "Match Signifier"
+            }
+        ]
+    }
+}
