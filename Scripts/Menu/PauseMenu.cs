@@ -22,6 +22,7 @@ public class PauseMenu : SystemBase
     private static readonly Vector2 SfxRangeEnd = new(930.0f, 440.0f);
     private static readonly Vector2 BgmRangeStart = new(599.0f, 217.0f);
     private static readonly Vector2 BgmRangeEnd = new(940.0f, 140.0f);
+    private const float SliderTrackHitRadius = 42.0f;
 
     bool isPaused = false;
 
@@ -29,6 +30,8 @@ public class PauseMenu : SystemBase
     bool isFirstSelected;
     bool isDraggingSfx;
     bool isDraggingBgm;
+    float sfxLastAxisPos;
+    float bgmLastAxisPos;
 
     private Entity? sfxBubbleEntity;
     private Entity? sfxSliderEntity;
@@ -147,6 +150,43 @@ public class PauseMenu : SystemBase
         return Clamp01(dot / lenSq);
     }
 
+    private static float ComputeAxisPos(Vector2 start, Vector2 end, double mouseX, double mouseY)
+    {
+        float dx = end.X - start.X;
+        float dy = end.Y - start.Y;
+        float len = (float)System.Math.Sqrt((dx * dx) + (dy * dy));
+        if (len <= 0.0001f)
+        {
+            return 0.0f;
+        }
+
+        float ux = dx / len;
+        float uy = dy / len;
+        float px = (float)mouseX - start.X;
+        float py = (float)mouseY - start.Y;
+        return (px * ux) + (py * uy);
+    }
+
+    private static bool IsPointNearSegment(Vector2 start, Vector2 end, double mouseX, double mouseY, float radius)
+    {
+        float dx = end.X - start.X;
+        float dy = end.Y - start.Y;
+        float lenSq = (dx * dx) + (dy * dy);
+        if (lenSq <= 0.0001f)
+        {
+            return false;
+        }
+
+        float px = (float)mouseX - start.X;
+        float py = (float)mouseY - start.Y;
+        float t = Clamp01(((px * dx) + (py * dy)) / lenSq);
+        float cx = start.X + dx * t;
+        float cy = start.Y + dy * t;
+        float ox = (float)mouseX - cx;
+        float oy = (float)mouseY - cy;
+        return (ox * ox) + (oy * oy) <= radius * radius;
+    }
+
     private static void ApplyBubbleFromT(Entity bubbleEntity, Vector2 start, Vector2 end, float t)
     {
         ref GUIElement bubbleElement = ref bubbleEntity.GetComponent<GUIElement>();
@@ -201,12 +241,37 @@ public class PauseMenu : SystemBase
         bool sfxHeld = IsEntityHeld(sfxBubbleEntity!) || IsEntityHeld(sfxSliderEntity!);
         bool bgmHeld = IsEntityHeld(bgmBubbleEntity!) || IsEntityHeld(bgmSliderEntity!);
 
-        // Fallback path: preserve click-to-set behavior even if GUIInput is not active.
-        bool sfxClicked = mousePressed && (IsPointInRect(mouseX, mouseY, sfxBubble) || IsPointInRect(mouseX, mouseY, sfxSlider));
-        bool bgmClicked = mousePressed && (IsPointInRect(mouseX, mouseY, bgmBubble) || IsPointInRect(mouseX, mouseY, bgmSlider));
+        // Clicking track/empty area should set slider value immediately, then dragging should continue.
+        bool sfxClicked = mousePressed && (
+            IsPointInRect(mouseX, mouseY, sfxBubble)
+            || IsPointInRect(mouseX, mouseY, sfxSlider)
+            || IsPointNearSegment(SfxRangeStart, SfxRangeEnd, mouseX, mouseY, SliderTrackHitRadius)
+        );
+        bool bgmClicked = mousePressed && (
+            IsPointInRect(mouseX, mouseY, bgmBubble)
+            || IsPointInRect(mouseX, mouseY, bgmSlider)
+            || IsPointNearSegment(BgmRangeStart, BgmRangeEnd, mouseX, mouseY, SliderTrackHitRadius)
+        );
 
-        isDraggingSfx = sfxHeld || sfxClicked;
-        isDraggingBgm = bgmHeld || bgmClicked;
+        if (sfxClicked)
+        {
+            isDraggingSfx = true;
+            sfxLastAxisPos = ComputeAxisPos(SfxRangeStart, SfxRangeEnd, mouseX, mouseY);
+        }
+        else if (!sfxHeld)
+        {
+            isDraggingSfx = false;
+        }
+
+        if (bgmClicked)
+        {
+            isDraggingBgm = true;
+            bgmLastAxisPos = ComputeAxisPos(BgmRangeStart, BgmRangeEnd, mouseX, mouseY);
+        }
+        else if (!bgmHeld)
+        {
+            isDraggingBgm = false;
+        }
 
         float sfxVolume = cachedSfxVolume;
         float bgmVolume = cachedBgmVolume;
@@ -218,16 +283,46 @@ public class PauseMenu : SystemBase
             sfxVolume = audioManager.Component1.globalSFXVolume;
             bgmVolume = audioManager.Component1.globalBGMVolume;
 
-            if (isDraggingSfx)
+            if (sfxClicked)
             {
                 sfxVolume = ComputeRangeT(SfxRangeStart, SfxRangeEnd, mouseX, mouseY) * 100.0f;
                 audioManager.Component1.globalSFXVolume = sfxVolume;
             }
+            else if (isDraggingSfx && sfxHeld)
+            {
+                float axisLen = (float)System.Math.Sqrt(
+                    (SfxRangeEnd.X - SfxRangeStart.X) * (SfxRangeEnd.X - SfxRangeStart.X)
+                    + (SfxRangeEnd.Y - SfxRangeStart.Y) * (SfxRangeEnd.Y - SfxRangeStart.Y)
+                );
+                if (axisLen > 0.0001f)
+                {
+                    float axisNow = ComputeAxisPos(SfxRangeStart, SfxRangeEnd, mouseX, mouseY);
+                    float deltaPercent = ((axisNow - sfxLastAxisPos) / axisLen) * 100.0f;
+                    sfxLastAxisPos = axisNow;
+                    sfxVolume = GMath.Clamp(sfxVolume + deltaPercent, 0.0f, 100.0f);
+                    audioManager.Component1.globalSFXVolume = sfxVolume;
+                }
+            }
 
-            if (isDraggingBgm)
+            if (bgmClicked)
             {
                 bgmVolume = ComputeRangeT(BgmRangeStart, BgmRangeEnd, mouseX, mouseY) * 100.0f;
                 audioManager.Component1.globalBGMVolume = bgmVolume;
+            }
+            else if (isDraggingBgm && bgmHeld)
+            {
+                float axisLen = (float)System.Math.Sqrt(
+                    (BgmRangeEnd.X - BgmRangeStart.X) * (BgmRangeEnd.X - BgmRangeStart.X)
+                    + (BgmRangeEnd.Y - BgmRangeStart.Y) * (BgmRangeEnd.Y - BgmRangeStart.Y)
+                );
+                if (axisLen > 0.0001f)
+                {
+                    float axisNow = ComputeAxisPos(BgmRangeStart, BgmRangeEnd, mouseX, mouseY);
+                    float deltaPercent = ((axisNow - bgmLastAxisPos) / axisLen) * 100.0f;
+                    bgmLastAxisPos = axisNow;
+                    bgmVolume = GMath.Clamp(bgmVolume + deltaPercent, 0.0f, 100.0f);
+                    audioManager.Component1.globalBGMVolume = bgmVolume;
+                }
             }
 
             break;
@@ -235,14 +330,42 @@ public class PauseMenu : SystemBase
 
         if (!hasAudioManager)
         {
-            if (isDraggingSfx)
+            if (sfxClicked)
             {
                 sfxVolume = ComputeRangeT(SfxRangeStart, SfxRangeEnd, mouseX, mouseY) * 100.0f;
             }
+            else if (isDraggingSfx && sfxHeld)
+            {
+                float axisLen = (float)System.Math.Sqrt(
+                    (SfxRangeEnd.X - SfxRangeStart.X) * (SfxRangeEnd.X - SfxRangeStart.X)
+                    + (SfxRangeEnd.Y - SfxRangeStart.Y) * (SfxRangeEnd.Y - SfxRangeStart.Y)
+                );
+                if (axisLen > 0.0001f)
+                {
+                    float axisNow = ComputeAxisPos(SfxRangeStart, SfxRangeEnd, mouseX, mouseY);
+                    float deltaPercent = ((axisNow - sfxLastAxisPos) / axisLen) * 100.0f;
+                    sfxLastAxisPos = axisNow;
+                    sfxVolume = GMath.Clamp(sfxVolume + deltaPercent, 0.0f, 100.0f);
+                }
+            }
 
-            if (isDraggingBgm)
+            if (bgmClicked)
             {
                 bgmVolume = ComputeRangeT(BgmRangeStart, BgmRangeEnd, mouseX, mouseY) * 100.0f;
+            }
+            else if (isDraggingBgm && bgmHeld)
+            {
+                float axisLen = (float)System.Math.Sqrt(
+                    (BgmRangeEnd.X - BgmRangeStart.X) * (BgmRangeEnd.X - BgmRangeStart.X)
+                    + (BgmRangeEnd.Y - BgmRangeStart.Y) * (BgmRangeEnd.Y - BgmRangeStart.Y)
+                );
+                if (axisLen > 0.0001f)
+                {
+                    float axisNow = ComputeAxisPos(BgmRangeStart, BgmRangeEnd, mouseX, mouseY);
+                    float deltaPercent = ((axisNow - bgmLastAxisPos) / axisLen) * 100.0f;
+                    bgmLastAxisPos = axisNow;
+                    bgmVolume = GMath.Clamp(bgmVolume + deltaPercent, 0.0f, 100.0f);
+                }
             }
         }
 
@@ -387,19 +510,14 @@ public class PauseMenu : SystemBase
         else if (isPaused && isKeyPressed_Space && !isFirstSelected)
         {
             AudioManager.instance.PlaySFX("SFX007");
-            //Log("Quitting . . . ");
-            sceneManager.SetNextAudioTransition(2.0f, true);
-            //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
-            //Like creating a new scene / allocate a new scene in the registry
             Time.TimeScale = 1;
             isPaused = false;
             foreach (Entity menuElement in pauseMenuElementObjIds)
             {
                 Entity.FromId(World!, menuElement.Id).GetComponent<GUIElement>().Visible = false;
             }
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, TargetScenePath);
-            SceneManager.Instance.SetActive(sceneIndex);
+
+            SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
         }
 
     }
