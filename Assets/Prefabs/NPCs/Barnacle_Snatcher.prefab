@@ -59,7 +59,7 @@
         },
         {
             "Data": {
-                "Id": 2
+                "Id": 3
             },
             "TypeName": "Layer"
         },
@@ -145,6 +145,12 @@
                 "start": false
             },
             "TypeName": "Barnacle Snatcher"
+        },
+        {
+            "Data": {
+                "ZOrder": 154
+            },
+            "TypeName": "ECS::Components::ZIndex2D"
         }
     ]
 }
