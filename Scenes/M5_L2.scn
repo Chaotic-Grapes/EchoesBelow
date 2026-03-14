@@ -22119,13 +22119,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "ChaosLight (Clone) (Clone)"
+                        "Value": "ChaosLight"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Id": 2
+                        "Id": 3
                     },
                     "TypeName": "Layer"
                 },
@@ -22134,8 +22134,8 @@
                         "CastsShadows": false,
                         "Color": {
                             "A": 1.0,
-                            "B": 0.9540849924087524,
-                            "G": 0.17155712842941284,
+                            "B": 0.9389427304267883,
+                            "G": 0.2661343812942505,
                             "R": 1.0
                         },
                         "Direction": {
@@ -22143,7 +22143,7 @@
                             "Y": -1.0,
                             "Z": 0.0
                         },
-                        "Intensity": 23.5,
+                        "Intensity": 13.800000190734863,
                         "LightType": 1,
                         "Position": {
                             "X": 0.0,
@@ -22194,7 +22194,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 43,
+                        "TextureId": 121,
                         "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                         "Tiling": {
                             "X": 1.0,
@@ -22229,9 +22229,49 @@
                 },
                 {
                     "Data": {
-                        "ZOrder": -3
+                        "ZOrder": 223
                     },
                     "TypeName": "ZIndex2D"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Value": 0.0
+                    },
+                    "TypeName": "AngularVelocity2D"
+                },
+                {
+                    "Data": {
+                        "Value": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        }
+                    },
+                    "TypeName": "LinearVelocity2D"
+                },
+                {
+                    "Data": {
+                        "AngularDamping": 0.0,
+                        "Flags": 0,
+                        "GravityScale": 1.0,
+                        "InverseMass": 1.0,
+                        "LinearDamping": 0.0,
+                        "Mass": 1.0
+                    },
+                    "TypeName": "Rigidbody2D"
+                },
+                {
+                    "Data": {
+                        "InputTest": 3,
+                        "x": 0,
+                        "y": 0
+                    },
+                    "TypeName": "Spinner"
                 }
             ]
         },
