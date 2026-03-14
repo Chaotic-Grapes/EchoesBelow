@@ -196,7 +196,7 @@ public class Anemone :SystemBase
                 ref Rigidbody2D rb = ref queriedObj.AddComponent<Rigidbody2D>();
                 rb.Mass = 1;
                 rb.IsKinematic = true;
-                rb.LinearDamping = 1.28f;
+                rb.LinearDamping = 5f;
                 ref CircleCollider2D circCollider = ref queriedObj.AddComponent<CircleCollider2D>();
                 circCollider.Radius = 0.3f;
                 ref CraftMoveComponent crMove = ref queriedObj.AddComponent<CraftMoveComponent>();
@@ -386,7 +386,7 @@ public class Anemone :SystemBase
         ref Rigidbody2D rb = ref pulledObj.AddComponent<Rigidbody2D>();
         rb.Mass = 1;
         rb.IsKinematic = true;
-        rb.LinearDamping = 1.28f;
+        rb.LinearDamping = 5f;
         ref CircleCollider2D circCollider = ref pulledObj.AddComponent<CircleCollider2D>();
         circCollider.Radius = 0.3f;
 

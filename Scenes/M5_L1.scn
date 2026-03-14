@@ -511,7 +511,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 0.08953168243169785,
+                        "AspectRatio": 1.3058823347091675,
                         "FOV": 128.5,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -32440,7 +32440,7 @@
                         "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 50.0,
                         "HAlign": 0,
-                        "Text": "FPS: 56",
+                        "Text": "FPS: 83",
                         "VAlign": 0,
                         "Wrap": false
                     },
@@ -55498,14 +55498,14 @@
                             "Z": 0.0
                         },
                         "Rotation": {
-                            "W": 0.7124955654144287,
+                            "W": 0.7030117511749268,
                             "X": 0.0,
                             "Y": 0.0,
-                            "Z": -0.701676607131958
+                            "Z": 0.7111782431602478
                         },
                         "Scale": {
-                            "X": 1.0000020265579224,
-                            "Y": 1.0000020265579224,
+                            "X": 1.0000076293945313,
+                            "Y": 1.0000076293945313,
                             "Z": 3.0
                         }
                     },
@@ -55604,12 +55604,12 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.015299887396395206,
-                            "m01": 0.9998849630355835,
+                            "m00": -0.011549084447324276,
+                            "m01": -0.9999409317970276,
                             "m02": 0.0,
                             "m03": 6.446094512939453,
-                            "m10": -0.9998849630355835,
-                            "m11": 0.015299887396395206,
+                            "m10": 0.9999409317970276,
+                            "m11": -0.011549084447324276,
                             "m12": 0.0,
                             "m13": 98.50135803222656,
                             "m20": 0.0,
@@ -55704,14 +55704,14 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.5215439796447754,
-                            "m01": 0.1088695377111435,
+                            "m00": -0.5210181474685669,
+                            "m01": -0.1103910431265831,
                             "m02": 0.0,
-                            "m03": 6.2774338722229,
-                            "m10": -0.1399751454591751,
-                            "m11": 0.4056452512741089,
+                            "m03": 6.614095211029053,
+                            "m10": 0.14193136990070343,
+                            "m11": -0.40523627400398254,
                             "m12": 0.0,
-                            "m13": 98.67720031738281,
+                            "m13": 98.32488250732422,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 2.999959945678711,
@@ -55798,14 +55798,14 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.5396464467048645,
-                            "m01": -0.015219258144497871,
+                            "m00": -0.5397191047668457,
+                            "m01": 0.013644758611917496,
                             "m02": 0.0,
-                            "m03": 6.104518413543701,
-                            "m10": 0.019567620009183884,
-                            "m11": 0.4197249412536621,
+                            "m03": 6.7870025634765625,
+                            "m10": -0.017543265596032143,
+                            "m11": -0.4197814464569092,
                             "m12": 0.0,
-                            "m13": 98.67925262451172,
+                            "m13": 98.32218170166016,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 2.999959945678711,
@@ -55892,14 +55892,14 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.5215439200401306,
-                            "m01": 0.10886966437101364,
+                            "m00": -0.5210180878639221,
+                            "m01": -0.11039116978645325,
                             "m02": 0.0,
-                            "m03": 6.60860013961792,
-                            "m10": -0.13997529447078705,
-                            "m11": 0.4056452214717865,
+                            "m03": 6.282905101776123,
+                            "m10": 0.14193151891231537,
+                            "m11": -0.40523624420166016,
                             "m12": 0.0,
-                            "m13": 98.68365478515625,
+                            "m13": 98.31967163085938,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 2.999959945678711,
@@ -55986,14 +55986,14 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.5396464467048645,
-                            "m01": -0.015219258144497871,
+                            "m00": -0.5397191047668457,
+                            "m01": 0.013644758611917496,
                             "m02": 0.0,
-                            "m03": 6.765456199645996,
-                            "m10": 0.019567620009183884,
-                            "m11": 0.4197249412536621,
+                            "m03": 6.126077651977539,
+                            "m10": -0.017543265596032143,
+                            "m11": -0.4197814464569092,
                             "m12": 0.0,
-                            "m13": 98.6761474609375,
+                            "m13": 98.32776641845703,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 2.999959945678711,
@@ -56108,14 +56108,14 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.5396464467048645,
-                            "m01": -0.015219258144497871,
+                            "m00": -0.5397191047668457,
+                            "m01": 0.013644758611917496,
                             "m02": 0.0,
-                            "m03": 6.429854393005371,
-                            "m10": 0.019567620009183884,
-                            "m11": 0.4197249412536621,
+                            "m03": 6.461658477783203,
+                            "m10": -0.017543265596032143,
+                            "m11": -0.4197814464569092,
                             "m12": 0.0,
-                            "m13": 98.68150329589844,
+                            "m13": 98.32115173339844,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 2.999959945678711,
@@ -56131,6 +56131,150 @@
                 {
                     "Data": {
                         "ZOrder": -2
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 6.447789192199707,
+                            "Y": 99.5419921875,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.6839637160301208,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": -0.7295160293579102
+                        },
+                        "Scale": {
+                            "X": 3.000136137008667,
+                            "Y": 3.000136137008667,
+                            "Z": 3.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Door (Clone) (Clone) (Clone) (Clone) (Clone) (Clone) (Clone) (Clone) (Clone) (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "HalfExtents": {
+                            "X": 0.20000000298023224,
+                            "Y": 0.5
+                        },
+                        "LayerMask": 4294967294,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "AOStrength": 1.0,
+                        "AlphaCutoff": 0.5,
+                        "Flags": 32,
+                        "MRA_TextureId": 0,
+                        "MRA_TexturePath": "",
+                        "Metallic": 0.0,
+                        "NormalStrength": 1.0,
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Smoothness": 0.0
+                    },
+                    "TypeName": "Material2D"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "PrefabHash": 808328624
+                    },
+                    "TypeName": "PrefabInstanceMetadata"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 43,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Mask": 4
+                    },
+                    "TypeName": "TagMask"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": -0.1931707262992859,
+                            "m01": 2.993910789489746,
+                            "m02": 0.0,
+                            "m03": 6.447789192199707,
+                            "m10": -2.993910789489746,
+                            "m11": -0.1931707262992859,
+                            "m12": 0.0,
+                            "m13": 99.5419921875,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 3.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -1
                     },
                     "TypeName": "ZIndex2D"
                 }
@@ -66873,43 +67017,43 @@
             ]
         }
     ],
-    "EntityCount": 543,
+    "EntityCount": 544,
     "Hierarchy": [
         {
-            "child": 518,
-            "parent": 517
-        },
-        {
             "child": 519,
-            "parent": 517
+            "parent": 518
         },
         {
             "child": 520,
-            "parent": 517
+            "parent": 518
         },
         {
             "child": 521,
-            "parent": 517
+            "parent": 518
         },
         {
             "child": 522,
-            "parent": 517
+            "parent": 518
         },
         {
             "child": 523,
-            "parent": 517
-        },
-        {
-            "child": 525,
-            "parent": 517
-        },
-        {
-            "child": 526,
-            "parent": 517
+            "parent": 518
         },
         {
             "child": 524,
-            "parent": 517
+            "parent": 518
+        },
+        {
+            "child": 526,
+            "parent": 518
+        },
+        {
+            "child": 527,
+            "parent": 518
+        },
+        {
+            "child": 525,
+            "parent": 518
         },
         {
             "child": 1,
@@ -67008,12 +67152,12 @@
             "parent": 74
         },
         {
-            "child": 515,
-            "parent": 514
+            "child": 516,
+            "parent": 515
         },
         {
-            "child": 516,
-            "parent": 514
+            "child": 517,
+            "parent": 515
         },
         {
             "child": 2,
@@ -67160,44 +67304,44 @@
             "parent": 32
         },
         {
-            "child": 533,
-            "parent": 532
-        },
-        {
             "child": 534,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 535,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 536,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 537,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 538,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 539,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 540,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 541,
-            "parent": 532
+            "parent": 533
         },
         {
             "child": 542,
-            "parent": 532
+            "parent": 533
+        },
+        {
+            "child": 543,
+            "parent": 533
         },
         {
             "child": 383,
@@ -67212,16 +67356,16 @@
             "parent": 8
         },
         {
-            "child": 460,
-            "parent": 459
+            "child": 461,
+            "parent": 460
         },
         {
-            "child": 473,
-            "parent": 459
+            "child": 474,
+            "parent": 460
         },
         {
-            "child": 475,
-            "parent": 459
+            "child": 476,
+            "parent": 460
         },
         {
             "child": 11,
@@ -67232,23 +67376,23 @@
             "parent": 382
         },
         {
-            "child": 459,
+            "child": 460,
             "parent": 382
         },
         {
-            "child": 478,
+            "child": 479,
             "parent": 382
         },
         {
-            "child": 513,
+            "child": 514,
             "parent": 382
         },
         {
-            "child": 517,
+            "child": 518,
             "parent": 382
         },
         {
-            "child": 527,
+            "child": 528,
             "parent": 382
         },
         {
@@ -67448,16 +67592,16 @@
             "parent": 262
         },
         {
-            "child": 474,
-            "parent": 473
-        },
-        {
-            "child": 476,
-            "parent": 475
+            "child": 475,
+            "parent": 474
         },
         {
             "child": 477,
-            "parent": 475
+            "parent": 476
+        },
+        {
+            "child": 478,
+            "parent": 476
         },
         {
             "child": 305,
@@ -67664,52 +67808,52 @@
             "parent": 264
         },
         {
-            "child": 461,
-            "parent": 460
-        },
-        {
             "child": 462,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 463,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 464,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 465,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 466,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 467,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 468,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 469,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 470,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 471,
-            "parent": 460
+            "parent": 461
         },
         {
             "child": 472,
-            "parent": 460
+            "parent": 461
+        },
+        {
+            "child": 473,
+            "parent": 461
         },
         {
             "child": 12,
@@ -68736,140 +68880,144 @@
             "parent": 417
         },
         {
-            "child": 479,
-            "parent": 478
+            "child": 459,
+            "parent": 417
         },
         {
             "child": 480,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 481,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 482,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 483,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 484,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 485,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 486,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 487,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 488,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 489,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 490,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 491,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 492,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 493,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 494,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 495,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 496,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 497,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 498,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 499,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 500,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 501,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 502,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 503,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 504,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 505,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 506,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 507,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 508,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 509,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 510,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 511,
-            "parent": 478
+            "parent": 479
         },
         {
             "child": 512,
-            "parent": 478
+            "parent": 479
+        },
+        {
+            "child": 513,
+            "parent": 479
         },
         {
             "child": 381,
@@ -68904,12 +69052,12 @@
             "parent": 32
         },
         {
-            "child": 529,
-            "parent": 528
+            "child": 530,
+            "parent": 529
         },
         {
-            "child": 514,
-            "parent": 513
+            "child": 515,
+            "parent": 514
         },
         {
             "child": 3,
