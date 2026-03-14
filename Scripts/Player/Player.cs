@@ -258,11 +258,13 @@ public class Player : SystemBase
         {
             AudioManager.instance.StopSFX("SFX005");
             AudioManager.instance.PlaySFX("SFX005");
+            AudioManager.instance.PlaySFX("SFX014");
         }
         else
         {
             AudioManager.instance.StopSFX("SFX005_alt");
             AudioManager.instance.PlaySFX("SFX005_alt");
+            AudioManager.instance.PlaySFX("SFX014_alt");
         }
         //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
         //lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
