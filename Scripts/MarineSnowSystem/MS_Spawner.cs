@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts.MarineSnowSystem;
 
-[Component] public record struct MS_SpawnerComponent(bool start, float spawnIntervalinMilliseconds, int toSpawn, float timer,float decayTime, int spawnCountMin, int spawnCountMax);
+[Component] public record struct MS_SpawnerComponent(bool start, float spawnIntervalinMilliseconds, int toSpawn, float timer,float decayTime, int spawnCountMin, int spawnCountMax, bool z_isGlobal);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class MS_Spawner : SystemBase
 {
@@ -86,9 +86,18 @@ public class MS_Spawner : SystemBase
                     //Generate new spawn Coordinate
                     float xValue = GMath.Random(xBoundaryMin, xBoundaryMax);
                     //offset by player transform for now!
-                    Vector3 spawnPos = new Vector3(xValue + Player.instance.currentPos.X, transform.Position.Y + Player.instance.currentPos.Y, 0);
-                    
-                    if(MS_Manager.instance.TakeFromPool(msID, spawnPos, new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)),gameObject.Component1.decayTime, false) == MS_Manager.instance.emptyId) continue;
+                    Vector3 spawnPos;
+
+
+                    if (gameObject.Component1.z_isGlobal)
+                    {
+                        spawnPos = new Vector3(xValue + Player.instance.currentPos.X, transform.Position.Y + Player.instance.currentPos.Y, 0);
+                    }
+                    else
+                    {
+                        spawnPos = new Vector3(xValue , transform.Position.Y , 0);
+                    }
+                    if (MS_Manager.instance.TakeFromPool(msID, spawnPos, new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), gameObject.Component1.decayTime, false) == MS_Manager.instance.emptyId) continue;
                 }
             }
         }
