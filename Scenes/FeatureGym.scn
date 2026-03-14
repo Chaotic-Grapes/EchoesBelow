@@ -29615,7 +29615,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -29679,7 +29679,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.946290016174316,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -29701,7 +29701,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -29739,7 +29738,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -29803,7 +29802,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -9.646289825439453,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -29825,7 +29824,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -29863,7 +29861,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -29927,7 +29925,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -12.24629020690918,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -29949,7 +29947,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -29987,7 +29984,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -30051,7 +30048,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.946290016174316,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -30073,7 +30070,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -30302,7 +30298,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -30350,7 +30346,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -30372,7 +30368,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -30410,7 +30405,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -30458,7 +30453,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -30480,7 +30475,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -30518,7 +30512,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -30566,7 +30560,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -30588,7 +30582,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -30626,7 +30619,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -30674,7 +30667,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -30696,7 +30689,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31033,7 +31025,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31081,7 +31073,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31103,7 +31095,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31141,7 +31132,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31189,7 +31180,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31211,7 +31202,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31249,7 +31239,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31297,7 +31287,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31319,7 +31309,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31357,7 +31346,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31405,7 +31394,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31427,7 +31416,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31649,7 +31637,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31697,7 +31685,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31719,7 +31707,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31757,7 +31744,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31805,7 +31792,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31827,7 +31814,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31865,7 +31851,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -31913,7 +31899,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -31935,7 +31921,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -31973,7 +31958,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -32037,7 +32022,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -32059,7 +32044,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -32281,7 +32265,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -32329,7 +32313,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -32351,7 +32335,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -32389,7 +32372,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -32437,7 +32420,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -32459,7 +32442,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -32497,7 +32479,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -32545,7 +32527,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -32567,7 +32549,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -32605,7 +32586,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -32653,7 +32634,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -32675,7 +32656,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -32897,7 +32877,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -32945,7 +32925,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -32967,7 +32947,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33005,7 +32984,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33053,7 +33032,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33075,7 +33054,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33113,7 +33091,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33161,7 +33139,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33183,7 +33161,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33221,7 +33198,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33269,7 +33246,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33291,7 +33268,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33513,7 +33489,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33561,7 +33537,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33583,7 +33559,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33621,7 +33596,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33669,7 +33644,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33691,7 +33666,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33729,7 +33703,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33777,7 +33751,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33799,7 +33773,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -33837,7 +33810,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -33885,7 +33858,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -33907,7 +33880,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34129,7 +34101,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -34177,7 +34149,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -34199,7 +34171,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34237,7 +34208,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -34285,7 +34256,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -34307,7 +34278,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34345,7 +34315,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -34393,7 +34363,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -34415,7 +34385,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34453,7 +34422,7 @@
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -34501,7 +34470,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -34523,7 +34492,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34739,13 +34707,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_W (Clone)"
+                        "Value": "Port_W"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -34793,7 +34761,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -34815,7 +34783,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34847,13 +34814,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_S (Clone)"
+                        "Value": "Port_S"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -34901,7 +34868,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -34923,7 +34890,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -34955,13 +34921,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_N (Clone)"
+                        "Value": "Port_N"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -35009,7 +34975,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -35031,7 +34997,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -35063,13 +35028,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_E (Clone)"
+                        "Value": "Port_E"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -35117,7 +35082,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -35139,7 +35104,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -35355,13 +35319,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_W (Clone)"
+                        "Value": "Port_W"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -35409,7 +35373,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -35431,7 +35395,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -35463,13 +35426,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_S (Clone)"
+                        "Value": "Port_S"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -35517,7 +35480,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -35539,7 +35502,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -35571,13 +35533,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_N (Clone)"
+                        "Value": "Port_N"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -35625,7 +35587,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -35647,7 +35609,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -35679,13 +35640,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_E (Clone)"
+                        "Value": "Port_E"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -35733,7 +35694,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -35755,7 +35716,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -35971,13 +35931,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_W (Clone)"
+                        "Value": "Port_W"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36025,7 +35985,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36047,7 +36007,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36079,13 +36038,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_S (Clone)"
+                        "Value": "Port_S"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36133,7 +36092,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36155,7 +36114,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36187,13 +36145,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_N (Clone)"
+                        "Value": "Port_N"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36241,7 +36199,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36263,7 +36221,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36295,13 +36252,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_E (Clone)"
+                        "Value": "Port_E"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36349,7 +36306,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36371,7 +36328,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36587,13 +36543,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_W (Clone)"
+                        "Value": "Port_W"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36641,7 +36597,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36663,7 +36619,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36695,13 +36650,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_S (Clone)"
+                        "Value": "Port_S"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36749,7 +36704,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36771,7 +36726,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36803,13 +36757,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_N (Clone)"
+                        "Value": "Port_N"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36857,7 +36811,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36879,7 +36833,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -36911,13 +36864,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_E (Clone)"
+                        "Value": "Port_E"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -36965,7 +36918,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -36987,7 +36940,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -37203,13 +37155,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_W (Clone)"
+                        "Value": "Port_W"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -37257,7 +37209,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -37279,7 +37231,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 4,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -37311,13 +37262,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_S (Clone)"
+                        "Value": "Port_S"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -37365,7 +37316,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -11.386290550231934,
+                            "m13": -9.932587623596191,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -37387,7 +37338,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 2,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -37419,13 +37369,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_N (Clone)"
+                        "Value": "Port_N"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -37473,7 +37423,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -8.786290168762207,
+                            "m13": -7.332587242126465,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -37495,7 +37445,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 1,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
@@ -37527,13 +37476,13 @@
                 },
                 {
                     "Data": {
-                        "Value": "Port_E (Clone)"
+                        "Value": "Port_E"
                     },
                     "TypeName": "Name"
                 },
                 {
                     "Data": {
-                        "Enabled": true
+                        "Enabled": false
                     },
                     "TypeName": "Active"
                 },
@@ -37581,7 +37530,7 @@
                             "m10": 0.0,
                             "m11": 1.0,
                             "m12": 0.0,
-                            "m13": -10.08629035949707,
+                            "m13": -8.632587432861328,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -37603,7 +37552,6 @@
                 {
                     "Data": {
                         "NSEW_1234": 3,
-                        "parentAnemone": 0,
                         "parentObjId": 0
                     },
                     "TypeName": "Node Link Trigger"
