@@ -511,7 +511,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 2.1954545974731445,
+                        "AspectRatio": 2.05531907081604,
                         "FOV": 128.5,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -26041,6 +26041,233 @@
                 {
                     "Data": {
                         "Position": {
+                            "X": -3.831195592880249,
+                            "Y": 34.83837127685547,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.984905481338501,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": -0.1730930507183075
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "LexicateMS03_c1 (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Flags": 1,
+                        "HalfExtents": {
+                            "X": 0.30000001192092896,
+                            "Y": 0.4000000059604645
+                        },
+                        "LayerMask": 4294967295,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 2
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 92,
+                        "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Lexicate_MS04.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.9400776028633118,
+                            "m01": 0.3409605920314789,
+                            "m02": 0.0,
+                            "m03": -3.831195592880249,
+                            "m10": -0.3409605920314789,
+                            "m11": 0.9400776028633118,
+                            "m12": 0.0,
+                            "m13": 34.83837127685547,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "doorSignifier": 0,
+                        "msID_in": 1,
+                        "msID_out": 4,
+                        "vomitSpeed": 3
+                    },
+                    "TypeName": "Lexicate Trade"
+                },
+                {
+                    "Data": {
+                        "cullDist": 10,
+                        "isCulling": false,
+                        "start": false
+                    },
+                    "TypeName": "Proximity Culling"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -3.713864326477051,
+                            "Y": 35.323516845703125,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.20000000298023224,
+                            "Y": 0.20000000298023224,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Ms06Deco (Clone) (Clone) (Clone) (Clone) (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Id": 3
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 20,
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS01.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.20000000298023224,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": -3.713864326477051,
+                            "m10": 0.0,
+                            "m11": 0.20000000298023224,
+                            "m12": 0.0,
+                            "m13": 35.323516845703125,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -101
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
                             "X": 0.0,
                             "Y": 0.0,
                             "Z": 0.0
@@ -26199,7 +26426,7 @@
                         "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 50.0,
                         "HAlign": 0,
-                        "Text": "FPS: 83",
+                        "Text": "FPS: 55",
                         "VAlign": 0,
                         "Wrap": false
                     },
@@ -41513,8 +41740,8 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": -7.499991416931152,
-                            "Y": 34.353248596191406,
+                            "X": -3.3540146350860596,
+                            "Y": 35.334739685058594,
                             "Z": 0.0
                         },
                         "Rotation": {
@@ -41583,11 +41810,11 @@
                             "m00": 4.0,
                             "m01": 0.0,
                             "m02": 0.0,
-                            "m03": -7.499991416931152,
+                            "m03": -3.3540146350860596,
                             "m10": 0.0,
                             "m11": 4.0,
                             "m12": 0.0,
-                            "m13": 34.353248596191406,
+                            "m13": 35.334739685058594,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -46758,6 +46985,654 @@
                 {
                     "Data": {
                         "Position": {
+                            "X": -7.0440826416015625,
+                            "Y": 34.99725341796875,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.9574584364891052,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.2885712683200836
+                        },
+                        "Scale": {
+                            "X": 0.9999999403953552,
+                            "Y": 0.9999999403953552,
+                            "Z": 3.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "OneSidedDoor"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "HalfExtents": {
+                            "X": 0.20000000298023224,
+                            "Y": 0.5
+                        },
+                        "LayerMask": 4294967294,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "AOStrength": 1.0,
+                        "AlphaCutoff": 0.5,
+                        "Flags": 32,
+                        "MRA_TextureId": 0,
+                        "MRA_TexturePath": "",
+                        "Metallic": 0.0,
+                        "NormalStrength": 1.0,
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Smoothness": 0.0
+                    },
+                    "TypeName": "Material2D"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "PrefabHash": 2076542735
+                    },
+                    "TypeName": "PrefabInstanceMetadata"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 43,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Mask": 4
+                    },
+                    "TypeName": "TagMask"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.8334531784057617,
+                            "m01": -0.5525899529457092,
+                            "m02": 0.0,
+                            "m03": -7.0440826416015625,
+                            "m10": 0.5525899529457092,
+                            "m11": 0.8334531784057617,
+                            "m12": 0.0,
+                            "m13": 34.99725341796875,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 3.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -1
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.17839956283569336,
+                            "Y": -0.16595005989074707,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.7981101274490356,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.6025117635726929
+                        },
+                        "Scale": {
+                            "X": 0.5400000214576721,
+                            "Y": 0.4199999272823334,
+                            "Z": 0.9999866485595703
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Spike01_prefab (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 44,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": -0.16368280351161957,
+                            "m01": -0.40024039149284363,
+                            "m02": 0.0,
+                            "m03": -7.101068019866943,
+                            "m10": 0.5145948529243469,
+                            "m11": -0.12730883061885834,
+                            "m12": 0.0,
+                            "m13": 34.76036071777344,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 2.999959945678711,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -2
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.18310046195983887,
+                            "Y": -0.33881354331970215,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.6996634602546692,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.7144725918769836
+                        },
+                        "Scale": {
+                            "X": 0.5400000214576721,
+                            "Y": 0.4199999272823334,
+                            "Z": 0.9999866485595703
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Spike01_prefab (Clone) (Clone) (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 44,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": -0.30775848031044006,
+                            "m01": -0.3451130986213684,
+                            "m02": 0.0,
+                            "m03": -7.009463310241699,
+                            "m10": 0.4437168836593628,
+                            "m11": -0.23936767876148224,
+                            "m12": 0.0,
+                            "m13": 34.61368942260742,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 2.999959945678711,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -2
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.17979073524475098,
+                            "Y": 0.16527557373046875,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.7981101274490356,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.6025115847587585
+                        },
+                        "Scale": {
+                            "X": 0.5399999618530273,
+                            "Y": 0.4199999272823334,
+                            "Z": 0.9999866485595703
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Spike01_prefab"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 44,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": -0.16368263959884644,
+                            "m01": -0.400240421295166,
+                            "m02": 0.0,
+                            "m03": -7.285259246826172,
+                            "m10": 0.5145949125289917,
+                            "m11": -0.1273087114095688,
+                            "m12": 0.0,
+                            "m13": 35.03565216064453,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 2.999959945678711,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -2
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.16988468170166016,
+                            "Y": 0.32199811935424805,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.6996634602546692,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.7144725918769836
+                        },
+                        "Scale": {
+                            "X": 0.5400000214576721,
+                            "Y": 0.4199999272823334,
+                            "Z": 0.9999866485595703
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Spike01_prefab (Clone) (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 44,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": -0.30775848031044006,
+                            "m01": -0.3451130986213684,
+                            "m02": 0.0,
+                            "m03": -7.3636064529418945,
+                            "m10": 0.4437168836593628,
+                            "m11": -0.23936767876148224,
+                            "m12": 0.0,
+                            "m13": 35.17174530029297,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 2.999959945678711,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -2
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -0.18037033081054688,
+                            "Y": -0.01348114013671875,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 0.6996634006500244,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.7144725918769836
+                        },
+                        "Scale": {
+                            "X": 0.5400000214576721,
+                            "Y": 0.41999995708465576,
+                            "Z": 0.9999866485595703
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Spike01_prefab (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "HalfExtents": {
+                            "X": 0.8600000143051147,
+                            "Y": 0.15000000596046448
+                        },
+                        "LayerMask": 4294967294,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.10000000149011612
+                        },
+                        "Rotation": 0.0
+                    },
+                    "TypeName": "BoxCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 44,
+                        "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Mask": 32
+                    },
+                    "TypeName": "TagMask"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": -0.30775848031044006,
+                            "m01": -0.3451130986213684,
+                            "m02": 0.0,
+                            "m03": -7.1869635581970215,
+                            "m10": 0.4437168836593628,
+                            "m11": -0.23936769366264343,
+                            "m12": 0.0,
+                            "m13": 34.88634490966797,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 2.999959945678711,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -2
+                    },
+                    "TypeName": "ZIndex2D"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
                             "X": 0.0,
                             "Y": 0.0,
                             "Z": 0.0
@@ -48224,8 +49099,8 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": -3.657968044281006,
-                            "Y": 35.0517692565918,
+                            "X": -2.9603633880615234,
+                            "Y": 36.67410659790039,
                             "Z": 0.0
                         },
                         "Rotation": {
@@ -48339,11 +49214,11 @@
                             "m00": 0.6000000238418579,
                             "m01": 0.0,
                             "m02": 0.0,
-                            "m03": -3.657968044281006,
+                            "m03": -2.9603633880615234,
                             "m10": 0.0,
                             "m11": 0.6000000238418579,
                             "m12": 0.0,
-                            "m13": 35.0517692565918,
+                            "m13": 36.67410659790039,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 0.6000000238418579,
@@ -54057,8 +54932,8 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": -5.220320701599121,
-                            "Y": 36.64282989501953,
+                            "X": -3.9549026489257813,
+                            "Y": 37.79468536376953,
                             "Z": 0.0
                         },
                         "Rotation": {
@@ -54185,11 +55060,11 @@
                             "m00": -0.6744086146354675,
                             "m01": -0.7383706569671631,
                             "m02": 0.0,
-                            "m03": -5.220320701599121,
+                            "m03": -3.9549026489257813,
                             "m10": 0.7383706569671631,
                             "m11": -0.6744086146354675,
                             "m12": 0.0,
-                            "m13": 36.64282989501953,
+                            "m13": 37.79468536376953,
                             "m20": 0.0,
                             "m21": 0.0,
                             "m22": 1.0,
@@ -54729,39 +55604,43 @@
             ]
         }
     ],
-    "EntityCount": 445,
+    "EntityCount": 453,
     "Hierarchy": [
         {
-            "child": 434,
-            "parent": 433
+            "child": 442,
+            "parent": 441
         },
         {
-            "child": 435,
-            "parent": 433
+            "child": 443,
+            "parent": 441
         },
         {
-            "child": 436,
-            "parent": 433
+            "child": 444,
+            "parent": 441
         },
         {
-            "child": 437,
-            "parent": 433
+            "child": 445,
+            "parent": 441
         },
         {
-            "child": 438,
-            "parent": 433
+            "child": 446,
+            "parent": 441
         },
         {
-            "child": 439,
-            "parent": 433
+            "child": 447,
+            "parent": 441
+        },
+        {
+            "child": 382,
+            "parent": 381
         },
         {
             "child": 1,
             "parent": 0
         },
         {
-            "child": 212,
-            "parent": 211
+            "child": 214,
+            "parent": 213
         },
         {
             "child": 206,
@@ -54776,24 +55655,24 @@
             "parent": 32
         },
         {
-            "child": 363,
-            "parent": 362
-        },
-        {
-            "child": 364,
-            "parent": 362
-        },
-        {
             "child": 365,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 366,
-            "parent": 362
+            "parent": 364
         },
         {
-            "child": 378,
-            "parent": 362
+            "child": 367,
+            "parent": 364
+        },
+        {
+            "child": 368,
+            "parent": 364
+        },
+        {
+            "child": 380,
+            "parent": 364
         },
         {
             "child": 37,
@@ -54832,160 +55711,164 @@
             "parent": 74
         },
         {
-            "child": 431,
-            "parent": 430
+            "child": 439,
+            "parent": 438
         },
         {
-            "child": 432,
-            "parent": 430
+            "child": 440,
+            "parent": 438
         },
         {
             "child": 2,
             "parent": 0
         },
         {
-            "child": 214,
-            "parent": 213
-        },
-        {
-            "child": 215,
-            "parent": 213
-        },
-        {
             "child": 216,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 217,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 218,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 219,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 220,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 221,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 222,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 223,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 224,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 225,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 226,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 227,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 228,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 229,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 230,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 231,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 232,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 233,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 234,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 235,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 236,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 237,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 238,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 239,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 240,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 241,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 242,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 243,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 244,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 245,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 246,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 247,
-            "parent": 213
+            "parent": 215
+        },
+        {
+            "child": 248,
+            "parent": 215
+        },
+        {
+            "child": 249,
+            "parent": 215
+        },
+        {
+            "child": 381,
+            "parent": 364
         },
         {
             "child": 35,
             "parent": 32
         },
         {
-            "child": 332,
-            "parent": 331
+            "child": 334,
+            "parent": 333
         },
         {
             "child": 9,
@@ -54996,156 +55879,156 @@
             "parent": 8
         },
         {
-            "child": 380,
-            "parent": 379
+            "child": 388,
+            "parent": 387
         },
         {
-            "child": 393,
-            "parent": 379
+            "child": 401,
+            "parent": 387
         },
         {
-            "child": 394,
-            "parent": 379
+            "child": 402,
+            "parent": 387
         },
         {
             "child": 11,
             "parent": 10
         },
         {
-            "child": 362,
-            "parent": 331
+            "child": 364,
+            "parent": 333
         },
         {
-            "child": 379,
-            "parent": 331
+            "child": 387,
+            "parent": 333
         },
         {
-            "child": 395,
-            "parent": 331
+            "child": 403,
+            "parent": 333
         },
         {
-            "child": 429,
-            "parent": 331
+            "child": 437,
+            "parent": 333
         },
         {
-            "child": 433,
-            "parent": 331
+            "child": 441,
+            "parent": 333
         },
         {
-            "child": 440,
-            "parent": 331
+            "child": 448,
+            "parent": 333
         },
         {
-            "child": 339,
-            "parent": 332
+            "child": 341,
+            "parent": 334
         },
         {
-            "child": 350,
-            "parent": 332
+            "child": 352,
+            "parent": 334
         },
         {
             "child": 162,
             "parent": 74
         },
         {
-            "child": 333,
-            "parent": 332
-        },
-        {
-            "child": 334,
-            "parent": 332
-        },
-        {
             "child": 335,
-            "parent": 332
+            "parent": 334
         },
         {
             "child": 336,
-            "parent": 332
+            "parent": 334
         },
         {
-            "child": 340,
-            "parent": 339
+            "child": 337,
+            "parent": 334
         },
         {
-            "child": 341,
-            "parent": 339
+            "child": 338,
+            "parent": 334
         },
         {
             "child": 342,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 343,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 344,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 345,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 346,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 347,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 348,
-            "parent": 339
+            "parent": 341
         },
         {
             "child": 349,
-            "parent": 339
+            "parent": 341
+        },
+        {
+            "child": 350,
+            "parent": 341
         },
         {
             "child": 351,
-            "parent": 350
-        },
-        {
-            "child": 352,
-            "parent": 350
+            "parent": 341
         },
         {
             "child": 353,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 354,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 355,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 356,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 357,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 358,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 359,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 360,
-            "parent": 350
+            "parent": 352
         },
         {
             "child": 361,
-            "parent": 332
+            "parent": 352
+        },
+        {
+            "child": 362,
+            "parent": 352
+        },
+        {
+            "child": 363,
+            "parent": 334
         },
         {
             "child": 207,
@@ -55164,276 +56047,280 @@
             "parent": 74
         },
         {
-            "child": 305,
-            "parent": 211
+            "child": 212,
+            "parent": 74
         },
         {
-            "child": 325,
-            "parent": 307
-        },
-        {
-            "child": 326,
-            "parent": 307
-        },
-        {
-            "child": 327,
-            "parent": 307
-        },
-        {
-            "child": 213,
-            "parent": 211
-        },
-        {
-            "child": 254,
+            "child": 307,
             "parent": 213
         },
         {
-            "child": 255,
+            "child": 327,
+            "parent": 309
+        },
+        {
+            "child": 328,
+            "parent": 309
+        },
+        {
+            "child": 329,
+            "parent": 309
+        },
+        {
+            "child": 215,
             "parent": 213
         },
         {
             "child": 256,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 257,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 258,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 259,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 260,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 261,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 262,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 263,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 264,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 265,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 266,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 267,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 268,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 269,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 270,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 271,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 272,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 273,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 274,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 275,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 276,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 277,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 278,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 279,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 280,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 281,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 282,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 283,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 284,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 285,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 286,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 287,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 288,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 289,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 290,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 291,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 292,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 293,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 294,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 295,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 296,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 297,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 298,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 299,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 300,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 301,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 302,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 303,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 304,
-            "parent": 213
+            "parent": 215
         },
         {
-            "child": 381,
-            "parent": 380
+            "child": 305,
+            "parent": 215
         },
         {
-            "child": 382,
-            "parent": 380
-        },
-        {
-            "child": 383,
-            "parent": 380
-        },
-        {
-            "child": 384,
-            "parent": 380
-        },
-        {
-            "child": 385,
-            "parent": 380
-        },
-        {
-            "child": 386,
-            "parent": 380
-        },
-        {
-            "child": 387,
-            "parent": 380
-        },
-        {
-            "child": 388,
-            "parent": 380
+            "child": 306,
+            "parent": 215
         },
         {
             "child": 389,
-            "parent": 380
+            "parent": 388
         },
         {
             "child": 390,
-            "parent": 380
+            "parent": 388
         },
         {
             "child": 391,
-            "parent": 380
+            "parent": 388
         },
         {
             "child": 392,
-            "parent": 380
+            "parent": 388
+        },
+        {
+            "child": 393,
+            "parent": 388
+        },
+        {
+            "child": 394,
+            "parent": 388
+        },
+        {
+            "child": 395,
+            "parent": 388
+        },
+        {
+            "child": 396,
+            "parent": 388
+        },
+        {
+            "child": 397,
+            "parent": 388
+        },
+        {
+            "child": 398,
+            "parent": 388
+        },
+        {
+            "child": 399,
+            "parent": 388
+        },
+        {
+            "child": 400,
+            "parent": 388
         },
         {
             "child": 12,
@@ -55468,28 +56355,28 @@
             "parent": 11
         },
         {
-            "child": 248,
-            "parent": 213
-        },
-        {
-            "child": 249,
-            "parent": 213
-        },
-        {
             "child": 250,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 251,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 252,
-            "parent": 213
+            "parent": 215
         },
         {
             "child": 253,
-            "parent": 213
+            "parent": 215
+        },
+        {
+            "child": 254,
+            "parent": 215
+        },
+        {
+            "child": 255,
+            "parent": 215
         },
         {
             "child": 45,
@@ -55592,72 +56479,72 @@
             "parent": 68
         },
         {
-            "child": 308,
-            "parent": 307
-        },
-        {
-            "child": 309,
-            "parent": 307
-        },
-        {
             "child": 310,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 311,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 312,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 313,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 314,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 315,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 316,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 317,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 318,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 319,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 320,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 321,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 322,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 323,
-            "parent": 307
+            "parent": 309
         },
         {
             "child": 324,
-            "parent": 307
+            "parent": 309
+        },
+        {
+            "child": 325,
+            "parent": 309
+        },
+        {
+            "child": 326,
+            "parent": 309
         },
         {
             "child": 163,
@@ -56224,196 +57111,196 @@
             "parent": 155
         },
         {
-            "child": 337,
-            "parent": 332
+            "child": 339,
+            "parent": 334
         },
         {
-            "child": 338,
-            "parent": 332
-        },
-        {
-            "child": 367,
-            "parent": 362
-        },
-        {
-            "child": 368,
-            "parent": 362
+            "child": 340,
+            "parent": 334
         },
         {
             "child": 369,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 370,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 371,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 372,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 373,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 374,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 375,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 376,
-            "parent": 362
+            "parent": 364
         },
         {
             "child": 377,
-            "parent": 362
+            "parent": 364
         },
         {
-            "child": 396,
-            "parent": 395
+            "child": 378,
+            "parent": 364
         },
         {
-            "child": 397,
-            "parent": 395
-        },
-        {
-            "child": 398,
-            "parent": 395
-        },
-        {
-            "child": 399,
-            "parent": 395
-        },
-        {
-            "child": 400,
-            "parent": 395
-        },
-        {
-            "child": 401,
-            "parent": 395
-        },
-        {
-            "child": 402,
-            "parent": 395
-        },
-        {
-            "child": 403,
-            "parent": 395
+            "child": 379,
+            "parent": 364
         },
         {
             "child": 404,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 405,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 406,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 407,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 408,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 409,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 410,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 411,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 412,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 413,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 414,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 415,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 416,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 417,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 418,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 419,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 420,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 421,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 422,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 423,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 424,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 425,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 426,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 427,
-            "parent": 395
+            "parent": 403
         },
         {
             "child": 428,
-            "parent": 395
+            "parent": 403
         },
         {
-            "child": 330,
-            "parent": 211
+            "child": 429,
+            "parent": 403
         },
         {
-            "child": 329,
-            "parent": 211
+            "child": 430,
+            "parent": 403
+        },
+        {
+            "child": 431,
+            "parent": 403
+        },
+        {
+            "child": 432,
+            "parent": 403
+        },
+        {
+            "child": 433,
+            "parent": 403
+        },
+        {
+            "child": 434,
+            "parent": 403
+        },
+        {
+            "child": 435,
+            "parent": 403
+        },
+        {
+            "child": 436,
+            "parent": 403
+        },
+        {
+            "child": 332,
+            "parent": 213
+        },
+        {
+            "child": 331,
+            "parent": 213
         },
         {
             "child": 6,
@@ -56440,12 +57327,24 @@
             "parent": 32
         },
         {
-            "child": 442,
-            "parent": 441
+            "child": 383,
+            "parent": 381
         },
         {
-            "child": 430,
-            "parent": 429
+            "child": 384,
+            "parent": 381
+        },
+        {
+            "child": 385,
+            "parent": 381
+        },
+        {
+            "child": 450,
+            "parent": 449
+        },
+        {
+            "child": 438,
+            "parent": 437
         },
         {
             "child": 3,
@@ -56456,8 +57355,8 @@
             "parent": 3
         },
         {
-            "child": 306,
-            "parent": 211
+            "child": 308,
+            "parent": 213
         },
         {
             "child": 10,
@@ -56468,16 +57367,24 @@
             "parent": 74
         },
         {
+            "child": 211,
+            "parent": 74
+        },
+        {
             "child": 7,
             "parent": 0
         },
         {
-            "child": 307,
-            "parent": 211
+            "child": 309,
+            "parent": 213
         },
         {
-            "child": 328,
-            "parent": 211
+            "child": 330,
+            "parent": 213
+        },
+        {
+            "child": 386,
+            "parent": 381
         }
     ],
     "Layers": [
