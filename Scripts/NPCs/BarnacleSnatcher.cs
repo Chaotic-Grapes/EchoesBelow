@@ -117,14 +117,16 @@ public class BarnacleSnatcher : SystemBase
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
 public class BarnacleTriggerHandler : TriggerSystemBase
 {
+    
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
+        //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {evt.OtherEntityId} {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
+
         Entity selfEntity = Entity.FromId(World!, self.Id);
         Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
-        if(selfEntity.HasComponent<BarnacleSnatcherComponent>() && otherEntity.HasComponent<PlayerTriggerComponent>())
+        if(selfEntity.HasComponent<BarnacleSnatcherComponent>() && otherEntity.HasComponent<PlayerComponent>())
         {
-            
             for (int i = 0;   i <= InventoryController.slotInstances.Count-1; i++)
             {
 

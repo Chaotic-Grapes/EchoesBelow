@@ -39,14 +39,14 @@
                     {
                         "Data": {
                             "alignmentWeight": 3.0,
-                            "boidSize": 1.0,
+                            "boidSize": 0.14000000059604645,
                             "cohesionWeight": 0.4000000059604645,
-                            "collisionAvoidRadius": 3.0,
-                            "collisionAvoidWeight": 2.5,
+                            "collisionAvoidRadius": 1.5,
+                            "collisionAvoidWeight": 1.0,
                             "count": 5000,
                             "maxForce": 1.2000000476837158,
                             "maxSpeed": 2.0,
-                            "separationWeight": 2.5,
+                            "separationWeight": 0.05000000074505806,
                             "visualRange": 4.0
                         },
                         "TypeName": "BoidFlock"
@@ -75,7 +75,7 @@
                                 "Y": 0.0
                             },
                             "TextureFilter": 0,
-                            "TextureId": 32,
+                            "TextureId": 49,
                             "TexturePath": "Assets\\Sprites\\3-NPCs\\Mengfish_SiphonaMengfischia@4x.png",
                             "Tiling": {
                                 "X": 1.0,
@@ -148,14 +148,14 @@
                     {
                         "Data": {
                             "alignmentWeight": 2.4000000953674316,
-                            "boidSize": 0.3400000035762787,
-                            "cohesionWeight": 4.800000190734863,
+                            "boidSize": 0.14000000059604645,
+                            "cohesionWeight": 3.0,
                             "collisionAvoidRadius": 3.0,
                             "collisionAvoidWeight": 2.5,
                             "count": 5000,
                             "maxForce": 1.2000000476837158,
                             "maxSpeed": 0.5,
-                            "separationWeight": 0.8700000047683716,
+                            "separationWeight": 0.30000001192092896,
                             "visualRange": 4.0
                         },
                         "TypeName": "BoidFlock"
@@ -171,8 +171,8 @@
                             "Color": {
                                 "A": 1.0,
                                 "B": 1.0,
-                                "G": 1.0,
-                                "R": 1.0
+                                "G": 4.0,
+                                "R": 4.0
                             },
                             "EmissiveStrength": 5.0,
                             "EmissiveTextureId": 0,
@@ -184,7 +184,7 @@
                                 "Y": 0.0
                             },
                             "TextureFilter": 0,
-                            "TextureId": 33,
+                            "TextureId": 50,
                             "TexturePath": "Assets\\Sprites\\3-NPCs\\JellyBoid_.png",
                             "Tiling": {
                                 "X": 1.0,

@@ -42,6 +42,7 @@ public class CraftAnemone : SystemBase
     static bool isKeyPressed_E = false;
     static bool isKeyPressed_Space = false;
     public static bool isEnabled_EInput = true;
+    public static bool isLeaving = false;
 
     #region SystemBehaviours
     private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
@@ -49,7 +50,7 @@ public class CraftAnemone : SystemBase
         if (awakeBool == true) return true;
         awakeBool = true;
         //ToDO ONCE! per Script
-
+        isLeaving = false;
         //This effectively executes as many times as there are CraftAnemones. BUT if I place the foreach loop
         //before everything in update. Ultimately this sets something once at the beginning of the script 
         // 1 1 1 1 or 1 or 1 1 1 is effectively 1 in the end. So this can create a List instance once at the start every Scene Load / PlayMode Entrance
@@ -187,6 +188,8 @@ public class CraftAnemone : SystemBase
 
                 if (isKeyPressed_X)
                 {
+                    isLeaving = true;
+
                     //enable player movement and X key for inventory!
                     Player.instance.isEnabled = true;
                     //InventoryController.instance.isEnabled_xInput = true;
@@ -528,6 +531,8 @@ public class CraftAnemoneHandler : TriggerSystemBase
     public static Entity capturedEntity;
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
+        if (CraftAnemone.isLeaving) return;
+
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
@@ -559,6 +564,8 @@ public class CraftAnemoneHandler : TriggerSystemBase
     //Unused for now
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
     {
+        CraftAnemone.isLeaving = false;
+
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<PlayerTriggerComponent>()) { }
