@@ -36,7 +36,7 @@ public class DevKeys : SystemBase
             //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
             //Like creating a new scene / allocate a new scene in the registry
             var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/Newstartscene.scn");
+            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/M5_L1.scn");
             SceneManager.Instance.SetActive(sceneIndex);
         }
     }
