@@ -1,0 +1,2463 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -2.2099013328552246,
+                                "Y": 4.00825309753418,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 2.0,
+                                "Y": 2.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CircleUrchin"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 1
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 9.998999303206801e-05,
+                                "G": 9.998999303206801e-05,
+                                "R": 9.999999747378752e-05
+                            },
+                            "Filled": true,
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Radius": 0.5,
+                            "Thickness": 1.0
+                        },
+                        "TypeName": "ShapeCircle2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 2.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -2.2099013328552246,
+                                "m10": 0.0,
+                                "m11": 2.0,
+                                "m12": 0.0,
+                                "m13": 4.00825309753418,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": 0
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -5.9086012840271,
+                                "Y": 1.6896480321884155,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 0.4000000059604645,
+                                "Y": 0.4000000059604645,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.4000000059604645,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -5.9086012840271,
+                                "m10": 0.0,
+                                "m11": 0.4000000059604645,
+                                "m12": 0.0,
+                                "m13": 1.6896480321884155,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -6.8531999588012695,
+                                "Y": 1.4062670469284058,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9632247686386108,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.26869696378707886
+                            },
+                            "Scale": {
+                                "X": 0.4000002443790436,
+                                "Y": 0.4000002443790436,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.3422417640686035,
+                                "m01": -0.2070525735616684,
+                                "m02": 0.0,
+                                "m03": -6.8531999588012695,
+                                "m10": 0.2070525735616684,
+                                "m11": 0.3422417640686035,
+                                "m12": 0.0,
+                                "m13": 1.4062670469284058,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -7.789208889007568,
+                                "Y": 0.9425531625747681,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9846199154853821,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.17471015453338623
+                            },
+                            "Scale": {
+                                "X": 0.40000027418136597,
+                                "Y": 0.40000027418136597,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.3755813539028168,
+                                "m01": -0.13761857151985168,
+                                "m02": 0.0,
+                                "m03": -7.789208889007568,
+                                "m10": 0.13761857151985168,
+                                "m11": 0.3755813539028168,
+                                "m12": 0.0,
+                                "m13": 0.9425531625747681,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -8.759578704833984,
+                                "Y": 0.6763461232185364,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9968239068984985,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.07963720709085464
+                            },
+                            "Scale": {
+                                "X": 0.4000004529953003,
+                                "Y": 0.4000004529953003,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.3949267864227295,
+                                "m01": -0.06350748986005783,
+                                "m02": 0.0,
+                                "m03": -8.759578704833984,
+                                "m10": 0.06350748986005783,
+                                "m11": 0.3949267864227295,
+                                "m12": 0.0,
+                                "m13": 0.6763461232185364,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -9.78146743774414,
+                                "Y": 0.5647118091583252,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9998080730438232,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": -0.01959134452044964
+                            },
+                            "Scale": {
+                                "X": 0.40000057220458984,
+                                "Y": 0.40000057220458984,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem (Clone) (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.3996935188770294,
+                                "m01": 0.015670089051127434,
+                                "m02": 0.0,
+                                "m03": -9.78146743774414,
+                                "m10": -0.015670089051127434,
+                                "m11": 0.3996935188770294,
+                                "m12": 0.0,
+                                "m13": 0.5647118091583252,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -10.803360939025879,
+                                "Y": 0.6419968605041504,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9998080730438232,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": -0.01959134452044964
+                            },
+                            "Scale": {
+                                "X": 0.40000057220458984,
+                                "Y": 0.40000057220458984,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem (Clone) (Clone) (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.3996935188770294,
+                                "m01": 0.015670089051127434,
+                                "m02": 0.0,
+                                "m03": -10.803360939025879,
+                                "m10": -0.015670089051127434,
+                                "m11": 0.3996935188770294,
+                                "m12": 0.0,
+                                "m13": 0.6419968605041504,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -11.808076858520508,
+                                "Y": 0.6677592992782593,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9998080730438232,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": -0.01959134452044964
+                            },
+                            "Scale": {
+                                "X": 0.40000057220458984,
+                                "Y": 0.40000057220458984,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "GrapeStem (Clone) (Clone) (Clone) (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 79,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SeaGrape_V3.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.3996935188770294,
+                                "m01": 0.015670089051127434,
+                                "m02": 0.0,
+                                "m03": -11.808076858520508,
+                                "m10": -0.015670089051127434,
+                                "m11": 0.3996935188770294,
+                                "m12": 0.0,
+                                "m13": 0.6677592992782593,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -3.547150135040283,
+                                "Y": 0.6205248832702637,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 2.0,
+                                "Y": 2.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 0.45993030071258545,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 80,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 2.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -3.547150135040283,
+                                "m10": 0.0,
+                                "m11": 2.0,
+                                "m12": 0.0,
+                                "m13": 0.6205248832702637,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.7714306712150574,
+                                "Y": 1.2783210277557373,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.01735982671380043,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9998493194580078
+                            },
+                            "Scale": {
+                                "X": 2.0000054836273193,
+                                "Y": 2.0000054836273193,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 0.4250870943069458,
+                                "B": 0.36177682876586914,
+                                "G": 0.01627938076853752,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 80,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -1.9988000392913818,
+                                "m01": -0.06942903995513916,
+                                "m02": 0.0,
+                                "m03": -0.7714306712150574,
+                                "m10": 0.06942903995513916,
+                                "m11": -1.9988000392913818,
+                                "m12": 0.0,
+                                "m13": 1.2783210277557373,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.6326844096183777,
+                                "Y": 3.7743465900421143,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": -0.3199937343597412,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9474196434020996
+                            },
+                            "Scale": {
+                                "X": 2.000014066696167,
+                                "Y": 2.000014066696167,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 0.40069687366485596,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 80,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -1.5904271602630615,
+                                "m01": 1.2126820087432861,
+                                "m02": 0.0,
+                                "m03": -0.6326844096183777,
+                                "m10": -1.2126820087432861,
+                                "m11": -1.5904271602630615,
+                                "m12": 0.0,
+                                "m13": 3.7743465900421143,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -1.4410400390625,
+                                "Y": -0.18915700912475586,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": -0.3199937343597412,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9474196434020996
+                            },
+                            "Scale": {
+                                "X": 2.000014066696167,
+                                "Y": 2.000014066696167,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 80,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -1.5904271602630615,
+                                "m01": 1.2126820087432861,
+                                "m02": 0.0,
+                                "m03": -1.4410400390625,
+                                "m10": -1.2126820087432861,
+                                "m11": -1.5904271602630615,
+                                "m12": 0.0,
+                                "m13": -0.18915700912475586,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -3.2520670890808105,
+                                "Y": -0.6022718548774719,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.7108821868896484,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.7033111453056335
+                            },
+                            "Scale": {
+                                "X": 2.0000228881835938,
+                                "Y": 2.0000228881835938,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone) (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 80,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.021413929760456085,
+                                "m01": -1.9999083280563354,
+                                "m02": 0.0,
+                                "m03": -3.2520670890808105,
+                                "m10": 1.9999083280563354,
+                                "m11": 0.021413929760456085,
+                                "m12": 0.0,
+                                "m13": -0.6022718548774719,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -4.952502250671387,
+                                "Y": 2.0297598838806152,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.7108821868896484,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.7033111453056335
+                            },
+                            "Scale": {
+                                "X": 2.0000228881835938,
+                                "Y": 2.0000228881835938,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone) (Clone) (Clone) (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 80,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.021413929760456085,
+                                "m01": -1.9999083280563354,
+                                "m02": 0.0,
+                                "m03": -4.952502250671387,
+                                "m10": 1.9999083280563354,
+                                "m11": 0.021413929760456085,
+                                "m12": 0.0,
+                                "m13": 2.0297598838806152,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -2.149395227432251,
+                                "Y": 3.9769229888916016,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.600000023841858,
+                                "Y": 1.600000023841858,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Pattern"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 3
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 31,
+                            "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Pattern_M5L1C1.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.600000023841858,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -2.149395227432251,
+                                "m10": 0.0,
+                                "m11": 1.600000023841858,
+                                "m12": 0.0,
+                                "m13": 3.9769229888916016,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -15
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -1.6874135732650757,
+                                "Y": 3.435633897781372,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": -0.3102298378944397,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9506615996360779
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "LayerMask": 4,
+                            "Offset": {
+                                "X": -0.05000000074505806,
+                                "Y": 0.47999998927116394
+                            },
+                            "Radius": 0.07999999821186066
+                        },
+                        "TypeName": "CircleCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 3879744029
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 35,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 32
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.8075149059295654,
+                                "m01": 0.589847207069397,
+                                "m02": 0.0,
+                                "m03": -1.6874135732650757,
+                                "m10": -0.589847207069397,
+                                "m11": -0.8075149059295654,
+                                "m12": 0.0,
+                                "m13": 3.435633897781372,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -2.709486246109009,
+                                "Y": 3.4255638122558594,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.2731033265590668,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9619846940040588
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "LayerMask": 4,
+                            "Offset": {
+                                "X": -0.05000000074505806,
+                                "Y": 0.47999998927116394
+                            },
+                            "Radius": 0.07999999821186066
+                        },
+                        "TypeName": "CircleCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 3879744029
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 35,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 32
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.8508291244506836,
+                                "m01": -0.5254424214363098,
+                                "m02": 0.0,
+                                "m03": -2.709486246109009,
+                                "m10": 0.5254424214363098,
+                                "m11": -0.8508291244506836,
+                                "m12": 0.0,
+                                "m13": 3.4255638122558594,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -2.1254448890686035,
+                                "Y": 3.1939613819122314,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": -0.04132939875125885,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9991456866264343
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "LayerMask": 4,
+                            "Offset": {
+                                "X": -0.05000000074505806,
+                                "Y": 0.47999998927116394
+                            },
+                            "Radius": 0.07999999821186066
+                        },
+                        "TypeName": "CircleCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 3879744029
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 35,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 32
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.9965837001800537,
+                                "m01": 0.08258816599845886,
+                                "m02": 0.0,
+                                "m03": -2.1254448890686035,
+                                "m10": -0.08258816599845886,
+                                "m11": -0.9965837001800537,
+                                "m12": 0.0,
+                                "m13": 3.1939613819122314,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -2.956193685531616,
+                                "Y": 3.833388566970825,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.5986950397491455,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.8009770512580872
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "LayerMask": 4,
+                            "Offset": {
+                                "X": -0.05000000074505806,
+                                "Y": 0.47999998927116394
+                            },
+                            "Radius": 0.07999999821186066
+                        },
+                        "TypeName": "CircleCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 3879744029
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 35,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 32
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.2831284999847412,
+                                "m01": -0.9590819478034973,
+                                "m02": 0.0,
+                                "m03": -2.956193685531616,
+                                "m10": 0.9590819478034973,
+                                "m11": -0.2831284999847412,
+                                "m12": 0.0,
+                                "m13": 3.833388566970825,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -1.420567274093628,
+                                "Y": 3.9139463901519775,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.6232337951660156,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": -0.7820355892181396
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike01_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "LayerMask": 4,
+                            "Offset": {
+                                "X": -0.05000000074505806,
+                                "Y": 0.47999998927116394
+                            },
+                            "Radius": 0.07999999821186066
+                        },
+                        "TypeName": "CircleCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 3879744029
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 1.0,
+                                "R": 1.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 35,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 32
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -0.2231593132019043,
+                                "m01": 0.9747819900512695,
+                                "m02": 0.0,
+                                "m03": -1.420567274093628,
+                                "m10": -0.9747819900512695,
+                                "m11": -0.2231593132019043,
+                                "m12": 0.0,
+                                "m13": 3.9139463901519775,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -4.865830898284912,
+                                "Y": 1.7259336709976196,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0000001192092896,
+                                "Y": 1.0000001192092896,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Checkpoint"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "CastsShadows": false,
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.1253647804260254,
+                                "G": 0.8984794020652771,
+                                "R": 0.7875197529792786
+                            },
+                            "Direction": {
+                                "X": 0.0,
+                                "Y": -1.0,
+                                "Z": -0.6000000238418579
+                            },
+                            "Intensity": 3.299999952316284,
+                            "LightType": 1,
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.4000000059604645
+                            },
+                            "Range": 5.5
+                        },
+                        "TypeName": "Light2D"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 32,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.0
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 3266025450
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.9998999834060669,
+                                "G": 1.0,
+                                "R": 0.9999850988388062
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 21,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SpawnGrape_Bulb.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0000001192092896,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -4.865830898284912,
+                                "m10": 0.0,
+                                "m11": 1.0000001192092896,
+                                "m12": 0.0,
+                                "m13": 1.7259336709976196,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "signifierID": 91822645
+                        },
+                        "TypeName": "Match Signifier"
+                    },
+                    {
+                        "Data": {
+                            "start": false
+                        },
+                        "TypeName": "Check Point"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 1.0,
+                        "Y": 1.0,
+                        "Z": 1.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "Corals"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Id": 0
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 1.0,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 0.0,
+                        "m10": 0.0,
+                        "m11": 1.0,
+                        "m12": 0.0,
+                        "m13": 0.0,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            }
+        ]
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "Components": [
+        {
+            "Data": {
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Rotation": {
+                    "W": 1.0,
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Scale": {
+                    "X": 1.0,
+                    "Y": 1.0,
+                    "Z": 1.0
+                }
+            },
+            "TypeName": "LocalTransform"
+        },
+        {
+            "Data": {
+                "Value": "GlobalLight"
+            },
+            "TypeName": "Name"
+        },
+        {
+            "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "Id": 0
+            },
+            "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "CastsShadows": false,
+                "Color": {
+                    "A": 1.0,
+                    "B": 0.5637582540512085,
+                    "G": 0.17517904937267303,
+                    "R": 0.11572826653718948
+                },
+                "Direction": {
+                    "X": 0.0,
+                    "Y": -1.0,
+                    "Z": -0.5
+                },
+                "Intensity": 7.0,
+                "LightType": 0,
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Range": 10.0
+            },
+            "TypeName": "Light2D"
+        },
+        {
+            "Data": {
+                "Dirty": false,
+                "Matrix": {
+                    "m00": 1.0,
+                    "m01": 0.0,
+                    "m02": 0.0,
+                    "m03": 0.0,
+                    "m10": 0.0,
+                    "m11": 1.0,
+                    "m12": 0.0,
+                    "m13": 0.0,
+                    "m20": 0.0,
+                    "m21": 0.0,
+                    "m22": 1.0,
+                    "m23": 0.0,
+                    "m30": 0.0,
+                    "m31": 0.0,
+                    "m32": 0.0,
+                    "m33": 1.0
+                }
+            },
+            "TypeName": "WorldTransform"
+        }
+    ]
+}
