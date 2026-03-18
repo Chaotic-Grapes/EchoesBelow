@@ -54,7 +54,7 @@ public class Player : SystemBase
     static bool isKeyDown_S = false;
     static bool isKeyDown_D = false;
     static bool isKeyPressed_Space = false;
-    static bool isDashing = false;
+    public bool isDashing = false;
 
     public bool isEnabled;
 
@@ -431,10 +431,10 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 Log("Take Damage!");
 
                 Player.instance.cueIsHitVisual = true;
-                Player.instance.hitVisualCoolDown = 0.225f;
+                Player.instance.hitVisualCoolDown = 0.125f;
             }
             
-            if (tg.Mask == 4)
+            if (tg.Mask == 4 && Player.instance.isDashing)
             {
                 AudioManager.instance.PlaySFX("SFX006");
                 //door detected

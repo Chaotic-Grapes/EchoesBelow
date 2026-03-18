@@ -34,7 +34,7 @@ public class CraftAnemone : SystemBase
     public static Dictionary<ulong, Anemone> instances;
     private const float cameraOffsetY = 3.0f;
     private const float FOVoffset = 151;
-    private const float FOVoriginal = 128.5f;
+    private const float FOVoriginal = 148.0f;
     private const float cameraOriginalY = 0f;
     private const float marginAllowance = 0.25f;
 
