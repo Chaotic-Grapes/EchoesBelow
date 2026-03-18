@@ -63916,6 +63916,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -64094,6 +64098,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -64272,6 +64280,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -64450,6 +64462,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -64628,6 +64644,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -64806,6 +64826,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -64984,6 +65008,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -65162,6 +65190,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -65340,6 +65372,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -65518,6 +65554,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },
@@ -65696,6 +65736,10 @@
                         "Smoothness": 0.0
                     },
                     "TypeName": "Material2D"
+                },
+                {
+                    "Data": {},
+                    "TypeName": "Proximity Culling"
                 }
             ]
         },

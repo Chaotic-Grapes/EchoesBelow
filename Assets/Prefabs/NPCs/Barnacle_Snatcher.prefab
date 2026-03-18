@@ -166,6 +166,10 @@
                 "Smoothness": 0.0
             },
             "TypeName": "ECS::Components::Material2D"
+        },
+        {
+            "Data": {},
+            "TypeName": "Proximity Culling"
         }
     ]
 }
