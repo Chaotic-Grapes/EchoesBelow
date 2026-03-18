@@ -39160,7 +39160,7 @@
                 },
                 {
                     "Data": {
-                        "Value": "Spike01_prefab (Clone)"
+                        "Value": "Collider"
                     },
                     "TypeName": "Name"
                 },
@@ -39814,7 +39814,7 @@
                 },
                 {
                     "Data": {
-                        "Value": "Spike01_prefab (Clone)"
+                        "Value": "Collider"
                     },
                     "TypeName": "Name"
                 },
@@ -40612,7 +40612,7 @@
                 },
                 {
                     "Data": {
-                        "Value": "Spike01_prefab (Clone)"
+                        "Value": "Collider"
                     },
                     "TypeName": "Name"
                 },
