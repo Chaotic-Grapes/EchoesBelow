@@ -434,7 +434,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 Player.instance.hitVisualCoolDown = 0.125f;
             }
             
-            if (tg.Mask == 4 && Player.instance.isDashing)
+            if (tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.1f)
             {
                 AudioManager.instance.PlaySFX("SFX006");
                 //door detected
