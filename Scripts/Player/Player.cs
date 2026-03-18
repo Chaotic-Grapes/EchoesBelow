@@ -33,6 +33,7 @@ public class Player : SystemBase
     AnimState moveState = new AnimState("moveState",0, 0, 20, 24f);
     AnimState idleState = new AnimState("idleState",1, 5, 65, 30f);
     AnimState dashState = new AnimState("dashState",5, 6, 26, 30f);
+    AnimState dmgFlashState = new AnimState("dmgFlashState", 12, 11, 1, 24f);
 
     public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;
@@ -45,6 +46,8 @@ public class Player : SystemBase
     float timer_forPeriodicForce = 0;
     float dashCoolDownTimer;
     bool isCoolingDown;
+    public bool cueIsHitVisual;
+    public float hitVisualCoolDown = 0;
 
     static bool isKeyDown_W = false;
     static bool isKeyDown_A = false;
@@ -72,6 +75,8 @@ public class Player : SystemBase
 
         dashCoolDownTimer = 0;
         isCoolingDown = false;
+        cueIsHitVisual = false;
+        hitVisualCoolDown = 0;
 
         PlayerAnimManager.instance.SetAnimState(idleState);
 
@@ -115,7 +120,21 @@ public class Player : SystemBase
             moveDir = ProcessInput(moveDir, lerpFac);
 
             //Anim
-            if (isDashing)
+            if (cueIsHitVisual)
+            {
+                PlayerAnimManager.instance.SetAnimState(dmgFlashState);
+                //Highlight the color!
+                ref SpriteRenderer2D spr = ref gameObject.Entity.GetComponent<SpriteRenderer2D>();
+                spr.Color = new Color(1.5f, 1.5f, 1.5f, 1f);
+
+                hitVisualCoolDown -= Time.DeltaTime;
+                if (hitVisualCoolDown < 0) 
+                {
+                    spr.Color = new Color(1f, 1f, 1f, 1f);
+                    cueIsHitVisual = false; 
+                }
+            }
+            else if (isDashing)
             {
               
                 PlayerAnimManager.instance.SetAnimState(dashState);
@@ -410,6 +429,9 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 AudioManager.instance.PlaySFX("VO001");
                 ProcessDeath.instance.TakeHit(evt.OtherEntityId, self.Id);
                 Log("Take Damage!");
+
+                Player.instance.cueIsHitVisual = true;
+                Player.instance.hitVisualCoolDown = 0.225f;
             }
             
             if (tg.Mask == 4)
