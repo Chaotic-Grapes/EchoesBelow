@@ -148,9 +148,24 @@
         },
         {
             "Data": {
-                "ZOrder": 154
+                "ZOrder": 136
             },
             "TypeName": "ECS::Components::ZIndex2D"
+        },
+        {
+            "Data": {
+                "AOStrength": 1.0,
+                "AlphaCutoff": 0.5,
+                "Flags": 32,
+                "MRA_TextureId": 0,
+                "MRA_TexturePath": "",
+                "Metallic": 1.0,
+                "NormalStrength": 1.0,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Smoothness": 0.0
+            },
+            "TypeName": "ECS::Components::Material2D"
         }
     ]
 }
