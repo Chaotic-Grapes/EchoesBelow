@@ -133,28 +133,28 @@ public class CraftAnemone : SystemBase
     }
     protected override void OnUpdate()
     {
-        if (Input.IsKeyPressed(KeyCode.K))
-        {
-            //foreach (Anemone l in CraftAnemone.instances.Values)
-            //{
-            //    Log("++++++++++++++++++++++++++++++++++++++++");
-            //    Log($"objID stored: {l.objId} name: {l.name}");
-            //    if (l != null)
-            //    {
-            //        Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
-            //        foreach (List<ulong> i in l.objPools)
-            //        {
-            //            foreach (ulong j in i)
-            //            {
-            //                Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
-            //            }
-            //        }
-            //    }
-            //    Log($"______________________________________");
-            //}
+        //if (Input.IsKeyPressed(KeyCode.K))
+        //{
+        //    //foreach (Anemone l in CraftAnemone.instances.Values)
+        //    //{
+        //    //    Log("++++++++++++++++++++++++++++++++++++++++");
+        //    //    Log($"objID stored: {l.objId} name: {l.name}");
+        //    //    if (l != null)
+        //    //    {
+        //    //        Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
+        //    //        foreach (List<ulong> i in l.objPools)
+        //    //        {
+        //    //            foreach (ulong j in i)
+        //    //            {
+        //    //                Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
+        //    //            }
+        //    //        }
+        //    //    }
+        //    //    Log($"______________________________________");
+        //    //}
 
 
-        }
+        //}
         //Call OnAwake 1st
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
@@ -320,7 +320,7 @@ public class CraftAnemone : SystemBase
                         foreach (ElementNode e in eNodeList)
                         {
                             //for all elementNodes
-                            Log("e.parent = " + e.parent.GetComponent<Name>().Value.ToString());
+                            //Log("e.parent = " + e.parent.GetComponent<Name>().Value.ToString());
                             if(e.parent == rootNode)
                             {
                                 NodeLinkData nodeLink = NodeLink.instances[e.parent.Id];
@@ -328,13 +328,13 @@ public class CraftAnemone : SystemBase
                                 nodeLink.DisablePort(2);
                                 nodeLink.EnablePort(3);
                                 nodeLink.EnablePort(4);
-                                Log("1) Cleared for root");
+                                //Log("1) Cleared for root");
                             }
                             else
                             {
                                 NodeLinkData nodeLink = NodeLink.instances[e.parent.Id];
                                 nodeLink.EnableAllPorts();
-                                Log("2) cleared for everyone else");
+                                //Log("2) cleared for everyone else");
                             }
 
                             //Reset Shapelines of triggers
@@ -346,7 +346,7 @@ public class CraftAnemone : SystemBase
                                     ref ShapeLine2D shapeLine = ref trigger.GetComponent<ShapeLine2D>();
                                     shapeLine.A = Vector2.Zero;
                                     shapeLine.B = Vector2.Zero;
-                                    Log("Cleared shapelines: ");
+                                    //Log("Cleared shapelines: ");
                                 }
                             }
 
@@ -357,7 +357,7 @@ public class CraftAnemone : SystemBase
                             //=======================================================
                             //For non rootnodes
                             int msID = e.parent.GetComponent<MS_IDComponent>().msID;
-                            Log($"Available ID: {msID}", LogLevel.Warning);
+                            //Log($"Available ID: {msID}", LogLevel.Warning);
 
                             cr.ResetSelection(World!);
 
@@ -365,7 +365,7 @@ public class CraftAnemone : SystemBase
                             if (MS_Manager.instance.TakeFromPool(msID, 
                                 rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
                                 new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
-                            Log("LETS GO");
+                            //Log("LETS GO");
                         }
 
                         
