@@ -170,6 +170,7 @@ public class NodeLinkData : SystemBase
     {
         bx.IsTrigger = true;
         bx.HalfExtents = new Vector2(0.6f, 0.15f);
+        bx.LayerMask = LayerMask.All;
 
         switch (NSEW_1234)
         {

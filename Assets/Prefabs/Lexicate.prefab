@@ -40,7 +40,7 @@
                     "X": 0.30000001192092896,
                     "Y": 0.4000000059604645
                 },
-                "LayerMask": 4294967295,
+                "LayerMask": 2,
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
@@ -122,6 +122,12 @@
                 "vomitSpeed": 4
             },
             "TypeName": "Lexicate Trade"
+        },
+        {
+            "Data": {
+                "ZOrder": -1
+            },
+            "TypeName": "ECS::Components::ZIndex2D"
         }
     ]
 }
