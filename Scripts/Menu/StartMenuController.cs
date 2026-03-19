@@ -214,6 +214,24 @@ public class StartMenuController : SystemBase
             }
             else continue;
         }
+        
+        foreach (var (entity, guiInput) in World!.Query<GUIInput>())
+        {
+            if (guiInput.Hovered) // Mouse cursor still on entity
+            {
+                // Do something
+            }
+
+            if (guiInput.Entered) // Same as above but once per frame
+            {
+
+            }
+
+            if (guiInput.Clicked)
+            {
+                // Do something
+            }
+        }
 
         
         Scene? active = sceneManager.GetActive();

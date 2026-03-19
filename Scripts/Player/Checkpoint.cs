@@ -60,7 +60,7 @@ public class CheckpointTrigger : TriggerSystemBase
     {
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-        Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {evt.OtherEntityId} {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
+        //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {evt.OtherEntityId} {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
         
         if (self.HasComponent<CheckPointTriggerComponent>() && other.HasComponent<PlayerComponent>())
         {

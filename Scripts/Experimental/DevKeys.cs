@@ -1,7 +1,21 @@
+using EchoesBelow.Scripts;
+using GrapeEngine.Scripting.Components;
 using GrapeEngine.Scripting.Core;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+
+using GrapeEngine.Math;
+using GrapeEngine.Scripting.Components;
+using GrapeEngine.Scripting.Services;
+using GrapeEngine.Scripting.Systems;
+using GrapeEngine.Scripting.Systems.Attributes;
+using GrapeEngine.Scripting.Core;
+using GrapeEngine.Scripting.Events;
+using EchoesBelow.Scripts.MarineSnowSystem;
+using System;
+using EchoesBelow.Scripts.Audio;
+using Scripts.CraftingSystem;
 
 namespace Scripts.Experimental;
 
@@ -38,6 +52,25 @@ public class DevKeys : SystemBase
             var sceneIndex = SceneManager.Instance.AddScene();
             var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/M5_L1.scn");
             SceneManager.Instance.SetActive(sceneIndex);
+        }
+
+
+
+        if (Input.IsKeyPressed(KeyCode.N))
+        {
+            ref LocalTransform t = ref Player.instance.player.GetComponent<LocalTransform>();
+            t.Position = new Vector3(-11.57f, 26f, 0f);
+        }
+
+        if (Input.IsKeyPressed(KeyCode.M))
+        {
+            ref LocalTransform t = ref Player.instance.player.GetComponent<LocalTransform>();
+            t.Position = new Vector3(-8f, 49.12f, 0f);
+        }
+        if(Input.IsKeyPressed(KeyCode.K))
+        {
+            ref LocalTransform t = ref Player.instance.player.GetComponent<LocalTransform>();
+            t.Position = new Vector3(9.95f, 89.68f, 0f);
         }
     }
 

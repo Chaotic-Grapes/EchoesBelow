@@ -309,22 +309,41 @@ public class Player : SystemBase
             lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10) * Time.DeltaTime;
             lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10) * Time.DeltaTime;
 
-            if (!AudioManager.sfxEntityDictionary["SFX001"].GetComponent<AudioSource>().PlayOnStart)
+            int audioRandomiser = GMath.Random(1, 10);
+
+            switch (audioRandomiser)
             {
-                AudioManager.instance.PlaySFX("SFX001");
+                case 1:
+                    AudioManager.instance.PlaySFX("SFX001_Track01");
+                    break;
+                case 2:
+                    AudioManager.instance.PlaySFX("SFX001_Track02");
+                    break;
+                case 3:
+                    AudioManager.instance.PlaySFX("SFX001_Track03");
+                    break;
+                case 4:
+                    AudioManager.instance.PlaySFX("SFX001_Track04");
+                    break;
+                case 5:
+                    AudioManager.instance.PlaySFX("SFX001_Track05");
+                    break;
+                case 6:
+                    AudioManager.instance.PlaySFX("SFX001_Track06");
+                    break;
+                case 7:
+                    AudioManager.instance.PlaySFX("SFX001_Track07");
+                    break;
+                case 8:
+                    AudioManager.instance.PlaySFX("SFX001_Track08");
+                    break;
+                case 9:
+                    AudioManager.instance.PlaySFX("SFX001_Track09");
+                    break;
+                case 10:
+                    AudioManager.instance.PlaySFX("SFX001_Track10");
+                    break;
             }
-            else if (!AudioManager.sfxEntityDictionary["SFX001_alt01"].GetComponent<AudioSource>().PlayOnStart)
-            {
-                AudioManager.instance.PlaySFX("SFX001_alt01");
-            }
-            else if (!AudioManager.sfxEntityDictionary["SFX001_alt02"].GetComponent<AudioSource>().PlayOnStart)
-            {
-                AudioManager.instance.PlaySFX("SFX001_alt02");
-            }
-            else if (!AudioManager.sfxEntityDictionary["SFX001_alt03"].GetComponent<AudioSource>().PlayOnStart)
-            {
-                AudioManager.instance.PlaySFX("SFX001_alt03");
-            }            
         }
     }
     private void RotationPolarityHandler(LocalTransform transform)
