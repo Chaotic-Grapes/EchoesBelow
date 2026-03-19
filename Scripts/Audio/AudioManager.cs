@@ -26,7 +26,7 @@ public class AudioManager : SystemBase
     // normal bus state with no filter
     private const float DefaultBusLowPassGain = 1.0f;
     // damage muffle strength for the sfx bus
-    private const float DamageBusLowPassGain = 0.23f;
+    private const float DamageBusLowPassGain = 0.43f;
     // how long the damage muffle stays active
     private const float DamageBusLowPassDuration = 4.0f;
 

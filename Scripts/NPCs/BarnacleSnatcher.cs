@@ -63,8 +63,8 @@ public class BarnacleSnatcher : SystemBase
     public static Dictionary<ulong, Barnacle> instances = [];
 
     //Make anim states here
-    public static AnimState idleState = new AnimState("idleState", 0, 0, 58, 24f);
-    public static AnimState attackState = new AnimState("attackState", 19, 1, 21, 24f);
+    public static AnimState idleState = new AnimState("idleState", 0, 0, 58, 24f, true);
+    public static AnimState attackState = new AnimState("attackState", 19, 1, 21, 24f, true);
 
     private bool OnAwake(ref bool awakeBool)
     {

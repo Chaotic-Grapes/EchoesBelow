@@ -30,10 +30,10 @@ public class Player : SystemBase
     public Entity player {  get; set; }
     
     //Make anim states here
-    AnimState moveState = new AnimState("moveState",0, 0, 20, 24f);
-    AnimState idleState = new AnimState("idleState",1, 5, 65, 30f);
-    AnimState dashState = new AnimState("dashState",5, 6, 26, 30f);
-    AnimState dmgFlashState = new AnimState("dmgFlashState", 12, 11, 1, 24f);
+    AnimState moveState = new AnimState("moveState",0, 0, 20, 24f, true);
+    AnimState idleState = new AnimState("idleState",1, 5, 65, 30f, true);
+    AnimState dashState = new AnimState("dashState",5, 6, 26, 30f, false);
+    AnimState dmgFlashState = new AnimState("dmgFlashState", 12, 11, 1, 24f, true);
 
     public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;
@@ -461,7 +461,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 Player.instance.hitVisualCoolDown = 0.125f;
             }
             
-            if (tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.1f)
+            if (tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.05f)
             {
                 AudioManager.instance.PlaySFX("SFX006");
                 //door detected

@@ -29,6 +29,7 @@ public class PlayerAnimManager : SystemBase
             animator.Component2.FrameOffset = animState.frameOffset;
             animator.Component2.FrameLength = animState.frameLength;
             animator.Component2.FramesPerSecond = animState.fps;
+            animator.Component2.Loop = animState.isLoop;
         }
     }
 }

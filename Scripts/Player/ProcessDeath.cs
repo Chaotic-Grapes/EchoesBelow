@@ -40,7 +40,7 @@ public class ProcessDeath : SystemBase
     }
     protected override void OnUpdate()
     {
-
+        Log("HI!!!!!!!!!!!!!!!!");
         foreach(var gameObject in World!.Query<ProcessDeathComponent>())
         {
             //timer is 0 by default
@@ -153,7 +153,14 @@ public class ProcessDeath : SystemBase
                 result.Entity.GetComponent<GUIElement>().Size.X = 0;
             }
         }
+
+        //Deactivate and zero out the velocity!
+        ref LinearVelocity2D lv = ref Entity.FromId(World!, playerId).GetComponent<LinearVelocity2D>();
+        lv.Value = Vector2.Zero;
+
         Entity.FromId(World!, playerId).GetComponent<Active>().Enabled = false;
+
+
         isDying = true;
         //Log("Death!!!!!!!!!!!!!");
 

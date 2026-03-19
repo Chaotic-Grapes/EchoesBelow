@@ -529,7 +529,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 {
     ////this passes information to CraftAnemone class
     public static Entity capturedEntity;
-    protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
+    protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         if (CraftAnemone.isLeaving) return;
 
@@ -537,6 +537,8 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
+
+        if (!Input.IsKeyPressed(KeyCode.E)) return;
 
         foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
         {

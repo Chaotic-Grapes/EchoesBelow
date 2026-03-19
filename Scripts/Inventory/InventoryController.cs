@@ -369,7 +369,7 @@ public class InventoryController : SystemBase
 
     public void AddItemToNonStackableSlot(string msIdCheck, ulong otherId, int msId)
     {
-        AudioManager.instance.PlaySFX("SFX004");
+     
         FindAvailableSlot(out Entity slotEntity);
         foreach (Entity image in slotInstances[Entity.FromId(World!, slotEntity.Id).GetComponent<Name>().Value.ToString()].ms_ImageRefList)
         {
