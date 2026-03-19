@@ -40,7 +40,7 @@ public class Player : SystemBase
     
     public float vomitSpeed;
     public Vector3 currentPos;
-    const float lerpFac = 1;
+    const float lerpFac = 0.5f;
     const float maxSpeed = 8;
     float timer_forRotation = 0;
     float timer_forPeriodicForce = 0;
@@ -306,8 +306,8 @@ public class Player : SystemBase
         if(timer_forPeriodicForce > periodicForceInterval)
         {
             timer_forPeriodicForce = 0;
-            lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10) * Time.DeltaTime;
-            lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10) * Time.DeltaTime;
+            lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
+            lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
 
             int audioRandomiser = GMath.Random(1, 10);
 
