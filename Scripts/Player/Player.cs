@@ -272,19 +272,19 @@ public class Player : SystemBase
     private void AddInstantaneousForce(ref LinearVelocity2D lv, Vector2 playerDir, float dashSpeed)
     {
         //AudioManager.instance.PlaySFX("SFX005");
-
         if (!AudioManager.sfxEntityDictionary["SFX005"].GetComponent<AudioSource>().PlayOnStart)
         {
-            AudioManager.instance.StopSFX("SFX005");
             AudioManager.instance.PlaySFX("SFX005");
-            AudioManager.instance.PlaySFX("SFX014");
         }
-        else
+        else if (!AudioManager.sfxEntityDictionary["SFX010"].GetComponent<AudioSource>().PlayOnStart)
         {
-            AudioManager.instance.StopSFX("SFX005_alt");
-            AudioManager.instance.PlaySFX("SFX005_alt");
-            AudioManager.instance.PlaySFX("SFX014_alt");
+            AudioManager.instance.PlaySFX("SFX010");
         }
+        else if (!AudioManager.sfxEntityDictionary["SFX011"].GetComponent<AudioSource>().PlayOnStart)
+        {
+            AudioManager.instance.PlaySFX("SFX011");
+        }
+
         //lv.Value.X += playerDir.X * moveSpeed * 2 * GMath.Clamp(lv.Value.X, 1, 10);
         //lv.Value.Y += playerDir.Y * moveSpeed * 2 *  GMath.Clamp(lv.Value.X, 1, 10);
         isDashing = true;
@@ -313,10 +313,18 @@ public class Player : SystemBase
             {
                 AudioManager.instance.PlaySFX("SFX001");
             }
-            else
+            else if (!AudioManager.sfxEntityDictionary["SFX001_alt01"].GetComponent<AudioSource>().PlayOnStart)
             {
-                AudioManager.instance.PlaySFX("SFX001_alt");
+                AudioManager.instance.PlaySFX("SFX001_alt01");
             }
+            else if (!AudioManager.sfxEntityDictionary["SFX001_alt02"].GetComponent<AudioSource>().PlayOnStart)
+            {
+                AudioManager.instance.PlaySFX("SFX001_alt02");
+            }
+            else if (!AudioManager.sfxEntityDictionary["SFX001_alt03"].GetComponent<AudioSource>().PlayOnStart)
+            {
+                AudioManager.instance.PlaySFX("SFX001_alt03");
+            }            
         }
     }
     private void RotationPolarityHandler(LocalTransform transform)
@@ -426,7 +434,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
             if (tg.Mask == 32)
             {
                 //Take damage
-                AudioManager.instance.PlaySFX("VO001");
+                AudioManager.instance.PlaySFX("SFX004");
                 ProcessDeath.instance.TakeHit(evt.OtherEntityId, self.Id);
                 Log("Take Damage!");
 
@@ -447,8 +455,21 @@ public class PlayerCollisionHandler : CollisionSystemBase
         if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM) && !Entity.FromId(World!, other.Id).HasComponent<CraftMoveComponent>())
         {
             if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
-            AudioManager.instance.PlaySFX("SFX003");
-            
+            // AudioManager.instance.PlaySFX("SFX003");
+
+            if (!AudioManager.sfxEntityDictionary["SFX003"].GetComponent<AudioSource>().PlayOnStart)
+            {
+                AudioManager.instance.PlaySFX("SFX003");
+            }
+            else if (!AudioManager.sfxEntityDictionary["SFX003_alt01"].GetComponent<AudioSource>().PlayOnStart)
+            {
+                AudioManager.instance.PlaySFX("SFX003_alt01");
+            }
+            else if (!AudioManager.sfxEntityDictionary["SFX003_alt02"].GetComponent<AudioSource>().PlayOnStart)
+            {
+                AudioManager.instance.PlaySFX("SFX003_alt02");
+            }
+
             //MS_Manager.instance.SendToPool(other.Id);
             InventoryController.instance.AddToInventory(other.GetComponent<MS_IDComponent>().msID, other.Id);
         }
