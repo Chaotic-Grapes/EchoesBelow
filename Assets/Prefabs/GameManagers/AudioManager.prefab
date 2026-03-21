@@ -26,6 +26,1587 @@
                     },
                     {
                         "Data": {
+                            "Value": "SFX003_alt02"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX003_MarineSnowPickUp/Under-Water-Pick-Up_3.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 3.1
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX003_alt01"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX003_MarineSnowPickUp/Under-Water-Pick-Up_2.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX001_Track04"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_04.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 0.4000000059604645
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX001_Track03"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_03.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 0.4000000059604645
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX005_alt04"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX005_SwimDash/Bubbles_05.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 0.6499999761581421,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX005_alt02"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX005_SwimDash/Bubbles_03.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 0.6499999761581421,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX005_alt01"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX005_SwimDash/Bubbles_02.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 0.6499999761581421,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX009"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX009_AttachToAnemone.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX006"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/SFX/SFX006_Door Opening.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 0.4000000059604645
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX008"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX008_Respawn.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 1.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX013"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX013_CraftingFail.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 2.4000000953674316
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX012"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX012_CraftingSuccess.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 2.4000000953674316
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX001_Track01"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_01.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 0.4000000059604645
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX011_alt2"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX011_AttachParticles.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.399999976158142,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 2.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX011_alt"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX011_AttachParticles.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.2000000476837158,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 2.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX011"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX011_AttachParticles.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 2.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "SFX010"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SFX010_PopVomit.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 2.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
                             "Value": "SFX007"
                         },
                         "TypeName": "Name"
@@ -144,7 +1725,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 3.0999999046325684
+                            "Volume": 1.0
                         },
                         "TypeName": "AudioSource"
                     },
@@ -584,7 +2165,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX001_alt01"
+                            "Value": "SFX001_Track02"
                         },
                         "TypeName": "Name"
                     },
@@ -606,10 +2187,10 @@
                             "Loop": false,
                             "LowPassGain": 1.0,
                             "Pan": 0.0,
-                            "Pitch": 1.0399999618530273,
+                            "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.4000000953674316
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -677,7 +2258,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX010"
+                            "Value": "SFX001_Track10"
                         },
                         "TypeName": "Name"
                     },
@@ -690,7 +2271,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX010_PopVomit.wav",
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_10.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "EnableLowPass": false,
@@ -702,7 +2283,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.0
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -770,7 +2351,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX011"
+                            "Value": "SFX001_Track09"
                         },
                         "TypeName": "Name"
                     },
@@ -783,7 +2364,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX011_AttachParticles.wav",
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_09.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "EnableLowPass": false,
@@ -795,7 +2376,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.0
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -863,7 +2444,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX011_alt"
+                            "Value": "SFX001_Track08"
                         },
                         "TypeName": "Name"
                     },
@@ -876,193 +2457,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX011_AttachParticles.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.2000000476837158,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 2.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX011_alt2"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX011_AttachParticles.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.399999976158142,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 2.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX001"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_01.wav",
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_08.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "EnableLowPass": false,
@@ -1074,7 +2469,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.4000000953674316
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -1142,7 +2537,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX012"
+                            "Value": "SFX001_Track07"
                         },
                         "TypeName": "Name"
                     },
@@ -1155,7 +2550,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX012_CraftingSuccess.wav",
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_07.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "EnableLowPass": false,
@@ -1167,7 +2562,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.4000000953674316
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -1235,7 +2630,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX013"
+                            "Value": "SFX001_Track06"
                         },
                         "TypeName": "Name"
                     },
@@ -1248,7 +2643,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX013_CraftingFail.wav",
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_06.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "EnableLowPass": false,
@@ -1260,7 +2655,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.4000000953674316
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -1328,7 +2723,7 @@
                     },
                     {
                         "Data": {
-                            "Value": "SFX008"
+                            "Value": "SFX001_Track05"
                         },
                         "TypeName": "Name"
                     },
@@ -1341,7 +2736,7 @@
                     {
                         "Data": {
                             "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX008_Respawn.wav",
+                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_05.wav",
                             "EnableFadeIn": false,
                             "EnableFadeOut": false,
                             "EnableLowPass": false,
@@ -1353,7 +2748,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 1.0
+                            "Volume": 0.4000000059604645
                         },
                         "TypeName": "AudioSource"
                     },
@@ -1391,843 +2786,6 @@
                         "Data": {
                             "start": false,
                             "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX006"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX006_DoorOpen.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.0,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 1.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX009"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX009_AttachToAnemone.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.0,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 1.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX005_alt01"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX005_SwimDash/Bubbles_02.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 0.6499999761581421,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 1.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX005_alt02"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX005_SwimDash/Bubbles_03.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 0.6499999761581421,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 1.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX005_alt04"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX005_SwimDash/Bubbles_05.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 0.6499999761581421,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 1.0
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX001_alt02"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_03.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.0399999618530273,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 2.4000000953674316
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX001_alt03"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX001_PlayerMove/PlayerMove_04.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.0399999618530273,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 2.4000000953674316
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX003_alt01"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX003_MarineSnowPickUp/Under-Water-Pick-Up_2.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.0,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 3.0999999046325684
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": false,
-                            "startVolume": 0
-                        },
-                        "TypeName": "Audio SFX"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "SFX003_alt02"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Enabled": true
-                        },
-                        "TypeName": "Active"
-                    },
-                    {
-                        "Data": {
-                            "Bus": 2,
-                            "CuePath": "Assets/Audio/M6_SFX/SFX003_MarineSnowPickUp/Under-Water-Pick-Up_3.wav",
-                            "EnableFadeIn": false,
-                            "EnableFadeOut": false,
-                            "EnableLowPass": false,
-                            "FadeInDuration": 1.0,
-                            "FadeOutDuration": 1.0,
-                            "Loop": false,
-                            "LowPassGain": 1.0,
-                            "Pan": 0.0,
-                            "Pitch": 1.0,
-                            "PlayOnStart": false,
-                            "Spatial3D": false,
-                            "Volume": 3.0999999046325684
-                        },
-                        "TypeName": "AudioSource"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 0.0,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 0.0,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    },
-                    {
-                        "Data": {
-                            "start": true,
-                            "startVolume": 3.1
                         },
                         "TypeName": "Audio SFX"
                     }

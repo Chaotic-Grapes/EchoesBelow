@@ -532,7 +532,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         if (CraftAnemone.isLeaving) return;
-
+        
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }

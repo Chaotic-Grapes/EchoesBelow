@@ -31,22 +31,46 @@ public class DevKeys : SystemBase
         // {
         //     // Process component
         // }
-        bool isKeyPressed_R = Input.IsKeyPressed(KeyCode.R);
+        bool isKeyDown_R = Input.IsKeyDown(KeyCode.R);
+        bool isKeyPressed_0 = Input.IsKeyDown(KeyCode.Keypad0);
+        bool isKeyPressed_1 = Input.IsKeyDown(KeyCode.Keypad1);
+        bool isKeyPressed_2 = Input.IsKeyDown(KeyCode.Keypad2);
 
-        if (isKeyPressed_R)
+        if (isKeyDown_R && isKeyPressed_0)
         {
-            Log("Endscene Entering. . . ");
             SceneManager sceneManager = SceneManager.Instance;
             //Loadscene use dalton's
             sceneManager.SetNextAudioTransition(2.0f, true);
             //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
             //Like creating a new scene / allocate a new scene in the registry
             var sceneIndex = SceneManager.Instance.AddScene();
+            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/Newstartscene.scn");
+            SceneManager.Instance.SetActive(sceneIndex);
+        }
+
+        if (isKeyDown_R && isKeyPressed_1)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            var sceneIndex = SceneManager.Instance.AddScene();
+            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/FeatureGym.scn");
+            SceneManager.Instance.SetActive(sceneIndex);
+        }
+
+        if (isKeyDown_R && isKeyPressed_2)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            var sceneIndex = SceneManager.Instance.AddScene();
             var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/M5_L1.scn");
             SceneManager.Instance.SetActive(sceneIndex);
         }
 
 
+        SceneManager sceneManager = SceneManager.Instance;
+        if (sceneManager.GetScene(sceneManager.GetActiveIndex())!.Name != "M5_L1.scn") return;
 
         if (Input.IsKeyPressed(KeyCode.N))
         {

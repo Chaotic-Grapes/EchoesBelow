@@ -40,7 +40,7 @@ public class ProcessDeath : SystemBase
     }
     protected override void OnUpdate()
     {
-        Log("HI!!!!!!!!!!!!!!!!");
+
         foreach(var gameObject in World!.Query<ProcessDeathComponent>())
         {
             //timer is 0 by default
