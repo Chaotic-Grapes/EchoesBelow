@@ -69,8 +69,8 @@ public class DevKeys : SystemBase
         }
 
 
-        SceneManager sceneManager = SceneManager.Instance;
-        if (sceneManager.GetScene(sceneManager.GetActiveIndex())!.Name != "M5_L1.scn") return;
+        SceneManager sceneManager1 = SceneManager.Instance;
+        if (sceneManager1.GetScene(sceneManager1.GetActiveIndex())!.Name != "M5_L1.scn") return;
 
         if (Input.IsKeyPressed(KeyCode.N))
         {
