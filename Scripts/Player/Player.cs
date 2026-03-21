@@ -142,6 +142,7 @@ public class Player : SystemBase
                 //When dashing ends
                 if(Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
                 {
+                    Log("End Dash");
                     //Log($"currentState : {PlayerAnimManager.instance.currentState}");
                     isDashing = false;
                     foreach (var ps in World!.Query<MatchSignifierComponent, ParticleEmitter>())
@@ -214,7 +215,7 @@ public class Player : SystemBase
                 //Zero out animstate2D
                 Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame = 0;
 
-
+                Log("Dashing");
                 AddInstantaneousForce(ref lv, playerDir, dashSpeed);
                 isCoolingDown = true;
                 dashCoolDownTimer = 1.25f;
@@ -229,11 +230,11 @@ public class Player : SystemBase
                 }
 
             }
-            else if (isKeyDown_W || isKeyDown_S
-            || isKeyDown_A || isKeyDown_D)
+            else if (!isDashing && (isKeyDown_W || isKeyDown_S
+            || isKeyDown_A || isKeyDown_D))
             {
                 AddDriftForce(ref lv, playerDir, driftSpeed, maxSpeed);
-                AddPeriodicalForce(ref lv, periodicForceInterval, ref timer_forPeriodicForce, playerDir, moveSpeed);
+                AddPeriodicalForce(ref lv, periodicForceInterval, ref timer_forPeriodicForce, playerDir, moveSpeed, maxSpeed);
             }
 
             if (isCoolingDown)
@@ -245,7 +246,7 @@ public class Player : SystemBase
                 }
             }
 
-
+            //Log("speed: " + lv.Value.Magnitude);
             //Finally, cap the overall speed thru capping the linear velocities
             SpeedLimit(ref lv, maxSpeed);
 
@@ -292,23 +293,25 @@ public class Player : SystemBase
     }
     private static void AddDriftForce(ref LinearVelocity2D lv, Vector2 playerDir, float moveSpeed, float maxSpeed)
     {
-        lv.Value.X += playerDir.X * moveSpeed * Time.DeltaTime;
-        lv.Value.Y += playerDir.Y * moveSpeed * Time.DeltaTime;
+        //lv.Value.X += playerDir.X * moveSpeed * Time.DeltaTime;
+        //lv.Value.Y += playerDir.Y * moveSpeed * Time.DeltaTime;
         //Clamping these values to a maxSpeed
-        lv.Value.X = GMath.Clamp(lv.Value.X, -maxSpeed, maxSpeed);
-        lv.Value.Y = GMath.Clamp(lv.Value.Y, -maxSpeed, maxSpeed);
+        lv.Value.X = GMath.Clamp(lv.Value.X + playerDir.X * moveSpeed * Time.DeltaTime, -maxSpeed, maxSpeed);
+        lv.Value.Y = GMath.Clamp(lv.Value.Y + playerDir.Y * moveSpeed * Time.DeltaTime, -maxSpeed, maxSpeed);
        
     }
-    private void AddPeriodicalForce(ref LinearVelocity2D lv, float periodicForceInterval, ref float timer_forPeriodicForce, Vector2 playerDir, float moveSpeed)
+    private void AddPeriodicalForce(ref LinearVelocity2D lv, float periodicForceInterval, ref float timer_forPeriodicForce, Vector2 playerDir, float moveSpeed, float maxSpeed)
     {
         //The periodical force is applied 
         timer_forPeriodicForce += Time.DeltaTime;
         if(timer_forPeriodicForce > periodicForceInterval)
         {
             timer_forPeriodicForce = 0;
-            lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
-            lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
-
+            //lv.Value.X += playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
+            //lv.Value.Y += playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10);
+            //lv.Value = Vector2.Zero;
+            lv.Value.X = GMath.Clamp(lv.Value.X + playerDir.X * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10), -maxSpeed, maxSpeed);
+            lv.Value.Y = GMath.Clamp(lv.Value.Y + playerDir.Y * moveSpeed * GMath.Clamp(lv.Value.X, 1, 10), -maxSpeed, maxSpeed);
             int audioRandomiser = GMath.Random(1, 10);
 
             switch (audioRandomiser)
