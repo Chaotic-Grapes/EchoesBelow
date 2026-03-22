@@ -217,7 +217,7 @@ public class CraftAnemone : SystemBase
                     //InventoryController.instance.isEnabled_xInput = true;
                 }
 
-                if (InventoryController.isPressed_Q)
+                if (InventoryController.scroll != 0)
                 {
                     //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
@@ -479,7 +479,7 @@ public class CraftAnemone : SystemBase
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
 
-                InventoryController.instance.isEnabled_xInput = true;
+                InventoryController.instance.isEnabled_LMBInput = true;
                 Log("Done Exiting!");
             }
 
@@ -554,7 +554,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
         
             //Disable player movement and X key for inventory!
             Player.instance.isEnabled = false;
-            InventoryController.instance.isEnabled_xInput = false;
+            InventoryController.instance.isEnabled_LMBInput = false;
             Player.instance.ResetInputs();
 
             //Remove Rigidbody on the Player!
@@ -588,7 +588,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (other.HasComponent<PlayerTriggerComponent>())
         {
-            InventoryController.instance.isEnabled_xInput = true;
+            InventoryController.instance.isEnabled_LMBInput = true;
         }
 
     }

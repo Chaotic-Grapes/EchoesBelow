@@ -7,7 +7,6 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System.Collections.Generic;
-using System.Runtime;
 
 namespace EchoesBelow.Scripts;
 
@@ -28,8 +27,10 @@ public class InventoryController : SystemBase
 
     public static bool isPressed_Q;
     static bool isPressed_X;
+    static bool isLMB_Pressed;
+    public static double scroll;
 
-    public bool isEnabled_xInput = true;
+    public bool isEnabled_LMBInput = true;
 
     public static int globalInvIterator;
     public static int currentSelected_msID;
@@ -58,7 +59,7 @@ public class InventoryController : SystemBase
 
         currentSelected_msID = 0;
 
-        isEnabled_xInput = true;
+        isEnabled_LMBInput = true;
 
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
@@ -127,23 +128,28 @@ public class InventoryController : SystemBase
         //This is gonna be overhauled
         //check for input
         isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
-        if(isEnabled_xInput) isPressed_X = Input.IsKeyPressed(KeyCode.X);
+        if(isEnabled_LMBInput) isLMB_Pressed = Input.IsMousePressed(1);
+        
+        scroll = -Input.ScrollY;
 
         foreach(var gameObject in World!.Query<InventoryControllerComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
             //Todo
-
-
+            
+          
+            
             //Iterator
-            if (isPressed_Q)
+            if (isPressed_Q || scroll != 0)
             {
                 AudioManager.instance.PlaySFX("SFX007");
 
-                Iterator(ref globalInvIterator);
+                if (scroll < 0) Iterator(ref globalInvIterator, false);
+                else Iterator(ref globalInvIterator, true);
 
-                if(!slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+                //h
+                if (!slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
                 {//if slot not storing item
                     currentSelected_msID = 0; //default case
                 }
@@ -156,7 +162,7 @@ public class InventoryController : SystemBase
                 }
             }
             //Remove from slot / Vomitting
-            if (isPressed_X && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+            if ((isPressed_X || isLMB_Pressed) && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 AudioManager.instance.PlaySFX("SFX010");
 
@@ -207,13 +213,19 @@ public class InventoryController : SystemBase
 
 
     }
-    private void Iterator(ref int iterator)
+    private void Iterator(ref int iterator, bool isForward)
     {
-        iterator--;
+        if (!isForward) iterator--;
+        else iterator++;
 
         if (iterator < 0)
         {
             iterator = slotObjIds.Length - 1;
+        }
+
+        if(iterator > slotObjIds.Length - 1)
+        {
+            iterator = 0;
         }
 
         for (int i = slotObjIds.Length - 1; i >= 0; i--)
