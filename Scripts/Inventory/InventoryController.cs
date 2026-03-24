@@ -26,11 +26,10 @@ public class InventoryController : SystemBase
     public static Dictionary<string, Slot> slotInstances;
 
     public static bool isPressed_Q;
-    static bool isPressed_X;
-    static bool isLMB_Pressed;
-    public static double scroll;
+    static bool isRMB_Pressed;
+    public static double mouseScroll;
 
-    public bool isEnabled_LMBInput = true;
+    public bool isEnabled_RMBInput = true;
 
     public static int globalInvIterator;
     public static int currentSelected_msID;
@@ -59,7 +58,7 @@ public class InventoryController : SystemBase
 
         currentSelected_msID = 0;
 
-        isEnabled_LMBInput = true;
+        isEnabled_RMBInput = true;
 
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
@@ -128,9 +127,9 @@ public class InventoryController : SystemBase
         //This is gonna be overhauled
         //check for input
         isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
-        if(isEnabled_LMBInput) isLMB_Pressed = Input.IsMousePressed(1);
+        if(isEnabled_RMBInput) isRMB_Pressed = Input.IsMousePressed(1);
         
-        scroll = -Input.ScrollY;
+        mouseScroll = -Input.ScrollY;
 
         foreach(var gameObject in World!.Query<InventoryControllerComponent>())
         {
@@ -141,11 +140,11 @@ public class InventoryController : SystemBase
           
             
             //Iterator
-            if (isPressed_Q || scroll != 0)
+            if (isPressed_Q || mouseScroll != 0)
             {
                 AudioManager.instance.PlaySFX("SFX007");
 
-                if (scroll < 0) Iterator(ref globalInvIterator, false);
+                if (mouseScroll < 0) Iterator(ref globalInvIterator, false);
                 else Iterator(ref globalInvIterator, true);
 
                 //h
@@ -162,7 +161,7 @@ public class InventoryController : SystemBase
                 }
             }
             //Remove from slot / Vomitting
-            if ((isPressed_X || isLMB_Pressed) && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+            if ((isRMB_Pressed) && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 AudioManager.instance.PlaySFX("SFX010");
 
@@ -181,15 +180,6 @@ public class InventoryController : SystemBase
                     RemoveFromInventory(slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, true, newPos, trajectory); 
                 }
             }
-
-            //else if (Input.IsKeyPressed(KeyCode.Keypad1)) { iterator = 0; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad2)) { iterator = 1; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad3)) { iterator = 2; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad4)) { iterator = 3; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad5)) { iterator = 4; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad6)) { iterator = 5; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad7)) { iterator = 6; InstantIterate(); }
-
 
             //For Checking
             if (Input.IsKeyPressed(KeyCode.J))
