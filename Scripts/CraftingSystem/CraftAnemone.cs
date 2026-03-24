@@ -133,28 +133,26 @@ public class CraftAnemone : SystemBase
     }
     protected override void OnUpdate()
     {
-        //if (Input.IsKeyPressed(KeyCode.K))
-        //{
-        //    //foreach (Anemone l in CraftAnemone.instances.Values)
-        //    //{
-        //    //    Log("++++++++++++++++++++++++++++++++++++++++");
-        //    //    Log($"objID stored: {l.objId} name: {l.name}");
-        //    //    if (l != null)
-        //    //    {
-        //    //        Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
-        //    //        foreach (List<ulong> i in l.objPools)
-        //    //        {
-        //    //            foreach (ulong j in i)
-        //    //            {
-        //    //                Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
-        //    //            }
-        //    //        }
-        //    //    }
-        //    //    Log($"______________________________________");
-        //    //}
-
-
-        //}
+        if (Input.IsKeyPressed(KeyCode.G))
+        {
+            foreach (Anemone l in CraftAnemone.instances.Values)
+            {
+                Log("++++++++++++++++++++++++++++++++++++++++");
+                Log($"objID stored: {l.objId} name: {l.name}");
+                if (l != null)
+                {
+                    Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
+                    foreach (List<ulong> i in l.objPools)
+                    {
+                        foreach (ulong j in i)
+                        {
+                            Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
+                        }
+                    }
+                }
+                Log($"______________________________________");
+            }
+        }
         //Call OnAwake 1st
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
@@ -219,7 +217,7 @@ public class CraftAnemone : SystemBase
 
                 if (InventoryController.mouseScroll != 0)
                 {
-                    //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
+                    Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
 
@@ -228,17 +226,17 @@ public class CraftAnemone : SystemBase
                     //the item from the inventory
                     if (InventoryController.globalInvIterator == 6)
                     {
-                        InventoryController.instance.RemoveFromInventory(2, true, new Vector3(100,100, 0), Vector2.Zero);
+                        InventoryController.instance.RemoveFromInventory(2, false, new Vector3(100,100, 0), Vector2.Zero);
                     }
                     else if (InventoryController.globalInvIterator == 5)
                     {
-                        InventoryController.instance.RemoveFromInventory(1, true, new Vector3(100, 100, 0), Vector2.Zero);
+                        InventoryController.instance.RemoveFromInventory(1, false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
                     else
                     {
                         InventoryController.instance.RemoveFromInventory(InventoryController.slotInstances[Entity.FromId(World!, 
                                                                          InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, 
-                                                                         true, new Vector3(100, 100, 0), Vector2.Zero);
+                                                                         false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
      
                     //Update the selection
@@ -509,7 +507,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (!Input.IsKeyPressed(KeyCode.E)) return;
 
-        foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
+        foreach (var gameObject in World!.Query<NodeLinkLineComponent, BoxCollider2D>())
         {
             if (gameObject.Component1.parentAnemone != self.Id) continue;
             ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
@@ -542,7 +540,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<PlayerTriggerComponent>()) { }
         else return;
 
-        foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
+        foreach (var gameObject in World!.Query<NodeLinkLineComponent, BoxCollider2D>())
         {
             if (gameObject.Component1.parentAnemone != self.Id) continue;
             ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();

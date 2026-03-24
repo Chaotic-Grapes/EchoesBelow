@@ -36,83 +36,32 @@ public class NodeLink : SystemBase
             //Use this reference for everything!
             NodeLinkData nodeLink = instances[gameObject.Entity.Id];
 
+            if (gameObject.Component1.isRootNode)
+            {
+                //Only for Rootnode
+            }
+            else
+            {
+
+            }
+
+
         }
 
     }
 }
-[Component] public record struct NodeLinkTriggerComponent(int NSEW_1234, ulong parentObjId, ulong parentAnemone);
-[System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
-public class NodeLinkTrigger
+[Component] public record struct NodeLinkLineComponent(int NSEW_1234, ulong parentObjId, ulong parentAnemone);
+[System(SystemGroup.Update, SystemRunMode.PlayOnly)]
+public class NodeLinkLine
 {
     //A simple identifier for CMachineTriggers, North is 1, South is 2, East is 3 and West is 4
     
 }
 
-[System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
-public class NodeLinkTriggerHandler : TriggerSystemBase
+[System(SystemGroup.Update, SystemRunMode.PlayOnly)]
+public class NodeLinkLineHandler : SystemBase
 {
 
-
-    protected override void OnTriggerStay(Entity self, TriggerEvent evt)
-    {
-        //Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} triggered by {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
-        //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
-        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftParticleDataComponent>())
-        {
-            //Enable the E key
-            CraftAnemone.isEnabled_LMB = true;
-
-            Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
-            Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetParent()!.Id);
-            Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
-
-            //Very important, asign this for everyone
-            NodeLink.currentNodeLinkObj = parentObj;
-
-            //foreach (NodeLinkData n in NodeLink.instances.Values)
-            //{
-            //    Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}", LogLevel.Debug);
-            //}
-
-
-            NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-      
-            NodeLinkData.currentActiveTrigger = self.Id;
-
-            //Check if ports are filled
-            //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
-            if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
-            if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2) return;
-            if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3) return;
-            if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4) return;
-      
-            DrawLink(nodeTriggerObj, Entity.FromId(World!, NodeLink.currentNodeLinkObj.Id), playerMSobj);
-        }
-
-    }
-    protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
-    {
-        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftParticleDataComponent>())
-        {
-            //Disable the E key
-            CraftAnemone.isEnabled_LMB = false;
-
-            Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
-            Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
-
-            NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-
-            //Check if ports are filled
-            //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
-            if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 1) return;
-            if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 2) return;
-            if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 3) return;
-            if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().NSEW_1234 == 4) return;
-
-            ResetLink(nodeTriggerObj);
-            Log("Exitted");
-        }
-    }
     private void DrawLink(Entity nodeTriggerObj, Entity parentObj, Entity playerMSobj)
     {
         //Retrieve positions
@@ -133,5 +82,71 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
         ref ShapeLine2D lineRenderer = ref nodeTriggerObj.GetComponent<ShapeLine2D>();
         lineRenderer.A = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
         lineRenderer.B = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
-    }
+    }    
+    
+    
+    
+    
+    
+    
+    //protected override void OnTriggerStay(Entity self, TriggerEvent evt)
+    //{
+    //    //Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} triggered by {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
+    //    //Filter out all non NodeLink Trigger, SELF = NodeLinkLine, EVT = CraftMove particle
+    //    if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkLineComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftParticleDataComponent>())
+    //    {
+    //        //Enable the E key
+    //        CraftAnemone.isEnabled_LMB = true;
+
+    //        Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
+    //        Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetParent()!.Id);
+    //        Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
+
+    //        //Very important, asign this for everyone
+    //        NodeLink.currentNodeLinkObj = parentObj;
+
+    //        //foreach (NodeLinkData n in NodeLink.instances.Values)
+    //        //{
+    //        //    Log($"b6 parentObj: {Entity.FromId(World!, n.parentObjId).GetComponent<Name>().Value.ToString()} / instanceCount: {NodeLink.instances.Count}", LogLevel.Debug);
+    //        //}
+
+
+    //        NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+      
+    //        NodeLinkData.currentActiveTrigger = self.Id;
+
+    //        //Check if ports are filled
+    //        //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
+    //        if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 1) return;
+    //        if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 2) return;
+    //        if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 3) return;
+    //        if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 4) return;
+      
+    //        DrawLink(nodeTriggerObj, Entity.FromId(World!, NodeLink.currentNodeLinkObj.Id), playerMSobj);
+    //    }
+
+    //}
+    //protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
+    //{
+    //    if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkLineComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftParticleDataComponent>())
+    //    {
+    //        //Disable the E key
+    //        CraftAnemone.isEnabled_LMB = false;
+
+    //        Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().parentObjId);
+    //        Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
+
+    //        NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+
+    //        //Check if ports are filled
+    //        //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
+    //        if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 1) return;
+    //        if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 2) return;
+    //        if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 3) return;
+    //        if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<NodeLinkLineComponent>().NSEW_1234 == 4) return;
+
+    //        ResetLink(nodeTriggerObj);
+    //        Log("Exitted");
+    //    }
+    //}
 }
