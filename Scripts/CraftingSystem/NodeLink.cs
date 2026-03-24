@@ -57,10 +57,10 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
     {
         //Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} triggered by {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}", LogLevel.Warning);
         //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
-        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
+        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftParticleDataComponent>())
         {
             //Enable the E key
-            CraftAnemone.isEnabled_EInput = true;
+            CraftAnemone.isEnabled_LMB = true;
 
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetParent()!.Id);
@@ -92,10 +92,10 @@ public class NodeLinkTriggerHandler : TriggerSystemBase
     }
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
     {
-        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
+        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftParticleDataComponent>())
         {
             //Disable the E key
-            CraftAnemone.isEnabled_EInput = false;
+            CraftAnemone.isEnabled_LMB = false;
 
             Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().parentObjId);
             Entity nodeTriggerObj = Entity.FromId(World!, self.Id);

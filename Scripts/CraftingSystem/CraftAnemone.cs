@@ -38,10 +38,10 @@ public class CraftAnemone : SystemBase
     private const float cameraOriginalY = 0f;
     private const float marginAllowance = 0.25f;
 
-    static bool isKeyPressed_X = false;
-    static bool isKeyPressed_E = false;
+    static bool isRMBpressed = false;
+    static bool isLMBpressed = false;
     static bool isKeyPressed_Space = false;
-    public static bool isEnabled_EInput = true;
+    public static bool isEnabled_LMB = true;
     public static bool isLeaving = false;
 
     #region SystemBehaviours
@@ -99,7 +99,7 @@ public class CraftAnemone : SystemBase
         foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
         {
             //If child does not have a craftmove, skip!
-            if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
+            if (!child.TryGetComponent<CraftParticleDataComponent>(out CraftParticleDataComponent msIdComponent))
             {
             }
             else
@@ -114,7 +114,7 @@ public class CraftAnemone : SystemBase
             foreach (List<ulong> ms_objPool in anemone.objPools)
             {
                 //check if i++ == target msID
-                if (Entity.FromId(World!, childID).GetComponent<CraftMoveComponent>().msID == id_Iterator)
+                if (Entity.FromId(World!, childID).GetComponent<CraftParticleDataComponent>().msID == id_Iterator)
                 {
                     //add the obj back into the pool, reset its transforms
                     ms_objPool.Add(childID);
@@ -168,9 +168,9 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
         }
 
-        isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
+        isRMBpressed = Input.IsMousePressed(1);
         isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
-        if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
+        if(isEnabled_LMB) isLMBpressed = Input.IsMousePressed(0);
 
         //Then all Update funcs
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
@@ -186,7 +186,7 @@ public class CraftAnemone : SystemBase
             if (cr.isCaptured)
             {   
 
-                if (isKeyPressed_X)
+                if (isRMBpressed)
                 {
                     isLeaving = true;
 
@@ -223,14 +223,8 @@ public class CraftAnemone : SystemBase
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
 
-                if (isKeyPressed_E)
+                if (isLMBpressed)
                 {
-                    //Prevent E outside of the collider
-
-                    //}
-                    //Do NodeLink related actions here
-
-                    //
                     //the item from the inventory
                     if (InventoryController.globalInvIterator == 6)
                     {
@@ -251,6 +245,9 @@ public class CraftAnemone : SystemBase
                     cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
 
+
+                //IGNORE THIS FOR NOW
+                //CraftQuery
                 if (isKeyPressed_Space)
                 {
                     Anemone anemone = instances[gameObject.Entity.Id];
@@ -351,7 +348,6 @@ public class CraftAnemone : SystemBase
                             if (MS_Manager.instance.TakeFromPool(msID, 
                                 rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
                                 new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
-                            //Log("LETS GO");
                         }
                         
                     }
@@ -359,6 +355,9 @@ public class CraftAnemone : SystemBase
 
             }
 
+
+
+            //Initialise moving towards anemone
             // MOVE TOWARDS ANEMONE
             if (cr.isLerpingToAnemone)
             {

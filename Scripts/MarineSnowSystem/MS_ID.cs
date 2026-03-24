@@ -32,13 +32,13 @@ public class MS_ID : SystemBase
     }
     protected override void OnUpdate()
     {
-        foreach(var gameObject in World!.Query<MS_IDComponent>().Without<CraftMoveComponent>())
+        foreach(var gameObject in World!.Query<MS_IDComponent>().Without<CraftParticleDataComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
         }
 
-        foreach (var gameObject in World!.Query<MS_IDComponent>().Without<CraftMoveComponent>())
+        foreach (var gameObject in World!.Query<MS_IDComponent>().Without<CraftParticleDataComponent>())
         {
             if(gameObject.Component1.collisionCooldown >= 0f)
             {

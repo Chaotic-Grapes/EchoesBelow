@@ -474,7 +474,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         }
 
         //Marine Snow Trigger detection is handled by the Squidward!
-        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM) && !Entity.FromId(World!, other.Id).HasComponent<CraftMoveComponent>())
+        if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM) && !Entity.FromId(World!, other.Id).HasComponent<CraftParticleDataComponent>())
         {
             if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
             // AudioManager.instance.PlaySFX("SFX003");

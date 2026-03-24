@@ -96,8 +96,8 @@ public class Anemone :SystemBase
                 //Log("2 Node");
                 Entity queriedObj = Entity.FromId(world, childID);
                 //Log($"3 Node: {queriedObj.GetComponent<Name>().Value.ToString()}");
-                //if (!queriedObj.HasComponent<CraftMoveComponent>()) continue;
-                if (queriedObj.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM) && queriedObj.GetComponent<CraftMoveComponent>().msID == i)
+                //if (!queriedObj.HasComponent<MS_IDComponent>()) continue;
+                if (queriedObj.TryGetComponent<CraftParticleDataComponent>(out CraftParticleDataComponent crP) && queriedObj.GetComponent<CraftParticleDataComponent>().msID == i)
                 {
                     //Log("4 Node");
                     if (queriedObj.GetComponent<Active>().Enabled)
@@ -105,14 +105,13 @@ public class Anemone :SystemBase
                         //Log("5 Node");
                         objPools[i-1].Add(queriedObj.Id);
                         //Log("6 Node");
-                        queriedObj.GetComponent<CraftMoveComponent>().Enabled = false;
                         Log($"Added {Entity.FromId(world, queriedObj.Id).GetComponent<Name>().Value.ToString()} in objPool {i-1}", LogLevel.Warning);
                         break;
                     }
                 }
             }
             //Reset all children
-            if(Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
+            if(Entity.FromId(world, childID).TryGetComponent<CraftParticleDataComponent>(out CraftParticleDataComponent crP2))
             {
                 ResetPoolObj(world, childID);
                 //Log($"Obj: {Entity.FromId(world,childID).GetComponent<Name>().Value.ToString()} : Reset>>>");
@@ -133,8 +132,6 @@ public class Anemone :SystemBase
                 
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
-
-                Entity.FromId(world, pulledObjId).GetComponent<CraftMoveComponent>().Enabled = true;
 
                 InitPoolObj(world, newPos, pulledObjId);
 
@@ -186,7 +183,7 @@ public class Anemone :SystemBase
 
             //Log("Null? " + (NodeLink.instances[queriedObj.Id] == null));
                 
-            if (!queriedObj.HasComponent<CraftMoveComponent>())
+            if (!queriedObj.HasComponent<CraftParticleDataComponent>())
             {
                 int msID = queriedObj.GetComponent<MS_IDComponent>().msID;
                 objPools[msID-1].Add(queriedObj.Id);
@@ -199,14 +196,10 @@ public class Anemone :SystemBase
                 rb.LinearDamping = 5f;
                 ref CircleCollider2D circCollider = ref queriedObj.AddComponent<CircleCollider2D>();
                 circCollider.Radius = 0.3f;
-                ref CraftMoveComponent crMove = ref queriedObj.AddComponent<CraftMoveComponent>();
+                ref CraftParticleDataComponent crP = ref queriedObj.AddComponent<CraftParticleDataComponent>();
                 //Initialize
-                Log("HELLO");
 
-
-                crMove.moveSpeed = 2.5f;
-                crMove.maxSpeed = 2.5f;
-                crMove.msID = queriedObj.GetComponent<MS_IDComponent>().msID;
+                crP.msID = queriedObj.GetComponent<MS_IDComponent>().msID;
 
                 queriedObj.RemoveComponent<NodeLinkComponent>();
             }
@@ -232,8 +225,7 @@ public class Anemone :SystemBase
             {
                 Entity queriedObj = Entity.FromId(world, childID);
 
-                //if (!queriedObj.HasComponent<CraftMoveComponent>()) continue;
-                if (queriedObj.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM) && queriedObj.GetComponent<CraftMoveComponent>().msID == i)
+                if (queriedObj.TryGetComponent<CraftParticleDataComponent>(out CraftParticleDataComponent crP) && queriedObj.GetComponent<CraftParticleDataComponent>().msID == i)
                 {
                     if (queriedObj.GetComponent<Active>().Enabled)
                     {
@@ -243,7 +235,7 @@ public class Anemone :SystemBase
                     }
                 }
             }
-            if (Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
+            if (Entity.FromId(world, childID).TryGetComponent<CraftParticleDataComponent>(out CraftParticleDataComponent crP2))
             {
                 ResetPoolObj(world, childID);
             }
@@ -262,8 +254,6 @@ public class Anemone :SystemBase
 
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
-
-                Entity.FromId(world, pulledObjId).GetComponent<CraftMoveComponent>().Enabled = true;
 
                 InitPoolObj(world, newPos, pulledObjId);
 
@@ -290,20 +280,9 @@ public class Anemone :SystemBase
             AudioManager.instance.PlaySFX("SFX011_alt2");
         }
 
-        int msID = queriedObj.GetComponent<CraftMoveComponent>().msID;
+        int msID = queriedObj.GetComponent<CraftParticleDataComponent>().msID;
 
         //General Initialization
-        queriedObj.RemoveComponent<CraftMoveComponent>();
-        queriedObj.RemoveComponent<Rigidbody2D>();
-        queriedObj.RemoveComponent<CircleCollider2D>();
-        queriedObj.RemoveComponent<LinearVelocity2D>();
-        queriedObj.RemoveComponent<AngularVelocity2D>();
-
-        //Set to Background
-        //Log("HEY");
-        //ushort l = 4;
-        //Log("Hey " + Entity.FromId(World!, queriedObj.Id).TryGetComponent<Layer>(out Layer ls));
-        //Log("Ho");
 
         //NodeLink initialization
         ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
@@ -410,8 +389,6 @@ public class Anemone :SystemBase
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
         pulledObjTransform.Position = newPos;
 
-
-        pulledObj.GetComponent<CraftMoveComponent>().Enabled = true;
         //Set Everything anew, every field that must be set is set here
     }
     private void ResetPoolObj(World world, ulong returningObjId)
@@ -437,7 +414,5 @@ public class Anemone :SystemBase
         ref LinearVelocity2D lv = ref returningObj.GetComponent<LinearVelocity2D>();
         lv.Value = Vector2.Zero;
 
-        if(returningObj.HasComponent<CraftMoveComponent>())
-        returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
     }
 }
