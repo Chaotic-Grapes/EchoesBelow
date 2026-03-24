@@ -128,29 +128,6 @@ public class Anemone :SystemBase
         }
         return;
     }
-    public void ResetSelection(World world)
-    {
-        Log("Anemone Resetting Selection");
-        //First we iterate thru the sorted child list
-        //We reset EVERYTHING, turn off active for active children
-        //Then we add any active children back to the relevant lists
-        foreach (ulong childID in sortedChildList)
-        {
-            Entity queriedObj = Entity.FromId(world, childID);
-
-            //if (!queriedObj.HasComponent<MS_IDComponent>()) continue;
-                
-            if (!queriedObj.HasComponent<CraftParticleDataComponent>())
-            {
-                int msID = queriedObj.GetComponent<MS_IDComponent>().msID;
-                objPools[msID-1].Add(queriedObj.Id);
-                //Add
-      
-
-            }
-            ResetPoolObj(world, childID);
-        }
-    }
     public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
     {
         Log("Anemone Placing and Updating Selection");
@@ -168,7 +145,7 @@ public class Anemone :SystemBase
                     && queriedObj.GetComponent<CraftParticleDataComponent>().msID == i
                     && queriedObj.GetComponent<Active>().Enabled)
                 {
-                    FreezeNode(world, queriedObj);
+                    //FreezeNode(world, queriedObj);
                     break;
                 }
             }
@@ -200,7 +177,29 @@ public class Anemone :SystemBase
 
         return;
     }
+    public void ResetSelection(World world)
+    {
+        Log("Anemone Resetting Selection");
+        //First we iterate thru the sorted child list
+        //We reset EVERYTHING, turn off active for active children
+        //Then we add any active children back to the relevant lists
+        foreach (ulong childID in sortedChildList)
+        {
+            Entity queriedObj = Entity.FromId(world, childID);
 
+            //if (!queriedObj.HasComponent<MS_IDComponent>()) continue;
+                
+            if (!queriedObj.HasComponent<CraftParticleDataComponent>())
+            {
+                int msID = queriedObj.GetComponent<MS_IDComponent>().msID;
+                objPools[msID-1].Add(queriedObj.Id);
+                //Add
+      
+
+            }
+            ResetPoolObj(world, childID);
+        }
+    }
     private void FreezeNode(World world, Entity queriedObj)
     {
         Log("Attempting to Freeze Node . . .");
@@ -306,9 +305,42 @@ public class Anemone :SystemBase
             childActive.Enabled = true;
         }
 
+        //Find the appropriate transform+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        Log("===================");
+        List<Vector3> posList = new List<Vector3>();
+        Dictionary<Vector3, Entity> vectorDict = new Dictionary<Vector3, Entity>();
+        
+        foreach (ulong u in NodeLink.instances.Keys)
+        {
+            Log($"Entity: {Entity.FromId(world, u).GetComponent<Name>().Value.ToString()}");
+            Log($"RootNode Located: {rootNode.GetComponent<Name>().Value.ToString()}");
+            Log($"ulongs involved : {u} / {rootNode.Id}");
+        }
+
+        Log($"Node Frozen Pos: {NodeLink.instances[rootNode.Id].node.frozenPos}");
+
+        NodeLink.instances[rootNode.Id].node.GetPosOnTree(NodeLink.instances[rootNode.Id].node, ref posList, ref vectorDict);
+
+        Vector3 addVector = Vector3.Zero;
+
+        NodeLinkData nld = NodeLink.instances[vectorDict[posList[posList.Count - 1]].Id];
+        if      (!nld.port_N_isFilled) addVector = new Vector3(0, 1, 0);
+        else if (!nld.port_S_isFilled) addVector = new Vector3(0, -1, 0);
+        else if (!nld.port_E_isFilled) addVector = new Vector3(1, 0, 0);
+        else if (!nld.port_W_isFilled) addVector = new Vector3(-1, 0, 0);
+
+        Vector3 outputPos = posList[posList.Count - 1] + addVector;
+
+        Log("Last Available Position" + outputPos);
+
+        Log(">>>>>>>>>>>>>>>>>>>>>");
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
         //Set to new transform
         ref LocalTransform pulledObjTransform = ref pulledObj.GetComponent<LocalTransform>();
-        pulledObjTransform.Position = newPos;
+        pulledObjTransform.Position = outputPos;
 
         //Set Everything anew, every field that must be set is set here
     }

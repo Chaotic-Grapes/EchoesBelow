@@ -401,6 +401,9 @@ public class CraftAnemone : SystemBase
         if (startNodeTransform.Position.Y >= yOffset - marginAllowance)
         {
             cr.isOpening = true;
+            NodeLink.instances[cr.rootNode.Id].frozenPos = startNodeTransform.Position;
+            NodeLink.instances[cr.rootNode.Id].node.frozenPos = startNodeTransform.Position;
+            cr.rootNodePos = startNodeTransform.Position;
             //cr.isOpened = true;
             //if(cr.isCaptured)
             //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));

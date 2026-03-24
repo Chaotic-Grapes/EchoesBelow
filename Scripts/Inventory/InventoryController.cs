@@ -25,7 +25,6 @@ public class InventoryController : SystemBase
     public static ulong[] slotObjIds;
     public static Dictionary<string, Slot> slotInstances;
 
-    public static bool isPressed_Q;
     static bool isRMB_Pressed;
     public static double mouseScroll;
 
@@ -126,7 +125,6 @@ public class InventoryController : SystemBase
     {
         //This is gonna be overhauled
         //check for input
-        isPressed_Q = Input.IsKeyPressed(KeyCode.Q);
         if(isEnabled_RMBInput) isRMB_Pressed = Input.IsMousePressed(1);
         
         mouseScroll = -Input.ScrollY;
@@ -140,7 +138,7 @@ public class InventoryController : SystemBase
           
             
             //Iterator
-            if (isPressed_Q || mouseScroll != 0)
+            if (mouseScroll != 0)
             {
                 AudioManager.instance.PlaySFX("SFX007");
 

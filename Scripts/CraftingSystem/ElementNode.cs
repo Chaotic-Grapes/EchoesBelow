@@ -108,16 +108,17 @@ public class ElementNode
         GetmsIDList(n.node_W, ref e);
 
     }
-    public void GetPosOnTree(ElementNode n, ref Dictionary<Entity, Vector3> v)
+    public void GetPosOnTree(ElementNode n, ref List<Vector3> PosList, ref Dictionary<Vector3, Entity> VectorDict)
     {
         if (n == null) { return; }
 
-        v.Add(parent,frozenPos);
+        PosList.Add(frozenPos);
+        VectorDict.Add(frozenPos, parent);
 
-        GetPosOnTree(n.node_N, ref v);
-        GetPosOnTree(n.node_S, ref v);
-        GetPosOnTree(n.node_E, ref v);
-        GetPosOnTree(n.node_W, ref v);
+        GetPosOnTree(n.node_N, ref PosList, ref VectorDict);
+        GetPosOnTree(n.node_S, ref PosList, ref VectorDict);
+        GetPosOnTree(n.node_E, ref PosList, ref VectorDict);
+        GetPosOnTree(n.node_W, ref PosList, ref VectorDict);
     }
 
     public void ClearNode()
