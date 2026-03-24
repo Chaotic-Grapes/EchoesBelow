@@ -20,14 +20,14 @@ namespace EchoesBelow.Scripts;
     float lerpFacInMiliseconds, 
     float exitSpeed, 
     bool awake, 
-    ulong zc1, 
-    ulong zc2, 
-    ulong zc3, 
-    ulong zc4, 
-    ulong zc5, 
-    ulong zc7, 
-    ulong zc6, 
-    int z_doorSignifier);
+    ulong line01, 
+    ulong line02, 
+    ulong line03, 
+    ulong line04, 
+    ulong line05, 
+    ulong line06, 
+    ulong line07, 
+    int doorSignifier);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftAnemone : SystemBase
 {
@@ -246,23 +246,9 @@ public class CraftAnemone : SystemBase
                                                                          InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, 
                                                                          true, new Vector3(100, 100, 0), Vector2.Zero);
                     }
-                    //Log($"[NodeLink] 1) Item removed!");
-
+     
                     //Update the selection
                     cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
-
-                    //foreach (var node in NodeLink.instances.Values)
-                    //{
-                    //    Log($"----(instances count: {NodeLink.instances.Values.Count})-------------------");
-
-                    //    Log("RootNodeObj: " + Entity.FromId(World!, node.parentObjId).GetComponent<Name>().Value.ToString(), LogLevel.Debug);
-                    //    Log($"N: {node.port_N_isFilled}");
-                    //    Log($"S: {node.port_S_isFilled}");
-                    //    Log($"E: {node.port_E_isFilled}");
-                    //    Log($"W: {node.port_W_isFilled}");
-                    //    Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-                    //}
-
                 }
 
                 if (isKeyPressed_Space)
@@ -286,13 +272,13 @@ public class CraftAnemone : SystemBase
 
                     string correctString = "";
 
-                    if (gameObject.Component1.zc1 > 0) correctString += gameObject.Component1.zc1;
-                    if (gameObject.Component1.zc2 > 0) correctString += gameObject.Component1.zc2;
-                    if (gameObject.Component1.zc3 > 0) correctString += gameObject.Component1.zc3;
-                    if (gameObject.Component1.zc4 > 0) correctString += gameObject.Component1.zc4;
-                    if (gameObject.Component1.zc5 > 0) correctString += gameObject.Component1.zc5;
-                    if (gameObject.Component1.zc6 > 0) correctString += gameObject.Component1.zc6;
-                    if (gameObject.Component1.zc7 > 0) correctString += gameObject.Component1.zc7;
+                    if (gameObject.Component1.line01 > 0) correctString += gameObject.Component1.line01;
+                    if (gameObject.Component1.line02 > 0) correctString += gameObject.Component1.line02;
+                    if (gameObject.Component1.line03 > 0) correctString += gameObject.Component1.line03;
+                    if (gameObject.Component1.line04 > 0) correctString += gameObject.Component1.line04;
+                    if (gameObject.Component1.line05 > 0) correctString += gameObject.Component1.line05;
+                    if (gameObject.Component1.line07 > 0) correctString += gameObject.Component1.line07;
+                    if (gameObject.Component1.line06 > 0) correctString += gameObject.Component1.line06;
 
                     Log("Correct string: " + correctString);
                     if (queryString == correctString)
@@ -302,7 +288,7 @@ public class CraftAnemone : SystemBase
 
                         foreach(var door in World!.Query<MatchSignifierComponent>())
                         {
-                            if(door.Component1.signifierID == gameObject.Component1.z_doorSignifier)
+                            if(door.Component1.signifierID == gameObject.Component1.doorSignifier)
                             {
                                 //Deactivate Door!
                                 AudioManager.instance.PlaySFX("SFX006");
@@ -367,23 +353,7 @@ public class CraftAnemone : SystemBase
                                 new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
                             //Log("LETS GO");
                         }
-
                         
-                        //List<int> msIdNodeList = [];
-                        //rootNodeLinkInstance.node.GetmsIDList(rootNodeLinkInstance.node, ref msIdNodeList);
-                        //foreach (int i in msIdNodeList)
-                        //{
-                        //    Log($"msID available: {i}", LogLevel.Debug);
-                        //}
-
-                        //For the future!
-                        //Dictionary<Entity, Vector3> listOfVectorsOnTheTree = [];
-                        //rootNodeLinkInstance.node.GetPosOnTree(rootNodeLinkInstance.node, ref listOfVectorsOnTheTree);
-
-                        //foreach (Entity e in listOfVectorsOnTheTree.Keys)
-                        //{
-                        //    Log($"Name of Node: {e.GetComponent<Name>().Value.ToString()} / Vector: {listOfVectorsOnTheTree[e]}", LogLevel.Debug);
-                        //}
                     }
                 }
 
