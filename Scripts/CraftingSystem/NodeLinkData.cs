@@ -30,7 +30,7 @@ public class NodeLinkData : SystemBase
 
     public ElementNode node { get; set; }
 
-    public static ulong currentActiveTrigger { get; set; }
+    public static ulong currentActivePort { get; set; }
 
 
     // I can have multiple unique fields in here, these cant be set from the outset

@@ -33,17 +33,9 @@ public class NodeLinkTrigger : TriggerSystemBase
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
             //Very important, asign this for everyone
-            //NodeLink.currentNodeLinkObj = self;
-            //NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-            //NodeLinkData.currentActiveTrigger = self.Id;
+            NodeLink.currentNodeLinkObj = self;
+            //NodeLinkData.currentActivePort = self.Id;
            
-            //Check if ports are filled
-            //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
-            //if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 1) return;
-            //if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 2) return;
-            //if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 3) return;
-            //if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 4) return;
-
             DrawLink(self, otherEntity);
         }
 
@@ -97,6 +89,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                     && cPort.NSEW_1234 == 1)
                 {
                     selectedPort = port;
+                    NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
             }
@@ -109,6 +102,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                     && cPort.NSEW_1234 == 2)
                 {
                     selectedPort = port;
+                    NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
             }
@@ -121,6 +115,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                     && cPort.NSEW_1234 == 3)
                 {
                     selectedPort = port;
+                    NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
             }
@@ -133,6 +128,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                     && cPort.NSEW_1234 == 4)
                 {
                     selectedPort = port;
+                    NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
             }
@@ -144,6 +140,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
                 {
                     ResetLink(port);
+                    CraftAnemone.isEnabled_EInput = false;
                 }
             }
         }

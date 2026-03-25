@@ -225,26 +225,20 @@ public class CraftAnemone : SystemBase
 
                 if (isKeyPressed_E)
                 {
-                    //Prevent E outside of the collider
 
-                    //}
-                    //Do NodeLink related actions here
-
-                    //
-                    //the item from the inventory
                     if (InventoryController.globalInvIterator == 6)
                     {
-                        InventoryController.instance.RemoveFromInventory(2, true, new Vector3(100,100, 0), Vector2.Zero);
+                        InventoryController.instance.RemoveFromInventory(2, false, new Vector3(100,100, 0), Vector2.Zero);
                     }
                     else if (InventoryController.globalInvIterator == 5)
                     {
-                        InventoryController.instance.RemoveFromInventory(1, true, new Vector3(100, 100, 0), Vector2.Zero);
+                        InventoryController.instance.RemoveFromInventory(1, false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
                     else
                     {
                         InventoryController.instance.RemoveFromInventory(InventoryController.slotInstances[Entity.FromId(World!, 
-                                                                         InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId, 
-                                                                         true, new Vector3(100, 100, 0), Vector2.Zero);
+                                                                         InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId,
+                                                                         false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
      
                     //Update the selection

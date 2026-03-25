@@ -194,22 +194,16 @@ public class Anemone :SystemBase
 
         foreach (ulong childID in sortedChildList)
         {
-            for (int i = 1; i < 8; i++)
+            if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>()
+            && Entity.FromId(world, childID).GetComponent<Active>().Enabled)
             {
-                Entity queriedObj = Entity.FromId(world, childID);
-
-                if (queriedObj.HasComponent<CraftMoveComponent>()
-                && queriedObj.GetComponent<CraftMoveComponent>().msID == i
-                && queriedObj.GetComponent<Active>().Enabled)
-                {
-                    FreezeNode(world, queriedObj);
-                    break;
-                }
-
-
+                Log("Attempting to Freeze . . .");
+                //FreezeNode(world, queriedObj);
+                Log("Frozen!");
             }
-            if (Entity.FromId(world, childID).TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crM2))
+            else if (Entity.FromId(world, childID).HasComponent<CraftMoveComponent>())
             {
+                Log("Resetting back into the Pool");
                 ResetPoolObj(world, childID);
             }
         }
@@ -217,7 +211,7 @@ public class Anemone :SystemBase
         //Spawn based on the iterator
         //Skip the spawning step if msID is 0 , i.e empty slot
         if (msID == 0) return;
-
+        Log("Spawning . . .");
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
@@ -258,11 +252,10 @@ public class Anemone :SystemBase
         int msID = queriedObj.GetComponent<CraftMoveComponent>().msID;
 
         //General Initialization
-        //queriedObj.RemoveComponent<CraftMoveComponent>();
-        //queriedObj.RemoveComponent<Rigidbody2D>();
-        //queriedObj.RemoveComponent<CircleCollider2D>();
-        //queriedObj.RemoveComponent<LinearVelocity2D>();
-        //queriedObj.RemoveComponent<AngularVelocity2D>();
+        queriedObj.RemoveComponent<CraftMoveComponent>();
+        queriedObj.RemoveComponent<Rigidbody2D>();
+        queriedObj.RemoveComponent<LinearVelocity2D>();
+        queriedObj.RemoveComponent<AngularVelocity2D>();
 
         //NodeLink initialization
         ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
@@ -275,7 +268,9 @@ public class Anemone :SystemBase
         NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
         //queried obj is the one I want to change
-        int fromPort = Entity.FromId(world, NodeLinkData.currentActiveTrigger).GetComponent<CraftPortComponent>().NSEW_1234;
+        Log("Hello there");
+        int fromPort = Entity.FromId(world, NodeLinkData.currentActivePort).GetComponent<CraftPortComponent>().NSEW_1234;
+        Log("General Kenobi");
 
         //NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
         //the new NodeLink is queriedobj N is S and E is W
