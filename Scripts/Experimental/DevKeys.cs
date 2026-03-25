@@ -72,18 +72,18 @@ public class DevKeys : SystemBase
         SceneManager sceneManager1 = SceneManager.Instance;
         //if (sceneManager1.GetScene(sceneManager1.GetActiveIndex())!.Name != "M5_L1.scn") return;
 
-        if (Input.IsKeyPressed(KeyCode.N))
+        if (isKeyDown_R && Input.IsKeyPressed(KeyCode.N))
         {
             ref LocalTransform t = ref Player.instance.player.GetComponent<LocalTransform>();
             t.Position = new Vector3(-11.57f, 26f, 0f);
         }
 
-        if (Input.IsKeyPressed(KeyCode.M))
+        if (isKeyDown_R && Input.IsKeyPressed(KeyCode.M))
         {
             ref LocalTransform t = ref Player.instance.player.GetComponent<LocalTransform>();
             t.Position = new Vector3(-8f, 49.12f, 0f);
         }
-        if(Input.IsKeyPressed(KeyCode.K))
+        if(isKeyDown_R && Input.IsKeyPressed(KeyCode.K))
         {
             ref LocalTransform t = ref Player.instance.player.GetComponent<LocalTransform>();
             t.Position = new Vector3(9.95f, 89.68f, 0f);

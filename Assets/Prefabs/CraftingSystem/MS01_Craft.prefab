@@ -1,0 +1,293 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Port"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 2
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 0,
+                            "PrefabHash": 2518053985
+                        },
+                        "TypeName": "PrefabInstanceMetadata"
+                    },
+                    {
+                        "Data": {
+                            "A": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "B": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Color": {
+                                "A": 1.0,
+                                "B": 1.0,
+                                "G": 0.20083189010620117,
+                                "R": 0.0
+                            },
+                            "Thickness": 0.10000000149011612
+                        },
+                        "TypeName": "ShapeLine2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.16370415687561035,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": -4.951928615570068,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -4
+                        },
+                        "TypeName": "ZIndex2D"
+                    },
+                    {
+                        "Data": {
+                            "NSEW_1234": 0,
+                            "parentAnemone": 0,
+                            "parentObjId": 0
+                        },
+                        "TypeName": "Craft Port"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 1.0,
+                        "Y": 1.0,
+                        "Z": 1.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "MS01_Craft"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": false
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Value": 0.0
+                },
+                "TypeName": "AngularVelocity2D"
+            },
+            {
+                "Data": {
+                    "CurrentFrame": 0,
+                    "Finished": false,
+                    "TimeAccumulator": 0.0
+                },
+                "TypeName": "AnimationState2D"
+            },
+            {
+                "Data": {
+                    "Flags": 1,
+                    "LayerMask": 4,
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "Radius": 0.699999988079071
+                },
+                "TypeName": "CircleCollider2D"
+            },
+            {
+                "Data": {
+                    "Id": 2
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "Value": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    }
+                },
+                "TypeName": "LinearVelocity2D"
+            },
+            {
+                "Data": {
+                    "AngularDamping": 0.0,
+                    "Flags": 1,
+                    "GravityScale": 1.0,
+                    "InverseMass": 1.0,
+                    "LinearDamping": 1.0,
+                    "Mass": 1.0
+                },
+                "TypeName": "Rigidbody2D"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 1.0,
+                        "G": 1.0,
+                        "R": 1.0
+                    },
+                    "EmissiveStrength": 5.0,
+                    "EmissiveTextureId": 0,
+                    "EmissiveTexturePath": "",
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "TextureFilter": 0,
+                    "TextureId": 39,
+                    "TexturePath": "",
+                    "Tiling": {
+                        "X": 0.05263157933950424,
+                        "Y": 1.0
+                    }
+                },
+                "TypeName": "SpriteRenderer2D"
+            },
+            {
+                "Data": {
+                    "FrameCount": 1,
+                    "FrameHeight": 250,
+                    "FrameLength": 19,
+                    "FrameOffset": 0,
+                    "FrameWidth": 250,
+                    "FramesPerSecond": 24.0,
+                    "Loop": true,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Playing": true,
+                    "Row": 0,
+                    "Segments": [],
+                    "SheetHeight": 250,
+                    "SheetWidth": 4750,
+                    "StartFrame": 0,
+                    "TextureFilter": 0,
+                    "TextureId": 39,
+                    "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
+                    "UseRow": true,
+                    "UseSegments": false
+                },
+                "TypeName": "SpriteSheetAnimation2D"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 1.0,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 0.16370415687561035,
+                        "m10": 0.0,
+                        "m11": 1.0,
+                        "m12": 0.0,
+                        "m13": -4.951928615570068,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            },
+            {
+                "Data": {
+                    "Enabled": false,
+                    "maxSpeed": 6,
+                    "moveSpeed": 6,
+                    "msID": 1,
+                    "start": false
+                },
+                "TypeName": "Craft Move"
+            },
+            {
+                "Data": {
+                    "isActiveTrigger": false
+                },
+                "TypeName": "Node Link Trigger"
+            }
+        ]
+    }
+}

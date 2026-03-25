@@ -38,8 +38,8 @@ public class CraftAnemone : SystemBase
     private const float cameraOriginalY = 0f;
     private const float marginAllowance = 0.25f;
 
-    static bool isKeyPressed_X = false;
-    static bool isKeyPressed_E = false;
+    public static bool isRMB_pressed = false;
+    public static bool isLMB_pressed = false;
     static bool isKeyPressed_Space = false;
     //public static bool isEnabled_EInput = true;
     public static bool isLeaving = false;
@@ -171,10 +171,10 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
         }
 
-        isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
+        isRMB_pressed = Input.IsMousePressed(1);
         isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         //if(isEnabled_EInput) 
-        isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
+        isLMB_pressed = Input.IsMousePressed(0);
 
         //Then all Update funcs
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
@@ -190,7 +190,7 @@ public class CraftAnemone : SystemBase
             if (cr.isCaptured)
             {   
 
-                if (isKeyPressed_X)
+                if (isRMB_pressed)
                 {
                     isLeaving = true;
 
@@ -230,7 +230,7 @@ public class CraftAnemone : SystemBase
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
              
-                if (isKeyPressed_E && NodeLinkTrigger.isAttachable)
+                if (isLMB_pressed && NodeLinkTrigger.isAttachable)
                 {
                     if (InventoryController.globalInvIterator == 6)
                     {
@@ -259,10 +259,10 @@ public class CraftAnemone : SystemBase
 
                     List<ElementNode> elementsInTreeList = [];
                     rootNodeLinkInstance.node.GetNodeList(rootNodeLinkInstance.node, ref elementsInTreeList);
-                    foreach (ElementNode elementInTree in elementsInTreeList)
-                    {
-                        Log($"Name of Node: {elementInTree.Entity.GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
-                    }
+                    //foreach (ElementNode elementInTree in elementsInTreeList)
+                    //{
+                    //    Log($"Name of Node: {elementInTree.Entity.GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
+                    //}
 
                     string queryString = "";
                     rootNodeLinkInstance.node.SearchNode(rootNodeLinkInstance.node, ref queryString);
@@ -304,7 +304,6 @@ public class CraftAnemone : SystemBase
                         Log("WRONG", LogLevel.Warning);
                         foreach (ElementNode elementInTree in elementsInTreeList)
                         {
-                            Log("WrongProcess: 1");
 
                             foreach (Entity port in elementInTree.Entity.GetChildren())
                             {
@@ -316,37 +315,27 @@ public class CraftAnemone : SystemBase
                                     shapeLine.B = Vector2.Zero;
                                 }
                             }
-                            Log("WrongProcess: 2");
                             //Instantiate the particles
 
-                            if(elementInTree.Entity.HasComponent<CraftMoveComponent>()
+                            if (elementInTree.Entity.HasComponent<CraftMoveComponent>()
                             && !elementInTree.Entity.HasComponent<NodeLinkComponent>())
                             {
                                 int msID = elementInTree.Entity.GetComponent<CraftMoveComponent>().msID;
 
-                                Log("msID from tree: " + elementInTree.Entity.GetComponent<Name>().Value.ToString() + " / msid: " + msID);
+                                //Log("msID from tree: " + elementInTree.Entity.GetComponent<Name>().Value.ToString() + " / msid: " + msID);
 
-
-                                if ( (msID == 1 || msID == 2)
-                                &&MS_Manager.instance.TakeFromPool
-                                (
-                                    msID,
+                                if (msID == 1 || msID == 2)
+                                {
+                                    MS_Manager.instance.TakeFromPool(msID,
                                     rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
-                                    new Vector2(GMath.Random(0.5f, 2f),
-                                    GMath.Random(0.5f, 2f)),
-                                    15f,
-                                    false
-                                ) == MS_Manager.instance.emptyId) continue;
-                                else if (MS_Manager.instance.TakeFromPool
-                                (
-                                    msID,
+                                    new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 15f, false);
+                                }
+                                else
+                                {
+                                    MS_Manager.instance.TakeFromPool(msID,
                                     rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
-                                    new Vector2(GMath.Random(0.5f, 2f), 
-                                    GMath.Random(0.5f, 2f)), 
-                                    100000f, 
-                                    false
-                                ) == MS_Manager.instance.emptyId) continue;
-                                
+                                    new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false);
+                                }
                             }
                         }
 
@@ -366,10 +355,9 @@ public class CraftAnemone : SystemBase
                                                                              Entity.FromId(World!, gameObject2.Entity.Id).GetComponent<LocalTransform>().Position,
                                                                              9, false, true, false, false);
                                 NodeLink.instances.Add(gameObject2.Entity.Id, nodeLinkData);
-                                Log("ReCreated and ReAdded a node");
+                                //Log("ReCreated and ReAdded a node");
                             }
                         }
-                        Log("WrongProcess: 4");
                     }
                 }
 
@@ -524,7 +512,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
 
-        if (!Input.IsKeyPressed(KeyCode.E)) return;
+        if (!CraftAnemone.isLMB_pressed) return;
 
 
         if (other.HasComponent<PlayerComponent>())
