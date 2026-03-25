@@ -23,7 +23,7 @@
         },
         {
             "Data": {
-                "Value": "Port"
+                "Value": "MS_SpawnerINTHEWORLD"
             },
             "TypeName": "Name"
         },
@@ -35,29 +35,30 @@
         },
         {
             "Data": {
-                "Id": 2
+                "Id": 3
             },
             "TypeName": "Layer"
         },
         {
             "Data": {
-                "A": {
-                    "X": 0.0,
-                    "Y": 0.0
-                },
-                "B": {
-                    "X": 0.0,
-                    "Y": 0.0
-                },
                 "Color": {
-                    "A": 1.0,
-                    "B": 9.999999747378752e-05,
-                    "G": 9.999200119636953e-05,
-                    "R": 9.998999303206801e-05
+                    "A": 0.6027874946594238,
+                    "B": 0.0,
+                    "G": 0.007234156131744385,
+                    "R": 1.0
                 },
-                "Thickness": 0.10000000149011612
+                "Filled": true,
+                "HalfExtents": {
+                    "X": 3.0,
+                    "Y": 0.20000000298023224
+                },
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "Thickness": 0.0
             },
-            "TypeName": "ShapeLine2D"
+            "TypeName": "ShapeBox2D"
         },
         {
             "Data": {
@@ -66,11 +67,11 @@
                     "m00": 1.0,
                     "m01": 0.0,
                     "m02": 0.0,
-                    "m03": 0.16370415687561035,
+                    "m03": -2.6819963455200195,
                     "m10": 0.0,
                     "m11": 1.0,
                     "m12": 0.0,
-                    "m13": -4.951928615570068,
+                    "m13": 57.94685363769531,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,
@@ -85,17 +86,30 @@
         },
         {
             "Data": {
-                "ZOrder": -4
+                "ZOrder": 271
             },
             "TypeName": "ZIndex2D"
         },
         {
             "Data": {
-                "NSEW_1234": 0,
-                "parentAnemone": 0,
-                "parentObjId": 0
+                "cullDist": 10,
+                "isCulling": false,
+                "start": false
             },
-            "TypeName": "Craft Port"
+            "TypeName": "Proximity Culling"
+        },
+        {
+            "Data": {
+                "decayTime": 8,
+                "spawnCountMax": 6,
+                "spawnCountMin": 3,
+                "spawnIntervalinMilliseconds": 3000,
+                "start": false,
+                "timer": 0,
+                "toSpawn": 11100000,
+                "z_isGlobal": false
+            },
+            "TypeName": "MS_Spawner"
         }
     ]
 }

@@ -221,7 +221,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         
         lineRenderer.A = new Vector2(0, 0);
         lineRenderer.B = new Vector2(otherPos.X - selfPos.X, otherPos.Y - selfPos.Y);
-        lineRenderer.Color = portCol;
+        //lineRenderer.Color = portCol;
         //Log("SETTING");
 
     }
