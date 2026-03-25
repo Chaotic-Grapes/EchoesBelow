@@ -93,7 +93,8 @@ public class Anemone :SystemBase
             for (int i = 1; i <= objPools.Length; i++)
             {
                 Entity queriedObj = Entity.FromId(world, childID);
-                if (queriedObj.HasComponent<CraftMoveComponent>() 
+                if (queriedObj.HasComponent<CraftMoveComponent>()
+                    && queriedObj.HasComponent<LinearVelocity2D>()
                     && queriedObj.GetComponent<CraftMoveComponent>().msID == i
                     && queriedObj.GetComponent<Active>().Enabled)
                 {
@@ -103,7 +104,8 @@ public class Anemone :SystemBase
                 }
             }
             //Reset all children
-            if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>())
+            if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>() 
+            && Entity.FromId(world, childID).HasComponent<LinearVelocity2D>())
             {
                 ResetPoolObj(world, childID);
             }
@@ -141,14 +143,31 @@ public class Anemone :SystemBase
         //We reset EVERYTHING, turn off active for active children
         //Then we add any active children back to the relevant lists
 
+
+
         foreach (ulong childID in sortedChildList)
         {
+            for (int i = 1; i <= objPools.Length; i++)
+            {
+                Entity queriedObj = Entity.FromId(world, childID);
+                if (queriedObj.HasComponent<CraftMoveComponent>()
+                    && !queriedObj.HasComponent<LinearVelocity2D>()
+                    && queriedObj.GetComponent<CraftMoveComponent>().msID == i
+                    && queriedObj.GetComponent<Active>().Enabled)
+                {
+                    Log($"Adding {queriedObj.GetComponent<Name>().Value.ToString()} back to pool");
+                    objPools[i - 1].Add(queriedObj.Id);
+                    queriedObj.GetComponent<CraftMoveComponent>().Enabled = false;
+                    break;
+                }
+            }
+
             ResetPoolObj(world, childID);
             Log("Reset!");
 
             Entity child = Entity.FromId(world, childID);
-            //if (!child.HasComponent<LinearVelocity2D>()) child.AddComponent<LinearVelocity2D>();
-            //if (!child.HasComponent<AngularVelocity2D>()) child.AddComponent<AngularVelocity2D>();
+            if (!child.HasComponent<LinearVelocity2D>()) child.AddComponent<LinearVelocity2D>();
+            if (!child.HasComponent<AngularVelocity2D>()) child.AddComponent<AngularVelocity2D>();
         }
     }
     public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
@@ -160,13 +179,15 @@ public class Anemone :SystemBase
         foreach (ulong childID in sortedChildList)
         {
             if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>()
-            && Entity.FromId(world, childID).GetComponent<Active>().Enabled)
+            && Entity.FromId(world, childID).GetComponent<Active>().Enabled
+            && Entity.FromId(world, childID).HasComponent<LinearVelocity2D>())
             {
                 Entity queriedObj = Entity.FromId(world, childID);
                 FreezeNode(world, queriedObj, NodeLinkTrigger.selectedPort);
                 Log("Frozen!");
             }
-            else if (Entity.FromId(world, childID).HasComponent<CraftMoveComponent>())
+            else if (Entity.FromId(world, childID).HasComponent<CraftMoveComponent>() 
+                  && Entity.FromId(world, childID).HasComponent<LinearVelocity2D>())
             {
                 ResetPoolObj(world, childID);
             }
@@ -217,10 +238,10 @@ public class Anemone :SystemBase
         //queriedObj.RemoveComponent<CraftMoveComponent>();
 
         //change crm
-        //ref CraftMoveComponent crM = ref queriedObj.GetComponent<CraftMoveComponent>();
-        //crM.Enabled = false;
+        ref CraftMoveComponent crM = ref queriedObj.GetComponent<CraftMoveComponent>();
+        crM.Enabled = false;
 
-        queriedObj.RemoveComponent<CraftMoveComponent>();
+        //queriedObj.RemoveComponent<CraftMoveComponent>();
         //queriedObj.RemoveComponent<Rigidbody2D>();
         queriedObj.RemoveComponent<LinearVelocity2D>();
         queriedObj.RemoveComponent<AngularVelocity2D>();
