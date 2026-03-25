@@ -143,17 +143,12 @@ public class Anemone :SystemBase
 
         foreach (ulong childID in sortedChildList)
         {
-            Entity queriedObj = Entity.FromId(world, childID);
-
-            if (!queriedObj.HasComponent<MS_IDComponent>()) continue;
-   
-            if (!queriedObj.HasComponent<CraftMoveComponent>())
-            {
-                int msID = queriedObj.GetComponent<MS_IDComponent>().msID;
-                objPools[msID-1].Add(queriedObj.Id);
-            }
             ResetPoolObj(world, childID);
+            Log("Reset!");
 
+            Entity child = Entity.FromId(world, childID);
+            //if (!child.HasComponent<LinearVelocity2D>()) child.AddComponent<LinearVelocity2D>();
+            //if (!child.HasComponent<AngularVelocity2D>()) child.AddComponent<AngularVelocity2D>();
         }
     }
     public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
@@ -219,8 +214,14 @@ public class Anemone :SystemBase
         int msID = queriedObj.GetComponent<CraftMoveComponent>().msID;
 
         //General Initialization
+        //queriedObj.RemoveComponent<CraftMoveComponent>();
+
+        //change crm
+        //ref CraftMoveComponent crM = ref queriedObj.GetComponent<CraftMoveComponent>();
+        //crM.Enabled = false;
+
         queriedObj.RemoveComponent<CraftMoveComponent>();
-        queriedObj.RemoveComponent<Rigidbody2D>();
+        //queriedObj.RemoveComponent<Rigidbody2D>();
         queriedObj.RemoveComponent<LinearVelocity2D>();
         queriedObj.RemoveComponent<AngularVelocity2D>();
 

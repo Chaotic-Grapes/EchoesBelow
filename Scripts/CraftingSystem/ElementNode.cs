@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace EchoesBelow.Scripts;
 public class ElementNode
 {
-    public Entity parent { get; set; }
+    public Entity Entity { get; set; }
     public ElementNode node_N { get; set; }
     public ElementNode node_S { get; set; }
     public ElementNode node_E { get; set; }
@@ -32,7 +32,7 @@ public class ElementNode
     public ElementNode(int msID, Entity parentEntity, Vector3 frozenPos)
     {
         this.msID = msID;
-        parent = parentEntity;
+        Entity = parentEntity;
         this.frozenPos = frozenPos;
     }
 
@@ -112,7 +112,7 @@ public class ElementNode
     {
         if (n == null) { return; }
 
-        v.Add(parent,frozenPos);
+        v.Add(Entity,frozenPos);
 
         GetPosOnTree(n.node_N, ref v);
         GetPosOnTree(n.node_S, ref v);

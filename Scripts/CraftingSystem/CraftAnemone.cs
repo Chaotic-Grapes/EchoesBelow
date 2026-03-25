@@ -257,11 +257,11 @@ public class CraftAnemone : SystemBase
 
                     NodeLinkData rootNodeLinkInstance = NodeLink.instances[rootNode.Id];
 
-                    List<ElementNode> eNodeList = [];
-                    rootNodeLinkInstance.node.GetNodeList(rootNodeLinkInstance.node, ref eNodeList);
-                    foreach (ElementNode e in eNodeList)
+                    List<ElementNode> elementsInTreeList = [];
+                    rootNodeLinkInstance.node.GetNodeList(rootNodeLinkInstance.node, ref elementsInTreeList);
+                    foreach (ElementNode elementInTree in elementsInTreeList)
                     {
-                        Log($"Name of Node: {e.parent.GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
+                        Log($"Name of Node: {elementInTree.Entity.GetComponent<Name>().Value.ToString()}", LogLevel.Debug);
                     }
 
                     string queryString = "";
@@ -302,57 +302,50 @@ public class CraftAnemone : SystemBase
                         //wrong
                         AudioManager.instance.PlaySFX("SFX013");
                         Log("WRONG", LogLevel.Warning);
-                        foreach (ElementNode e in eNodeList)
+                        foreach (ElementNode elementInTree in elementsInTreeList)
                         {
-                            //for all elementNodes
-                            //Log("e.parent = " + e.parent.GetComponent<Name>().Value.ToString());
-                            if(e.parent == rootNode)
-                            {
-                                NodeLinkData nodeLink = NodeLink.instances[e.parent.Id];
-                                nodeLink.EnablePort(1);
-                                nodeLink.DisablePort(2);
-                                nodeLink.EnablePort(3);
-                                nodeLink.EnablePort(4);
-                                //Log("1) Cleared for root");
-                            }
-                            else
-                            {
-                                NodeLinkData nodeLink = NodeLink.instances[e.parent.Id];
-                                nodeLink.EnableAllPorts();
-                                //Log("2) cleared for everyone else");
-                            }
+                            Log("WrongProcess: 1");
 
-                            //Reset Shapelines of triggers
-                            foreach (Entity trigger in e.parent.GetChildren())
+                            foreach (Entity port in elementInTree.Entity.GetChildren())
                             {
                                 //Reset ALL shapelines
-                                if (trigger.HasComponent<ShapeLine2D>())
+                                if (port.HasComponent<ShapeLine2D>())
                                 {
-                                    ref ShapeLine2D shapeLine = ref trigger.GetComponent<ShapeLine2D>();
+                                    ref ShapeLine2D shapeLine = ref port.GetComponent<ShapeLine2D>();
                                     shapeLine.A = Vector2.Zero;
                                     shapeLine.B = Vector2.Zero;
-                                    //Log("Cleared shapelines: ");
                                 }
                             }
-
-                            e.ClearNode();
-
-                            //=======================================================
-                            if (!e.parent.HasComponent<MS_IDComponent>()) continue;
-                            //=======================================================
-                            //For non rootnodes
-                            int msID = e.parent.GetComponent<MS_IDComponent>().msID;
-                            //Log($"Available ID: {msID}", LogLevel.Warning);
-
-                            cr.ResetSelection(World!);
-
+                            Log("WrongProcess: 2");
                             //Instantiate the particles
-                            if (MS_Manager.instance.TakeFromPool(msID, 
-                                rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
-                                new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
-                            //Log("LETS GO");
+                            //int msID = elementInTree.Entity.GetComponent<CraftMoveComponent>().msID;
+                            //Log($"Entity in ElementTreeList: {elementInTree.Entity.GetComponent<Name>().Value.ToString()}");
+
+                            //if (MS_Manager.instance.TakeFromPool(msID,
+                            //    rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
+                            //    new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
                         }
-                        
+
+                        cr.ResetSelection(World!);
+
+                        //Identical to Start function, recreate and re-initialize the list of instances of NodeLinks
+                        NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
+                        listOfContacts = new List<Entity>();
+
+                        //Find the RootNode, and begin again
+                        foreach (var gameObject2 in World!.Query<NodeLinkComponent>())
+                        {
+                            if (Entity.FromId(World!, gameObject2.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode)
+                            {
+                                //if root node, the south port is always filled
+                                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject2.Entity.Id,
+                                                                             Entity.FromId(World!, gameObject2.Entity.Id).GetComponent<LocalTransform>().Position,
+                                                                             9, false, true, false, false);
+                                NodeLink.instances.Add(gameObject2.Entity.Id, nodeLinkData);
+                                Log("ReCreated and ReAdded a node");
+                            }
+                        }
+                        Log("WrongProcess: 4");
                     }
                 }
 

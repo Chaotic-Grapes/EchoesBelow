@@ -179,15 +179,6 @@ public class InventoryController : SystemBase
                 }
             }
 
-            //else if (Input.IsKeyPressed(KeyCode.Keypad1)) { iterator = 0; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad2)) { iterator = 1; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad3)) { iterator = 2; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad4)) { iterator = 3; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad5)) { iterator = 4; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad6)) { iterator = 5; InstantIterate(); }
-            //else if (Input.IsKeyPressed(KeyCode.Keypad7)) { iterator = 6; InstantIterate(); }
-
-
             //For Checking
             //if (Input.IsKeyPressed(KeyCode.J))
             //{
