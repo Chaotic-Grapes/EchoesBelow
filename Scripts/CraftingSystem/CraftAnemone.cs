@@ -510,7 +510,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (!Input.IsKeyPressed(KeyCode.E)) return;
 
-        foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
+        foreach (var gameObject in World!.Query<CraftPortComponent, BoxCollider2D>())
         {
             if (gameObject.Component1.parentAnemone != self.Id) continue;
             ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
@@ -543,7 +543,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<PlayerTriggerComponent>()) { }
         else return;
 
-        foreach (var gameObject in World!.Query<NodeLinkTriggerComponent, BoxCollider2D>())
+        foreach (var gameObject in World!.Query<CraftPortComponent, BoxCollider2D>())
         {
             if (gameObject.Component1.parentAnemone != self.Id) continue;
             ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();

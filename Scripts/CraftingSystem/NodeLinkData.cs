@@ -46,7 +46,7 @@ public class NodeLinkData : SystemBase
         foreach (Entity child in rawChildList)
         {
             //Check only CMachine Triggers get thru
-            if (!child.TryGetComponent<NodeLinkTriggerComponent>(out NodeLinkTriggerComponent nlTrigger)) continue;
+            if (!child.TryGetComponent<CraftPortComponent>(out CraftPortComponent nlTrigger)) continue;
 
             switch (nlTrigger.NSEW_1234)
             {
@@ -67,7 +67,7 @@ public class NodeLinkData : SystemBase
                     break;
             }
 
-            ref NodeLinkTriggerComponent nlTrigger2 = ref child.GetComponent<NodeLinkTriggerComponent>();
+            ref CraftPortComponent nlTrigger2 = ref child.GetComponent<CraftPortComponent>();
             nlTrigger2.parentObjId = objId;
             nlTrigger2.parentAnemone = Entity.FromId(world, objId).GetParent()!.Id;
         }

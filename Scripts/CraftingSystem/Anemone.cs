@@ -275,7 +275,7 @@ public class Anemone :SystemBase
         NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
         //queried obj is the one I want to change
-        int fromPort = Entity.FromId(world, NodeLinkData.currentActiveTrigger).GetComponent<NodeLinkTriggerComponent>().NSEW_1234;
+        int fromPort = Entity.FromId(world, NodeLinkData.currentActiveTrigger).GetComponent<CraftPortComponent>().NSEW_1234;
 
         //NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
         //the new NodeLink is queriedobj N is S and E is W
@@ -355,6 +355,7 @@ public class Anemone :SystemBase
 
 
         pulledObj.GetComponent<CraftMoveComponent>().Enabled = true;
+        pulledObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = true;
         //Set Everything anew, every field that must be set is set here
     }
     private void ResetPoolObj(World world, ulong returningObjId)
@@ -380,5 +381,6 @@ public class Anemone :SystemBase
 
         if(returningObj.HasComponent<CraftMoveComponent>())
         returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
+        returningObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = false;
     }
 }
