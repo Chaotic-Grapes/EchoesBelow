@@ -168,7 +168,7 @@ public class Anemone :SystemBase
             && Entity.FromId(world, childID).GetComponent<Active>().Enabled)
             {
                 Entity queriedObj = Entity.FromId(world, childID);
-                Log($"Attempting to Freeze {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()}. . .");
+                Log($"Attempting to Freeze {queriedObj.GetComponent<Name>().Value.ToString()}. . .");
                 FreezeNode(world, queriedObj, NodeLinkTrigger.selectedPort);
                 Log("Frozen!");
             }
@@ -242,14 +242,12 @@ public class Anemone :SystemBase
         int fromPort = NodeLinkTrigger.portOrientation;
         Log("General Kenobi");
 
-        ////NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
-        ////the new NodeLink is queriedobj N is S and E is W
 
-        NodeLinkData currentNodeLinkInstance = NodeLink.instances[selectedPort.GetParent()!.Id];
-        NodeLinkData queriedNodeLinkInstance = NodeLink.instances[queriedObj.Id];
+        NodeLinkData nodeLink_nonPlayerControlled = NodeLink.instances[NodeLinkTrigger.nonPlayerControlledEntity.Id];
+        NodeLinkData nodeLink_playerControlled = NodeLink.instances[queriedObj.Id];
 
-        ElementNode current_node = currentNodeLinkInstance.node;
-        ElementNode queried_node = queriedNodeLinkInstance.node;
+        ElementNode current_node = nodeLink_nonPlayerControlled.node;
+        ElementNode queried_node = nodeLink_playerControlled.node;
 
         Log("Hi");
         switch (fromPort)
@@ -257,8 +255,8 @@ public class Anemone :SystemBase
             //The corresponding opposite side shld be marked as filled
             case 1: //North N
                 Log("1");
-                currentNodeLinkInstance.DisablePort(1);
-                queriedNodeLinkInstance.DisablePort(2);
+                nodeLink_nonPlayerControlled.DisablePort(1);
+                nodeLink_playerControlled.DisablePort(2);
                 Log("2");
                 current_node.node_N = queried_node;
                 Log("3");
@@ -267,8 +265,8 @@ public class Anemone :SystemBase
                 Log("4");
                 break;
             case 2: //South S
-                currentNodeLinkInstance.DisablePort(2);
-                queriedNodeLinkInstance.DisablePort(1);
+                nodeLink_nonPlayerControlled.DisablePort(2);
+                nodeLink_playerControlled.DisablePort(1);
 
                 current_node.node_S = queried_node;
 
@@ -277,8 +275,8 @@ public class Anemone :SystemBase
 
                 break;
             case 3: //East E
-                currentNodeLinkInstance.DisablePort(3);
-                queriedNodeLinkInstance.DisablePort(4);
+                nodeLink_nonPlayerControlled.DisablePort(3);
+                nodeLink_playerControlled.DisablePort(4);
 
                 current_node.node_E = queried_node;
 
@@ -287,8 +285,8 @@ public class Anemone :SystemBase
 
                 break;
             case 4: //West W
-                currentNodeLinkInstance.DisablePort(4);
-                queriedNodeLinkInstance.DisablePort(3);
+                nodeLink_nonPlayerControlled.DisablePort(4);
+                nodeLink_playerControlled.DisablePort(3);
 
                 current_node.node_W = queried_node;
 

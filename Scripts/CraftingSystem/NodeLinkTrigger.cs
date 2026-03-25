@@ -19,6 +19,7 @@ public class NodeLinkTrigger : TriggerSystemBase
 {
     public static bool isAttachable = false;
     public static Entity selectedPort;
+    public static Entity nonPlayerControlledEntity;
     public static int portOrientation;
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
@@ -33,7 +34,7 @@ public class NodeLinkTrigger : TriggerSystemBase
             //CraftAnemone.isEnabled_EInput = true;
 
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
-
+            nonPlayerControlledEntity = otherEntity;
 
             //Very important, asign this for everyone
             //NodeLink.currentNodeLinkObj = self;
