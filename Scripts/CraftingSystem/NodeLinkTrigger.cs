@@ -83,8 +83,12 @@ public class NodeLinkTrigger : TriggerSystemBase
         const float limit = 0.8f;
         Entity selectedPort = self;
 
+        foreach(var c in NodeLink.instances)
+        {
+            Log($">>> {Entity.FromId(World!,c.Value.parentObjId).GetComponent<Name>().Value.ToString()}");
+        }
         NodeLinkData nodeLinkData = NodeLink.instances[otherEntity.Id];
-     
+        Log("2 IN");
         if (vertDot < -limit)
         {
             foreach(Entity port in self.GetChildren())
@@ -94,12 +98,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_N_isFilled)
                     {
-                        Log("N setting false");
                         isAttachable = false;
                         ResetLink(port);
                         break;
                     }
-                    Log("N setting true");
                     isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
@@ -116,12 +118,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_S_isFilled)
                     {
-                        Log("S setting false");
                         isAttachable = false;
                         ResetLink(port);
                         break;
                     }
-                    Log("S setting true");
                     isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
@@ -138,12 +138,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_E_isFilled)
                     {
-                        Log("E setting false");
                         isAttachable = false;
                         ResetLink(port);
                         break;
                     }
-                    Log("E setting true");
                     isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
@@ -160,12 +158,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_W_isFilled)
                     {
-                        Log("W setting false");
                         isAttachable = false;
                         ResetLink(port);
                         break;
                     }
-                    Log("W setting true");
                     isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
@@ -179,7 +175,6 @@ public class NodeLinkTrigger : TriggerSystemBase
             {
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
                 {
-                    Log("is this happening");
                     isAttachable = false;
                     ResetLink(port);
                     //CraftAnemone.isEnabled_EInput = false;

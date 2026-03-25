@@ -227,6 +227,9 @@ public class Anemone :SystemBase
         queriedObj.RemoveComponent<LinearVelocity2D>();
         queriedObj.RemoveComponent<AngularVelocity2D>();
 
+        ref NodeLinkTriggerComponent nlt = ref queriedObj.GetComponent<NodeLinkTriggerComponent>();
+        nlt.isActiveTrigger = false;
+
         //NodeLink initialization
         //ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
 
