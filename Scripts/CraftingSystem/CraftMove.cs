@@ -24,7 +24,7 @@ public class CraftMove : SystemBase
     bool isKeyPressed_Space = false;
 
     Vector2 moveDir;
-    private const float lerpFac = 1f;
+    private const float lerpFac = 0.75f;
 
     private bool OnStart(ref bool startBool)
     {
@@ -91,6 +91,9 @@ public class CraftMove : SystemBase
             //Clamping these values to a maxSpeed
             lv.Value.X = GMath.Clamp(lv.Value.X, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
             lv.Value.Y = GMath.Clamp(lv.Value.Y, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
+
+            Player.instance.currentPos = gameObject.Entity.GetComponent<LocalTransform>().Position 
+                + gameObject.Entity.GetParent()!.GetComponent<LocalTransform>().Position + new Vector3(0,-CraftAnemone.cameraOffsetY,0);
         }
     }
 

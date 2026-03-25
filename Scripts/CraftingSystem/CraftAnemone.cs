@@ -32,7 +32,7 @@ namespace EchoesBelow.Scripts;
 public class CraftAnemone : SystemBase
 {
     public static Dictionary<ulong, Anemone> instances;
-    private const float cameraOffsetY = 3.0f;
+    public static float cameraOffsetY = 3.0f;
     private const float FOVoffset = 151;
     private const float FOVoriginal = 148.0f;
     private const float cameraOriginalY = 0f;
