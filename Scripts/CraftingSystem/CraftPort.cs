@@ -14,7 +14,7 @@ namespace Scripts.CraftingSystem;
 
 [Component] public record struct CraftPortComponent(int NSEW_1234, ulong parentObjId, ulong parentAnemone);
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
-public class CraftPort
+public class CraftPort : SystemBase
 {
     //A simple identifier for CMachineTriggers, North is 1, South is 2, East is 3 and West is 4
 

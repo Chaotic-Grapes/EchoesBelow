@@ -239,29 +239,32 @@ public class Anemone :SystemBase
 
         ////queried obj is the one I want to change
         Log("Hello there");
-        int fromPort = Entity.FromId(world, selectedPort.Id).GetComponent<CraftPortComponent>().NSEW_1234;
+        int fromPort = NodeLinkTrigger.portOrientation;
         Log("General Kenobi");
 
         ////NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
         ////the new NodeLink is queriedobj N is S and E is W
 
-        NodeLinkData currentNodeLinkInstance = NodeLink.instances[selectedPort.Id];
+        NodeLinkData currentNodeLinkInstance = NodeLink.instances[selectedPort.GetParent()!.Id];
         NodeLinkData queriedNodeLinkInstance = NodeLink.instances[queriedObj.Id];
 
         ElementNode current_node = currentNodeLinkInstance.node;
         ElementNode queried_node = queriedNodeLinkInstance.node;
+
+        Log("Hi");
         switch (fromPort)
         {
             //The corresponding opposite side shld be marked as filled
             case 1: //North N
+                Log("1");
                 currentNodeLinkInstance.DisablePort(1);
                 queriedNodeLinkInstance.DisablePort(2);
-
+                Log("2");
                 current_node.node_N = queried_node;
-
+                Log("3");
                 current_node.msID_N = queried_node.msID;
                 queried_node.msID_S = current_node.msID;
-
+                Log("4");
                 break;
             case 2: //South S
                 currentNodeLinkInstance.DisablePort(2);
@@ -296,6 +299,7 @@ public class Anemone :SystemBase
             default:
                 break;
         }
+        Log("Oh hello othello");
     }
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)

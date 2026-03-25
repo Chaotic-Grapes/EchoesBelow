@@ -503,13 +503,6 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (!Input.IsKeyPressed(KeyCode.E)) return;
 
-        foreach (var gameObject in World!.Query<CraftPortComponent, BoxCollider2D>())
-        {
-            if (gameObject.Component1.parentAnemone != self.Id) continue;
-            ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
-            active.Enabled = true;
-            Log($"Enabled! : {Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString()}");
-        }
 
         if (other.HasComponent<PlayerComponent>())
         {
@@ -536,18 +529,6 @@ public class CraftAnemoneHandler : TriggerSystemBase
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<PlayerTriggerComponent>()) { }
         else return;
 
-        foreach (var gameObject in World!.Query<CraftPortComponent, BoxCollider2D>())
-        {
-            if (gameObject.Component1.parentAnemone != self.Id) continue;
-            ref Active active = ref Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Active>();
-            active.Enabled = false;
-
-            //foreach(var child in Entity.FromId(World!, gameObject.Entity.Id).GetChildren())
-            //{
-
-            //}
-            Log($"Disabled! : {Entity.FromId(World!, gameObject.Entity.Id).GetComponent<Name>().Value.ToString()}");
-        }
 
         if (other.HasComponent<PlayerTriggerComponent>())
         {

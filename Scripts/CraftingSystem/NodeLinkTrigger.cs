@@ -9,7 +9,7 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.Swift;
+
 
 namespace Scripts.CraftingSystem;
 
@@ -19,6 +19,7 @@ public class NodeLinkTrigger : TriggerSystemBase
 {
     public static bool isAttachable = false;
     public static Entity selectedPort;
+    public static int portOrientation;
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
@@ -56,7 +57,7 @@ public class NodeLinkTrigger : TriggerSystemBase
 
             foreach (Entity port in self.GetChildren())
             {
-                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
+                if (port.HasComponent<CraftPortComponent>())
                 {
                     ResetLink(port);
                 }
@@ -84,18 +85,18 @@ public class NodeLinkTrigger : TriggerSystemBase
         const float limit = 0.8f;
         selectedPort = self;
 
-        foreach(var c in NodeLink.instances)
-        {
-            Log($">>> {Entity.FromId(World!,c.Value.parentObjId).GetComponent<Name>().Value.ToString()}");
-        }
+        //foreach(var c in NodeLink.instances)
+        //{
+        //    Log($">>> {Entity.FromId(World!,c.Value.parentObjId).GetComponent<Name>().Value.ToString()}");
+        //}
         NodeLinkData nodeLinkData = NodeLink.instances[otherEntity.Id];
-        Log("2 IN");
+        Color portCol = new Color(0f, 0f, 0f, 1f);
+        //Log("2 IN");
         if (vertDot < -limit)
         {
             foreach(Entity port in self.GetChildren())
             {
-                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
-                    && cPort.NSEW_1234 == 1)
+                if (port.HasComponent<CraftPortComponent>())
                 {
                     if (nodeLinkData.port_N_isFilled)
                     {
@@ -103,8 +104,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                         ResetLink(port);
                         break;
                     }
+                    portCol = new Color(1f, 0f, 0f, 1f);
                     isAttachable = true;
                     selectedPort = port;
+                    portOrientation = (int)nodeSelect.North;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
@@ -114,8 +117,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         {
             foreach (Entity port in self.GetChildren())
             {
-                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
-                    && cPort.NSEW_1234 == 2)
+                if (port.HasComponent<CraftPortComponent>())
                 {
                     if (nodeLinkData.port_S_isFilled)
                     {
@@ -123,8 +125,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                         ResetLink(port);
                         break;
                     }
+                    portCol = new Color(0f, 0f, 1f, 1f);
                     isAttachable = true;
                     selectedPort = port;
+                    portOrientation = (int)nodeSelect.South;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
@@ -134,8 +138,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         {
             foreach (Entity port in self.GetChildren())
             {
-                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
-                    && cPort.NSEW_1234 == 3)
+                if (port.HasComponent<CraftPortComponent>())
                 {
                     if (nodeLinkData.port_E_isFilled)
                     {
@@ -143,8 +146,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                         ResetLink(port);
                         break;
                     }
+                    portCol = new Color(0.8f, 0.8f, 0f, 1f);
                     isAttachable = true;
                     selectedPort = port;
+                    portOrientation = (int)nodeSelect.East;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
@@ -154,8 +159,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         {
             foreach (Entity port in self.GetChildren())
             {
-                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
-                    && cPort.NSEW_1234 == 4)
+                if (port.HasComponent<CraftPortComponent>())
                 {
                     if (nodeLinkData.port_W_isFilled)
                     {
@@ -163,8 +167,10 @@ public class NodeLinkTrigger : TriggerSystemBase
                         ResetLink(port);
                         break;
                     }
+                    portCol = new Color(0f, 1f, 0f, 1f);
                     isAttachable = true;
                     selectedPort = port;
+                    portOrientation = (int)nodeSelect.West;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
@@ -174,7 +180,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         {
             foreach (Entity port in self.GetChildren())
             {
-                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
+                if (port.HasComponent<CraftPortComponent>())
                 {
                     isAttachable = false;
                     ResetLink(port);
@@ -184,11 +190,16 @@ public class NodeLinkTrigger : TriggerSystemBase
         }
 
         //Retrieve Shapeline, and map the position of the MS snow into parentObj's local space
+ 
         if (!selectedPort.HasComponent<ShapeLine2D>()) return;
+
         ref ShapeLine2D lineRenderer = ref selectedPort.GetComponent<ShapeLine2D>();
-    
+
+        
         lineRenderer.A = new Vector2(0, 0);
         lineRenderer.B = new Vector2(otherPos.X - selfPos.X, otherPos.Y - selfPos.Y);
+        lineRenderer.Color = portCol;
+
 
     }
     private void ResetLink(Entity port)

@@ -23,11 +23,6 @@ public class NodeLinkData : SystemBase
     public bool port_E_isFilled { get; set; }
     public bool port_W_isFilled { get; set; }
 
-    public Entity Port_N { get; set; }
-    public Entity Port_S { get; set; }
-    public Entity Port_E { get; set; }
-    public Entity Port_W { get; set; }
-
     public ElementNode node { get; set; }
 
     public static ulong currentActivePort { get; set; }
@@ -41,37 +36,6 @@ public class NodeLinkData : SystemBase
         this.parentObjId = objId;
         this.frozenPos = frozenPos;
 
-        //Retrieve the list of children under the comboMachine and sort them appropriately
-        List<Entity> rawChildList = Entity.FromId(world, objId).GetChildren();
-        foreach (Entity child in rawChildList)
-        {
-            //Check only CMachine Triggers get thru
-            if (!child.TryGetComponent<CraftPortComponent>(out CraftPortComponent nlTrigger)) continue;
-
-            switch (nlTrigger.NSEW_1234)
-            {
-                case 1:
-                    Port_N = child;
-                    break;
-                case 2:
-                    Port_S = child;
-                    break;
-                case 3:
-                    Port_E = child;
-                    break;
-                case 4:
-                    Port_W = child;
-                    break;
-                default:
-                    //Nothing
-                    break;
-            }
-
-            ref CraftPortComponent nlTrigger2 = ref child.GetComponent<CraftPortComponent>();
-            nlTrigger2.parentObjId = objId;
-            nlTrigger2.parentAnemone = Entity.FromId(world, objId).GetParent()!.Id;
-        }
-
         this.port_N_isFilled = port_N_isFilled;
         this.port_S_isFilled = port_S_isFilled;
         this.port_E_isFilled = port_E_isFilled;
@@ -84,32 +48,23 @@ public class NodeLinkData : SystemBase
 
     public void EnableAllPorts()
     {
-        InitBoxCollider(ref Port_N.AddComponent<BoxCollider2D>(), (int)nodeSelect.North);
-        InitBoxCollider(ref Port_S.AddComponent<BoxCollider2D>(), (int)nodeSelect.South);
-        InitBoxCollider(ref Port_E.AddComponent<BoxCollider2D>(), (int)nodeSelect.East);
-        InitBoxCollider(ref Port_W.AddComponent<BoxCollider2D>(), (int)nodeSelect.West);
 
         port_N_isFilled = false;
         port_S_isFilled = false;
         port_E_isFilled = false;
         port_W_isFilled = false;
 
-        Log("Added 4 Triggers");
+        Log("Added 4 Triggers!!!!!!");
     }
 
     public void DisableAllPorts()
     {
-        Port_N.RemoveComponent<BoxCollider2D>();
-        Port_S.RemoveComponent<BoxCollider2D>();
-        Port_E.RemoveComponent<BoxCollider2D>();
-        Port_W.RemoveComponent<BoxCollider2D>();
-
         port_N_isFilled = true;
         port_S_isFilled = true;
         port_E_isFilled = true;
         port_W_isFilled = true;
 
-        Log("Removed 4 Triggers");
+        Log("Removed 4 Triggers!!!!!");
     }
     public void EnablePort(int NSEW_1234)
     {
@@ -117,19 +72,15 @@ public class NodeLinkData : SystemBase
         switch (NSEW_1234)
         {
             case (int)nodeSelect.North:
-                InitBoxCollider(ref Port_N.AddComponent<BoxCollider2D>(), (int)nodeSelect.North);
                 port_N_isFilled = false;
                 break;
             case (int)nodeSelect.South:
-                InitBoxCollider(ref Port_S.AddComponent<BoxCollider2D>(), (int)nodeSelect.South);
                 port_S_isFilled = false;
                 break;
             case (int)nodeSelect.East:
-                InitBoxCollider(ref Port_E.AddComponent<BoxCollider2D>(), (int)nodeSelect.East);
                 port_E_isFilled = false;
                 break;
             case (int)nodeSelect.West:
-                InitBoxCollider(ref Port_W.AddComponent<BoxCollider2D>(), (int)nodeSelect.West);
                 port_W_isFilled = false;
                 break;
             default:
@@ -145,19 +96,18 @@ public class NodeLinkData : SystemBase
         switch (NSEW_1234)
         {
             case (int)nodeSelect.North:
-                Port_N.RemoveComponent<BoxCollider2D>();
+                Log("Removing . . . ");
+                Log("Removed...");
                 port_N_isFilled = true;
+                Log("Port bool checked: " + port_N_isFilled);
                 break;
             case (int)nodeSelect.South:
-                Port_S.RemoveComponent<BoxCollider2D>();
                 port_S_isFilled = true;
                 break;
             case (int)nodeSelect.East:
-                Port_E.RemoveComponent<BoxCollider2D>();
                 port_E_isFilled = true;
                 break;
             case (int)nodeSelect.West:
-                Port_W.RemoveComponent<BoxCollider2D>();
                 port_W_isFilled = true;
                 break;
             default:
@@ -166,24 +116,5 @@ public class NodeLinkData : SystemBase
         }
         Log("Removed a trigger");
     }
-    private void InitBoxCollider(ref BoxCollider2D bx, int NSEW_1234)
-    {
-        bx.IsTrigger = true;
-        bx.HalfExtents = new Vector2(0.6f, 0.15f);
-        bx.LayerMask = LayerMask.All;
-
-        switch (NSEW_1234)
-        {
-            case (int)nodeSelect.North:
-            case (int)nodeSelect.South:
-                bx.Rotation = 1.571f;
-                break;
-            case (int)nodeSelect.East:
-            case (int)nodeSelect.West:
-                //nothin
-                break;
-        }
-    }
-
 
 }
