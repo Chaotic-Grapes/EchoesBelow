@@ -318,12 +318,36 @@ public class CraftAnemone : SystemBase
                             }
                             Log("WrongProcess: 2");
                             //Instantiate the particles
-                            //int msID = elementInTree.Entity.GetComponent<CraftMoveComponent>().msID;
-                            //Log($"Entity in ElementTreeList: {elementInTree.Entity.GetComponent<Name>().Value.ToString()}");
 
-                            //if (MS_Manager.instance.TakeFromPool(msID,
-                            //    rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
-                            //    new Vector2(GMath.Random(0.5f, 2f), GMath.Random(0.5f, 2f)), 100000f, false) == MS_Manager.instance.emptyId) continue;
+                            if(elementInTree.Entity.HasComponent<CraftMoveComponent>()
+                            && !elementInTree.Entity.HasComponent<NodeLinkComponent>())
+                            {
+                                int msID = elementInTree.Entity.GetComponent<CraftMoveComponent>().msID;
+
+                                Log("msID from tree: " + elementInTree.Entity.GetComponent<Name>().Value.ToString() + " / msid: " + msID);
+
+
+                                if ( (msID == 1 || msID == 2)
+                                &&MS_Manager.instance.TakeFromPool
+                                (
+                                    msID,
+                                    rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
+                                    new Vector2(GMath.Random(0.5f, 2f),
+                                    GMath.Random(0.5f, 2f)),
+                                    15f,
+                                    false
+                                ) == MS_Manager.instance.emptyId) continue;
+                                else if (MS_Manager.instance.TakeFromPool
+                                (
+                                    msID,
+                                    rootNode.GetComponent<LocalTransform>().Position + Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
+                                    new Vector2(GMath.Random(0.5f, 2f), 
+                                    GMath.Random(0.5f, 2f)), 
+                                    100000f, 
+                                    false
+                                ) == MS_Manager.instance.emptyId) continue;
+                                
+                            }
                         }
 
                         cr.ResetSelection(World!);
