@@ -162,6 +162,7 @@ public class Anemone :SystemBase
         //First we iterate thru the sorted child list
         //We detach craftmove and DONT send it back to the pool
         Log("HERE");
+
         foreach (ulong childID in sortedChildList)
         {
             if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>()
@@ -187,9 +188,9 @@ public class Anemone :SystemBase
         foreach (List<ulong> objPool in objPools)
         {
             //Check if obj pool is empty
-            if (msID == id_Iterator && objPool.Count > 0)
+            if (msID == id_Iterator && objPool.Count > 0
+                && InventoryController.slotInstances[Entity.FromId(World!, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
-
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);
 

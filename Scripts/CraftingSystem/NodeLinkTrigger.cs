@@ -21,6 +21,7 @@ public class NodeLinkTrigger : TriggerSystemBase
     public static Entity selectedPort;
     public static Entity nonPlayerControlledEntity;
     public static int portOrientation;
+    public static Entity chosenOther;
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
@@ -30,17 +31,35 @@ public class NodeLinkTrigger : TriggerSystemBase
             && Entity.FromId(World!, evt.OtherEntityId).HasComponent<NodeLinkTriggerComponent>()
             && !Entity.FromId(World!, evt.OtherEntityId).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger)
         {
+            
             //Enable the E key
             //CraftAnemone.isEnabled_EInput = true;
 
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
-            nonPlayerControlledEntity = otherEntity;
+ 
 
+            CraftAnemone.listOfContacts.Add(otherEntity);
             //Very important, asign this for everyone
             //NodeLink.currentNodeLinkObj = self;
             //NodeLinkData.currentActivePort = self.Id;
-           
-            DrawLink(self, otherEntity);
+
+            float smallestDistToSelf = 1000f;
+            chosenOther = otherEntity; //to prevent null
+            foreach(Entity e in CraftAnemone.listOfContacts)
+            {
+                //Find the closest one
+                float displacement = (e.GetComponent<LocalTransform>().Position - self.GetComponent<LocalTransform>().Position).Magnitude;
+                if (displacement < smallestDistToSelf)
+                { 
+                    smallestDistToSelf = displacement; 
+                    chosenOther = e;
+                }
+            }           
+            
+            nonPlayerControlledEntity = chosenOther;
+            //Log("Smallest dist : " + smallestDistToSelf);
+            //Log("chosen other: " + chosenOther.GetComponent<Name>().Value.ToString());
+            DrawLink(self, chosenOther);
         }
 
     }
@@ -55,6 +74,8 @@ public class NodeLinkTrigger : TriggerSystemBase
             //CraftAnemone.isEnabled_EInput = false;
             isAttachable = false;
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
+
+            CraftAnemone.listOfContacts.Remove(otherEntity);
 
             foreach (Entity port in self.GetChildren())
             {
@@ -97,6 +118,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_N_isFilled)
                     {
+                        //Log("1");
                         isAttachable = false;
                         ResetLink(port);
                         break;
@@ -118,6 +140,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_S_isFilled)
                     {
+                        //Log("2");
                         isAttachable = false;
                         ResetLink(port);
                         break;
@@ -139,6 +162,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_E_isFilled)
                     {
+                        //Log("3");
                         isAttachable = false;
                         ResetLink(port);
                         break;
@@ -160,6 +184,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_W_isFilled)
                     {
+                        //Log("4 port w is filled? : " + nodeLinkData.port_W_isFilled);
                         isAttachable = false;
                         ResetLink(port);
                         break;
@@ -179,6 +204,7 @@ public class NodeLinkTrigger : TriggerSystemBase
             {
                 if (port.HasComponent<CraftPortComponent>())
                 {
+                    //Log("5");
                     isAttachable = false;
                     ResetLink(port);
                     //CraftAnemone.isEnabled_EInput = false;
@@ -196,7 +222,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         lineRenderer.A = new Vector2(0, 0);
         lineRenderer.B = new Vector2(otherPos.X - selfPos.X, otherPos.Y - selfPos.Y);
         lineRenderer.Color = portCol;
-
+        //Log("SETTING");
 
     }
     private void ResetLink(Entity port)
@@ -207,5 +233,6 @@ public class NodeLinkTrigger : TriggerSystemBase
         ref ShapeLine2D lineRenderer = ref port.GetComponent<ShapeLine2D>();
         lineRenderer.A = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
         lineRenderer.B = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
+        //Log("ZEROING");
     }
 }

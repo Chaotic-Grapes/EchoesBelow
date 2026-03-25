@@ -44,6 +44,8 @@ public class CraftAnemone : SystemBase
     //public static bool isEnabled_EInput = true;
     public static bool isLeaving = false;
 
+    public static List<Entity> listOfContacts;
+
     #region SystemBehaviours
     private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
     {
@@ -57,6 +59,7 @@ public class CraftAnemone : SystemBase
         
         NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
+        listOfContacts = new List<Entity>();
        
         //Migrate these to NodeLink after M5! and incorporate component values instead of storing port bools in NodeLinkData
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
@@ -191,6 +194,9 @@ public class CraftAnemone : SystemBase
                 {
                     isLeaving = true;
 
+                    //Reinstate list of contacts
+                    listOfContacts.Clear();
+
                     //enable player movement and X key for inventory!
                     Player.instance.isEnabled = true;
                     //InventoryController.instance.isEnabled_xInput = true;
@@ -218,7 +224,7 @@ public class CraftAnemone : SystemBase
                     //InventoryController.instance.isEnabled_xInput = true;
                 }
 
-                if (InventoryController.scroll != 0)
+                if (InventoryController.mouseScroll != 0)
                 {
                     //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
@@ -442,7 +448,7 @@ public class CraftAnemone : SystemBase
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
 
-                InventoryController.instance.isEnabled_LMBInput = true;
+                InventoryController.instance.isEnabled_RMBInput = true;
                 Log("Done Exiting!");
             }
 
@@ -510,7 +516,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
         
             //Disable player movement and X key for inventory!
             Player.instance.isEnabled = false;
-            InventoryController.instance.isEnabled_LMBInput = false;
+            InventoryController.instance.isEnabled_RMBInput = false;
             Player.instance.ResetInputs();
 
             //Remove Rigidbody on the Player!
@@ -532,7 +538,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (other.HasComponent<PlayerTriggerComponent>())
         {
-            InventoryController.instance.isEnabled_LMBInput = true;
+            InventoryController.instance.isEnabled_RMBInput = true;
         }
 
     }
