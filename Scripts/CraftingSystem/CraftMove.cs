@@ -94,6 +94,13 @@ public class CraftMove : SystemBase
 
             Player.instance.currentPos = gameObject.Entity.GetComponent<LocalTransform>().Position 
                 + gameObject.Entity.GetParent()!.GetComponent<LocalTransform>().Position + new Vector3(0,-CraftAnemone.cameraOffsetY,0);
+
+
+            if((Vector3.Zero - gameObject.Entity.GetComponent<LocalTransform>().Position).Magnitude > 10f)
+            {
+                ref LocalTransform transform = ref gameObject.Entity.GetComponent<LocalTransform>();
+                transform.Position = Vector3.Zero;
+            }
         }
     }
 

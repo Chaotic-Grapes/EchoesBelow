@@ -237,11 +237,7 @@ public class Anemone :SystemBase
         NodeLink.instances.Add(queriedObj.Id, nlD);
         NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
-        ////queried obj is the one I want to change
-        Log("Hello there");
         int fromPort = NodeLinkTrigger.portOrientation;
-        Log("General Kenobi");
-
 
         NodeLinkData nodeLink_nonPlayerControlled = NodeLink.instances[NodeLinkTrigger.nonPlayerControlledEntity.Id];
         NodeLinkData nodeLink_playerControlled = NodeLink.instances[queriedObj.Id];
@@ -249,20 +245,17 @@ public class Anemone :SystemBase
         ElementNode current_node = nodeLink_nonPlayerControlled.node;
         ElementNode queried_node = nodeLink_playerControlled.node;
 
-        Log("Hi");
         switch (fromPort)
         {
             //The corresponding opposite side shld be marked as filled
             case 1: //North N
-                Log("1");
                 nodeLink_nonPlayerControlled.DisablePort(1);
                 nodeLink_playerControlled.DisablePort(2);
-                Log("2");
+               
                 current_node.node_N = queried_node;
-                Log("3");
+               
                 current_node.msID_N = queried_node.msID;
                 queried_node.msID_S = current_node.msID;
-                Log("4");
                 break;
             case 2: //South S
                 nodeLink_nonPlayerControlled.DisablePort(2);
@@ -297,7 +290,6 @@ public class Anemone :SystemBase
             default:
                 break;
         }
-        Log("Oh hello othello");
     }
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
@@ -331,6 +323,8 @@ public class Anemone :SystemBase
         }
 
         //Set Everything anew, every field that must be set is set here
+        ref LinearVelocity2D lv = ref pulledObj.GetComponent<LinearVelocity2D>();
+        lv.Value = Vector2.Zero;
     }
     private void ResetPoolObj(World world, ulong returningObjId)
     {
@@ -361,6 +355,10 @@ public class Anemone :SystemBase
         {
             returningObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = false;
         }
-
+        if (returningObj.HasComponent<LinearVelocity2D>())
+        {
+            ref LinearVelocity2D lv = ref returningObj.GetComponent<LinearVelocity2D>();
+            lv.Value = Vector2.Zero;
+        }
     }
 }

@@ -25,8 +25,8 @@ public class CamFollow : SystemBase
             Entity entity = Entity.FromId(World!, gameObject.Entity.Id);
             ref LocalTransform transform = ref gameObject.Component2;
 
-            transform.Position = new Vector3(GMath.Lerp(transform.Position.X, playerPos.X, 0.6f),
-                                             GMath.Lerp(transform.Position.Y, playerPos.Y, 0.6f), transform.Position.Z);
+            transform.Position = new Vector3(GMath.Lerp(transform.Position.X, playerPos.X, 0.1f),
+                                             GMath.Lerp(transform.Position.Y, playerPos.Y, 0.1f), transform.Position.Z);
         }
     }
 
