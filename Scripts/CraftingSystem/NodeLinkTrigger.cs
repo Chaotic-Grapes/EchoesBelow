@@ -9,6 +9,7 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.Swift;
 
 namespace Scripts.CraftingSystem;
 
@@ -19,25 +20,23 @@ public class NodeLinkTrigger : TriggerSystemBase
 
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
+        //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
         //Filter out all non NodeLink Trigger, SELF = NodeLinkTrigger, EVT = CraftMove particle
         if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>() 
             && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger
-            && Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>()
-            && !Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger)
+            && Entity.FromId(World!, evt.OtherEntityId).HasComponent<NodeLinkTriggerComponent>()
+            && !Entity.FromId(World!, evt.OtherEntityId).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger)
         {
             //Enable the E key
             CraftAnemone.isEnabled_EInput = true;
 
-            Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
-            Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetParent()!.Id);
-            Entity playerMSobj = Entity.FromId(World!, evt.OtherEntityId);
+            Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
             //Very important, asign this for everyone
-            NodeLink.currentNodeLinkObj = parentObj;
-            NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-
-            NodeLinkData.currentActiveTrigger = self.Id;
-
+            //NodeLink.currentNodeLinkObj = self;
+            //NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
+            //NodeLinkData.currentActiveTrigger = self.Id;
+           
             //Check if ports are filled
             //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
             //if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 1) return;
@@ -45,51 +44,124 @@ public class NodeLinkTrigger : TriggerSystemBase
             //if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 3) return;
             //if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 4) return;
 
-            DrawLink(nodeTriggerObj, Entity.FromId(World!, NodeLink.currentNodeLinkObj.Id), playerMSobj);
+            DrawLink(self, otherEntity);
         }
 
     }
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
     {
-        //if (Entity.FromId(World!, self.Id).HasComponent<CraftPortComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<CraftMoveComponent>())
-        //{
-        //    //Disable the E key
-        //    CraftAnemone.isEnabled_EInput = false;
+        if (Entity.FromId(World!, self.Id).HasComponent<NodeLinkTriggerComponent>()
+            && Entity.FromId(World!, self.Id).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger
+            && Entity.FromId(World!, evt.OtherEntityId).HasComponent<NodeLinkTriggerComponent>()
+            && !Entity.FromId(World!, evt.OtherEntityId).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger)
+        {
+            //Enable the E key
+            CraftAnemone.isEnabled_EInput = false;
 
-        //    Entity parentObj = Entity.FromId(World!, Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().parentObjId);
-        //    Entity nodeTriggerObj = Entity.FromId(World!, self.Id);
+            Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
-        //    NodeLinkData nodeLinkData = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-
-        //    //Check if ports are filled
-        //    //If 'x' port is filled AND the corresponding 'x' trigger is queried here, return
-        //    if (nodeLinkData.port_N_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 1) return;
-        //    if (nodeLinkData.port_S_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 2) return;
-        //    if (nodeLinkData.port_E_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 3) return;
-        //    if (nodeLinkData.port_W_isFilled && Entity.FromId(World!, self.Id).GetComponent<CraftPortComponent>().NSEW_1234 == 4) return;
-
-        //    ResetLink(nodeTriggerObj);
-        //    Log("Exitted");
-        //}
+            foreach (Entity port in self.GetChildren())
+            {
+                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
+                {
+                    ResetLink(port);
+                }
+            }
+            
+        }
     }
-    private void DrawLink(Entity nodeTriggerObj, Entity parentObj, Entity playerMSobj)
+    private void DrawLink(Entity self, Entity otherEntity)
     {
         //Retrieve positions
-        Vector2 nodeTriggerPos = new Vector2(nodeTriggerObj.GetComponent<LocalTransform>().Position.X, nodeTriggerObj.GetComponent<LocalTransform>().Position.Y);
-        Vector2 parentObjPos = new Vector2(parentObj.GetComponent<LocalTransform>().Position.X, parentObj.GetComponent<LocalTransform>().Position.Y);
-        Vector2 playerMSPos = new Vector2(playerMSobj.GetComponent<LocalTransform>().Position.X, playerMSobj.GetComponent<LocalTransform>().Position.Y);
+        Vector2 selfPos = new Vector2(self.GetComponent<LocalTransform>().Position.X, self.GetComponent<LocalTransform>().Position.Y);
+        Vector2 otherPos = new Vector2(otherEntity.GetComponent<LocalTransform>().Position.X, otherEntity.GetComponent<LocalTransform>().Position.Y);
+
+        //Determine Other Obj Pos orientation relative to active self
+        Vector2 localUp = new Vector2(0, 1);
+        Vector2 localRight = new Vector2(1, 0);
+        Vector2 originToOther = otherPos - selfPos;
+
+        Vector2 originToOtherNormalized = (-0.0001f <= originToOther.X && originToOther.X <= 0.0001f && -0.0001f <= originToOther.Y && originToOther.Y <= 0.0001f) ? Vector2.Zero : originToOther.Normalized;
+
+        float vertDot = GMath.Dot(localUp, originToOtherNormalized);
+        float horizDot = GMath.Dot(localRight, originToOtherNormalized);
+
+        //Select Child Port
+        const float limit = 0.8f;
+        Entity selectedPort = self;
+        if(vertDot < -limit)
+        {
+            foreach(Entity port in self.GetChildren())
+            {
+                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
+                    && cPort.NSEW_1234 == 1)
+                {
+                    selectedPort = port;
+                    break;
+                }
+            }
+        }
+        else if(vertDot > limit)
+        {
+            foreach (Entity port in self.GetChildren())
+            {
+                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
+                    && cPort.NSEW_1234 == 2)
+                {
+                    selectedPort = port;
+                    break;
+                }
+            }
+        }
+        if (horizDot < -limit)
+        {
+            foreach (Entity port in self.GetChildren())
+            {
+                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
+                    && cPort.NSEW_1234 == 3)
+                {
+                    selectedPort = port;
+                    break;
+                }
+            }
+        }
+        else if (horizDot > limit)
+        {
+            foreach (Entity port in self.GetChildren())
+            {
+                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
+                    && cPort.NSEW_1234 == 4)
+                {
+                    selectedPort = port;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            foreach (Entity port in self.GetChildren())
+            {
+                if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
+                {
+                    ResetLink(port);
+                }
+            }
+        }
 
         //Retrieve Shapeline, and map the position of the MS snow into parentObj's local space
-        ref ShapeLine2D lineRenderer = ref nodeTriggerObj.GetComponent<ShapeLine2D>();
-        lineRenderer.A = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
-        lineRenderer.B = new Vector2(playerMSPos.X - parentObjPos.X - nodeTriggerPos.X, playerMSPos.Y - parentObjPos.Y - nodeTriggerPos.Y);
+        if (!selectedPort.HasComponent<ShapeLine2D>()) return;
+        ref ShapeLine2D lineRenderer = ref selectedPort.GetComponent<ShapeLine2D>();
+    
+        lineRenderer.A = new Vector2(0, 0);
+        lineRenderer.B = new Vector2(otherPos.X - selfPos.X, otherPos.Y - selfPos.Y);
+
     }
-    private void ResetLink(Entity nodeTriggerObj)
+    private void ResetLink(Entity port)
     {
-        Vector2 nodeTriggerPos = new Vector2(nodeTriggerObj.GetComponent<LocalTransform>().Position.X, nodeTriggerObj.GetComponent<LocalTransform>().Position.Y);
+        Vector2 nodeTriggerPos = new Vector2(port.GetComponent<LocalTransform>().Position.X, port.GetComponent<LocalTransform>().Position.Y);
 
         //Retrieve Shapeline
-        ref ShapeLine2D lineRenderer = ref nodeTriggerObj.GetComponent<ShapeLine2D>();
+        ref ShapeLine2D lineRenderer = ref port.GetComponent<ShapeLine2D>();
         lineRenderer.A = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
         lineRenderer.B = new Vector2(0 - nodeTriggerPos.X, 0 - nodeTriggerPos.Y);
     }
