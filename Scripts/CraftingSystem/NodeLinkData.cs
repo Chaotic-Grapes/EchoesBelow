@@ -54,7 +54,7 @@ public class NodeLinkData : SystemBase
         port_E_isFilled = false;
         port_W_isFilled = false;
 
-        Log("Added 4 Triggers!!!!!!");
+        //Log("Added 4 Triggers!!!!!!");
     }
 
     public void DisableAllPorts()
@@ -64,7 +64,7 @@ public class NodeLinkData : SystemBase
         port_E_isFilled = true;
         port_W_isFilled = true;
 
-        Log("Removed 4 Triggers!!!!!");
+        //Log("Removed 4 Triggers!!!!!");
     }
     public void EnablePort(int NSEW_1234)
     {
@@ -88,7 +88,7 @@ public class NodeLinkData : SystemBase
 
         }
 
-        Log("Added a Trigger");
+        //Log("Added a Trigger");
     }
 
     public void DisablePort(int NSEW_1234)
@@ -96,10 +96,7 @@ public class NodeLinkData : SystemBase
         switch (NSEW_1234)
         {
             case (int)nodeSelect.North:
-                Log("Removing . . . ");
-                Log("Removed...");
                 port_N_isFilled = true;
-                Log("Port bool checked: " + port_N_isFilled);
                 break;
             case (int)nodeSelect.South:
                 port_S_isFilled = true;
@@ -114,7 +111,7 @@ public class NodeLinkData : SystemBase
                 break;
 
         }
-        Log("Removed a trigger");
+        //Log("Removed a trigger");
     }
 
 }

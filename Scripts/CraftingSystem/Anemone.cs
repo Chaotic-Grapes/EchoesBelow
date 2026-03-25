@@ -161,21 +161,18 @@ public class Anemone :SystemBase
         //Log("START ==============");
         //First we iterate thru the sorted child list
         //We detach craftmove and DONT send it back to the pool
-        Log("HERE");
-
+      
         foreach (ulong childID in sortedChildList)
         {
             if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>()
             && Entity.FromId(world, childID).GetComponent<Active>().Enabled)
             {
                 Entity queriedObj = Entity.FromId(world, childID);
-                Log($"Attempting to Freeze {queriedObj.GetComponent<Name>().Value.ToString()}. . .");
                 FreezeNode(world, queriedObj, NodeLinkTrigger.selectedPort);
                 Log("Frozen!");
             }
             else if (Entity.FromId(world, childID).HasComponent<CraftMoveComponent>())
             {
-                Log($"Resetting {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()} back into the Pool");
                 ResetPoolObj(world, childID);
             }
         }
@@ -183,7 +180,6 @@ public class Anemone :SystemBase
         //Spawn based on the iterator
         //Skip the spawning step if msID is 0 , i.e empty slot
         if (msID == 0) return;
-        Log("Spawning . . .");
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {

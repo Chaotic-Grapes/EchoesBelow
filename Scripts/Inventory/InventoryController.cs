@@ -118,7 +118,7 @@ public class InventoryController : SystemBase
         //Set the selection
         ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<GUIImage>();
         guiImage.Color = new Color(100, 100, 100, 255);
-        Log("Set to Black!");
+        //Log("Set to Black!");
 
         return true;
     }
@@ -189,22 +189,22 @@ public class InventoryController : SystemBase
 
 
             //For Checking
-            if (Input.IsKeyPressed(KeyCode.J))
-            {
-                Log("J is Pressed!==========");
-                //Entity e = Entity.FromId(World!, u);
-                foreach (KeyValuePair<string, Slot> stringSlot in slotInstances)
-                {
-                    Log($"{stringSlot.Key} contains {stringSlot.Value.ms_ImageRefList.Count} refs, isStoringItem = {stringSlot.Value.isStoringItem}");
-                }
+            //if (Input.IsKeyPressed(KeyCode.J))
+            //{
+            //    Log("J is Pressed!==========");
+            //    //Entity e = Entity.FromId(World!, u);
+            //    foreach (KeyValuePair<string, Slot> stringSlot in slotInstances)
+            //    {
+            //        Log($"{stringSlot.Key} contains {stringSlot.Value.ms_ImageRefList.Count} refs, isStoringItem = {stringSlot.Value.isStoringItem}");
+            //    }
 
-                Log("%%%%%%%%%%%%%%%%%%%%%%%%%%");
-                foreach (ulong id in slotObjIds)
-                {
-                    Log($"slotObjIds contains a {Entity.FromId(World!, id).GetComponent<Name>().Value.ToString()}");
-                }
-                Log("End======================");
-            }
+            //    Log("%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            //    foreach (ulong id in slotObjIds)
+            //    {
+            //        Log($"slotObjIds contains a {Entity.FromId(World!, id).GetComponent<Name>().Value.ToString()}");
+            //    }
+            //    Log("End======================");
+            //}
         }
         
 
