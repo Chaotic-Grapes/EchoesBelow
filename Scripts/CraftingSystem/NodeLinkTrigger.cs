@@ -53,7 +53,7 @@ public class NodeLinkTrigger : TriggerSystemBase
         {
             //Enable the E key
             //CraftAnemone.isEnabled_EInput = false;
-
+            isAttachable = false;
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
             foreach (Entity port in self.GetChildren())
@@ -86,13 +86,9 @@ public class NodeLinkTrigger : TriggerSystemBase
         const float limit = 0.8f;
         selectedPort = self;
 
-        //foreach(var c in NodeLink.instances)
-        //{
-        //    Log($">>> {Entity.FromId(World!,c.Value.parentObjId).GetComponent<Name>().Value.ToString()}");
-        //}
         NodeLinkData nodeLinkData = NodeLink.instances[otherEntity.Id];
         Color portCol = new Color(0f, 0f, 0f, 1f);
-        //Log("2 IN");
+
         if (vertDot < -limit)
         {
             foreach(Entity port in self.GetChildren())
