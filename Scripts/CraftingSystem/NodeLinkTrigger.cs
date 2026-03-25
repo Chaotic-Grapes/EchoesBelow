@@ -17,7 +17,6 @@ namespace Scripts.CraftingSystem;
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
 public class NodeLinkTrigger : TriggerSystemBase
 {
-
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
@@ -28,12 +27,13 @@ public class NodeLinkTrigger : TriggerSystemBase
             && !Entity.FromId(World!, evt.OtherEntityId).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger)
         {
             //Enable the E key
-            CraftAnemone.isEnabled_EInput = true;
+            //CraftAnemone.isEnabled_EInput = true;
 
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
+
             //Very important, asign this for everyone
-            NodeLink.currentNodeLinkObj = self;
+            //NodeLink.currentNodeLinkObj = self;
             //NodeLinkData.currentActivePort = self.Id;
            
             DrawLink(self, otherEntity);
@@ -48,7 +48,7 @@ public class NodeLinkTrigger : TriggerSystemBase
             && !Entity.FromId(World!, evt.OtherEntityId).GetComponent<NodeLinkTriggerComponent>().isActiveTrigger)
         {
             //Enable the E key
-            CraftAnemone.isEnabled_EInput = false;
+            //CraftAnemone.isEnabled_EInput = false;
 
             Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
@@ -81,13 +81,21 @@ public class NodeLinkTrigger : TriggerSystemBase
         //Select Child Port
         const float limit = 0.8f;
         Entity selectedPort = self;
-        if(vertDot < -limit)
+
+        NodeLinkData nodeLinkData = NodeLink.instances[otherEntity.Id];
+     
+        if (vertDot < -limit)
         {
             foreach(Entity port in self.GetChildren())
             {
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
                     && cPort.NSEW_1234 == 1)
                 {
+                    if (nodeLinkData.port_N_isFilled)
+                    {
+                        ResetLink(port);
+                        break;
+                    }
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -101,6 +109,11 @@ public class NodeLinkTrigger : TriggerSystemBase
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
                     && cPort.NSEW_1234 == 2)
                 {
+                    if (nodeLinkData.port_S_isFilled)
+                    {
+                        ResetLink(port);
+                        break;
+                    }
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -114,6 +127,11 @@ public class NodeLinkTrigger : TriggerSystemBase
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
                     && cPort.NSEW_1234 == 3)
                 {
+                    if (nodeLinkData.port_E_isFilled)
+                    {
+                        ResetLink(port);
+                        break;
+                    }
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -127,6 +145,11 @@ public class NodeLinkTrigger : TriggerSystemBase
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort)
                     && cPort.NSEW_1234 == 4)
                 {
+                    if (nodeLinkData.port_W_isFilled)
+                    {
+                        ResetLink(port);
+                        break;
+                    }
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -140,7 +163,7 @@ public class NodeLinkTrigger : TriggerSystemBase
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
                 {
                     ResetLink(port);
-                    CraftAnemone.isEnabled_EInput = false;
+                    //CraftAnemone.isEnabled_EInput = false;
                 }
             }
         }

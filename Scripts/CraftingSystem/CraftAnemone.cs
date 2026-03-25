@@ -41,7 +41,7 @@ public class CraftAnemone : SystemBase
     static bool isKeyPressed_X = false;
     static bool isKeyPressed_E = false;
     static bool isKeyPressed_Space = false;
-    public static bool isEnabled_EInput = true;
+    //public static bool isEnabled_EInput = true;
     public static bool isLeaving = false;
 
     #region SystemBehaviours
@@ -170,7 +170,8 @@ public class CraftAnemone : SystemBase
 
         isKeyPressed_X = Input.IsKeyPressed(KeyCode.X);
         isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
-        if(isEnabled_EInput) isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
+        //if(isEnabled_EInput) 
+        isKeyPressed_E = Input.IsKeyPressed(KeyCode.E);
 
         //Then all Update funcs
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
@@ -222,7 +223,6 @@ public class CraftAnemone : SystemBase
                     //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
-
                 if (isKeyPressed_E)
                 {
 
@@ -240,7 +240,6 @@ public class CraftAnemone : SystemBase
                                                                          InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId,
                                                                          false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
-     
                     //Update the selection
                     cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }

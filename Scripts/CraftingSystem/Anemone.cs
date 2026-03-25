@@ -146,44 +146,14 @@ public class Anemone :SystemBase
             Entity queriedObj = Entity.FromId(world, childID);
 
             if (!queriedObj.HasComponent<MS_IDComponent>()) continue;
-            Log($"==={queriedObj.GetComponent<Name>().Value.ToString()}==================================");
-
-            //Reset objs
-
-            //Log("Null? " + (NodeLink.instances[queriedObj.Id] == null));
-                
+   
             if (!queriedObj.HasComponent<CraftMoveComponent>())
             {
                 int msID = queriedObj.GetComponent<MS_IDComponent>().msID;
                 objPools[msID-1].Add(queriedObj.Id);
-                //Add
-                ref LinearVelocity2D lv = ref queriedObj.AddComponent<LinearVelocity2D>();
-                ref AngularVelocity2D av = ref queriedObj.AddComponent<AngularVelocity2D>();
-                ref Rigidbody2D rb = ref queriedObj.AddComponent<Rigidbody2D>();
-                rb.Mass = 1;
-                rb.IsKinematic = true;
-                rb.LinearDamping = 5f;
-                ref CircleCollider2D circCollider = ref queriedObj.AddComponent<CircleCollider2D>();
-                circCollider.Radius = 0.3f;
-                ref CraftMoveComponent crMove = ref queriedObj.AddComponent<CraftMoveComponent>();
-                //Initialize
-                Log("HELLO");
-
-
-                crMove.moveSpeed = 2.5f;
-                crMove.maxSpeed = 2.5f;
-                crMove.msID = queriedObj.GetComponent<MS_IDComponent>().msID;
-
-                queriedObj.RemoveComponent<NodeLinkComponent>();
             }
             ResetPoolObj(world, childID);
 
-            //foreach(Entity trigger in queriedObj.GetChildren())
-            //{
-            //    ref ShapeLine2D shapeLine = ref trigger.GetComponent<ShapeLine2D>();
-            //    shapeLine.A = Vector2.Zero;
-            //    shapeLine.B = Vector2.Zero;
-            //}
         }
     }
     public void PlaceNodeAndUpdateSelection(World world, int msID, Vector3 newPos)
@@ -191,19 +161,20 @@ public class Anemone :SystemBase
         //Log("START ==============");
         //First we iterate thru the sorted child list
         //We detach craftmove and DONT send it back to the pool
-
+        Log("HERE");
         foreach (ulong childID in sortedChildList)
         {
             if(Entity.FromId(world, childID).HasComponent<CraftMoveComponent>()
             && Entity.FromId(world, childID).GetComponent<Active>().Enabled)
             {
-                Log("Attempting to Freeze . . .");
-                //FreezeNode(world, queriedObj);
+                Entity queriedObj = Entity.FromId(world, childID);
+                Log($"Attempting to Freeze {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()}. . .");
+                FreezeNode(world, queriedObj);
                 Log("Frozen!");
             }
             else if (Entity.FromId(world, childID).HasComponent<CraftMoveComponent>())
             {
-                Log("Resetting back into the Pool");
+                Log($"Resetting {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()} back into the Pool");
                 ResetPoolObj(world, childID);
             }
         }
@@ -230,7 +201,6 @@ public class Anemone :SystemBase
             }
             id_Iterator++;
         }
-
         return;
     }
 
@@ -258,74 +228,74 @@ public class Anemone :SystemBase
         queriedObj.RemoveComponent<AngularVelocity2D>();
 
         //NodeLink initialization
-        ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
+        //ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
 
-        nl.start = true;
+        //nl.start = true;
 
         //Initialise and add NodeLinkData to the instances list
-        NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, queriedObj.GetComponent<LocalTransform>().Position , msID, false, false, false, false);
-        NodeLink.instances.Add(queriedObj.Id, nlD);
-        NodeLink.instances[queriedObj.Id].EnableAllPorts();
+        //NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, queriedObj.GetComponent<LocalTransform>().Position , msID, false, false, false, false);
+        //NodeLink.instances.Add(queriedObj.Id, nlD);
+        //NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
-        //queried obj is the one I want to change
-        Log("Hello there");
-        int fromPort = Entity.FromId(world, NodeLinkData.currentActivePort).GetComponent<CraftPortComponent>().NSEW_1234;
-        Log("General Kenobi");
+        ////queried obj is the one I want to change
+        //Log("Hello there");
+        //int fromPort = Entity.FromId(world, NodeLinkData.currentActivePort).GetComponent<CraftPortComponent>().NSEW_1234;
+        //Log("General Kenobi");
 
-        //NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
-        //the new NodeLink is queriedobj N is S and E is W
+        ////NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
+        ////the new NodeLink is queriedobj N is S and E is W
 
-        NodeLinkData currentNodeLinkInstance = NodeLink.instances[NodeLink.currentNodeLinkObj.Id];
-        NodeLinkData queriedNodeLinkInstance = NodeLink.instances[queriedObj.Id];
+        //NodeLinkData currentNodeLinkInstance = NodeLink.instances[NodeLinkTrigger.currentActiveTrigger.Id];
+        //NodeLinkData queriedNodeLinkInstance = NodeLink.instances[queriedObj.Id];
 
-        ElementNode current_node = currentNodeLinkInstance.node;
-        ElementNode queried_node = queriedNodeLinkInstance.node;
-        switch (fromPort)
-        {
-            //The corresponding opposite side shld be marked as filled
-            case 1: //North N
-                currentNodeLinkInstance.DisablePort(1);
-                queriedNodeLinkInstance.DisablePort(2);
+        //ElementNode current_node = currentNodeLinkInstance.node;
+        //ElementNode queried_node = queriedNodeLinkInstance.node;
+        //switch (fromPort)
+        //{
+        //    //The corresponding opposite side shld be marked as filled
+        //    case 1: //North N
+        //        currentNodeLinkInstance.DisablePort(1);
+        //        queriedNodeLinkInstance.DisablePort(2);
 
-                current_node.node_N = queried_node;
+        //        current_node.node_N = queried_node;
 
-                current_node.msID_N = queried_node.msID;
-                queried_node.msID_S = current_node.msID;
+        //        current_node.msID_N = queried_node.msID;
+        //        queried_node.msID_S = current_node.msID;
 
-                break;
-            case 2: //South S
-                currentNodeLinkInstance.DisablePort(2);
-                queriedNodeLinkInstance.DisablePort(1);
+        //        break;
+        //    case 2: //South S
+        //        currentNodeLinkInstance.DisablePort(2);
+        //        queriedNodeLinkInstance.DisablePort(1);
 
-                current_node.node_S = queried_node;
+        //        current_node.node_S = queried_node;
 
-                current_node.msID_S = queried_node.msID;
-                queried_node.msID_N = current_node.msID;
+        //        current_node.msID_S = queried_node.msID;
+        //        queried_node.msID_N = current_node.msID;
 
-                break;
-            case 3: //East E
-                currentNodeLinkInstance.DisablePort(3);
-                queriedNodeLinkInstance.DisablePort(4);
+        //        break;
+        //    case 3: //East E
+        //        currentNodeLinkInstance.DisablePort(3);
+        //        queriedNodeLinkInstance.DisablePort(4);
 
-                current_node.node_E = queried_node;
+        //        current_node.node_E = queried_node;
 
-                current_node.msID_E = queried_node.msID;
-                queried_node.msID_W = current_node.msID;
+        //        current_node.msID_E = queried_node.msID;
+        //        queried_node.msID_W = current_node.msID;
 
-                break;
-            case 4: //West W
-                currentNodeLinkInstance.DisablePort(4);
-                queriedNodeLinkInstance.DisablePort(3);
+        //        break;
+        //    case 4: //West W
+        //        currentNodeLinkInstance.DisablePort(4);
+        //        queriedNodeLinkInstance.DisablePort(3);
 
-                current_node.node_W = queried_node;
+        //        current_node.node_W = queried_node;
 
-                current_node.msID_W = queried_node.msID;
-                queried_node.msID_E = current_node.msID;
+        //        current_node.msID_W = queried_node.msID;
+        //        queried_node.msID_E = current_node.msID;
 
-                break;
-            default:
-                break;
-        }
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
@@ -349,8 +319,15 @@ public class Anemone :SystemBase
         pulledObjTransform.Position = newPos;
 
 
-        pulledObj.GetComponent<CraftMoveComponent>().Enabled = true;
-        pulledObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = true;
+        if (pulledObj.HasComponent<CraftMoveComponent>())
+        {
+            pulledObj.GetComponent<CraftMoveComponent>().Enabled = true;
+        }
+        if (pulledObj.HasComponent<NodeLinkTriggerComponent>())
+        {
+            pulledObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = true;
+        }
+
         //Set Everything anew, every field that must be set is set here
     }
     private void ResetPoolObj(World world, ulong returningObjId)
@@ -374,8 +351,14 @@ public class Anemone :SystemBase
         returningObjTransform.Position = Vector3.Zero;
 
 
-        if(returningObj.HasComponent<CraftMoveComponent>())
-        returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
-        returningObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = false;
+        if (returningObj.HasComponent<CraftMoveComponent>())
+        {
+            returningObj.GetComponent<CraftMoveComponent>().Enabled = false;
+        }
+        if (returningObj.HasComponent<NodeLinkTriggerComponent>())
+        {
+            returningObj.GetComponent<NodeLinkTriggerComponent>().isActiveTrigger = false;
+        }
+
     }
 }

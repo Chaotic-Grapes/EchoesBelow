@@ -22,7 +22,7 @@ namespace Scripts.CraftingSystem;
 public class NodeLink : SystemBase
 {
     public static Dictionary<ulong, NodeLinkData> instances;
-    public static Entity currentNodeLinkObj;
+    //public static Entity currentNodeLinkObj;
 
 
     //No OnStart for NodeLink cause this component has weird buggy params
@@ -33,7 +33,7 @@ public class NodeLink : SystemBase
         startBool = true;
         //Todo
 
-        currentNodeLinkObj = null;
+        //currentNodeLinkObj = null;
 
         //End of Start
         return true;
