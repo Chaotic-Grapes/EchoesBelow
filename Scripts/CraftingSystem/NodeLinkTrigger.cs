@@ -17,6 +17,7 @@ namespace Scripts.CraftingSystem;
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
 public class NodeLinkTrigger : TriggerSystemBase
 {
+    public static bool isAttachable = false;
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
@@ -93,9 +94,13 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_N_isFilled)
                     {
+                        Log("N setting false");
+                        isAttachable = false;
                         ResetLink(port);
                         break;
                     }
+                    Log("N setting true");
+                    isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -111,16 +116,20 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_S_isFilled)
                     {
+                        Log("S setting false");
+                        isAttachable = false;
                         ResetLink(port);
                         break;
                     }
+                    Log("S setting true");
+                    isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
                 }
             }
         }
-        if (horizDot < -limit)
+        else if (horizDot < -limit)
         {
             foreach (Entity port in self.GetChildren())
             {
@@ -129,9 +138,13 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_E_isFilled)
                     {
+                        Log("E setting false");
+                        isAttachable = false;
                         ResetLink(port);
                         break;
                     }
+                    Log("E setting true");
+                    isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -147,9 +160,13 @@ public class NodeLinkTrigger : TriggerSystemBase
                 {
                     if (nodeLinkData.port_W_isFilled)
                     {
+                        Log("W setting false");
+                        isAttachable = false;
                         ResetLink(port);
                         break;
                     }
+                    Log("W setting true");
+                    isAttachable = true;
                     selectedPort = port;
                     NodeLinkData.currentActivePort = port.Id;
                     break;
@@ -162,6 +179,8 @@ public class NodeLinkTrigger : TriggerSystemBase
             {
                 if (port.TryGetComponent<CraftPortComponent>(out CraftPortComponent cPort))
                 {
+                    Log("is this happening");
+                    isAttachable = false;
                     ResetLink(port);
                     //CraftAnemone.isEnabled_EInput = false;
                 }
