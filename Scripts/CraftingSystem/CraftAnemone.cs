@@ -223,7 +223,7 @@ public class CraftAnemone : SystemBase
                     //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
-                Log("isAttachable: " + NodeLinkTrigger.isAttachable);
+             
                 if (isKeyPressed_E && NodeLinkTrigger.isAttachable)
                 {
                     if (InventoryController.globalInvIterator == 6)

@@ -22,30 +22,15 @@ namespace Scripts.CraftingSystem;
 public class NodeLink : SystemBase
 {
     public static Dictionary<ulong, NodeLinkData> instances;
-    //public static Entity currentNodeLinkObj;
-
-
+ 
     //No OnStart for NodeLink cause this component has weird buggy params
     //Thats in craftanemone
-    private bool OnStart(ref bool startBool)
-    {
-        if (startBool == true) return true;
-        startBool = true;
-        //Todo
-
-        //currentNodeLinkObj = null;
-
-        //End of Start
-        return true;
-    }
     protected override void OnUpdate()
     {
         // TODO: Query entities and update components
 
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
         {
-            bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start);
 
             //Use this reference for everything!
             NodeLinkData nodeLink = instances[gameObject.Entity.Id];

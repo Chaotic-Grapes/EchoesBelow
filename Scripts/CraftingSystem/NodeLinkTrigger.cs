@@ -18,6 +18,7 @@ namespace Scripts.CraftingSystem;
 public class NodeLinkTrigger : TriggerSystemBase
 {
     public static bool isAttachable = false;
+    public static Entity selectedPort;
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         //Log($"self: {Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()} / other: {Entity.FromId(World!, evt.OtherEntityId).GetComponent<Name>().Value.ToString()}");
@@ -81,7 +82,7 @@ public class NodeLinkTrigger : TriggerSystemBase
 
         //Select Child Port
         const float limit = 0.8f;
-        Entity selectedPort = self;
+        selectedPort = self;
 
         foreach(var c in NodeLink.instances)
         {

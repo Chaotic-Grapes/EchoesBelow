@@ -169,7 +169,7 @@ public class Anemone :SystemBase
             {
                 Entity queriedObj = Entity.FromId(world, childID);
                 Log($"Attempting to Freeze {Entity.FromId(world, childID).GetComponent<Name>().Value.ToString()}. . .");
-                FreezeNode(world, queriedObj);
+                FreezeNode(world, queriedObj, NodeLinkTrigger.selectedPort);
                 Log("Frozen!");
             }
             else if (Entity.FromId(world, childID).HasComponent<CraftMoveComponent>())
@@ -204,7 +204,7 @@ public class Anemone :SystemBase
         return;
     }
 
-    private void FreezeNode(World world, Entity queriedObj)
+    private void FreezeNode(World world, Entity queriedObj, Entity selectedPort)
     {
         if (!AudioManager.sfxEntityDictionary["SFX011"].GetComponent<AudioSource>().PlayOnStart)
         {
@@ -231,74 +231,71 @@ public class Anemone :SystemBase
         nlt.isActiveTrigger = false;
 
         //NodeLink initialization
-        //ref NodeLinkComponent nl = ref queriedObj.AddComponent<NodeLinkComponent>();
-
-        //nl.start = true;
 
         //Initialise and add NodeLinkData to the instances list
-        //NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, queriedObj.GetComponent<LocalTransform>().Position , msID, false, false, false, false);
-        //NodeLink.instances.Add(queriedObj.Id, nlD);
-        //NodeLink.instances[queriedObj.Id].EnableAllPorts();
+        NodeLinkData nlD = new NodeLinkData(world, queriedObj.Id, queriedObj.GetComponent<LocalTransform>().Position , msID, false, false, false, false);
+        NodeLink.instances.Add(queriedObj.Id, nlD);
+        NodeLink.instances[queriedObj.Id].EnableAllPorts();
 
         ////queried obj is the one I want to change
-        //Log("Hello there");
-        //int fromPort = Entity.FromId(world, NodeLinkData.currentActivePort).GetComponent<CraftPortComponent>().NSEW_1234;
-        //Log("General Kenobi");
+        Log("Hello there");
+        int fromPort = Entity.FromId(world, selectedPort.Id).GetComponent<CraftPortComponent>().NSEW_1234;
+        Log("General Kenobi");
 
         ////NodeLinkData.currentActiveTrigger == the original INFECTOR nodelink so N is N
         ////the new NodeLink is queriedobj N is S and E is W
 
-        //NodeLinkData currentNodeLinkInstance = NodeLink.instances[NodeLinkTrigger.currentActiveTrigger.Id];
-        //NodeLinkData queriedNodeLinkInstance = NodeLink.instances[queriedObj.Id];
+        NodeLinkData currentNodeLinkInstance = NodeLink.instances[selectedPort.Id];
+        NodeLinkData queriedNodeLinkInstance = NodeLink.instances[queriedObj.Id];
 
-        //ElementNode current_node = currentNodeLinkInstance.node;
-        //ElementNode queried_node = queriedNodeLinkInstance.node;
-        //switch (fromPort)
-        //{
-        //    //The corresponding opposite side shld be marked as filled
-        //    case 1: //North N
-        //        currentNodeLinkInstance.DisablePort(1);
-        //        queriedNodeLinkInstance.DisablePort(2);
+        ElementNode current_node = currentNodeLinkInstance.node;
+        ElementNode queried_node = queriedNodeLinkInstance.node;
+        switch (fromPort)
+        {
+            //The corresponding opposite side shld be marked as filled
+            case 1: //North N
+                currentNodeLinkInstance.DisablePort(1);
+                queriedNodeLinkInstance.DisablePort(2);
 
-        //        current_node.node_N = queried_node;
+                current_node.node_N = queried_node;
 
-        //        current_node.msID_N = queried_node.msID;
-        //        queried_node.msID_S = current_node.msID;
+                current_node.msID_N = queried_node.msID;
+                queried_node.msID_S = current_node.msID;
 
-        //        break;
-        //    case 2: //South S
-        //        currentNodeLinkInstance.DisablePort(2);
-        //        queriedNodeLinkInstance.DisablePort(1);
+                break;
+            case 2: //South S
+                currentNodeLinkInstance.DisablePort(2);
+                queriedNodeLinkInstance.DisablePort(1);
 
-        //        current_node.node_S = queried_node;
+                current_node.node_S = queried_node;
 
-        //        current_node.msID_S = queried_node.msID;
-        //        queried_node.msID_N = current_node.msID;
+                current_node.msID_S = queried_node.msID;
+                queried_node.msID_N = current_node.msID;
 
-        //        break;
-        //    case 3: //East E
-        //        currentNodeLinkInstance.DisablePort(3);
-        //        queriedNodeLinkInstance.DisablePort(4);
+                break;
+            case 3: //East E
+                currentNodeLinkInstance.DisablePort(3);
+                queriedNodeLinkInstance.DisablePort(4);
 
-        //        current_node.node_E = queried_node;
+                current_node.node_E = queried_node;
 
-        //        current_node.msID_E = queried_node.msID;
-        //        queried_node.msID_W = current_node.msID;
+                current_node.msID_E = queried_node.msID;
+                queried_node.msID_W = current_node.msID;
 
-        //        break;
-        //    case 4: //West W
-        //        currentNodeLinkInstance.DisablePort(4);
-        //        queriedNodeLinkInstance.DisablePort(3);
+                break;
+            case 4: //West W
+                currentNodeLinkInstance.DisablePort(4);
+                queriedNodeLinkInstance.DisablePort(3);
 
-        //        current_node.node_W = queried_node;
+                current_node.node_W = queried_node;
 
-        //        current_node.msID_W = queried_node.msID;
-        //        queried_node.msID_E = current_node.msID;
+                current_node.msID_W = queried_node.msID;
+                queried_node.msID_E = current_node.msID;
 
-        //        break;
-        //    default:
-        //        break;
-        //}
+                break;
+            default:
+                break;
+        }
     }
 
     public void InitPoolObj(World world, Vector3 newPos, ulong pulledObjId)
