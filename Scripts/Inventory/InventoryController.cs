@@ -140,6 +140,7 @@ public class InventoryController : SystemBase
             //Iterator
             if (mouseScroll != 0)
             {
+
                 int audioRandomiser = GMath.Random(1, 4);
 
                 switch (audioRandomiser)
@@ -179,41 +180,41 @@ public class InventoryController : SystemBase
             {
                 AudioManager.instance.PlaySFX("SFX010");
 
-                int audioRandomiser = GMath.Random(1, 10);
+                //int audioRandomiser = GMath.Random(1, 10);
 
-                switch (audioRandomiser)
-                {
-                    case 1:
-                        AudioManager.instance.PlaySFX("SFX003_Track01");
-                        break;
-                    case 2:
-                        AudioManager.instance.PlaySFX("SFX003_Track02");
-                        break;
-                    case 3:
-                        AudioManager.instance.PlaySFX("SFX003_Track03");
-                        break;
-                    case 4:
-                        AudioManager.instance.PlaySFX("SFX003_Track04");
-                        break;
-                    case 5:
-                        AudioManager.instance.PlaySFX("SFX003_Track05");
-                        break;
-                    case 6:
-                        AudioManager.instance.PlaySFX("SFX003_Track06");
-                        break;
-                    case 7:
-                        AudioManager.instance.PlaySFX("SFX003_Track07");
-                        break;
-                    case 8:
-                        AudioManager.instance.PlaySFX("SFX003_Track08");
-                        break;
-                    case 9:
-                        AudioManager.instance.PlaySFX("SFX003_Track09");
-                        break;
-                    case 10:
-                        AudioManager.instance.PlaySFX("SFX003_Track10");
-                        break;
-                }
+                //switch (audioRandomiser)
+                //{
+                //    case 1:
+                //        AudioManager.instance.PlaySFX("SFX003_Track01");
+                //        break;
+                //    case 2:
+                //        AudioManager.instance.PlaySFX("SFX003_Track02");
+                //        break;
+                //    case 3:
+                //        AudioManager.instance.PlaySFX("SFX003_Track03");
+                //        break;
+                //    case 4:
+                //        AudioManager.instance.PlaySFX("SFX003_Track04");
+                //        break;
+                //    case 5:
+                //        AudioManager.instance.PlaySFX("SFX003_Track05");
+                //        break;
+                //    case 6:
+                //        AudioManager.instance.PlaySFX("SFX003_Track06");
+                //        break;
+                //    case 7:
+                //        AudioManager.instance.PlaySFX("SFX003_Track07");
+                //        break;
+                //    case 8:
+                //        AudioManager.instance.PlaySFX("SFX003_Track08");
+                //        break;
+                //    case 9:
+                //        AudioManager.instance.PlaySFX("SFX003_Track09");
+                //        break;
+                //    case 10:
+                //        AudioManager.instance.PlaySFX("SFX003_Track10");
+                //        break;
+                //}
 
                 Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
                 Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
