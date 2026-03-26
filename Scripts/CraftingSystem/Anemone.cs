@@ -219,17 +219,49 @@ public class Anemone :SystemBase
 
     private void FreezeNode(World world, Entity queriedObj, Entity selectedPort)
     {
-        if (!AudioManager.sfxEntityDictionary["SFX011"].GetComponent<AudioSource>().PlayOnStart)
+        //if (!AudioManager.sfxEntityDictionary["UI003"].GetComponent<AudioSource>().PlayOnStart)
+        //{
+        //    AudioManager.instance.PlaySFX("UI003");
+        //}
+        //else if (!AudioManager.sfxEntityDictionary["UI004"].GetComponent<AudioSource>().PlayOnStart)
+        //{
+        //    AudioManager.instance.PlaySFX("UI004");
+        //}
+
+        int audioRandomiser = GMath.Random(1, 10);
+
+        switch (audioRandomiser)
         {
-            AudioManager.instance.PlaySFX("SFX011");
-        }
-        else if(!AudioManager.sfxEntityDictionary["SFX011_alt"].GetComponent<AudioSource>().PlayOnStart)
-        {
-            AudioManager.instance.PlaySFX("SFX011_alt");
-        }
-        else
-        {
-            AudioManager.instance.PlaySFX("SFX011_alt2");
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                //AudioManager.instance.PlaySFX("UI004");
+                if (!AudioManager.sfxEntityDictionary["UI004"].GetComponent<AudioSource>().PlayOnStart)
+                {
+                    AudioManager.instance.PlaySFX("UI004");
+                }
+                else
+                {
+                    AudioManager.instance.PlaySFX("UI004_alt");
+                }
+                break;
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+                //AudioManager.instance.PlaySFX("UI003");
+                if (!AudioManager.sfxEntityDictionary["UI003"].GetComponent<AudioSource>().PlayOnStart)
+                {
+                    AudioManager.instance.PlaySFX("UI003");
+                }
+                else
+                {
+                    AudioManager.instance.PlaySFX("UI003_alt");
+                }
+                break;
         }
 
         int msID = queriedObj.GetComponent<CraftMoveComponent>().msID;

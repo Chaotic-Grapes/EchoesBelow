@@ -92,7 +92,7 @@ public class PauseMenu : SystemBase
         if (isKeyPressed_P && !isPaused)
         {
             Player.instance.isEnabled = false;
-            AudioManager.instance.PlaySFX("SFX007");
+            AudioManager.instance.PlaySFX("UI002");
             
             Time.TimeScale = 0;
             isPaused = true;
@@ -110,7 +110,7 @@ public class PauseMenu : SystemBase
         else if (isKeyPressed_P && isPaused)
         {
             Player.instance.isEnabled = true;
-            AudioManager.instance.PlaySFX("SFX007");
+            AudioManager.instance.PlaySFX("UI001");
            
             Time.TimeScale = 1;
             isPaused = false;
@@ -129,7 +129,7 @@ public class PauseMenu : SystemBase
 
             if (isKeyPressed_vertical)
             {
-                AudioManager.instance.PlaySFX("SFX007");
+                AudioManager.instance.PlaySFX("UI005_Track01");
                 isFirstSelected = !isFirstSelected;
                 UpdateEssentialKeys();
             }
@@ -142,7 +142,7 @@ public class PauseMenu : SystemBase
                 {
                     Player.instance.isEnabled = true;
                     Log("Resume");
-                    AudioManager.instance.PlaySFX("SFX007");
+                    AudioManager.instance.PlaySFX("UI005_Track01");
 
                     Time.TimeScale = 1;
                     isPaused = false;

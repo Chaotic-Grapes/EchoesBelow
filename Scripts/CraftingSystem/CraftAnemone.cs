@@ -192,34 +192,7 @@ public class CraftAnemone : SystemBase
 
                 if (isRMB_pressed)
                 {
-                    isLeaving = true;
-
-                    //Reinstate list of contacts
-                    listOfContacts.Clear();
-
-                    //enable player movement and X key for inventory!
-                    Player.instance.isEnabled = true;
-                    //InventoryController.instance.isEnabled_xInput = true;
-
-                    //This rlly works for dash!
-                    //Shoot the player out of the anemone
-                    ref LinearVelocity2D lv = ref Player.instance.player.GetComponent<LinearVelocity2D>();
-                    lv.Value = new Vector2(0, gameObject.Component1.exitSpeed);
-
-                    //Add the Rigidbody back to the player
-                    ref Rigidbody2D rb = ref Entity.FromId(World!, Player.instance.player.Id).AddComponent<Rigidbody2D>();
-                    rb.Mass = 1;
-                    rb.LinearDamping = 1f;
-                    rb.AngularDamping = 2.4f;
-                    rb.GravityScale = 1;
-                    rb.Flags = 0;
-
-                    cr.isExitingAnemone = true;
-                    cr.isEnteredAnemone = false;
-
-                    cr.isCaptured = false;
-
-                    cr.UpdateSelection(World!, 0, new Vector3(0, yBloom, 0));
+                    ExitAnemone(gameObject, cr, yBloom);
 
                     //InventoryController.instance.isEnabled_xInput = true;
                 }
@@ -359,6 +332,9 @@ public class CraftAnemone : SystemBase
                             }
                         }
                     }
+
+                    ExitAnemone(gameObject, cr, yBloom);
+
                 }
 
             }
@@ -387,6 +363,40 @@ public class CraftAnemone : SystemBase
                 ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
             }
         }
+    }
+
+    private void ExitAnemone(GrapeEngine.Scripting.Internal.Query.QueryResult<CraftAnemoneComponent> gameObject, Anemone cr, float yBloom)
+    {
+        AudioManager.instance.PlaySFX("SFX010");
+
+        isLeaving = true;
+
+        //Reinstate list of contacts
+        listOfContacts.Clear();
+
+        //enable player movement and X key for inventory!
+        Player.instance.isEnabled = true;
+        //InventoryController.instance.isEnabled_xInput = true;
+
+        //This rlly works for dash!
+        //Shoot the player out of the anemone
+        ref LinearVelocity2D lv = ref Player.instance.player.GetComponent<LinearVelocity2D>();
+        lv.Value = new Vector2(0, gameObject.Component1.exitSpeed);
+
+        //Add the Rigidbody back to the player
+        ref Rigidbody2D rb = ref Entity.FromId(World!, Player.instance.player.Id).AddComponent<Rigidbody2D>();
+        rb.Mass = 1;
+        rb.LinearDamping = 1f;
+        rb.AngularDamping = 2.4f;
+        rb.GravityScale = 1;
+        rb.Flags = 0;
+
+        cr.isExitingAnemone = true;
+        cr.isEnteredAnemone = false;
+
+        cr.isCaptured = false;
+
+        cr.UpdateSelection(World!, 0, new Vector3(0, yBloom, 0));
     }
     #endregion
     #region AnemoneFuncs

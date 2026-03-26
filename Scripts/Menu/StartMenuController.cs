@@ -142,7 +142,7 @@ public class StartMenuController : SystemBase
     {
         if (AudioManager.instance != null)
         {
-            AudioManager.instance.PlaySFX("SFX007");
+            //AudioManager.instance.PlaySFX("SFX007");
         }
     }
 
@@ -265,14 +265,14 @@ public class StartMenuController : SystemBase
 
         if (moveLeft)
         {
-            AudioManager.instance.PlaySFX("SFX007");
+            AudioManager.instance.PlaySFX("UI005_Track01");
             MoveSelection(-1);
             movedSelection = true;
         }
 
         if (moveRight)
         {
-            AudioManager.instance.PlaySFX("SFX007");
+            AudioManager.instance.PlaySFX("UI005_Track02");
             MoveSelection(1);
             movedSelection = true;
         }

@@ -82,7 +82,7 @@ public class AudioManager : SystemBase
             sfxEntityDictionary[e.GetComponent<Name>().Value.ToString()] = e;
 
             // SFX entries should not auto-play on scene load.
-            if (e.TryGetComponent<AudioSource>(out _))
+            if (e.TryGetComponent<AudioSource>(out AudioSource aSource) &&  aSource.Bus == AudioBus.SFX)
             {
                 e.GetComponent<AudioSource>().PlayOnStart = false;
             }

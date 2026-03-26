@@ -50,19 +50,42 @@ public class PlayerTriggerHandler : TriggerSystemBase
             if (Entity.FromId(World!, other.Id).TryGetComponent<MS_IDComponent>(out MS_IDComponent msM))
             {
                 if (msM.collisionCooldown > 0) return; // if still cooling down, dont pick it up
-                //AudioManager.instance.PlaySFX("SFX003");
+                                                       //AudioManager.instance.PlaySFX("SFX003");
 
-                if (!AudioManager.sfxEntityDictionary["SFX003"].GetComponent<AudioSource>().PlayOnStart)
+                int audioRandomiser = GMath.Random(1, 10);
+
+                switch (audioRandomiser)
                 {
-                    AudioManager.instance.PlaySFX("SFX003");
-                }
-                else if (!AudioManager.sfxEntityDictionary["SFX003_alt01"].GetComponent<AudioSource>().PlayOnStart)
-                {
-                    AudioManager.instance.PlaySFX("SFX003_alt01");
-                }
-                else if (!AudioManager.sfxEntityDictionary["SFX003_alt02"].GetComponent<AudioSource>().PlayOnStart)
-                {
-                    AudioManager.instance.PlaySFX("SFX003_alt02");
+                    case 1:
+                        AudioManager.instance.PlaySFX("SFX003_Track01");
+                        break;
+                    case 2:
+                        AudioManager.instance.PlaySFX("SFX003_Track02");
+                        break;
+                    case 3:
+                        AudioManager.instance.PlaySFX("SFX003_Track03");
+                        break;
+                    case 4:
+                        AudioManager.instance.PlaySFX("SFX003_Track04");
+                        break;
+                    case 5:
+                        AudioManager.instance.PlaySFX("SFX003_Track05");
+                        break;
+                    case 6:
+                        AudioManager.instance.PlaySFX("SFX003_Track06");
+                        break;
+                    case 7:
+                        AudioManager.instance.PlaySFX("SFX003_Track07");
+                        break;
+                    case 8:
+                        AudioManager.instance.PlaySFX("SFX003_Track08");
+                        break;
+                    case 9:
+                        AudioManager.instance.PlaySFX("SFX003_Track09");
+                        break;
+                    case 10:
+                        AudioManager.instance.PlaySFX("SFX003_Track10");
+                        break;
                 }
 
 
