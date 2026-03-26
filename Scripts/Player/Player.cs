@@ -272,20 +272,6 @@ public class Player : SystemBase
     }
     private void AddInstantaneousForce(ref LinearVelocity2D lv, Vector2 playerDir, float dashSpeed)
     {
-        //AudioManager.instance.PlaySFX("SFX005");
-        //if (!AudioManager.sfxEntityDictionary["SFX005"].GetComponent<AudioSource>().PlayOnStart)
-        //{
-        //    AudioManager.instance.PlaySFX("SFX005");
-        //}
-        //else if (!AudioManager.sfxEntityDictionary["SFX010"].GetComponent<AudioSource>().PlayOnStart)
-        //{
-        //    AudioManager.instance.PlaySFX("SFX010");
-        //}
-        //else if (!AudioManager.sfxEntityDictionary["SFX011"].GetComponent<AudioSource>().PlayOnStart)
-        //{
-        //    AudioManager.instance.PlaySFX("SFX011");
-        //}
-
 
         int audioRandomiser = GMath.Random(1, 13);
 

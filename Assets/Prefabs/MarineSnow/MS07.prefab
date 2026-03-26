@@ -68,7 +68,7 @@
         },
         {
             "Data": {
-                "AngularDamping": 0.0,
+                "AngularDamping": 1.2000000476837158,
                 "Flags": 3,
                 "GravityScale": 1.0,
                 "InverseMass": 1.0,

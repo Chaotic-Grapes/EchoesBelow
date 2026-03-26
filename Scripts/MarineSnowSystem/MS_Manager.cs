@@ -174,11 +174,14 @@ public class MS_Manager : SystemBase
         rb.LinearDamping = 1.4f;
         //rb.Flags = 2u;
         rb.Flags |= Rigidbody2D.FLAG_KINEMATIC | Rigidbody2D.FLAG_USE_GRAVITY;
+        rb.AngularDamping = 1.2f;
 
         ref LinearVelocity2D lv = ref pulledEntity.AddComponent<LinearVelocity2D>();
         lv.Value = trajectory;
 
         pulledEntity.AddComponent<AngularVelocity2D>();
+
+
         //Add Decay Component HARDCODED
         if(Entity.FromId(World!, pulledObjId).GetComponent<MS_IDComponent>().msID == 1 || Entity.FromId(World!, pulledObjId).GetComponent<MS_IDComponent>().msID == 2)
         {

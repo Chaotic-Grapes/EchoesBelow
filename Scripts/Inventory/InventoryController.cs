@@ -178,44 +178,17 @@ public class InventoryController : SystemBase
             //Remove from slot / Vomitting
             if ((isRMB_Pressed) && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
-                AudioManager.instance.PlaySFX("SFX010");
 
-                //int audioRandomiser = GMath.Random(1, 10);
-
-                //switch (audioRandomiser)
-                //{
-                //    case 1:
-                //        AudioManager.instance.PlaySFX("SFX003_Track01");
-                //        break;
-                //    case 2:
-                //        AudioManager.instance.PlaySFX("SFX003_Track02");
-                //        break;
-                //    case 3:
-                //        AudioManager.instance.PlaySFX("SFX003_Track03");
-                //        break;
-                //    case 4:
-                //        AudioManager.instance.PlaySFX("SFX003_Track04");
-                //        break;
-                //    case 5:
-                //        AudioManager.instance.PlaySFX("SFX003_Track05");
-                //        break;
-                //    case 6:
-                //        AudioManager.instance.PlaySFX("SFX003_Track06");
-                //        break;
-                //    case 7:
-                //        AudioManager.instance.PlaySFX("SFX003_Track07");
-                //        break;
-                //    case 8:
-                //        AudioManager.instance.PlaySFX("SFX003_Track08");
-                //        break;
-                //    case 9:
-                //        AudioManager.instance.PlaySFX("SFX003_Track09");
-                //        break;
-                //    case 10:
-                //        AudioManager.instance.PlaySFX("SFX003_Track10");
-                //        break;
-                //}
-
+                if (!AudioManager.sfxEntityDictionary["SFX010_Track01"].GetComponent<AudioSource>().PlayOnStart)
+                {
+                    AudioManager.instance.PlaySFX("SFX010_Track01");
+                }
+                else
+                {
+                    AudioManager.instance.PlaySFX("SFX010_Track02");
+                }
+                
+                
                 Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
                 Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
                 if (globalInvIterator == 6)
