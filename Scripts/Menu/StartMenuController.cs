@@ -220,16 +220,18 @@ public class StartMenuController : SystemBase
             if (guiInput.Hovered) // Mouse cursor still on entity
             {
                 // Do something
+                Log("GUIInput_Hovering");
             }
 
             if (guiInput.Entered) // Same as above but once per frame
             {
-
+                Log("GUIInput_Entered");
             }
 
             if (guiInput.Clicked)
             {
                 // Do something
+                Log("GUIInput_Clicked");
             }
         }
 
