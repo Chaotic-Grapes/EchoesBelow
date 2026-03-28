@@ -8,9 +8,9 @@ using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts.CraftingSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 
 
 namespace EchoesBelow.Scripts;
@@ -31,6 +31,8 @@ namespace EchoesBelow.Scripts;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CraftAnemone : SystemBase
 {
+    public static CraftAnemone instance;
+
     public static Dictionary<ulong, Anemone> instances;
     public static float cameraOffsetY = 3.0f;
     private const float FOVoffset = 151;
@@ -46,11 +48,27 @@ public class CraftAnemone : SystemBase
 
     public static List<Entity> listOfContacts;
 
+    //Declare AnimStates
+    public static AnimState idleEnterState;
+    public static AnimState idleState;
+
+    public static AnimState vibrateEnterState;
+    public static AnimState vibrateState;
+    public static AnimState vibrateExitState;
+
+    public static AnimState captureState;
+    public static AnimState releaseState;
+    public static AnimState closedStillState;
+
+
     #region SystemBehaviours
     private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
     {
         if (awakeBool == true) return true;
         awakeBool = true;
+
+        instance = this;
+
         //ToDO ONCE! per Script
         isLeaving = false;
         //This effectively executes as many times as there are CraftAnemones. BUT if I place the foreach loop
@@ -101,9 +119,22 @@ public class CraftAnemone : SystemBase
         //Get a raw list of all children under the craftAnemone
         foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
         {
-            //If child does not have a craftmove, skip!
+            //If child does not have a craftmove, skip! but add the anim objects
             if (!child.TryGetComponent<CraftMoveComponent>(out CraftMoveComponent crMove))
             {
+                if (!child.HasComponent<NodeLinkComponent>())
+                {
+                    //Log("Found my anims!")
+                    int i = 0;
+                    foreach(Entity grandChild in child.GetChildren())
+                    {
+                        if (grandChild.HasComponent<SpriteSheetAnimation2D>())
+                        {
+                            anemone.anemoneSprites[i++] = grandChild;
+                            //Log("Anim Anemone Sprite Found: " + grandChild.GetComponent<Name>().Value.ToString());
+                        }
+                    }
+                }
             }
             else
             {
@@ -128,33 +159,32 @@ public class CraftAnemone : SystemBase
             }
         }
 
+
         //Add the instance! AFTER everything is set
         instances.Add(objId, anemone);
-  
+
+        //Declare Anim States
+        //These states are static in a way, presets shared by all CraftAnemones
+        //SetAnimState however, is per instance of CraftAnemone
+        idleEnterState = new AnimState("idleEnterState", 0, 0, 19, 30, true);
+        idleState = new AnimState("idleState", 2, 0, 67, 24, true);
+
+        vibrateEnterState = new AnimState("vibrateEnterState", 7, 0, 6, 24, true);
+        vibrateState = new AnimState("vibrateState", 8, 0, 10, 24, true);
+        vibrateExitState = new AnimState("vibrateExitState", 7, 11, 6, 48, true);
+
+        releaseState = new AnimState("releaseState", 10, 0, 6, 30, true);
+        captureState = new AnimState("captureState", 9, 0, 6, 24, true);
+        closedStillState = new AnimState("closedStillState", 9, 5, 1, 24, false);
+
+        //Set Anims
+        SetAnimState(idleState, objId, World!);
+
         //End of Start
         return true;
     }
     protected override void OnUpdate()
     {
-        //if (Input.IsKeyPressed(KeyCode.K))
-        //{
-        //    //foreach (Anemone l in CraftAnemone.instances.Values)
-        //    //{
-        //    //    Log("++++++++++++++++++++++++++++++++++++++++");
-        //    //    Log($"objID stored: {l.objId} name: {l.name}");
-        //    //    if (l != null)
-        //    //    {
-        //    //        Log($"   >>Im not null!! I contain a reference to {l.objId} / count: {l.ms01_ObjectPool.Count + l.ms02_ObjectPool.Count + l.ms03_ObjectPool.Count + l.ms04_ObjectPool.Count + l.ms05_ObjectPool.Count + l.ms06_ObjectPool.Count + l.ms07_ObjectPool.Count}");
-        //    //        foreach (List<ulong> i in l.objPools)
-        //    //        {
-        //    //            foreach (ulong j in i)
-        //    //            {
-        //    //                Log($"I contain: {Entity.FromId(World!, j).GetComponent<Name>().Value.ToString()}");
-        //    //            }
-        //    //        }
-        //    //    }
-        //    //    Log($"______________________________________");
-        //    //}
 
 
         //}
@@ -182,7 +212,7 @@ public class CraftAnemone : SystemBase
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
  
             Anemone cr = instances[gameObject.Entity.Id];
-
+            Log("Currentstate: " + cr.currentState);
             float yBloom = 1.55f;
             //float yWilt = -0.86f; // might be unused but good to know!
 
@@ -192,6 +222,8 @@ public class CraftAnemone : SystemBase
 
                 if (isRMB_pressed)
                 {
+                    ////Might swap out for idle? or set a timer for releaseState in Update
+                    //SetAnimState(releaseState, cr.objId, World!);
                     ExitAnemone(gameObject, cr, yBloom);
 
                     //InventoryController.instance.isEnabled_xInput = true;
@@ -362,12 +394,53 @@ public class CraftAnemone : SystemBase
             {
                 ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
             }
+
+
+            //AnimCentric
+            
+            if(cr.currentState == vibrateExitState.name)
+            {
+                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
+                {
+                    SetAnimState(idleEnterState, cr.objId, World!);
+                }
+            }
+            else if(cr.currentState == vibrateEnterState.name)
+            {
+                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
+                {
+                    SetAnimState(vibrateState, cr.objId, World!);
+                }
+            }
+            else if (cr.currentState == releaseState.name)
+            {
+                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
+                {
+                    SetAnimState(idleEnterState, cr.objId, World!);
+                }
+            }
+            else if (cr.currentState == idleEnterState.name)
+            {
+                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 18)
+                {
+                    SetAnimState(idleState, cr.objId, World!);
+                }
+            }
+            else if (cr.currentState == captureState.name)
+            {
+                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
+                {
+                    SetAnimState(closedStillState, cr.objId, World!);
+                }
+            }
         }
     }
 
     private void ExitAnemone(GrapeEngine.Scripting.Internal.Query.QueryResult<CraftAnemoneComponent> gameObject, Anemone cr, float yBloom)
     {
-        AudioManager.instance.PlaySFX("SFX010");
+        AudioManager.instance.PlaySFX("SFX010_Track01");
+        //Might swap out for idle? or set a timer for releaseState in Update
+        SetAnimState(releaseState, cr.objId, World!);
 
         isLeaving = true;
 
@@ -506,6 +579,35 @@ public class CraftAnemone : SystemBase
         }
     }
     #endregion
+
+    #region AnimStateHandler
+    public void SetAnimState(AnimState animState, ulong objID, World world)
+    {
+        Anemone cr = instances[objID];
+
+        cr.currentState = animState.name;
+
+        foreach(Entity anemoneSprite in cr.anemoneSprites) SetAnimForBothAnemoneEntities(animState, world, anemoneSprite.Id);
+    }
+
+    private static void SetAnimForBothAnemoneEntities(AnimState animState, World world, ulong anemoneID)
+    {
+        ref SpriteSheetAnimation2D spr = ref Entity.FromId(world, anemoneID).GetComponent<SpriteSheetAnimation2D>();
+        spr.Row = animState.row;
+        spr.FrameOffset = animState.frameOffset;
+        spr.FrameLength = animState.frameLength;
+        spr.FramesPerSecond = animState.fps;
+        spr.Loop = animState.isLoop;
+
+        //Zero out the anim
+        ref AnimationState2D anim2D = ref Entity.FromId(world, anemoneID).GetComponent<AnimationState2D>();
+        anim2D.CurrentFrame = 0;
+    }
+    #endregion
+
+
+
+
 }
 
 [System(SystemGroup.PostPhysics, SystemRunMode.PlayOnly)]
@@ -513,6 +615,19 @@ public class CraftAnemoneHandler : TriggerSystemBase
 {
     ////this passes information to CraftAnemone class
     public static Entity capturedEntity;
+
+    protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
+    {
+        Entity other = Entity.FromId(World!, evt.OtherEntityId);
+
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
+        else return;
+        Log("Begin Vibration");
+        if(!CraftAnemone.isLeaving)
+        CraftAnemone.instance.SetAnimState(CraftAnemone.vibrateEnterState, self.Id, World!);
+    }
+
+
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         if (CraftAnemone.isLeaving) return;
@@ -524,9 +639,10 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (!CraftAnemone.isLMB_pressed) return;
 
-
+        
         if (other.HasComponent<PlayerComponent>())
         {
+            Log("ENTERING");
             LaunchCrafting(self, other);
         
             //Disable player movement and X key for inventory!
@@ -543,23 +659,21 @@ public class CraftAnemoneHandler : TriggerSystemBase
     //Unused for now
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
     {
-        CraftAnemone.isLeaving = false;
-
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
-        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && Entity.FromId(World!, evt.OtherEntityId).HasComponent<PlayerTriggerComponent>()) { }
+        if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
+        Log("Exitting");
+        CraftAnemone.isLeaving = false;
 
-
-        if (other.HasComponent<PlayerTriggerComponent>())
-        {
-            InventoryController.instance.isEnabled_RMBInput = true;
-        }
-
+        //HEREHEREHERE AHH
+        if(!CraftAnemone.instances[self.Id].isLerpingToAnemone && !CraftAnemone.instances[self.Id].isExitingAnemone)
+        CraftAnemone.instance.SetAnimState(CraftAnemone.vibrateExitState, self.Id, World!);
     }
 
     private void LaunchCrafting(Entity self, Entity other)
     {
+        CraftAnemone.instance.SetAnimState(CraftAnemone.captureState, self.Id, World!);
         //Force set
         CraftAnemone.instances[self.Id].isEnteredAnemone = false;
         CraftAnemone.instances[self.Id].isExitingAnemone = false;

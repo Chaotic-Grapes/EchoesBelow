@@ -28,7 +28,8 @@ public class Anemone :SystemBase
     public Entity rootNode { get; set; }
 
     //Anim
-
+    public string currentState { get; set; }
+    public Entity[] anemoneSprites { get; set; }
 
     //Obj Pool
     public List<ulong> rawChildList { get; set; }
@@ -63,6 +64,9 @@ public class Anemone :SystemBase
         this.isCaptured = false;
         this.isOpened = false;
 
+        //Anim-Centric Array, stores 2
+        anemoneSprites = new Entity[2];
+
         //Obj Pool Assignments
         rawChildList = new List<ulong>();
         sortedChildList = new List<ulong>();
@@ -84,7 +88,7 @@ public class Anemone :SystemBase
         objPools[5] = ms06_ObjectPool;
         objPools[6] = ms07_ObjectPool;
     }
-
+    
     public void UpdateSelection(World world, int msID, Vector3 newPos)
     {
         //Log("START ==============");

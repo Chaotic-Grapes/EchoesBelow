@@ -38,7 +38,7 @@ public class LexicateTrade : TriggerSystemBase
 
                 if(otherEntity.GetComponent<MS_IDComponent>().msID == gameObject.Component1.msID_in)
                 {
-                    AudioManager.instance.PlaySFX("SFX010");
+                    AudioManager.instance.PlaySFX("SFX010_Track01");
 
                     float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation);
                     Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
