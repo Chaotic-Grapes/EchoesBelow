@@ -27,6 +27,9 @@ public class Anemone :SystemBase
     public Vector3 rootNodePos { get; set; }
     public Entity rootNode { get; set; }
 
+    //Anim
+
+
     //Obj Pool
     public List<ulong> rawChildList { get; set; }
     public List<ulong> sortedChildList { get; set; }
