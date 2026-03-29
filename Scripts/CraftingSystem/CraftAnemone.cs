@@ -210,7 +210,7 @@ public class CraftAnemone : SystemBase
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
- 
+
             Anemone cr = instances[gameObject.Entity.Id];
             Log("Currentstate: " + cr.currentState);
             float yBloom = 1.55f;
@@ -218,7 +218,7 @@ public class CraftAnemone : SystemBase
 
             //Inputs
             if (cr.isCaptured)
-            {   
+            {
 
                 if (isRMB_pressed)
                 {
@@ -234,12 +234,12 @@ public class CraftAnemone : SystemBase
                     //Log($"Will try to spawn msID: {InventoryController.currentSelected_msID}==============");
                     cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
-             
+
                 if (isLMB_pressed && NodeLinkTrigger.isAttachable)
                 {
                     if (InventoryController.globalInvIterator == 6)
                     {
-                        InventoryController.instance.RemoveFromInventory(2, false, new Vector3(100,100, 0), Vector2.Zero);
+                        InventoryController.instance.RemoveFromInventory(2, false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
                     else if (InventoryController.globalInvIterator == 5)
                     {
@@ -247,7 +247,7 @@ public class CraftAnemone : SystemBase
                     }
                     else
                     {
-                        InventoryController.instance.RemoveFromInventory(InventoryController.slotInstances[Entity.FromId(World!, 
+                        InventoryController.instance.RemoveFromInventory(InventoryController.slotInstances[Entity.FromId(World!,
                                                                          InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].storedMsId,
                                                                          false, new Vector3(100, 100, 0), Vector2.Zero);
                     }
@@ -271,8 +271,8 @@ public class CraftAnemone : SystemBase
 
                     string queryString = "";
                     rootNodeLinkInstance.node.SearchNode(rootNodeLinkInstance.node, ref queryString);
-                    
-                    Log("queryString: " +  queryString);
+
+                    Log("queryString: " + queryString);
 
                     string correctString = "";
 
@@ -290,13 +290,13 @@ public class CraftAnemone : SystemBase
                         //correct
                         AudioManager.instance.PlaySFX("SFX012");
 
-                        foreach(var door in World!.Query<MatchSignifierComponent>())
+                        foreach (var door in World!.Query<MatchSignifierComponent>())
                         {
-                            if(door.Component1.signifierID == gameObject.Component1.doorSignifier)
+                            if (door.Component1.signifierID == gameObject.Component1.doorSignifier)
                             {
                                 //Deactivate Door!
                                 AudioManager.instance.PlaySFX("SFX006");
-                                ref Active doorActive = ref Entity.FromId(World!,door.Entity.Id).GetComponent<Active>();
+                                ref Active doorActive = ref Entity.FromId(World!, door.Entity.Id).GetComponent<Active>();
                                 doorActive.Enabled = false;
                             }
                             //else nothin, if no door found
@@ -380,7 +380,7 @@ public class CraftAnemone : SystemBase
             //BLOOM THE START NODE
 
             if (cr.isOpening) //if it hasnt been opened, open the craftanemone start node!
-            Bloom(cr, yBloom,lerpFac * 0.8f);
+                Bloom(cr, yBloom, lerpFac * 0.8f);
             //else if (!isOpened) Bloom with yWilt; 
             //if you want it to wilt, plug in the yWilt value!
 
@@ -388,7 +388,7 @@ public class CraftAnemone : SystemBase
             //CHANGE CAMERA
             if (cr.isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
-                TransitionCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
+                TransitionCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f, cameraOffsetY, FOVoffset);
             }
             if (cr.isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
             {
@@ -397,42 +397,7 @@ public class CraftAnemone : SystemBase
 
 
             //AnimCentric
-            
-            if(cr.currentState == vibrateExitState.name)
-            {
-                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
-                {
-                    SetAnimState(idleEnterState, cr.objId, World!);
-                }
-            }
-            else if(cr.currentState == vibrateEnterState.name)
-            {
-                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
-                {
-                    SetAnimState(vibrateState, cr.objId, World!);
-                }
-            }
-            else if (cr.currentState == releaseState.name)
-            {
-                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
-                {
-                    SetAnimState(idleEnterState, cr.objId, World!);
-                }
-            }
-            else if (cr.currentState == idleEnterState.name)
-            {
-                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 18)
-                {
-                    SetAnimState(idleState, cr.objId, World!);
-                }
-            }
-            else if (cr.currentState == captureState.name)
-            {
-                if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= 5)
-                {
-                    SetAnimState(closedStillState, cr.objId, World!);
-                }
-            }
+            AnimManager(cr, gameObject.Entity.Id, lerpFac);
         }
     }
 
@@ -496,7 +461,7 @@ public class CraftAnemone : SystemBase
             //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));
         }
     }
-    public void TransitionCamera(Anemone cr, float lerpFac)
+    public void TransitionCamera(Anemone cr, float lerpFac, float offSetY, float offSetFOV)
     {
         foreach (var camera in World!.Query<Camera3D>())
         {
@@ -505,8 +470,8 @@ public class CraftAnemone : SystemBase
 
             //Lerp transform to 2.2 on positive y
             //And change FOV to 141
-            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, cameraOffsetY, lerpFac * Time.DeltaTime), cameraTransform.Position.Z);
-            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, FOVoffset, lerpFac * Time.DeltaTime);
+            cameraTransform.Position = new Vector3(cameraTransform.Position.X, GMath.Lerp(cameraTransform.Position.Y, offSetY, lerpFac * Time.DeltaTime), cameraTransform.Position.Z);
+            Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV = GMath.Lerp(Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV, offSetFOV, lerpFac * Time.DeltaTime);
 
             if (cameraTransform.Position.Y >= cameraOffsetY - marginAllowance && Entity.FromId(World!, camera.Entity.Id).GetComponent<Camera3D>().FOV >= FOVoffset - marginAllowance)
             {   //When Done entering
@@ -581,6 +546,50 @@ public class CraftAnemone : SystemBase
     #endregion
 
     #region AnimStateHandler
+
+    private void AnimManager(Anemone cr, ulong objID, float lerpFac)
+    {
+        if (cr.currentState == vibrateExitState.name)
+        {
+            ResetCamera(cr, lerpFac * 3f);
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateExitState.frameLength-1))
+            {
+                SetAnimState(idleEnterState, cr.objId, World!);
+            }
+        }
+        else if (cr.currentState == vibrateEnterState.name)
+        {
+            TransitionCamera(instances[objID], lerpFac * 3f, 0f, 130);
+
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateEnterState.frameLength-1))
+            {
+                SetAnimState(vibrateState, cr.objId, World!);
+            }
+        }
+        else if (cr.currentState == releaseState.name)
+        {
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (releaseState.frameLength-1))
+            {
+                SetAnimState(idleEnterState, cr.objId, World!);
+            }
+        }
+        else if (cr.currentState == idleEnterState.name)
+        {
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (idleEnterState.frameLength - 1))
+            {
+                SetAnimState(idleState, cr.objId, World!);
+            }
+        }
+        else if (cr.currentState == captureState.name)
+        {
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (captureState.frameLength - 1))
+            {
+                SetAnimState(closedStillState, cr.objId, World!);
+            }
+        }
+    }
+
+
     public void SetAnimState(AnimState animState, ulong objID, World world)
     {
         Anemone cr = instances[objID];

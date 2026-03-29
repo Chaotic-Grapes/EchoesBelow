@@ -1,0 +1,148 @@
+{
+    "Components": [
+        {
+            "Data": {
+                "Position": {
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Rotation": {
+                    "W": 1.0,
+                    "X": 0.0,
+                    "Y": 0.0,
+                    "Z": 0.0
+                },
+                "Scale": {
+                    "X": 1.0,
+                    "Y": 1.0,
+                    "Z": 1.0
+                }
+            },
+            "TypeName": "LocalTransform"
+        },
+        {
+            "Data": {
+                "Value": "LexicateMS03_c1"
+            },
+            "TypeName": "Name"
+        },
+        {
+            "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "Flags": 1,
+                "HalfExtents": {
+                    "X": 0.30000001192092896,
+                    "Y": 0.4000000059604645
+                },
+                "LayerMask": 2,
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "Rotation": 0.0
+            },
+            "TypeName": "BoxCollider2D"
+        },
+        {
+            "Data": {
+                "Id": 1
+            },
+            "TypeName": "Layer"
+        },
+        {
+            "Data": {
+                "AOStrength": 1.0,
+                "AlphaCutoff": 0.5,
+                "Flags": 32,
+                "MRA_TextureId": 0,
+                "MRA_TexturePath": "",
+                "Metallic": 1.0,
+                "NormalStrength": 1.0,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Smoothness": 0.0
+            },
+            "TypeName": "Material2D"
+        },
+        {
+            "Data": {
+                "Color": {
+                    "A": 1.0,
+                    "B": 1.0,
+                    "G": 1.0,
+                    "R": 1.0
+                },
+                "EmissiveStrength": 5.0,
+                "EmissiveTextureId": 0,
+                "EmissiveTexturePath": "",
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "TextureFilter": 0,
+                "TextureId": 75,
+                "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Lexicate_MS03.png",
+                "Tiling": {
+                    "X": 1.0,
+                    "Y": 1.0
+                }
+            },
+            "TypeName": "SpriteRenderer2D"
+        },
+        {
+            "Data": {
+                "Dirty": false,
+                "Matrix": {
+                    "m00": 0.9400776028633118,
+                    "m01": 0.3409605920314789,
+                    "m02": 0.0,
+                    "m03": -10.625229835510254,
+                    "m10": -0.3409605920314789,
+                    "m11": 0.9400776028633118,
+                    "m12": 0.0,
+                    "m13": 25.331783294677734,
+                    "m20": 0.0,
+                    "m21": 0.0,
+                    "m22": 1.0,
+                    "m23": 0.0,
+                    "m30": 0.0,
+                    "m31": 0.0,
+                    "m32": 0.0,
+                    "m33": 1.0
+                }
+            },
+            "TypeName": "WorldTransform"
+        },
+        {
+            "Data": {
+                "ZOrder": -1
+            },
+            "TypeName": "ZIndex2D"
+        },
+        {
+            "Data": {
+                "doorSignifier": 99009900,
+                "msID_in": 6,
+                "msID_out": 3,
+                "vomitSpeed": 4
+            },
+            "TypeName": "Lexicate Trade"
+        },
+        {
+            "Data": {
+                "cullDist": 10,
+                "isCulling": false,
+                "start": false
+            },
+            "TypeName": "Proximity Culling"
+        }
+    ]
+}

@@ -168,7 +168,7 @@
                                 "Y": 0.0
                             },
                             "TextureFilter": 0,
-                            "TextureId": 45,
+                            "TextureId": 35,
                             "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_StartNode.png",
                             "Tiling": {
                                 "X": 1.0,
@@ -477,7 +477,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -775,7 +775,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -1073,7 +1073,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -1371,7 +1371,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -1669,7 +1669,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -1967,7 +1967,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -2265,7 +2265,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -2563,7 +2563,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -2861,7 +2861,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -3159,7 +3159,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -3457,7 +3457,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -3755,7 +3755,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -4053,7 +4053,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -4351,7 +4351,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -4649,7 +4649,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -4947,7 +4947,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -5245,7 +5245,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -5543,7 +5543,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -5841,7 +5841,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -6139,7 +6139,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -6437,7 +6437,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -6735,7 +6735,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -7033,7 +7033,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -7331,7 +7331,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -7629,7 +7629,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -7927,7 +7927,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -8225,7 +8225,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -8523,7 +8523,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -8821,7 +8821,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -9119,7 +9119,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -9417,7 +9417,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -9715,7 +9715,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -10013,7 +10013,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -10311,7 +10311,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -10609,7 +10609,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -10907,7 +10907,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -11205,7 +11205,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -11503,7 +11503,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -11801,7 +11801,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -12099,7 +12099,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -12397,7 +12397,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -12695,7 +12695,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -12993,7 +12993,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -13291,7 +13291,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -13589,7 +13589,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -13887,7 +13887,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -14185,7 +14185,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -14483,7 +14483,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -14781,7 +14781,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -15079,7 +15079,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 38,
+                            "TextureId": 36,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS01_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -15377,7 +15377,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 39,
+                            "TextureId": 37,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS02_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -15675,7 +15675,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 40,
+                            "TextureId": 38,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS03_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -15973,7 +15973,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 41,
+                            "TextureId": 39,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS04_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -16271,7 +16271,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 42,
+                            "TextureId": 40,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS05_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -16569,7 +16569,7 @@
                             "SheetWidth": 4750,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 43,
+                            "TextureId": 41,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS06_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -16867,7 +16867,7 @@
                             "SheetWidth": 2064,
                             "StartFrame": 0,
                             "TextureFilter": 0,
-                            "TextureId": 44,
+                            "TextureId": 42,
                             "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS Spritesheets\\MS07_Move.png",
                             "UseRow": true,
                             "UseSegments": false
@@ -17000,7 +17000,7 @@
                                         "Y": 0.1818181872367859
                                     },
                                     "TextureFilter": 0,
-                                    "TextureId": 34,
+                                    "TextureId": 44,
                                     "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_Pink.png",
                                     "Tiling": {
                                         "X": 0.0625,
@@ -17027,7 +17027,7 @@
                                     "SheetWidth": 8800,
                                     "StartFrame": 0,
                                     "TextureFilter": 0,
-                                    "TextureId": 34,
+                                    "TextureId": 44,
                                     "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\AnemoneFront_SpriteSheet.png",
                                     "UseRow": true,
                                     "UseSegments": false
@@ -17148,7 +17148,7 @@
                                         "Y": 0.1818181872367859
                                     },
                                     "TextureFilter": 0,
-                                    "TextureId": 35,
+                                    "TextureId": 45,
                                     "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_Pink.png",
                                     "Tiling": {
                                         "X": 0.0625,
@@ -17175,7 +17175,7 @@
                                     "SheetWidth": 8800,
                                     "StartFrame": 0,
                                     "TextureFilter": 0,
-                                    "TextureId": 35,
+                                    "TextureId": 45,
                                     "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\AnemoneBack_SpriteSheet.png",
                                     "UseRow": true,
                                     "UseSegments": false
@@ -17288,8 +17288,8 @@
                                         "Y": 0.0
                                     },
                                     "TextureFilter": 0,
-                                    "TextureId": 36,
-                                    "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_Back.png",
+                                    "TextureId": 86,
+                                    "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_Back02.png",
                                     "Tiling": {
                                         "X": 1.0,
                                         "Y": 1.0
@@ -17335,7 +17335,7 @@
                                 "Data": {
                                     "Position": {
                                         "X": 0.0,
-                                        "Y": -0.7746686935424805,
+                                        "Y": -0.8572826385498047,
                                         "Z": 0.0
                                     },
                                     "Rotation": {
@@ -17345,8 +17345,8 @@
                                         "Z": 0.0
                                     },
                                     "Scale": {
-                                        "X": 1.850000023841858,
-                                        "Y": 1.850000023841858,
+                                        "X": 1.6349999904632568,
+                                        "Y": 1.6399999856948853,
                                         "Z": 0.9999947547912598
                                     }
                                 },
@@ -17403,8 +17403,8 @@
                                         "Y": 0.0
                                     },
                                     "TextureFilter": 0,
-                                    "TextureId": 37,
-                                    "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_Basket.png",
+                                    "TextureId": 17,
+                                    "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\CraftAnemone_Basket02.png",
                                     "Tiling": {
                                         "X": 1.0,
                                         "Y": 1.0
@@ -17416,14 +17416,14 @@
                                 "Data": {
                                     "Dirty": false,
                                     "Matrix": {
-                                        "m00": 1.850000023841858,
+                                        "m00": 1.6349999904632568,
                                         "m01": 0.0,
                                         "m02": 0.0,
                                         "m03": 11.656044006347656,
                                         "m10": 0.0,
-                                        "m11": 1.850000023841858,
+                                        "m11": 1.6399999856948853,
                                         "m12": 0.0,
-                                        "m13": -10.974298477172852,
+                                        "m13": -11.056912422180176,
                                         "m20": 0.0,
                                         "m21": 0.0,
                                         "m22": 0.9999947547912598,
@@ -17548,15 +17548,38 @@
             },
             {
                 "Data": {
+                    "Bus": 2,
+                    "CuePath": "Assets/Audio/M6_SFX/ParticleChimes/Particle_Chime_Loop_01.wav",
+                    "EnableFadeIn": false,
+                    "EnableFadeOut": false,
+                    "EnableLowPass": false,
+                    "FadeInDuration": 1.0,
+                    "FadeOutDuration": 1.0,
+                    "Loop": true,
+                    "LowPassGain": 1.0,
+                    "Pan": 0.0,
+                    "Pitch": 1.0,
+                    "PlayOnStart": true,
+                    "Spatial3D": true,
+                    "Volume": 0.05000000074505806
+                },
+                "TypeName": "AudioSource"
+            },
+            {
+                "Data": {
                     "Flags": 1,
+                    "HalfExtents": {
+                        "X": 1.350000023841858,
+                        "Y": 0.6000000238418579
+                    },
                     "LayerMask": 4,
                     "Offset": {
                         "X": 0.0,
-                        "Y": 0.0
+                        "Y": 0.20000000298023224
                     },
-                    "Radius": 1.0
+                    "Rotation": 0.0
                 },
-                "TypeName": "CircleCollider2D"
+                "TypeName": "BoxCollider2D"
             },
             {
                 "Data": {
