@@ -91,7 +91,7 @@ public class CraftAnemone : SystemBase
                                                              Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
                                                              9, false, true, false, false);
                 NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
-                Log("Created and Added a node");
+                //Log("Created and Added a node");
             }
         }
 
@@ -221,7 +221,7 @@ public class CraftAnemone : SystemBase
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
 
             Anemone cr = instances[gameObject.Entity.Id];
-            Log("Currentstate: " + cr.currentState);
+            //Log("Currentstate: " + cr.currentState);
             float yBloom = 1.55f;
             //float yWilt = -0.86f; // might be unused but good to know!
 

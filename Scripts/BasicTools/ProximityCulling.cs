@@ -59,8 +59,4 @@ public class ProximityCulling : SystemBase
         }
     }
 
-    protected override void OnDestroy()
-    {
-        Log("System ProximityCulling destroyed");
-    }
 }
