@@ -46,14 +46,14 @@
                         "Data": {
                             "Dirty": false,
                             "Matrix": {
-                                "m00": 0.9999992847442627,
+                                "m00": 2.0,
                                 "m01": 0.0,
                                 "m02": 0.0,
-                                "m03": 5.958591461181641,
+                                "m03": 2.923278331756592,
                                 "m10": 0.0,
-                                "m11": 0.9999992847442627,
+                                "m11": 2.0,
                                 "m12": 0.0,
-                                "m13": -12.063250541687012,
+                                "m13": -11.138627052307129,
                                 "m20": 0.0,
                                 "m21": 0.0,
                                 "m22": 1.0,
@@ -84,8 +84,8 @@
                         "Z": 0.0
                     },
                     "Scale": {
-                        "X": 0.9999992847442627,
-                        "Y": 0.9999992847442627,
+                        "X": 2.0,
+                        "Y": 2.0,
                         "Z": 1.0
                     }
                 },
@@ -114,14 +114,18 @@
             {
                 "Data": {
                     "Flags": 1,
+                    "HalfExtents": {
+                        "X": 0.12999999523162842,
+                        "Y": 0.029999999329447746
+                    },
                     "LayerMask": 4,
                     "Offset": {
-                        "X": -0.1899999976158142,
-                        "Y": 0.3400000035762787
+                        "X": -0.3799999952316284,
+                        "Y": 0.699999988079071
                     },
-                    "Radius": 0.10999999940395355
+                    "Rotation": 0.0
                 },
-                "TypeName": "CircleCollider2D"
+                "TypeName": "BoxCollider2D"
             },
             {
                 "Data": {
@@ -162,7 +166,7 @@
                         "Y": 0.5555555820465088
                     },
                     "TextureFilter": 0,
-                    "TextureId": 17,
+                    "TextureId": 70,
                     "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Lexicate_MS03.png",
                     "Tiling": {
                         "X": 0.0625,
@@ -189,7 +193,7 @@
                     "SheetWidth": 4000,
                     "StartFrame": 0,
                     "TextureFilter": 0,
-                    "TextureId": 17,
+                    "TextureId": 70,
                     "TexturePath": "Assets\\Sprites\\2.2-SwitchDoorSystem\\Lexicate_SpriteSheet.png",
                     "UseRow": true,
                     "UseSegments": false
@@ -200,14 +204,14 @@
                 "Data": {
                     "Dirty": false,
                     "Matrix": {
-                        "m00": 0.9999992847442627,
+                        "m00": 2.0,
                         "m01": 0.0,
                         "m02": 0.0,
-                        "m03": 5.586745262145996,
+                        "m03": 2.1795849800109863,
                         "m10": 0.0,
-                        "m11": 0.9999992847442627,
+                        "m11": 2.0,
                         "m12": 0.0,
-                        "m13": -11.8684663772583,
+                        "m13": -10.749058723449707,
                         "m20": 0.0,
                         "m21": 0.0,
                         "m22": 1.0,
@@ -231,7 +235,7 @@
                     "awake": false,
                     "doorSignifier": 0,
                     "msID_in": 3,
-                    "msID_out": 4,
+                    "msID_out": 3,
                     "objID": 0,
                     "start": false,
                     "vomitSpeed": 5

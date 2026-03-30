@@ -29,6 +29,7 @@ public class LexicateData
     public Vector3 throwing_newPos { get; set; }
     public Vector2 throwing_trajectory { get; set; }
     public float throwing_decayTime { get; set; }
+    public Entity throwingPlayer { get; set; }
 
     public LexicateData(ulong objID, World world)
     {
@@ -105,8 +106,25 @@ public class Lexicate : SystemBase
             {
                 if (Entity.FromId(World!,gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (spitState.frameLength - 1))
                 {
-                    SetAnimState(lx.objID, World!, idleState);
-                    MS_Manager.instance.TakeFromPool(lx.throwing_msID, lx.throwing_newPos, lx.throwing_trajectory, 100000f, true);
+                    if(lx.throwing_msID != 0)
+                    {
+                        SetAnimState(lx.objID, World!, idleState);
+                        MS_Manager.instance.TakeFromPool(lx.throwing_msID, lx.throwing_newPos, lx.throwing_trajectory, 100000f, true);
+                    }
+                    else
+                    {
+                        ref LocalTransform transform = ref Entity.FromId(World!, lx.throwingPlayer.Id).GetComponent<LocalTransform>();
+                        transform.Position = lx.throwing_newPos;
+
+                        ref LinearVelocity2D lv = ref Entity.FromId(World!, lx.throwingPlayer.Id).GetComponent<LinearVelocity2D>();
+                        lv.Value = lx.throwing_trajectory/4f;
+
+                        Entity.FromId(World!, lx.throwingPlayer.Id).GetComponent<Active>().Enabled = true;
+
+                        Player.instance.isEnabled = true;
+
+                        SetAnimState(lx.objID, World!, idleState);
+                    }
                 }
             }
         }
@@ -148,18 +166,22 @@ public class LexicateTrade : TriggerSystemBase
                 if (gameObject.Component1.objID != self.Id) continue;
 
 
-                if(otherEntity.GetComponent<MS_IDComponent>().msID == gameObject.Component1.msID_in)
+                if (otherEntity.GetComponent<MS_IDComponent>().msID == gameObject.Component1.msID_in)
                 {
                     //AudioManager.instance.PlaySFX("SFX010_Track01");
 
                     //Finding the local up angle?
-                    float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation) + (90f*GMath.Rad2Deg);
+                    float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation) + (90f * GMath.Rad2Deg);
                     Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
                     if (-0.0001f < localUp.X && localUp.X < 0.0001f && 0.9999f < localUp.Y && localUp.Y < 1.0001f) localUp = new Vector2(0, 1);
 
                     //declaring my values
                     Vector2 trajectory = localUp.Normalized * gameObject.Component1.vomitSpeed;
-                    Vector3 newPos = ApplyRotationToVector(outputEntity.GetComponent<LocalTransform>().Position, selfEntity.GetComponent<LocalTransform>().Rotation) + selfEntity.GetComponent<LocalTransform>().Position;
+                    Vector3 newPos = ApplyRotationToVector(
+                        new Vector3(outputEntity.GetComponent<LocalTransform>().Position.X * selfEntity.GetComponent<LocalTransform>().Scale.X,
+                                    outputEntity.GetComponent<LocalTransform>().Position.Y * selfEntity.GetComponent<LocalTransform>().Scale.Y,
+                                    outputEntity.GetComponent<LocalTransform>().Position.Z * selfEntity.GetComponent<LocalTransform>().Scale.Z),
+                                    selfEntity.GetComponent<LocalTransform>().Rotation) + selfEntity.GetComponent<LocalTransform>().Position;
 
                     //send and remove an obj from the pool into the world
 
@@ -172,29 +194,57 @@ public class LexicateTrade : TriggerSystemBase
                     lx.throwing_newPos = newPos;
                     lx.throwing_trajectory = trajectory;
                     lx.throwing_decayTime = 100000f;
-
-                    //MS_Manager.instance.TakeFromPool(gameObject.Component1.msID_out, newPos, trajectory, 100000f, true);
-
-                    //Deprecated
-                    //foreach (var door in World!.Query<MatchSignifierComponent>())
-                    //{
-                    //    if (door.Component1.signifierID == gameObject.Component1.doorSignifier)
-                    //    {
-                    //        //Deactivate Door!
-                    //        AudioManager.instance.PlaySFX("SFX006");
-                    //        ref Active doorActive = ref Entity.FromId(World!, door.Entity.Id).GetComponent<Active>();
-                    //        doorActive.Enabled = false;
-                    //    }
-                    //    //else nothin,  no door found
-                    //}
-                    //Log($"Throwin it back to ya from {Entity.FromId(World!,self.Id).GetComponent<Name>().Value.ToString()}");
-                    //Log($"{Entity.FromId(World!, self.Id).GetComponent<Name>().Value.ToString()}'s child is {instances[self.Id].output.GetComponent<Name>().Value.ToString()}");
-
                 }
+            }
+        }
 
 
+
+        if (selfEntity.HasComponent<LexicateTradeComponent>() && otherEntity.HasComponent<PlayerComponent>())
+        {
+            Log("Lex: Player triggered!");
+
+            //Deactivate and zero out the velocity!
+            ref LinearVelocity2D lv = ref Entity.FromId(World!, otherEntity.Id).GetComponent<LinearVelocity2D>();
+            lv.Value = Vector2.Zero;
+
+            Entity.FromId(World!, otherEntity.Id).GetComponent<Active>().Enabled = false;
+
+            Player.instance.isEnabled = false;
+
+            foreach (var gameObject in World!.Query<LexicateTradeComponent, Active>())
+            {
+                if (gameObject.Component1.objID != self.Id) continue;
+
+
+                //Finding the local up angle?
+                float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation) + (90f * GMath.Rad2Deg);
+                Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
+                if (-0.0001f < localUp.X && localUp.X < 0.0001f && 0.9999f < localUp.Y && localUp.Y < 1.0001f) localUp = new Vector2(0, 1);
+
+                //declaring my values
+                Vector2 trajectory = localUp.Normalized * gameObject.Component1.vomitSpeed;
+                Vector3 newPos = ApplyRotationToVector(
+                    new Vector3(outputEntity.GetComponent<LocalTransform>().Position.X * selfEntity.GetComponent<LocalTransform>().Scale.X,
+                                outputEntity.GetComponent<LocalTransform>().Position.Y * selfEntity.GetComponent<LocalTransform>().Scale.Y,
+                                outputEntity.GetComponent<LocalTransform>().Position.Z * selfEntity.GetComponent<LocalTransform>().Scale.Z),
+                                selfEntity.GetComponent<LocalTransform>().Rotation) + selfEntity.GetComponent<LocalTransform>().Position;
+
+                //send and remove an obj from the pool into the world
+
+  
+                Lexicate.instance.SetAnimState(self.Id, World!, Lexicate.instance.spitState);
+                //Delay this
+
+                LexicateData lx = LexicateTrade.instances[self.Id];
+                lx.throwing_msID = 0;
+                lx.throwing_newPos = newPos;
+                lx.throwing_trajectory = trajectory;
+                lx.throwingPlayer = otherEntity;
 
             }
+            Log("Lex: Complete Player storing");
+
         }
     }
     private float Quat2EulerAxisZ(Quaternion quat)
