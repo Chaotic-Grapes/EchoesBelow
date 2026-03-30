@@ -133,6 +133,9 @@ public class Lexicate : SystemBase
                     }
 
                     lx.isProcessing = false;
+                    ref AudioSource audSrc = ref lx.output.GetComponent<AudioSource>();
+                    audSrc.PlayOnStart = false;
+                    audSrc.PlayOnStart = true;
                 }
             }
         }
@@ -230,6 +233,7 @@ public class LexicateTrade : TriggerSystemBase
 
                 Player.instance.isEnabled = false;
 
+                //PlayerAnimManager.instance.SetAnimState(Player.instance.tuckedState);
 
                 //Finding the local up angle?
                 float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation) + (90f * GMath.Rad2Deg);

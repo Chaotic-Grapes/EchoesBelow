@@ -34,6 +34,7 @@ public class Player : SystemBase
     AnimState idleState = new AnimState("idleState",1, 5, 65, 30f, true);
     AnimState dashState = new AnimState("dashState",5, 6, 26, 30f, false);
     AnimState dmgFlashState = new AnimState("dmgFlashState", 12, 11, 1, 24f, true);
+    public AnimState tuckedState = new AnimState("tuckedState", 11, 0, 16, 24, true);
 
     public static Vector2 playerDir;
     public static Compass abs_InputDirection = Compass.N;

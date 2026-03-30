@@ -38,6 +38,25 @@
                     },
                     {
                         "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/PopVomit_v2.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": true,
+                            "Volume": 5.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
                             "Id": 0
                         },
                         "TypeName": "Layer"
@@ -46,14 +65,14 @@
                         "Data": {
                             "Dirty": false,
                             "Matrix": {
-                                "m00": 2.0,
+                                "m00": 2.000000476837158,
                                 "m01": 0.0,
                                 "m02": 0.0,
-                                "m03": 2.923278331756592,
+                                "m03": -14.559588432312012,
                                 "m10": 0.0,
-                                "m11": 2.0,
+                                "m11": 2.000000476837158,
                                 "m12": 0.0,
-                                "m13": -11.138627052307129,
+                                "m13": -10.771893501281738,
                                 "m20": 0.0,
                                 "m21": 0.0,
                                 "m22": 1.0,
@@ -65,6 +84,13 @@
                             }
                         },
                         "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
                     }
                 ]
             }
@@ -84,8 +110,8 @@
                         "Z": 0.0
                     },
                     "Scale": {
-                        "X": 2.0,
-                        "Y": 2.0,
+                        "X": 2.000000476837158,
+                        "Y": 2.000000476837158,
                         "Z": 1.0
                     }
                 },
@@ -152,9 +178,9 @@
                 "Data": {
                     "Color": {
                         "A": 1.0,
-                        "B": 1.0,
+                        "B": 0.9998999834060669,
                         "G": 1.0,
-                        "R": 1.0
+                        "R": 0.9999550580978394
                     },
                     "EmissiveStrength": 5.0,
                     "EmissiveTextureId": 0,
@@ -166,8 +192,8 @@
                         "Y": 0.5555555820465088
                     },
                     "TextureFilter": 0,
-                    "TextureId": 70,
-                    "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Lexicate_MS03.png",
+                    "TextureId": 47,
+                    "TexturePath": "",
                     "Tiling": {
                         "X": 0.0625,
                         "Y": 0.1111111044883728
@@ -193,7 +219,7 @@
                     "SheetWidth": 4000,
                     "StartFrame": 0,
                     "TextureFilter": 0,
-                    "TextureId": 70,
+                    "TextureId": 47,
                     "TexturePath": "Assets\\Sprites\\2.2-SwitchDoorSystem\\Lexicate_SpriteSheet.png",
                     "UseRow": true,
                     "UseSegments": false
@@ -204,14 +230,14 @@
                 "Data": {
                     "Dirty": false,
                     "Matrix": {
-                        "m00": 2.0,
+                        "m00": 2.000000476837158,
                         "m01": 0.0,
                         "m02": 0.0,
-                        "m03": 2.1795849800109863,
+                        "m03": -15.303281784057617,
                         "m10": 0.0,
-                        "m11": 2.0,
+                        "m11": 2.000000476837158,
                         "m12": 0.0,
-                        "m13": -10.749058723449707,
+                        "m13": -10.382325172424316,
                         "m20": 0.0,
                         "m21": 0.0,
                         "m22": 1.0,
@@ -234,11 +260,11 @@
                 "Data": {
                     "awake": false,
                     "doorSignifier": 0,
-                    "msID_in": 3,
+                    "msID_in": 5,
                     "msID_out": 3,
                     "objID": 0,
                     "start": false,
-                    "vomitSpeed": 5
+                    "vomitSpeed": 2
                 },
                 "TypeName": "Lexicate Trade"
             }
