@@ -40,6 +40,8 @@ public class CraftAnemone : SystemBase
     private const float cameraOriginalY = 0f;
     private const float marginAllowance = 0.25f;
 
+    public static float gloablLightOriginalIntensity;
+
     public static bool isRMB_pressed = false;
     public static bool isLMB_pressed = false;
     static bool isKeyPressed_Space = false;
@@ -180,6 +182,13 @@ public class CraftAnemone : SystemBase
         //Set Anims
         SetAnimState(idleState, objId, World!);
 
+        foreach (var light in World!.Query<Light2D>())
+        {
+            if (light.Entity.GetComponent<Light2D>().LightType == Light2D.Type.Directional)
+            {
+                gloablLightOriginalIntensity =  light.Entity.GetComponent<Light2D>().Intensity;
+            }
+        }
         //End of Start
         return true;
     }
@@ -389,6 +398,9 @@ public class CraftAnemone : SystemBase
             if (cr.isEnteredAnemone && !instances[gameObject.Entity.Id].isExitingAnemone)
             {
                 TransitionCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f, cameraOffsetY, FOVoffset);
+
+                ResetGlobalLight(lerpFac);
+
             }
             if (cr.isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
             {
@@ -543,6 +555,30 @@ public class CraftAnemone : SystemBase
             instances[objId].isCaptured = true;
         }
     }
+    private void TransitGlobalLight(float lerpFac)
+    {
+        foreach (var light in World!.Query<Light2D>())
+        {
+            if (light.Entity.GetComponent<Light2D>().LightType == Light2D.Type.Directional)
+            {
+                ref Light2D l = ref light.Entity.GetComponent<Light2D>();
+                l.Intensity = GMath.Lerp(l.Intensity, CraftAnemone.gloablLightOriginalIntensity-3f, lerpFac * 20f * Time.DeltaTime);
+            }
+        }
+    }
+
+    private void ResetGlobalLight(float lerpFac)
+    {
+        foreach (var light in World!.Query<Light2D>())
+        {
+            if (light.Entity.GetComponent<Light2D>().LightType == Light2D.Type.Directional)
+            {
+                ref Light2D l = ref light.Entity.GetComponent<Light2D>();
+                l.Intensity = GMath.Lerp(l.Intensity, CraftAnemone.gloablLightOriginalIntensity, lerpFac * 20f * Time.DeltaTime);
+            }
+        }
+    }
+
     #endregion
 
     #region AnimStateHandler
@@ -551,17 +587,22 @@ public class CraftAnemone : SystemBase
     {
         if (cr.currentState == vibrateExitState.name)
         {
-            ResetCamera(cr, lerpFac * 3f);
-            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateExitState.frameLength-1))
+            ResetCamera(cr, lerpFac * 20f);
+
+            ResetGlobalLight(lerpFac);
+
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateExitState.frameLength - 1))
             {
                 SetAnimState(idleEnterState, cr.objId, World!);
             }
         }
         else if (cr.currentState == vibrateEnterState.name)
         {
-            TransitionCamera(instances[objID], lerpFac * 3f, 0f, 130);
+            TransitionCamera(instances[objID], lerpFac * 4f, 0f, 143);
 
-            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateEnterState.frameLength-1))
+            TransitGlobalLight(lerpFac);
+
+            if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateEnterState.frameLength - 1))
             {
                 SetAnimState(vibrateState, cr.objId, World!);
             }
@@ -588,7 +629,6 @@ public class CraftAnemone : SystemBase
             }
         }
     }
-
 
     public void SetAnimState(AnimState animState, ulong objID, World world)
     {
