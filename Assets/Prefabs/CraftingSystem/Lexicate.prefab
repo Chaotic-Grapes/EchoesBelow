@@ -1,133 +1,243 @@
 {
-    "Components": [
-        {
-            "Data": {
-                "Position": {
-                    "X": 0.0,
-                    "Y": 0.0,
-                    "Z": 0.0
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.37184667587280273,
+                                "Y": -0.19478416442871094,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "OutputPort"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.9999992847442627,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 5.958591461181641,
+                                "m10": 0.0,
+                                "m11": 0.9999992847442627,
+                                "m12": 0.0,
+                                "m13": -12.063250541687012,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 0.9999992847442627,
+                        "Y": 0.9999992847442627,
+                        "Z": 1.0
+                    }
                 },
-                "Rotation": {
-                    "W": 1.0,
-                    "X": 0.0,
-                    "Y": 0.0,
-                    "Z": 0.0
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "Lexicate"
                 },
-                "Scale": {
-                    "X": 1.0,
-                    "Y": 1.0,
-                    "Z": 1.0
-                }
+                "TypeName": "Name"
             },
-            "TypeName": "LocalTransform"
-        },
-        {
-            "Data": {
-                "Value": "Lexicate"
-            },
-            "TypeName": "Name"
-        },
-        {
-            "Data": {
-                "Enabled": true
-            },
-            "TypeName": "Active"
-        },
-        {
-            "Data": {
-                "Flags": 1,
-                "HalfExtents": {
-                    "X": 0.30000001192092896,
-                    "Y": 0.4000000059604645
+            {
+                "Data": {
+                    "Enabled": true
                 },
-                "LayerMask": 2,
-                "Offset": {
-                    "X": 0.0,
-                    "Y": 0.0
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "CurrentFrame": 0,
+                    "Finished": false,
+                    "TimeAccumulator": 0.0
                 },
-                "Rotation": 0.0
+                "TypeName": "AnimationState2D"
             },
-            "TypeName": "BoxCollider2D"
-        },
-        {
-            "Data": {
-                "Id": 1
-            },
-            "TypeName": "Layer"
-        },
-        {
-            "Data": {
-                "Color": {
-                    "A": 1.0,
-                    "B": 1.0,
-                    "G": 1.0,
-                    "R": 1.0
+            {
+                "Data": {
+                    "Flags": 1,
+                    "LayerMask": 4,
+                    "Offset": {
+                        "X": -0.1899999976158142,
+                        "Y": 0.3400000035762787
+                    },
+                    "Radius": 0.10999999940395355
                 },
-                "EmissiveStrength": 5.0,
-                "EmissiveTextureId": 0,
-                "EmissiveTexturePath": "",
-                "NormalTextureId": 0,
-                "NormalTexturePath": "",
-                "Offset": {
-                    "X": 0.0,
-                    "Y": 0.0
+                "TypeName": "CircleCollider2D"
+            },
+            {
+                "Data": {
+                    "Id": 1
                 },
-                "TextureFilter": 0,
-                "TextureId": 69,
-                "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Lexicate_MS01.png",
-                "Tiling": {
-                    "X": 1.0,
-                    "Y": 1.0
-                }
+                "TypeName": "Layer"
             },
-            "TypeName": "SpriteRenderer2D"
-        },
-        {
-            "Data": {
-                "Dirty": false,
-                "Matrix": {
-                    "m00": 1.0,
-                    "m01": 0.0,
-                    "m02": 0.0,
-                    "m03": -5.811569690704346,
-                    "m10": 0.0,
-                    "m11": 1.0,
-                    "m12": 0.0,
-                    "m13": 21.946842193603516,
-                    "m20": 0.0,
-                    "m21": 0.0,
-                    "m22": 1.0,
-                    "m23": 0.0,
-                    "m30": 0.0,
-                    "m31": 0.0,
-                    "m32": 0.0,
-                    "m33": 1.0
-                }
+            {
+                "Data": {
+                    "AOStrength": 1.0,
+                    "AlphaCutoff": 0.5,
+                    "Flags": 16,
+                    "MRA_TextureId": 0,
+                    "MRA_TexturePath": "",
+                    "Metallic": 1.0,
+                    "NormalStrength": 1.0,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Smoothness": 0.0
+                },
+                "TypeName": "Material2D"
             },
-            "TypeName": "WorldTransform"
-        },
-        {
-            "Data": {
-                "cullDist": 10,
-                "isCulling": false,
-                "start": false
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 1.0,
+                        "G": 1.0,
+                        "R": 1.0
+                    },
+                    "EmissiveStrength": 5.0,
+                    "EmissiveTextureId": 0,
+                    "EmissiveTexturePath": "",
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.5555555820465088
+                    },
+                    "TextureFilter": 0,
+                    "TextureId": 17,
+                    "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\Lexicate_MS03.png",
+                    "Tiling": {
+                        "X": 0.0625,
+                        "Y": 0.1111111044883728
+                    }
+                },
+                "TypeName": "SpriteRenderer2D"
             },
-            "TypeName": "Proximity Culling"
-        },
-        {
-            "Data": {
-                "doorSignifier": 99009900,
-                "msID_in": 3,
-                "msID_out": 1,
-                "vomitSpeed": 4
+            {
+                "Data": {
+                    "FrameCount": 1,
+                    "FrameHeight": 250,
+                    "FrameLength": 96,
+                    "FrameOffset": 0,
+                    "FrameWidth": 250,
+                    "FramesPerSecond": 24.0,
+                    "Loop": true,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Playing": true,
+                    "Row": 3,
+                    "Segments": [],
+                    "SheetHeight": 2250,
+                    "SheetWidth": 4000,
+                    "StartFrame": 0,
+                    "TextureFilter": 0,
+                    "TextureId": 17,
+                    "TexturePath": "Assets\\Sprites\\2.2-SwitchDoorSystem\\Lexicate_SpriteSheet.png",
+                    "UseRow": true,
+                    "UseSegments": false
+                },
+                "TypeName": "SpriteSheetAnimation2D"
             },
-            "TypeName": "Lexicate Trade"
-        },
-        {
-            "Data": {
-                "ZOrder": -1
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 0.9999992847442627,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 5.586745262145996,
+                        "m10": 0.0,
+                        "m11": 0.9999992847442627,
+                        "m12": 0.0,
+                        "m13": -11.8684663772583,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
             },
-            "TypeName": "ECS::Components::ZIndex2D"
-        }
-    ]
+            {
+                "Data": {
+                    "ZOrder": -1
+                },
+                "TypeName": "ZIndex2D"
+            },
+            {
+                "Data": {
+                    "awake": false,
+                    "doorSignifier": 0,
+                    "msID_in": 3,
+                    "msID_out": 4,
+                    "objID": 0,
+                    "start": false,
+                    "vomitSpeed": 5
+                },
+                "TypeName": "Lexicate Trade"
+            }
+        ]
+    }
 }

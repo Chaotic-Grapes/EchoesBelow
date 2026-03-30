@@ -142,7 +142,7 @@ public class Player : SystemBase
                 //When dashing ends
                 if(Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
                 {
-                    Log("End Dash");
+                    //Log("End Dash");
                     //Log($"currentState : {PlayerAnimManager.instance.currentState}");
                     isDashing = false;
                     foreach (var ps in World!.Query<MatchSignifierComponent, ParticleEmitter>())
@@ -215,7 +215,7 @@ public class Player : SystemBase
                 //Zero out animstate2D
                 Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame = 0;
 
-                Log("Dashing");
+                //Log("Dashing");
                 AddInstantaneousForce(ref lv, playerDir, dashSpeed);
                 isCoolingDown = true;
                 dashCoolDownTimer = 1.25f;
