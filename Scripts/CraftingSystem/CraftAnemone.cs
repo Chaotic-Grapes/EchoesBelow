@@ -399,7 +399,7 @@ public class CraftAnemone : SystemBase
             {
                 TransitionCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f, cameraOffsetY, FOVoffset);
 
-                ResetGlobalLight(lerpFac);
+                //ResetGlobalLight(lerpFac);
 
             }
             if (cr.isExitingAnemone && !instances[gameObject.Entity.Id].isEnteredAnemone)
@@ -589,7 +589,7 @@ public class CraftAnemone : SystemBase
         {
             ResetCamera(cr, lerpFac * 20f);
 
-            ResetGlobalLight(lerpFac);
+            //ResetGlobalLight(lerpFac);
 
             if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateExitState.frameLength - 1))
             {
@@ -600,7 +600,7 @@ public class CraftAnemone : SystemBase
         {
             TransitionCamera(instances[objID], lerpFac * 4f, 0f, 143);
 
-            TransitGlobalLight(lerpFac);
+            //TransitGlobalLight(lerpFac);
 
             if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (vibrateEnterState.frameLength - 1))
             {

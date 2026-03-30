@@ -30,6 +30,7 @@ public class LexicateData
     public Vector2 throwing_trajectory { get; set; }
     public float throwing_decayTime { get; set; }
     public Entity throwingPlayer { get; set; }
+    public bool isProcessing { get; set; }
 
     public LexicateData(ulong objID, World world)
     {
@@ -104,12 +105,17 @@ public class Lexicate : SystemBase
 
             if (lx.currentState == spitState.name)
             {
+                if(lx.throwing_msID == 0)
+                Player.instance.currentPos = gameObject.Entity.GetComponent<LocalTransform>().Position;
+
                 if (Entity.FromId(World!,gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (spitState.frameLength - 1))
                 {
                     if(lx.throwing_msID != 0)
                     {
                         SetAnimState(lx.objID, World!, idleState);
                         MS_Manager.instance.TakeFromPool(lx.throwing_msID, lx.throwing_newPos, lx.throwing_trajectory, 100000f, true);
+
+
                     }
                     else
                     {
@@ -125,6 +131,8 @@ public class Lexicate : SystemBase
 
                         SetAnimState(lx.objID, World!, idleState);
                     }
+
+                    lx.isProcessing = false;
                 }
             }
         }
@@ -165,6 +173,10 @@ public class LexicateTrade : TriggerSystemBase
             {
                 if (gameObject.Component1.objID != self.Id) continue;
 
+                LexicateData lx = LexicateTrade.instances[self.Id];
+
+                if (lx.isProcessing) continue;
+                lx.isProcessing = true;
 
                 if (otherEntity.GetComponent<MS_IDComponent>().msID == gameObject.Component1.msID_in)
                 {
@@ -189,7 +201,7 @@ public class LexicateTrade : TriggerSystemBase
                     Lexicate.instance.SetAnimState(self.Id, World!, Lexicate.instance.spitState);
                     //Delay this
 
-                    LexicateData lx = LexicateTrade.instances[self.Id];
+
                     lx.throwing_msID = gameObject.Component1.msID_out;
                     lx.throwing_newPos = newPos;
                     lx.throwing_trajectory = trajectory;
@@ -199,22 +211,24 @@ public class LexicateTrade : TriggerSystemBase
         }
 
 
-
         if (selfEntity.HasComponent<LexicateTradeComponent>() && otherEntity.HasComponent<PlayerComponent>())
         {
-            Log("Lex: Player triggered!");
-
-            //Deactivate and zero out the velocity!
-            ref LinearVelocity2D lv = ref Entity.FromId(World!, otherEntity.Id).GetComponent<LinearVelocity2D>();
-            lv.Value = Vector2.Zero;
-
-            Entity.FromId(World!, otherEntity.Id).GetComponent<Active>().Enabled = false;
-
-            Player.instance.isEnabled = false;
-
             foreach (var gameObject in World!.Query<LexicateTradeComponent, Active>())
             {
                 if (gameObject.Component1.objID != self.Id) continue;
+
+                LexicateData lx = LexicateTrade.instances[self.Id];
+
+                if (lx.isProcessing) continue;
+                lx.isProcessing = true;
+
+                //Deactivate and zero out the velocity!
+                ref LinearVelocity2D lv = ref Entity.FromId(World!, otherEntity.Id).GetComponent<LinearVelocity2D>();
+                lv.Value = Vector2.Zero;
+
+                Entity.FromId(World!, otherEntity.Id).GetComponent<Active>().Enabled = false;
+
+                Player.instance.isEnabled = false;
 
 
                 //Finding the local up angle?
@@ -236,14 +250,13 @@ public class LexicateTrade : TriggerSystemBase
                 Lexicate.instance.SetAnimState(self.Id, World!, Lexicate.instance.spitState);
                 //Delay this
 
-                LexicateData lx = LexicateTrade.instances[self.Id];
                 lx.throwing_msID = 0;
                 lx.throwing_newPos = newPos;
                 lx.throwing_trajectory = trajectory;
                 lx.throwingPlayer = otherEntity;
 
             }
-            Log("Lex: Complete Player storing");
+            //Log("Lex: Complete Player storing");
 
         }
     }
