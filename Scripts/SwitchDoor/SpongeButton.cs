@@ -216,7 +216,7 @@ public class SpongeTriggerHandler: TriggerSystemBase
                 MS_Manager.instance.SendToPool(otherEntity.Id);
 
 
-                AudioManager.instance.PlaySFX("SFX006");
+                AudioManager.instance.PlaySFX("TempTest");
                 //Do this
                 SpongeButton.instance.SetAnimState(bubData.objID, World!, SpongeButton.instance.transformState);
 
