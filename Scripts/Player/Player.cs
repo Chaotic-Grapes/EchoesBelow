@@ -428,10 +428,6 @@ public class Player : SystemBase
         float diff = (heading2 - heading1 + 180) % 360 - 180;
         return diff < -180 ? diff + 360 : diff;
     }
-    protected override void OnDestroy()
-    {
-        //Log("System Player destroyed");
-    }
     public void ResetInputs()
     {
         isKeyDown_W = false;

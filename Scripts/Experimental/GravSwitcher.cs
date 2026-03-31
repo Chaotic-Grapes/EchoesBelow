@@ -46,9 +46,4 @@ public class GravSwitcher : SystemBase
             }
         }
     }
-
-    protected override void OnDestroy()
-    {
-        //Log("System GravSwitcher destroyed");
-    }
 }

@@ -37,9 +37,4 @@ public class LoadScene : SystemBase
             //Log("Hello");
         }
     }
-
-    protected override void OnDestroy()
-    {
-        //Log("System LoadScene destroyed");
-    }
 }

@@ -89,9 +89,4 @@ public class DevKeys : SystemBase
             t.Position = new Vector3(9.95f, 89.68f, 0f);
         }
     }
-
-    protected override void OnDestroy()
-    {
-        //Log("System DevKeys destroyed");
-    }
 }

@@ -103,9 +103,4 @@ public class CraftMove : SystemBase
             }
         }
     }
-
-    protected override void OnDestroy()
-    {
-     
-    }
 }
