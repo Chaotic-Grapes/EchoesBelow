@@ -40,7 +40,7 @@ public class Player : SystemBase
     public static Compass abs_InputDirection = Compass.N;
     
     public float vomitSpeed;
-    public Vector3 currentPos;
+    public Vector3 currentPosForCamFollow;
     const float lerpFac = 0.5f;
     const float maxSpeed = 8;
     float timer_forRotation = 0;
@@ -252,12 +252,12 @@ public class Player : SystemBase
             SpeedLimit(ref lv, maxSpeed);
 
             //update Position
-            currentPos = transform.Position;
+            currentPosForCamFollow = transform.Position;
 
 
             GrapeEngine.Scripting.Services.Audio.SetListener(
               transform.Position,
-             (transform.Position - currentPos) / (Time.DeltaTime > 0.0f ? Time.DeltaTime : 0.0001f),
+             (transform.Position - currentPosForCamFollow) / (Time.DeltaTime > 0.0f ? Time.DeltaTime : 0.0001f),
              new Vector3(playerDir.X, playerDir.Y, 0.0f), 
              new Vector3(0.0f, 0.0f, 1.0f));
 

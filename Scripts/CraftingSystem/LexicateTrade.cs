@@ -61,7 +61,7 @@ public class Lexicate : SystemBase
         idleState = new AnimState("idleState", 3, 0, 96, 24, true);
         spitState = new AnimState("spitState", 0, 0, 40, 24, true);
 
-        Log("Lotsa times every awake per obj");
+        //Log("Lotsa times every awake per obj");
         //End of Start
         return true;
     }
@@ -77,7 +77,7 @@ public class Lexicate : SystemBase
 
         LexicateData lx = new LexicateData(lxT.objID, World!);
         LexicateTrade.instances.Add(lx.objID, lx);
-        Log("Once every start per obj / Count: " + LexicateTrade.instances.Count);
+        //Log("Once every start per obj / Count: " + LexicateTrade.instances.Count);
 
         SetAnimState(LexicateEntity.Id, World!, idleState);
 
@@ -106,7 +106,7 @@ public class Lexicate : SystemBase
             if (lx.currentState == spitState.name)
             {
                 if(lx.throwing_msID == 0)
-                Player.instance.currentPos = gameObject.Entity.GetComponent<LocalTransform>().Position;
+                Player.instance.currentPosForCamFollow = gameObject.Entity.GetComponent<LocalTransform>().Position;
 
                 if (Entity.FromId(World!,gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (spitState.frameLength - 1))
                 {

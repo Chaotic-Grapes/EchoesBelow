@@ -190,7 +190,7 @@ public class InventoryController : SystemBase
                 
                 
                 Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
-                Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
+                Vector3 newPos = new Vector3(Player.instance.currentPosForCamFollow.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPosForCamFollow.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPosForCamFollow.Z);
                 if (globalInvIterator == 6)
                 { 
                     RemoveFromInventory(2, true, newPos, trajectory); 

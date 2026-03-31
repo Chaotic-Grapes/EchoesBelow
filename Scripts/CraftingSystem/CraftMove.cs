@@ -92,7 +92,7 @@ public class CraftMove : SystemBase
             lv.Value.X = GMath.Clamp(lv.Value.X, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
             lv.Value.Y = GMath.Clamp(lv.Value.Y, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
 
-            Player.instance.currentPos = gameObject.Entity.GetComponent<LocalTransform>().Position 
+            Player.instance.currentPosForCamFollow = gameObject.Entity.GetComponent<LocalTransform>().Position 
                 + gameObject.Entity.GetParent()!.GetComponent<LocalTransform>().Position + new Vector3(0,-CraftAnemone.cameraOffsetY,0);
 
 

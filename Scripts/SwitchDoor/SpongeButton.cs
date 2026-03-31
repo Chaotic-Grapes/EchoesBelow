@@ -14,6 +14,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+
 namespace Scripts.SwitchDoor;
 
 public class SpongeBubData
@@ -23,6 +24,8 @@ public class SpongeBubData
     public bool isTransformed { get; set; }
     public string currentState { get; set; }
     public LayerMask layerMask { get; set; }
+    public Entity storedDoor { get; set; }
+    public bool isDoorAccessible { get; set; }
     public SpongeBubData(Entity entity, bool isTransformed)
     {
         this.entity = entity;
@@ -118,12 +121,51 @@ public class SpongeButton : SystemBase
             }
             else if (sBub.currentState == buttonPushState.name)
             {
-                if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
+                if (!sBub.isDoorAccessible)
                 {
-                    SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
+                    if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
+                    {
+                        SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
 
-                    InitBoxCollider(sBub);
+                        InitBoxCollider(sBub);
+                        sBub.storedDoor = null;
+                        sBub.isDoorAccessible = false;
+                    }
                 }
+                else if(sBub.isDoorAccessible)
+                {
+                    Entity storedDoor = Entity.FromId(World!, sBub.storedDoor.Id);
+                    CamFollow.lerpFac = 0.025f;
+                    Player.instance.currentPosForCamFollow = storedDoor.GetComponent<LocalTransform>().Position;
+
+                    //If position is within the agreed allowance, stop the tractor beam
+                    float camXPos = CamFollow.camPos.X;
+                    float Xboundary = storedDoor.GetComponent<LocalTransform>().Position.X;
+
+                    float camYPos = CamFollow.camPos.Y;
+                    float yBoundary = storedDoor.GetComponent<LocalTransform>().Position.Y;
+
+                    if ((Xboundary - 0.325f < camXPos && camXPos < Xboundary + 0.325f &&
+                        yBoundary - 0.325f < camYPos && camYPos < yBoundary + 0.325f))
+                    {
+                        AudioManager.instance.PlaySFX("SFX006");
+                        ref Active doorActive = ref Entity.FromId(World!, storedDoor.Id).GetComponent<Active>();
+                        doorActive.Enabled = false;
+                    }
+
+                    if ((Xboundary - 0.125f < camXPos && camXPos < Xboundary + 0.125f &&
+                        yBoundary - 0.125f < camYPos && camYPos < yBoundary + 0.125f)
+                        && Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
+                    {
+                        SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
+
+                        InitBoxCollider(sBub);
+                        sBub.storedDoor = null;
+                        sBub.isDoorAccessible = false;
+                    }
+                }
+
+                
             }
         }
     }
@@ -167,12 +209,13 @@ public class SpongeTriggerHandler: TriggerSystemBase
         otherEntity = Entity.FromId(World!, evt.OtherEntityId);
         if (self.TryGetComponent<SpongeButtonComponent>(out SpongeButtonComponent spButton) && otherEntity.TryGetComponent<MS_IDComponent>(out MS_IDComponent msIDcomp))
         {
-        
-            MS_Manager.instance.SendToPool(otherEntity.Id);
 
             bubData = SpongeButton.instances[self.Id];
             if(spButton.inputMSID == msIDcomp.msID)
             {
+                MS_Manager.instance.SendToPool(otherEntity.Id);
+
+
                 AudioManager.instance.PlaySFX("SFX006");
                 //Do this
                 SpongeButton.instance.SetAnimState(bubData.objID, World!, SpongeButton.instance.transformState);
@@ -214,15 +257,21 @@ public class SpongeCollisionHandler : CollisionSystemBase
 
                 SpongeButton.instance.SetAnimState(bubData.objID, World!, SpongeButton.instance.buttonPushState);
 
+                bubData.storedDoor = null;
+                bubData.isDoorAccessible = false;
 
                 foreach (var door in World!.Query<MatchSignifierComponent>())
                 {
-                    if (door.Component1.signifierID == bubData.entity.GetComponent<SpongeButtonComponent>().doorSignifier)
+                    if (door.Component1.signifierID == bubData.entity.GetComponent<SpongeButtonComponent>().doorSignifier
+                        && door.Entity.GetComponent<Active>().Enabled)
                     {
                         //Deactivate Door!
-                        AudioManager.instance.PlaySFX("SFX006");
-                        ref Active doorActive = ref Entity.FromId(World!, door.Entity.Id).GetComponent<Active>();
-                        doorActive.Enabled = false;
+                        //AudioManager.instance.PlaySFX("SFX006");
+                        //ref Active doorActive = ref Entity.FromId(World!, door.Entity.Id).GetComponent<Active>();
+                        //doorActive.Enabled = false;
+
+                        bubData.storedDoor = Entity.FromId(World!, door.Entity.Id);
+                        bubData.isDoorAccessible = true;
                     }
                     //else nothin,  no door found
                 }
