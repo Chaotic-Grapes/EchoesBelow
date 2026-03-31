@@ -7,6 +7,7 @@ using GrapeEngine.Scripting.Events;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts;
 using Scripts.CraftingSystem;
 using System;
 using System.Collections;
@@ -310,6 +311,15 @@ public class CraftAnemone : SystemBase
                             }
                             //else nothin, if no door found
                         }
+
+                        SpiritOfTheOcean.instance.TheSpiritBeckonsThee(true);
+
+                        //foreach (var spirit in World!.Query<SpiritOfTheOceanComponent>())
+                        //{
+                        //    ref ParticleEmitter prtcleEmit = ref spirit.Entity.GetComponent<ParticleEmitter>();
+                        //    //prtcleEmit.
+                        //}
+
                     }
                     else
                     {

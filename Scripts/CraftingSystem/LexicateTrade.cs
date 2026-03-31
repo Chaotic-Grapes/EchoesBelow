@@ -112,13 +112,18 @@ public class Lexicate : SystemBase
                 {
                     if(lx.throwing_msID != 0)
                     {
+
+                        lx.isProcessing = false;
+
                         SetAnimState(lx.objID, World!, idleState);
                         MS_Manager.instance.TakeFromPool(lx.throwing_msID, lx.throwing_newPos, lx.throwing_trajectory, 100000f, true);
-
 
                     }
                     else
                     {
+
+                        lx.isProcessing = false;
+
                         ref LocalTransform transform = ref Entity.FromId(World!, lx.throwingPlayer.Id).GetComponent<LocalTransform>();
                         transform.Position = lx.throwing_newPos;
 
@@ -179,12 +184,12 @@ public class LexicateTrade : TriggerSystemBase
                 LexicateData lx = LexicateTrade.instances[self.Id];
 
                 if (lx.isProcessing) continue;
-                lx.isProcessing = true;
+                
 
                 if (otherEntity.GetComponent<MS_IDComponent>().msID == gameObject.Component1.msID_in)
                 {
                     //AudioManager.instance.PlaySFX("SFX010_Track01");
-
+                    lx.isProcessing = true;
                     //Finding the local up angle?
                     float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation) + (90f * GMath.Rad2Deg);
                     Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
