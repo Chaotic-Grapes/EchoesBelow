@@ -17,7 +17,7 @@ namespace Scripts.SwitchDoor;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class DoorManager : SystemBase
 {
-    static bool start;
+    static bool start = false;
     public static DoorManager instance;
     float timer = 0f;
 
@@ -29,7 +29,7 @@ public class DoorManager : SystemBase
         if (startBool == true) return true;
         startBool = true;
         //Todo
-
+        Log("Door start!");
         instance = this;
 
         //End of Start

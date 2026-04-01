@@ -12,6 +12,7 @@ using System.Collections.Generic;
 
 namespace Scripts.Menu;
 
+//This one is Old and Deprecated
 [Component] public record struct PauseMenuComponent(bool isPauseable, int resumeSiginifier, int exitSignifier, bool start);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class PauseMenu : SystemBase
@@ -76,6 +77,9 @@ public class PauseMenu : SystemBase
     }
     protected override void OnUpdate()
     {
+        return;
+
+
         bool isKeyPressed_P = Input.IsKeyPressed(KeyCode.P);
         bool isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
         

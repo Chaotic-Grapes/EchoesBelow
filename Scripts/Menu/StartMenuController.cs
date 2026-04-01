@@ -215,25 +215,25 @@ public class StartMenuController : SystemBase
             else continue;
         }
         
-        foreach (var (entity, guiInput) in World!.Query<GUIInput>())
-        {
-            if (guiInput.Hovered) // Mouse cursor still on entity
-            {
-                // Do something
-                Log("GUIInput_Hovering");
-            }
+        //foreach (var (entity, guiInput) in World!.Query<GUIInput>())
+        //{
+        //    if (guiInput.Hovered) // Mouse cursor still on entity
+        //    {
+        //        // Do something
+        //        Log("GUIInput_Hovering");
+        //    }
 
-            if (guiInput.Entered) // Same as above but once per frame
-            {
-                Log("GUIInput_Entered");
-            }
+        //    if (guiInput.Entered) // Same as above but once per frame
+        //    {
+        //        Log("GUIInput_Entered");
+        //    }
 
-            if (guiInput.Clicked)
-            {
-                // Do something
-                Log("GUIInput_Clicked");
-            }
-        }
+        //    if (guiInput.Clicked)
+        //    {
+        //        // Do something
+        //        Log("GUIInput_Clicked");
+        //    }
+        //}
 
         
         Scene? active = sceneManager.GetActive();
