@@ -182,6 +182,24 @@ public class Player : SystemBase
             if (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f) moveDirNormalized = Vector2.Zero;
             else moveDirNormalized = moveDir.Normalized;
 
+            //Hijack the moveDirNormalized for controller support!
+            if (Input.IsGamepadConnected(0))
+            {
+                float x_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+                float y_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
+                //Log($"x: {x_axis} // y: {y_axis}");
+                float allowance = 0.1f;
+                if ((-allowance > x_axis || x_axis > allowance)
+                || (-allowance > y_axis || y_axis > allowance))
+                {
+                    moveDirNormalized.X = GMath.Round(x_axis);
+                    moveDirNormalized.Y = -GMath.Round(y_axis);
+                   
+                }
+            }
+
+
+
             //Handling Rotation! Aligning Grain to moveDir=================================================
             //Convert from ZYX Quaternion to angle in radians
             //Find the local "Up" Vector of the Player. Think of this as gameObject.transform.up in Unity
@@ -409,21 +427,21 @@ public class Player : SystemBase
     private Vector2 ProcessInput(Vector2 moveDir, float lerpFac)
     {            
         
-        //Hijack the moveDirNormalized for controller support!
-        if (Input.IsGamepadConnected(0))
-        {
-            float x_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
-            float y_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
-            //Log($"x: {x_axis} // y: {y_axis}");
-            float allowance = 0.9f;
-            if ((-allowance > x_axis || x_axis > allowance)
-            || (-allowance > y_axis || y_axis > allowance))
-            {
-                moveDir.X = GMath.Round(x_axis);
-                moveDir.Y = -GMath.Round(y_axis);
-                return moveDir;
-            }
-        }
+        ////Hijack the moveDirNormalized for controller support!
+        //if (Input.IsGamepadConnected(0))
+        //{
+        //    float x_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+        //    float y_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
+        //    //Log($"x: {x_axis} // y: {y_axis}");
+        //    float allowance = 0.9f;
+        //    if ((-allowance > x_axis || x_axis > allowance)
+        //    || (-allowance > y_axis || y_axis > allowance))
+        //    {
+        //        moveDir.X = GMath.Round(x_axis);
+        //        moveDir.Y = -GMath.Round(y_axis);
+        //        return moveDir;
+        //    }
+        //}
 
 
 
