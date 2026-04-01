@@ -25,7 +25,6 @@ public class InventoryController : SystemBase
     public static ulong[] slotObjIds;
     public static Dictionary<string, Slot> slotInstances;
 
-    public static bool isPressed_Q;
     static bool isRMB_Pressed;
     public static double mouseScroll;
 

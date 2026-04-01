@@ -206,9 +206,13 @@ public class Anemone :SystemBase
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
+            Log($"msID == idIterator: {msID == id_Iterator}");
+            Log($"objpoolcount > 0: {objPool.Count > 0}");
+            Log($"stores item? : {InventoryController.slotInstances[Entity.FromId(world, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem}");
+
             //Check if obj pool is empty
             if (msID == id_Iterator && objPool.Count > 0
-                && InventoryController.slotInstances[Entity.FromId(World!, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+                && InventoryController.slotInstances[Entity.FromId(world, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);

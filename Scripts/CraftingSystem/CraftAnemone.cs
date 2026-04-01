@@ -61,7 +61,7 @@ public class CraftAnemone : SystemBase
     public static AnimState vibrateState = new AnimState("vibrateState", 8, 0, 10, 24, true);
     public static AnimState vibrateExitState = new AnimState("vibrateExitState", 7, 11, 6, 48, true);
 
-    public static AnimState releaseState = new AnimState("releaseState", 10, 0, 6, 30, true);
+    public static AnimState releaseState = new AnimState("releaseState", 10, 0, 6, 24, true);
     public static AnimState captureState = new AnimState("captureState", 9, 0, 6, 24, true);
     public static AnimState closedStillState = new AnimState("closedStillState", 9, 5, 1, 24, false);
 
@@ -248,6 +248,8 @@ public class CraftAnemone : SystemBase
                     }
                     //Update the selection
                     cr.PlaceNodeAndUpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
+
+                    //cr.UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, yBloom, 0));
                 }
 
                 if (isKeyPressed_Space)
