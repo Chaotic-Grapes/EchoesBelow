@@ -138,6 +138,8 @@ public class SpongeButton : SystemBase
                     CamFollow.lerpFac = 0.025f;
                     Player.instance.currentPosForCamFollow = storedDoor.GetComponent<LocalTransform>().Position;
 
+                    //CamFollow.instance.CamShake(true);
+
                     //If position is within the agreed allowance, stop the tractor beam
                     float camXPos = CamFollow.camPos.X;
                     float Xboundary = storedDoor.GetComponent<LocalTransform>().Position.X;
@@ -148,7 +150,7 @@ public class SpongeButton : SystemBase
                     if ((Xboundary - 0.325f < camXPos && camXPos < Xboundary + 0.325f &&
                         yBoundary - 0.325f < camYPos && camYPos < yBoundary + 0.325f))
                     {
-                        DoorManager.instance.DeactivateDoor(storedDoor.Id);
+                        DoorManager.instance.DeactivateDoor(storedDoor.Id, 0.034f);
                     }
 
                     if ((Xboundary - 0.125f < camXPos && camXPos < Xboundary + 0.125f &&

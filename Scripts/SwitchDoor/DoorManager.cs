@@ -19,6 +19,11 @@ public class DoorManager : SystemBase
 {
     static bool start;
     public static DoorManager instance;
+    float timer = 0f;
+
+    float camShakeIntensity;
+
+    const float shakeDuration = 0.45f;
     private bool OnStart(ref bool startBool)
     {
         if (startBool == true) return true;
@@ -33,12 +38,30 @@ public class DoorManager : SystemBase
     protected override void OnUpdate()
     {
         start = OnStart(ref start);
+
+        if(timer> 0f)
+        {
+            timer -= Time.DeltaTime;
+
+            CamFollow.instance.CamShake(true, camShakeIntensity);
+
+
+            if (timer < 0f)
+            {
+                timer = 0f;
+                CamFollow.instance.CamShake(false, 0f);
+            }
+        }
     }
 
-    public void DeactivateDoor(ulong objID)
+    public void DeactivateDoor(ulong objID, float camShakeIntensity)
     {
         AudioManager.instance.PlaySFX("SFX006");
         ref Active doorActive = ref Entity.FromId(World!, objID).GetComponent<Active>();
         doorActive.Enabled = false;
+
+        this.camShakeIntensity = camShakeIntensity;
+
+        timer = shakeDuration;
     }
 }

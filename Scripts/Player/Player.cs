@@ -497,7 +497,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
             
             if (tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.05f)
             {
-                DoorManager.instance.DeactivateDoor(other.Id);
+                DoorManager.instance.DeactivateDoor(other.Id, 0.024f);
             }
         }
 

@@ -31,7 +31,7 @@ public class PlayerTriggerHandler : TriggerSystemBase
         {
             if(tagmask.Mask == 1 << 3 && SpiritOfTheOcean.isEnabled)
             {
-                DoorManager.instance.DeactivateDoor(other.Id);
+                DoorManager.instance.DeactivateDoor(other.GetParent()!.Id, 0.056f);
             }
         }
 

@@ -394,6 +394,9 @@ public class CraftAnemone : SystemBase
         //Might swap out for idle? or set a timer for releaseState in Update
         SetAnimState(releaseState, cr.objId, World!);
 
+        ref ZIndex2D zIndex = ref Player.instance.player.GetComponent<ZIndex2D>();
+        zIndex.ZOrder = 0;
+
         isLeaving = true;
 
         //Reinstate list of contacts
@@ -437,7 +440,7 @@ public class CraftAnemone : SystemBase
         //Hardcoded transform values
 
         startNodeTransform.Position = new Vector3(startNodeTransform.Position.X,
-                                                  GMath.Lerp(startNodeTransform.Position.Y, yOffset, lerpFac * Time.DeltaTime), 
+                                                  GMath.Lerp(startNodeTransform.Position.Y, yOffset, lerpFac * 2.5f * Time.DeltaTime), 
                                                   startNodeTransform.Position.Z);
 
         if (startNodeTransform.Position.Y >= yOffset - marginAllowance)
@@ -513,19 +516,25 @@ public class CraftAnemone : SystemBase
         playerTransform.Rotation = Quaternion.Identity;
        
         //Interpolate towards anemone!
-        playerTransform.Position = new Vector3(GMath.Lerp(playerTransform.Position.X, transform.Position.X, lerpFac * 1.75f *Time.DeltaTime),
-                                                       GMath.Lerp(playerTransform.Position.Y, transform.Position.Y, lerpFac * 1.75f *Time.DeltaTime), 0);
+        playerTransform.Position = new Vector3(GMath.Lerp(playerTransform.Position.X, transform.Position.X, lerpFac * 11.75f *Time.DeltaTime),
+                                                       GMath.Lerp(playerTransform.Position.Y, transform.Position.Y + 0.56f, lerpFac * 11.75f *Time.DeltaTime), 0);
     
         //If position is within the agreed allowance, stop the tractor beam
         float playerXpos = player.GetComponent<LocalTransform>().Position.X;
         float Xboundary = transform.Position.X;
      
         float playerYpos = player.GetComponent<LocalTransform>().Position.Y;
-        float yBoundary = transform.Position.Y;
-  
-        if (Xboundary - 0.125f < playerXpos && playerXpos < Xboundary + 0.125f &&
-            yBoundary - 0.125f < playerYpos && playerYpos < yBoundary + 0.125f)
+        float yBoundary = transform.Position.Y + 0.56f;
+
+        float allowance = 0.05f;
+
+        if (Xboundary - allowance < playerXpos && playerXpos < Xboundary + allowance &&
+            yBoundary - allowance < playerYpos && playerYpos < yBoundary + allowance)
         {
+            ref ZIndex2D zIndex = ref player.GetComponent<ZIndex2D>();
+            zIndex.ZOrder = -3;
+
+
             instances[objId].isLerpingToAnemone = false;
             instances[objId].isCaptured = true;
         }
@@ -660,15 +669,18 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
-
+       
+        CamFollow.instance.CamShake(true, 0.0085f);
+       
         if (!CraftAnemone.isLMB_pressed) return;
-
-        
+ 
         if (other.HasComponent<PlayerComponent>())
         {
             Log("ENTERING");
             LaunchCrafting(self, other);
-        
+
+            CamFollow.instance.CamShake(false, 0f);
+
             //Disable player movement and X key for inventory!
             Player.instance.isEnabled = false;
             InventoryController.instance.isEnabled_RMBInput = false;
@@ -690,9 +702,13 @@ public class CraftAnemoneHandler : TriggerSystemBase
         Log("Exitting");
         CraftAnemone.isLeaving = false;
 
-        //HEREHEREHERE AHH
+        CamFollow.instance.CamShake(false, 0f);
+
         if(!CraftAnemone.instances[self.Id].isLerpingToAnemone && !CraftAnemone.instances[self.Id].isExitingAnemone)
-        CraftAnemone.instance.SetAnimState(CraftAnemone.vibrateExitState, self.Id, World!);
+        {
+            CraftAnemone.instance.SetAnimState(CraftAnemone.vibrateExitState, self.Id, World!);
+        }
+
     }
 
     private void LaunchCrafting(Entity self, Entity other)
