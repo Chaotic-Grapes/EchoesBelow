@@ -11,6 +11,8 @@ namespace EchoesBelow.Scripts;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class CamFollow : SystemBase
 {
+    const float shakeMinMax = 0.234f;
+
     static Vector2 focusPos;
     public static Vector3 camPos;
     public static float originalLerp = 0.1f;
@@ -47,6 +49,29 @@ public class CamFollow : SystemBase
             }
 
         }
+    }
+    public void CamShake(bool isShaking)
+    {
+        if (isShaking)
+        {
+            float xOffset = GMath.Random(-shakeMinMax, shakeMinMax);
+            float yOffset = GMath.Random(-shakeMinMax, shakeMinMax);
+
+            foreach (var cam in World!.Query<Camera3D>())
+            {
+                ref LocalTransform transform = ref cam.Entity.GetComponent<LocalTransform>();
+                transform.Position = new Vector3(xOffset, yOffset, 0f);
+            }
+        }
+        else
+        {
+            foreach (var cam in World!.Query<Camera3D>())
+            {
+                ref LocalTransform transform = ref cam.Entity.GetComponent<LocalTransform>();
+                transform.Position = Vector3.Zero;
+            }
+        }
+
     }
 
 }

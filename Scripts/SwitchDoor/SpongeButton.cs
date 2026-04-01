@@ -148,9 +148,7 @@ public class SpongeButton : SystemBase
                     if ((Xboundary - 0.325f < camXPos && camXPos < Xboundary + 0.325f &&
                         yBoundary - 0.325f < camYPos && camYPos < yBoundary + 0.325f))
                     {
-                        AudioManager.instance.PlaySFX("SFX006");
-                        ref Active doorActive = ref Entity.FromId(World!, storedDoor.Id).GetComponent<Active>();
-                        doorActive.Enabled = false;
+                        DoorManager.instance.DeactivateDoor(storedDoor.Id);
                     }
 
                     if ((Xboundary - 0.125f < camXPos && camXPos < Xboundary + 0.125f &&
@@ -265,11 +263,6 @@ public class SpongeCollisionHandler : CollisionSystemBase
                     if (door.Component1.signifierID == bubData.entity.GetComponent<SpongeButtonComponent>().doorSignifier
                         && door.Entity.GetComponent<Active>().Enabled)
                     {
-                        //Deactivate Door!
-                        //AudioManager.instance.PlaySFX("SFX006");
-                        //ref Active doorActive = ref Entity.FromId(World!, door.Entity.Id).GetComponent<Active>();
-                        //doorActive.Enabled = false;
-
                         bubData.storedDoor = Entity.FromId(World!, door.Entity.Id);
                         bubData.isDoorAccessible = true;
                     }

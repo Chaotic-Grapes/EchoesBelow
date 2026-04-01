@@ -52,16 +52,18 @@ public class CraftAnemone : SystemBase
     public static List<Entity> listOfContacts;
 
     //Declare AnimStates
-    public static AnimState idleEnterState;
-    public static AnimState idleState;
+    //These states are static in a way, presets shared by all CraftAnemones
+    //SetAnimState however, is per instance of CraftAnemone
+    public static AnimState idleEnterState = new AnimState("idleEnterState", 0, 0, 19, 30, true);
+    public static AnimState idleState = new AnimState("idleState", 2, 0, 67, 24, true);
 
-    public static AnimState vibrateEnterState;
-    public static AnimState vibrateState;
-    public static AnimState vibrateExitState;
+    public static AnimState vibrateEnterState = new AnimState("vibrateEnterState", 7, 0, 6, 24, true);
+    public static AnimState vibrateState = new AnimState("vibrateState", 8, 0, 10, 24, true);
+    public static AnimState vibrateExitState = new AnimState("vibrateExitState", 7, 11, 6, 48, true);
 
-    public static AnimState captureState;
-    public static AnimState releaseState;
-    public static AnimState closedStillState;
+    public static AnimState releaseState = new AnimState("releaseState", 10, 0, 6, 30, true);
+    public static AnimState captureState = new AnimState("captureState", 9, 0, 6, 24, true);
+    public static AnimState closedStillState = new AnimState("closedStillState", 9, 5, 1, 24, false);
 
 
     #region SystemBehaviours
@@ -166,20 +168,6 @@ public class CraftAnemone : SystemBase
         //Add the instance! AFTER everything is set
         instances.Add(objId, anemone);
 
-        //Declare Anim States
-        //These states are static in a way, presets shared by all CraftAnemones
-        //SetAnimState however, is per instance of CraftAnemone
-        idleEnterState = new AnimState("idleEnterState", 0, 0, 19, 30, true);
-        idleState = new AnimState("idleState", 2, 0, 67, 24, true);
-
-        vibrateEnterState = new AnimState("vibrateEnterState", 7, 0, 6, 24, true);
-        vibrateState = new AnimState("vibrateState", 8, 0, 10, 24, true);
-        vibrateExitState = new AnimState("vibrateExitState", 7, 11, 6, 48, true);
-
-        releaseState = new AnimState("releaseState", 10, 0, 6, 30, true);
-        captureState = new AnimState("captureState", 9, 0, 6, 24, true);
-        closedStillState = new AnimState("closedStillState", 9, 5, 1, 24, false);
-
         //Set Anims
         SetAnimState(idleState, objId, World!);
 
@@ -195,9 +183,6 @@ public class CraftAnemone : SystemBase
     }
     protected override void OnUpdate()
     {
-
-
-        //}
         //Call OnAwake 1st
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
@@ -299,27 +284,7 @@ public class CraftAnemone : SystemBase
                     {
                         //correct
                         AudioManager.instance.PlaySFX("SFX012");
-
-                        foreach (var door in World!.Query<MatchSignifierComponent>())
-                        {
-                            if (door.Component1.signifierID == gameObject.Component1.doorSignifier)
-                            {
-                                //Deactivate Door!
-                                AudioManager.instance.PlaySFX("SFX006");
-                                ref Active doorActive = ref Entity.FromId(World!, door.Entity.Id).GetComponent<Active>();
-                                doorActive.Enabled = false;
-                            }
-                            //else nothin, if no door found
-                        }
-
                         SpiritOfTheOcean.instance.TheSpiritBeckonsThee(true);
-
-                        //foreach (var spirit in World!.Query<SpiritOfTheOceanComponent>())
-                        //{
-                        //    ref ParticleEmitter prtcleEmit = ref spirit.Entity.GetComponent<ParticleEmitter>();
-                        //    //prtcleEmit.
-                        //}
-
                     }
                     else
                     {

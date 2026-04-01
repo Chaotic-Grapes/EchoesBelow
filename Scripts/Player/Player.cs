@@ -9,6 +9,7 @@ using EchoesBelow.Scripts.MarineSnowSystem;
 using System;
 using EchoesBelow.Scripts.Audio;
 using Scripts.CraftingSystem;
+using Scripts.SwitchDoor;
 
 namespace EchoesBelow.Scripts;
 
@@ -496,10 +497,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
             
             if (tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.05f)
             {
-                AudioManager.instance.PlaySFX("SFX006");
-                //door detected
-                other.GetComponent<Active>().Enabled = false;
-                Log("Door Detected!");
+                DoorManager.instance.DeactivateDoor(other.Id);
             }
         }
 
