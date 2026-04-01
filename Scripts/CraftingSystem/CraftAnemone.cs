@@ -79,19 +79,19 @@ public class CraftAnemone : SystemBase
         //This effectively executes as many times as there are CraftAnemones. BUT if I place the foreach loop
         //before everything in update. Ultimately this sets something once at the beginning of the script 
         // 1 1 1 1 or 1 or 1 1 1 is effectively 1 in the end. So this can create a List instance once at the start every Scene Load / PlayMode Entrance
-        
+
         NodeLink.instances = new Dictionary<ulong, NodeLinkData>();
         instances = new Dictionary<ulong, Anemone>();
         listOfContacts = new List<Entity>();
-       
+
         //Migrate these to NodeLink after M5! and incorporate component values instead of storing port bools in NodeLinkData
         foreach (var gameObject in World!.Query<NodeLinkComponent>())
         {
             if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<NodeLinkComponent>().isRootNode)
             {
                 //if root node, the south port is always filled
-                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id, 
-                                                             Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LocalTransform>().Position, 
+                NodeLinkData nodeLinkData = new NodeLinkData(World!, gameObject.Entity.Id,
+                                                             Entity.FromId(World!, gameObject.Entity.Id).GetComponent<LocalTransform>().Position,
                                                              9, false, true, false, false);
                 NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
                 //Log("Created and Added a node");
@@ -106,7 +106,7 @@ public class CraftAnemone : SystemBase
         startBool = true;
         //Todo
         //creates a new anemone container per CraftAnemone detected
-        Anemone anemone = new Anemone(objId, Entity.FromId(World!,objId).GetComponent<Name>().Value.ToString());
+        Anemone anemone = new Anemone(objId, Entity.FromId(World!, objId).GetComponent<Name>().Value.ToString());
 
         //Assign the appropriate start pos
         foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
@@ -131,7 +131,7 @@ public class CraftAnemone : SystemBase
                 {
                     //Log("Found my anims!")
                     int i = 0;
-                    foreach(Entity grandChild in child.GetChildren())
+                    foreach (Entity grandChild in child.GetChildren())
                     {
                         if (grandChild.HasComponent<SpriteSheetAnimation2D>())
                         {
@@ -175,7 +175,7 @@ public class CraftAnemone : SystemBase
         {
             if (light.Entity.GetComponent<Light2D>().LightType == Light2D.Type.Directional)
             {
-                gloablLightOriginalIntensity =  light.Entity.GetComponent<Light2D>().Intensity;
+                gloablLightOriginalIntensity = light.Entity.GetComponent<Light2D>().Intensity;
             }
         }
         //End of Start
@@ -196,10 +196,11 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
         }
 
-        isRMB_pressed = Input.IsMousePressed(1);
-        isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
+
+        isRMB_pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B);
+        isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space) || Input.IsGamepadButtonPressed(0, GamepadButton.Y);
         //if(isEnabled_EInput) 
-        isLMB_pressed = Input.IsMousePressed(0);
+        isLMB_pressed = Input.IsMousePressed(0) || Input.IsGamepadButtonPressed(0, GamepadButton.A);
 
         //Then all Update funcs
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())

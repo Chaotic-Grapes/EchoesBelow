@@ -89,13 +89,25 @@ public class Player : SystemBase
     protected override void OnUpdate()
     {
 
-        if (isEnabled)
+        if (isEnabled && !Input.IsGamepadConnected(0))
         {
             isKeyDown_W = Input.IsKeyDown(KeyCode.W);
             isKeyDown_A = Input.IsKeyDown(KeyCode.A); 
             isKeyDown_S = Input.IsKeyDown(KeyCode.S);
             isKeyDown_D = Input.IsKeyDown(KeyCode.D);
             isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
+        }
+        else if(isEnabled && Input.IsGamepadConnected(0))
+        {
+            float xGamePadInput = GMath.Round(Input.GetGamepadAxis(0, GamepadAxis.LeftX));
+            float yGamePadInput = -GMath.Round(Input.GetGamepadAxis(0, GamepadAxis.LeftY));
+    
+            isKeyDown_W = yGamePadInput > 0 ;
+            isKeyDown_A = xGamePadInput < 0 ;
+            isKeyDown_S = yGamePadInput < 0 ;
+            isKeyDown_D = xGamePadInput > 0 ;
+
+            isKeyPressed_Space = Input.IsGamepadButtonPressed(0, GamepadButton.A);
         }
 
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())
@@ -117,7 +129,7 @@ public class Player : SystemBase
             float driftSpeed = gameObject.Component1.driftSpeed * 0.01f; //this allows floating point decimal values
             float dashSpeed = gameObject.Component1.dashSpeed * 0.01f; //this allows floating point decimal values
             float angularVelocity = gameObject.Component1.angularVelocity * 0.01f; //100 == 1
-            float periodicForceInterval = gameObject.Component1.periodicForceIntervalinMS/1000;
+            float periodicForceInterval = gameObject.Component1.periodicForceIntervalinMS / 1000;
 
             moveDir = ProcessInput(moveDir, lerpFac);
 
@@ -130,19 +142,19 @@ public class Player : SystemBase
                 spr.Color = new Color(1.5f, 1.5f, 1.5f, 1f);
 
                 hitVisualCoolDown -= Time.DeltaTime;
-                if (hitVisualCoolDown < 0) 
+                if (hitVisualCoolDown < 0)
                 {
                     spr.Color = new Color(1f, 1f, 1f, 1f);
-                    cueIsHitVisual = false; 
+                    cueIsHitVisual = false;
                 }
             }
             else if (isDashing)
             {
-              
+
                 PlayerAnimManager.instance.SetAnimState(dashState);
 
                 //When dashing ends
-                if(Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
+                if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame == 25)
                 {
                     //Log("End Dash");
                     //Log($"currentState : {PlayerAnimManager.instance.currentState}");
@@ -166,7 +178,6 @@ public class Player : SystemBase
                 timer_forPeriodicForce = 0;
             }
 
-
             //NaN protection for normalization
             if (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f) moveDirNormalized = Vector2.Zero;
             else moveDirNormalized = moveDir.Normalized;
@@ -183,8 +194,8 @@ public class Player : SystemBase
 
             //============================================================================================
             RotationPolarityHandler(transform);
-            float flipFactor = GMath.Clamp(HeadingDifference(playerAngle * GMath.Rad2Deg, (float)abs_InputDirection) * GMath.Rad2Deg, -1,1);
-            
+            float flipFactor = GMath.Clamp(HeadingDifference(playerAngle * GMath.Rad2Deg, (float)abs_InputDirection) * GMath.Rad2Deg, -1, 1);
+
             //Dot product operation to determine theta as presented by angleBetween in radians!
             float angleBetween_rad = GMath.Acos(GMath.Dot(playerDir, moveDirNormalized) / (playerDir.Magnitude * moveDirNormalized.Magnitude));
             angleBetween_rad = (float.IsNaN(angleBetween_rad)) ? 0 : angleBetween_rad;
@@ -192,18 +203,18 @@ public class Player : SystemBase
             //Find change in time required to complete a rotation. This formula requires radians
             //Must always be positive so we use Magnitude thru Abs
             float rotDuration = GMath.Abs(angleBetween_rad / angularVelocity);
-            
+
             //start Rotation process
             bool isRotating = false;
-            if (angleBetween_rad != 0) 
-            { 
-                isRotating = true; 
-            } 
+            if (angleBetween_rad != 0)
+            {
+                isRotating = true;
+            }
             if (isRotating)
             {
                 timer_forRotation += Time.DeltaTime;
-                if(flipFactor >= 0) av.Value = GMath.Lerp(av.Value, angularVelocity, lerpFac);
-                else                av.Value = GMath.Lerp(av.Value, -angularVelocity, lerpFac);
+                if (flipFactor >= 0) av.Value = GMath.Lerp(av.Value, angularVelocity, lerpFac);
+                else av.Value = GMath.Lerp(av.Value, -angularVelocity, lerpFac);
             }
             if (timer_forRotation > rotDuration)
             {
@@ -212,7 +223,7 @@ public class Player : SystemBase
                 av.Value = 0;
             }
 
-            if(isKeyPressed_Space && !isCoolingDown)
+            if (isKeyPressed_Space && !isCoolingDown)
             {
                 //Zero out animstate2D
                 Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame = 0;
@@ -242,7 +253,7 @@ public class Player : SystemBase
             if (isCoolingDown)
             {
                 dashCoolDownTimer -= Time.DeltaTime;
-                if(dashCoolDownTimer < 0)
+                if (dashCoolDownTimer < 0)
                 {
                     isCoolingDown = false;
                 }
@@ -257,14 +268,11 @@ public class Player : SystemBase
 
 
             GrapeEngine.Scripting.Services.Audio.SetListener(
-              transform.Position,
-             (transform.Position - currentPosForCamFollow) / (Time.DeltaTime > 0.0f ? Time.DeltaTime : 0.0001f),
-             new Vector3(playerDir.X, playerDir.Y, 0.0f), 
-             new Vector3(0.0f, 0.0f, 1.0f));
-
-
-
-        }
+                transform.Position,
+                (transform.Position - currentPosForCamFollow) / (Time.DeltaTime > 0.0f ? Time.DeltaTime : 0.0001f),
+                new Vector3(playerDir.X, playerDir.Y, 0.0f),
+                new Vector3(0.0f, 0.0f, 1.0f));
+            }
     }
     private void SpeedLimit(ref LinearVelocity2D lv,float maxSpeed)
     {
@@ -399,7 +407,26 @@ public class Player : SystemBase
     }
 
     private Vector2 ProcessInput(Vector2 moveDir, float lerpFac)
-    {
+    {            
+        
+        //Hijack the moveDirNormalized for controller support!
+        if (Input.IsGamepadConnected(0))
+        {
+            float x_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+            float y_axis = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
+            //Log($"x: {x_axis} // y: {y_axis}");
+            float allowance = 0.9f;
+            if ((-allowance > x_axis || x_axis > allowance)
+            || (-allowance > y_axis || y_axis > allowance))
+            {
+                moveDir.X = GMath.Round(x_axis);
+                moveDir.Y = -GMath.Round(y_axis);
+                return moveDir;
+            }
+        }
+
+
+
         if (isKeyDown_W) moveDir.Y = GMath.Lerp(moveDir.Y, 1, lerpFac);
         if (isKeyDown_S) moveDir.Y = GMath.Lerp(moveDir.Y, -1, lerpFac);
         if (isKeyDown_A) moveDir.X = GMath.Lerp(moveDir.X, -1, lerpFac);

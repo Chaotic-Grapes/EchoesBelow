@@ -132,7 +132,7 @@ public class PauseMenuController : SystemBase
             //For future code to interact with
             if (!isPausable) return;
 
-            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2);
+            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2) || Input.IsGamepadButtonPressed(0,GamepadButton.Start);
 
             if (!isPaused && isPauseButtonPressed) Pause(true);
             else if (isPaused && isPauseButtonPressed) Pause(false);
