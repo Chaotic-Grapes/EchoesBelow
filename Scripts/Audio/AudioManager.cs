@@ -213,12 +213,7 @@ public class AudioManager : SystemBase
     {
         foreach(var bgm in World!.Query<AudioSource, AudioManagerComponent>())
         {
-            Log("===============================================");
-            Log("bgm vol: " + bgm.Component1.Volume);
-            Log("bgmStartVol = " + bgm.Component2.bgmStartVolume);
             bgm.Component1.Volume = bgm.Component2.bgmStartVolume * percentage;
-            Log("bgm vol: " + bgm.Component1.Volume);
-            Log("bgmStartVol = " + bgm.Component2.bgmStartVolume);
         }
     }
     public void UpdateSFXVolume(float percentage)

@@ -15,9 +15,6 @@ public class MenuPanel
     public Vector2 startPos {  get; set; }
     public Vector2 retreatPos {  get; set; } // must be keyed in remotely?
 
-    public Vector2 SliderMin { get; set; }
-    public Vector2 SliderMax { get; set; }
-
     //Delegate for storing function
     public Action Action {  get; set; }
     public MenuPanel(ulong objID, string name ,Entity Entity)

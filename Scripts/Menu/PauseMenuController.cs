@@ -96,13 +96,9 @@ public class PauseMenuController : SystemBase
                         break;
                     case bgmButton:
                         menuP.Action = BGMButtonFunc;
-                        menuP.SliderMin = new Vector2(618f, 207f);
-                        menuP.SliderMax = new Vector2(916f, 151f);
                         break;
                     case sfxButton:
                         menuP.Action = SFXButtonFunc;
-                        menuP.SliderMin = new Vector2(594, 366f);
-                        menuP.SliderMax = new Vector2(896f, 415f);
                         break;
                 }
                 buttons.Add(name, menuP);
@@ -116,8 +112,6 @@ public class PauseMenuController : SystemBase
     }
     protected override void OnUpdate()
     {
-        //Log("audio vol: " + AudioManager.instance.globalSFXVolume);
-        //Log("bgm vol: " + AudioManager.instance.globalBGMVolume);
 
         foreach (var gameObject in World!.Query<PauseMenuControllerComponent>())
         {
@@ -145,52 +139,43 @@ public class PauseMenuController : SystemBase
 
             if (!isPaused) return;
 
-            //Locate the button
-            foreach (MenuPanel button in buttons.Values)
-            {
-                ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
-                if (gui.Hovered) currentButton = button;
-            }
-
             ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
-            ref GUIElement currentButton_guiElement = ref currentButton.Entity.GetComponent<GUIElement>();
 
-            if(currentButton.name == bgmButton || currentButton.name == sfxButton)
+            //Locate the button
+            if(!currentButton_guiInput.Dragging)
+            UpdateCurrentButton();
+
+
+
+            if (currentButton_guiInput.Hovered)
             {
-                GUISlider currentButton_slider = currentButton.Entity.GetComponent<GUISlider>();
-
-                if (currentButton_guiInput.Clicked)
-                {
-                    AudioManager.instance.PlaySFX("UI005_Track01");
-                }
-                
-                if (currentButton_guiInput.Dragging)
-                {
-                    //float xOffset = currentButton.SliderMin.X + ((currentButton.SliderMax.X - currentButton.SliderMin.X)*(currentButton_slider.Value));
-                    //float yOffset = currentButton.SliderMin.Y + ((currentButton.SliderMax.Y - currentButton.SliderMin.Y)*(currentButton_slider.Value));
-                    //currentButton_guiElement.Position = new Vector2(xOffset, yOffset);
-                }
+                //Log("Hovering over " + currentButton.name);
             }
-            else
+            if (currentButton_guiInput.Clicked && !currentButton.Entity.HasComponent<GUISlider>())
             {
-                if (currentButton_guiInput.Hovered)
-                {
-                    //Log("Hovering over " + currentButton.name);
-                }
-                if (currentButton_guiInput.Clicked)
-                {
-                    AudioManager.instance.PlaySFX("UI005_Track01");
-                    currentButton.Action();
-                }
-                if (currentButton_guiInput.Entered)
-                {
-                    AudioManager.instance.PlaySFX("UI005_Track01");
-                }
+                AudioManager.instance.PlaySFX("UI005_Track01");
+                currentButton.Action();
             }
-
-
+            if (currentButton_guiInput.Entered)
+            {
+                AudioManager.instance.PlaySFX("UI005_Track01");
+            }
+            if (currentButton_guiInput.Dragging && currentButton.Entity.HasComponent<GUISlider>())
+            {
+                currentButton.Action();
+            }
         }
     }
+
+    private static void UpdateCurrentButton()
+    {
+        foreach (MenuPanel button in buttons.Values)
+        {
+            ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
+            if (gui.Hovered) currentButton = button;
+        }
+    }
+
     private void Pause(bool isPausing)
     {
         if (isPausing)
@@ -251,11 +236,14 @@ public class PauseMenuController : SystemBase
     }
     private void SFXButtonFunc()
     {
-        Log("What am I doin 'ere, I dont 'ave any sfx for ye");
+        GUISlider currentButton_slider = currentButton.Entity.GetComponent<GUISlider>();
+        AudioManager.instance.UpdateSFXVolume(currentButton_slider.Value);
+     
     }
     private void BGMButtonFunc()
     {
-        Log("er bgm?");
-        //AudioManager.instance.globalBGMVolume
+        GUISlider currentButton_slider = currentButton.Entity.GetComponent<GUISlider>();
+        AudioManager.instance.UpdateBGMVolume(currentButton_slider.Value);
+
     }
 }
