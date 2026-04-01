@@ -110,12 +110,14 @@ public class SpongeButton : SystemBase
 
             if (sBub.currentState == transformState.name)
             {
+                CamFollow.instance.CamShake(true, 0.018f);
+
                 if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (transformState.frameLength - 1))
                 {
                     sBub.isTransformed = true;
 
                     SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
-
+                    CamFollow.instance.CamShake(false, 0f);
                     InitBoxCollider(sBub);
                 }
             }
@@ -219,7 +221,7 @@ public class SpongeTriggerHandler: TriggerSystemBase
                 AudioManager.instance.PlaySFX("TempTest");
                 //Do this
                 SpongeButton.instance.SetAnimState(bubData.objID, World!, SpongeButton.instance.transformState);
-
+             
                 bubData.layerMask = bubData.entity.GetComponent<BoxCollider2D>().LayerMask;
                 bubData.entity.RemoveComponent<BoxCollider2D>();
             }
