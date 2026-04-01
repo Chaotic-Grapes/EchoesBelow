@@ -406,56 +406,56 @@ public class PauseMenu : SystemBase
         float bgmVolume = cachedBgmVolume;
         bool hasAudioManager = false;
 
-        foreach (var audioManager in World!.Query<AudioManagerComponent>())
-        {
-            hasAudioManager = true;
-            sfxVolume = audioManager.Component1.globalSFXVolume;
-            bgmVolume = audioManager.Component1.globalBGMVolume;
+        //foreach (var audioManager in World!.Query<AudioManagerComponent>())
+        //{
+        //    hasAudioManager = true;
+        //    sfxVolume = audioManager.Component1.globalSFXVolume;
+        //    bgmVolume = audioManager.Component1.globalBGMVolume;
 
-            if (sfxClicked)
-            {
-                sfxVolume = ComputeRangeT(SfxRangeStart, SfxRangeEnd, mouseX, mouseY) * 100.0f;
-                audioManager.Component1.globalSFXVolume = sfxVolume;
-            }
-            else if (isDraggingSfx && sfxHeld)
-            {
-                float axisLen = (float)System.Math.Sqrt(
-                    (SfxRangeEnd.X - SfxRangeStart.X) * (SfxRangeEnd.X - SfxRangeStart.X)
-                    + (SfxRangeEnd.Y - SfxRangeStart.Y) * (SfxRangeEnd.Y - SfxRangeStart.Y)
-                );
-                if (axisLen > 0.0001f)
-                {
-                    float axisNow = ComputeAxisPos(SfxRangeStart, SfxRangeEnd, mouseX, mouseY);
-                    float deltaPercent = ((axisNow - sfxLastAxisPos) / axisLen) * 100.0f;
-                    sfxLastAxisPos = axisNow;
-                    sfxVolume = GMath.Clamp(sfxVolume + deltaPercent, 0.0f, 100.0f);
-                    audioManager.Component1.globalSFXVolume = sfxVolume;
-                }
-            }
+        //    if (sfxClicked)
+        //    {
+        //        sfxVolume = ComputeRangeT(SfxRangeStart, SfxRangeEnd, mouseX, mouseY) * 100.0f;
+        //        audioManager.Component1.globalSFXVolume = sfxVolume;
+        //    }
+        //    else if (isDraggingSfx && sfxHeld)
+        //    {
+        //        float axisLen = (float)System.Math.Sqrt(
+        //            (SfxRangeEnd.X - SfxRangeStart.X) * (SfxRangeEnd.X - SfxRangeStart.X)
+        //            + (SfxRangeEnd.Y - SfxRangeStart.Y) * (SfxRangeEnd.Y - SfxRangeStart.Y)
+        //        );
+        //        if (axisLen > 0.0001f)
+        //        {
+        //            float axisNow = ComputeAxisPos(SfxRangeStart, SfxRangeEnd, mouseX, mouseY);
+        //            float deltaPercent = ((axisNow - sfxLastAxisPos) / axisLen) * 100.0f;
+        //            sfxLastAxisPos = axisNow;
+        //            sfxVolume = GMath.Clamp(sfxVolume + deltaPercent, 0.0f, 100.0f);
+        //            audioManager.Component1.globalSFXVolume = sfxVolume;
+        //        }
+        //    }
 
-            if (bgmClicked)
-            {
-                bgmVolume = ComputeRangeT(BgmRangeStart, BgmRangeEnd, mouseX, mouseY) * 100.0f;
-                audioManager.Component1.globalBGMVolume = bgmVolume;
-            }
-            else if (isDraggingBgm && bgmHeld)
-            {
-                float axisLen = (float)System.Math.Sqrt(
-                    (BgmRangeEnd.X - BgmRangeStart.X) * (BgmRangeEnd.X - BgmRangeStart.X)
-                    + (BgmRangeEnd.Y - BgmRangeStart.Y) * (BgmRangeEnd.Y - BgmRangeStart.Y)
-                );
-                if (axisLen > 0.0001f)
-                {
-                    float axisNow = ComputeAxisPos(BgmRangeStart, BgmRangeEnd, mouseX, mouseY);
-                    float deltaPercent = ((axisNow - bgmLastAxisPos) / axisLen) * 100.0f;
-                    bgmLastAxisPos = axisNow;
-                    bgmVolume = GMath.Clamp(bgmVolume + deltaPercent, 0.0f, 100.0f);
-                    audioManager.Component1.globalBGMVolume = bgmVolume;
-                }
-            }
+        //    if (bgmClicked)
+        //    {
+        //        bgmVolume = ComputeRangeT(BgmRangeStart, BgmRangeEnd, mouseX, mouseY) * 100.0f;
+        //        audioManager.Component1.globalBGMVolume = bgmVolume;
+        //    }
+        //    else if (isDraggingBgm && bgmHeld)
+        //    {
+        //        float axisLen = (float)System.Math.Sqrt(
+        //            (BgmRangeEnd.X - BgmRangeStart.X) * (BgmRangeEnd.X - BgmRangeStart.X)
+        //            + (BgmRangeEnd.Y - BgmRangeStart.Y) * (BgmRangeEnd.Y - BgmRangeStart.Y)
+        //        );
+        //        if (axisLen > 0.0001f)
+        //        {
+        //            float axisNow = ComputeAxisPos(BgmRangeStart, BgmRangeEnd, mouseX, mouseY);
+        //            float deltaPercent = ((axisNow - bgmLastAxisPos) / axisLen) * 100.0f;
+        //            bgmLastAxisPos = axisNow;
+        //            bgmVolume = GMath.Clamp(bgmVolume + deltaPercent, 0.0f, 100.0f);
+        //            audioManager.Component1.globalBGMVolume = bgmVolume;
+        //        }
+        //    }
 
-            break;
-        }
+        //    break;
+        //}
 
         if (!hasAudioManager)
         {
@@ -519,34 +519,34 @@ public class PauseMenu : SystemBase
             return;
         }
 
-        foreach (var audioManager in World!.Query<AudioManagerComponent>())
-        {
-            float step = audioManager.Component1.volumeStep;
-            if (step <= 0.0f)
-            {
-                step = 1.0f;
-            }
-            float smoothStep = step * (Time.UnscaledDeltaTime / VolumeHotkeyRepeatInterval);
+        //foreach (var audioManager in World!.Query<AudioManagerComponent>())
+        //{
+        //    float step = audioManager.Component1.volumeStep;
+        //    if (step <= 0.0f)
+        //    {
+        //        step = 1.0f;
+        //    }
+        //    float smoothStep = step * (Time.UnscaledDeltaTime / VolumeHotkeyRepeatInterval);
 
-            if (decSfx)
-            {
-                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume - smoothStep, 0.0f, 100.0f);
-            }
-            if (incSfx)
-            {
-                audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume + smoothStep, 0.0f, 100.0f);
-            }
-            if (decBgm)
-            {
-                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume - smoothStep, 0.0f, 100.0f);
-            }
-            if (incBgm)
-            {
-                audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume + smoothStep, 0.0f, 100.0f);
-            }
+        //    if (decSfx)
+        //    {
+        //        audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume - smoothStep, 0.0f, 100.0f);
+        //    }
+        //    if (incSfx)
+        //    {
+        //        audioManager.Component1.globalSFXVolume = GMath.Clamp(audioManager.Component1.globalSFXVolume + smoothStep, 0.0f, 100.0f);
+        //    }
+        //    if (decBgm)
+        //    {
+        //        audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume - smoothStep, 0.0f, 100.0f);
+        //    }
+        //    if (incBgm)
+        //    {
+        //        audioManager.Component1.globalBGMVolume = GMath.Clamp(audioManager.Component1.globalBGMVolume + smoothStep, 0.0f, 100.0f);
+        //    }
 
-            break;
-        }
+        //    break;
+        //}
     }
     //Pause Menu is off by default
 

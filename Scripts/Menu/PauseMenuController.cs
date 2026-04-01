@@ -37,6 +37,13 @@ public class PauseMenuController : SystemBase
     const string sfxButton = "SFX_Button";
     const string bgmButton = "BGM_Button";
 
+    //Slider Fields
+    //Vector2 bgmSliderMin = new Vector2(618f, 207f);
+    //Vector2 bgmSliderMax = new Vector2(916f, 151f);
+    //Vector2 sfxSliderMin = new Vector2(594, 366f);
+    //Vector2 sfxSliderMax = new Vector2(896f, 415f);
+
+
 
     private const string TargetScenePath = "Scenes/Newstartscene.scn";
 
@@ -89,12 +96,15 @@ public class PauseMenuController : SystemBase
                         break;
                     case bgmButton:
                         menuP.Action = BGMButtonFunc;
+                        menuP.SliderMin = new Vector2(618f, 207f);
+                        menuP.SliderMax = new Vector2(916f, 151f);
                         break;
                     case sfxButton:
                         menuP.Action = SFXButtonFunc;
+                        menuP.SliderMin = new Vector2(594, 366f);
+                        menuP.SliderMax = new Vector2(896f, 415f);
                         break;
                 }
-
                 buttons.Add(name, menuP);
             }
         }
@@ -106,6 +116,9 @@ public class PauseMenuController : SystemBase
     }
     protected override void OnUpdate()
     {
+        //Log("audio vol: " + AudioManager.instance.globalSFXVolume);
+        //Log("bgm vol: " + AudioManager.instance.globalBGMVolume);
+
         foreach (var gameObject in World!.Query<PauseMenuControllerComponent>())
         {
             bool awake = gameObject.Component1.awake;
@@ -119,10 +132,13 @@ public class PauseMenuController : SystemBase
 
             //Do the rest
 
+            //AudioManager.instance.UpdateBGMVolume(1);
+
+
             //For future code to interact with
             if (!isPausable) return;
 
-            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P);
+            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2);
 
             if (!isPaused && isPauseButtonPressed) Pause(true);
             else if (isPaused && isPauseButtonPressed) Pause(false);
@@ -136,20 +152,42 @@ public class PauseMenuController : SystemBase
                 if (gui.Hovered) currentButton = button;
             }
 
-            ref GUIInput currenButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
-            if (currenButton_guiInput.Hovered)
+            ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
+            ref GUIElement currentButton_guiElement = ref currentButton.Entity.GetComponent<GUIElement>();
+
+            if(currentButton.name == bgmButton || currentButton.name == sfxButton)
             {
-                //Log("Hovering over " + currentButton.name);
+                GUISlider currentButton_slider = currentButton.Entity.GetComponent<GUISlider>();
+
+                if (currentButton_guiInput.Clicked)
+                {
+                    AudioManager.instance.PlaySFX("UI005_Track01");
+                }
+                
+                if (currentButton_guiInput.Dragging)
+                {
+                    //float xOffset = currentButton.SliderMin.X + ((currentButton.SliderMax.X - currentButton.SliderMin.X)*(currentButton_slider.Value));
+                    //float yOffset = currentButton.SliderMin.Y + ((currentButton.SliderMax.Y - currentButton.SliderMin.Y)*(currentButton_slider.Value));
+                    //currentButton_guiElement.Position = new Vector2(xOffset, yOffset);
+                }
             }
-            if (currenButton_guiInput.Clicked)
+            else
             {
-                AudioManager.instance.PlaySFX("UI005_Track01");
-                currentButton.Action();
+                if (currentButton_guiInput.Hovered)
+                {
+                    //Log("Hovering over " + currentButton.name);
+                }
+                if (currentButton_guiInput.Clicked)
+                {
+                    AudioManager.instance.PlaySFX("UI005_Track01");
+                    currentButton.Action();
+                }
+                if (currentButton_guiInput.Entered)
+                {
+                    AudioManager.instance.PlaySFX("UI005_Track01");
+                }
             }
-            if (currenButton_guiInput.Entered)
-            {
-                AudioManager.instance.PlaySFX("UI005_Track01");
-            }
+
 
         }
     }
@@ -218,5 +256,6 @@ public class PauseMenuController : SystemBase
     private void BGMButtonFunc()
     {
         Log("er bgm?");
+        //AudioManager.instance.globalBGMVolume
     }
 }
