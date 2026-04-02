@@ -201,27 +201,6 @@ public class StartMenuController : SystemBase
             else continue;
         }
         
-        foreach (var (entity, guiInput) in World!.Query<GUIInput>())
-        {
-            if (guiInput.Hovered) // Mouse cursor still on entity
-            {
-                // Do something
-                Log("GUIInput_Hovering");
-            }
-
-            if (guiInput.Entered) // Same as above but once per frame
-            {
-                Log("GUIInput_Entered");
-            }
-
-            if (guiInput.Clicked)
-            {
-                // Do something
-                Log("GUIInput_Clicked");
-            }
-        }
-
-        
         Scene? active = sceneManager.GetActive();
         if (active == null || !string.Equals(active.Name, SourceSceneName, StringComparison.Ordinal))
         {
@@ -242,7 +221,7 @@ public class StartMenuController : SystemBase
             CacheMenuButtonEntities();
             ApplySelectionVisual();
         }
-
+        //ignore
         bool moveLeft = Input.IsKeyPressed(KeyCode.A);
         bool moveRight = Input.IsKeyPressed(KeyCode.D);
         bool movedSelection = false;

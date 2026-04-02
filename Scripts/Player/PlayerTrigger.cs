@@ -7,6 +7,8 @@ using GrapeEngine.Scripting.Events;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts;
+using Scripts.SwitchDoor;
 using System;
 
 namespace EchoesBelow.Scripts;
@@ -24,6 +26,14 @@ public class PlayerTriggerHandler : TriggerSystemBase
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
+
+        if(self.HasComponent<SpiritOfTheOceanComponent>() && other.TryGetComponent<TagMask>(out TagMask tagmask))
+        {
+            if(tagmask.Mask == 1 << 3 && SpiritOfTheOcean.isEnabled)
+            {
+                DoorManager.instance.DeactivateDoor(other.GetParent()!.Id, 0.056f);
+            }
+        }
 
         if (self.HasComponent<PlayerComponent>() ||
             other.HasComponent<PlayerComponent>())
@@ -86,5 +96,6 @@ public class PlayerTriggerHandler : TriggerSystemBase
                 InventoryController.instance.AddToInventory(other.GetComponent<MS_IDComponent>().msID, other.Id);
             }
         }
+
     }
 }

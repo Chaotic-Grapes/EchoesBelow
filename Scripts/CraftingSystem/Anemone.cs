@@ -27,6 +27,10 @@ public class Anemone :SystemBase
     public Vector3 rootNodePos { get; set; }
     public Entity rootNode { get; set; }
 
+    //Anim
+    public string currentState { get; set; }
+    public Entity[] anemoneSprites { get; set; }
+
     //Obj Pool
     public List<ulong> rawChildList { get; set; }
     public List<ulong> sortedChildList { get; set; }
@@ -60,6 +64,9 @@ public class Anemone :SystemBase
         this.isCaptured = false;
         this.isOpened = false;
 
+        //Anim-Centric Array, stores 2
+        anemoneSprites = new Entity[2];
+
         //Obj Pool Assignments
         rawChildList = new List<ulong>();
         sortedChildList = new List<ulong>();
@@ -81,7 +88,7 @@ public class Anemone :SystemBase
         objPools[5] = ms06_ObjectPool;
         objPools[6] = ms07_ObjectPool;
     }
-
+    
     public void UpdateSelection(World world, int msID, Vector3 newPos)
     {
         //Log("START ==============");
@@ -199,9 +206,13 @@ public class Anemone :SystemBase
         int id_Iterator = 1;
         foreach (List<ulong> objPool in objPools)
         {
+            Log($"msID == idIterator: {msID == id_Iterator}");
+            Log($"objpoolcount > 0: {objPool.Count > 0}");
+            Log($"stores item? : {InventoryController.slotInstances[Entity.FromId(world, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem}");
+
             //Check if obj pool is empty
             if (msID == id_Iterator && objPool.Count > 0
-                && InventoryController.slotInstances[Entity.FromId(World!, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+                && InventoryController.slotInstances[Entity.FromId(world, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
                 ulong pulledObjId = objPool[objPool.Count - 1];
                 objPool.Remove(pulledObjId);

@@ -9,16 +9,7 @@ using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts.Audio;
 
-[Component] public record struct AudioManagerComponent(
-    bool start, 
-    //From 1 to 100
-    float globalSFXVolume,
-    //From 1 to 100
-    float globalBGMVolume, 
-
-    float volumeStep
-
-);
+[Component] public record struct AudioManagerComponent(bool start, float bgmStartVolume);
 [RequireForUpdate<AudioManagerComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class AudioManager : SystemBase
@@ -43,7 +34,9 @@ public class AudioManager : SystemBase
     public static AudioManager instance;
     public static List<Entity> sfxEntityList;
     public static Dictionary<string,Entity> sfxEntityDictionary;
-    private static Dictionary<ulong, float> baseAudioVolumeByEntityId;
+
+    public float globalSFXVolume { get; private set; }
+    public float globalBGMVolume { get; private set; }
 
     // countdown used to restore the sfx bus after damage
     private float _damageLowPassTimer;
@@ -76,7 +69,10 @@ public class AudioManager : SystemBase
 
         sfxEntityDictionary = [];
         sfxEntityList = audioManager.GetChildren();
-        baseAudioVolumeByEntityId = [];
+
+        //store initial bgm volume
+        ref AudioManagerComponent audComp = ref audioManager.GetComponent<AudioManagerComponent>();
+        audComp.bgmStartVolume = audioManager.GetComponent<AudioSource>().Volume;
 
         foreach(Entity e in sfxEntityList)
         {
@@ -95,11 +91,6 @@ public class AudioManager : SystemBase
             }
         }
 
-        foreach (var audio in World!.Query<AudioSource>())
-        {
-            baseAudioVolumeByEntityId[audio.Entity.Id] = audio.Component1.Volume;
-        }
-
         //End of Start
         return true;
     }
@@ -113,6 +104,22 @@ public class AudioManager : SystemBase
     }
     protected override void OnUpdate()
     {
+
+        foreach (var audioManager in World!.Query<AudioManagerComponent, AudioSource>()) //This shld only happen once
+        {
+        
+            bool start_audioManager = audioManager.Component1.start;
+            audioManager.Component1.start = OnStart(ref start_audioManager, audioManager.Entity.Id);
+
+
+        }
+
+        //So this foreach will iterate thru all other audiosources once as well
+        foreach (var sfxObject in World!.Query<AudioSource, AudioSFXComponent>()) //SFX objs only
+        {
+            bool start_sfxObject = sfxObject.Component2.start;
+            sfxObject.Component2.start = OnStart2(ref start_sfxObject, ref sfxObject.Component1, ref sfxObject.Component2);
+        }
 
         // count down the damage low pass effect
         if (_damageLowPassTimer > 0.0f)
@@ -144,41 +151,6 @@ public class AudioManager : SystemBase
                 }
             }
         }
-
-        foreach (var audioManager in World!.Query<AudioManagerComponent, AudioSource, GUIElement>()) //This shld only happen once
-        {
-            bool start_audioManager = audioManager.Component1.start;
-            audioManager.Component1.start = OnStart(ref start_audioManager, audioManager.Entity.Id);
-
-            foreach (var audio in World!.Query<AudioSource>())
-            {
-                if (!baseAudioVolumeByEntityId.TryGetValue(audio.Entity.Id, out float baseVolume))
-                {
-                    baseVolume = audio.Component1.Volume;
-                    baseAudioVolumeByEntityId[audio.Entity.Id] = baseVolume;
-                }
-
-                bool isSfx = audio.Entity.TryGetComponent<AudioSFXComponent>(out _);
-                float sliderPercent = isSfx
-                    ? (audioManager.Component1.globalSFXVolume / 100.0f)
-                    : (audioManager.Component1.globalBGMVolume / 100.0f);
-
-                audio.Component1.Volume = baseVolume * sliderPercent;
-            }
-
-            //So this foreach will iterate thru all other audiosources once as well
-            foreach (var sfxObject in World!.Query<AudioSource, AudioSFXComponent>()) //SFX objs only
-            {
-                bool start_sfxObject = sfxObject.Component2.start;
-                sfxObject.Component2.start = OnStart2(ref start_sfxObject, ref sfxObject.Component1, ref sfxObject.Component2);
-            }
-
-            //Debug Volume Slider (ALWAYS ON)
-            audioManager.Component3.Size.Y = 200 * (audioManager.Component1.globalSFXVolume / 100);
-        }
-
-
-
     }
 
     // applies the temporary damage filter to target buses
@@ -251,5 +223,20 @@ public class AudioManager : SystemBase
         ref AudioSource audsrc = ref chosenSfx.GetComponent<AudioSource>();
      
         audsrc.PlayOnStart = false;
+    }
+
+    public void UpdateBGMVolume(float percentage)
+    {
+        foreach(var bgm in World!.Query<AudioSource, AudioManagerComponent>())
+        {
+            bgm.Component1.Volume = bgm.Component2.bgmStartVolume * percentage;
+        }
+    }
+    public void UpdateSFXVolume(float percentage)
+    {
+        foreach(var sfx in World!.Query<AudioSource, AudioSFXComponent>())
+        {
+            sfx.Component1.Volume = sfx.Component2.startVolume * percentage;
+        }
     }
 }

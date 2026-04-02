@@ -39,7 +39,7 @@ public class ProximityCulling : SystemBase
             //bool start = gameObject.Component1.start;
             //gameObject.Component1.start = OnStart(ref start, e);
 
-            playerPos = Player.instance.currentPos;
+            playerPos = Player.instance.currentPosForCamFollow;
             currentPos = gameObject.Component3.Position;
 
             float displacement = (playerPos - currentPos).Magnitude;
@@ -59,8 +59,4 @@ public class ProximityCulling : SystemBase
         }
     }
 
-    protected override void OnDestroy()
-    {
-        Log("System ProximityCulling destroyed");
-    }
 }

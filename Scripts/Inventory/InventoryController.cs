@@ -25,7 +25,6 @@ public class InventoryController : SystemBase
     public static ulong[] slotObjIds;
     public static Dictionary<string, Slot> slotInstances;
 
-    public static bool isPressed_Q;
     static bool isRMB_Pressed;
     public static double mouseScroll;
 
@@ -117,8 +116,9 @@ public class InventoryController : SystemBase
 
         //Set the selection
         ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<GUIImage>();
+        ref GUIElement guiElement = ref Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<GUIElement>();
         guiImage.Color = new Color(100, 100, 100, 255);
-        //Log("Set to Black!");
+        guiElement.Size = new Vector2(100f, 100f);
 
         return true;
     }
@@ -126,8 +126,29 @@ public class InventoryController : SystemBase
     {
         //This is gonna be overhauled
         //check for input
-        if(isEnabled_RMBInput) isRMB_Pressed = Input.IsMousePressed(1);
-        mouseScroll = -Input.ScrollY;
+        if (isEnabled_RMBInput) 
+        { 
+            isRMB_Pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B); 
+        }
+
+        if (Input.IsGamepadConnected(0))
+        {
+            if(Input.IsGamepadButtonPressed(0, GamepadButton.LeftBumper) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)
+            //|| Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper) 
+            || Input.IsGamepadButtonDown(0, GamepadButton.DPadLeft)
+                ) mouseScroll = -1;
+            else if (Input.IsGamepadButtonPressed(0, GamepadButton.RightBumper)|| Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight)
+            //|| Input.IsGamepadButtonDown(0, GamepadButton.RightBumper) 
+            || Input.IsGamepadButtonDown(0, GamepadButton.DPadRight)
+                ) mouseScroll = 1;
+            else mouseScroll = 0f;
+            //Input.GetGamepadAxis(0, GamepadAxis.RightX);
+        }
+        else
+        {
+            mouseScroll = -Input.ScrollY;
+        }
+
 
         foreach(var gameObject in World!.Query<InventoryControllerComponent>())
         {
@@ -190,7 +211,7 @@ public class InventoryController : SystemBase
                 
                 
                 Vector2 trajectory = Player.playerDir.Normalized * Player.instance.vomitSpeed;
-                Vector3 newPos = new Vector3(Player.instance.currentPos.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPos.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPos.Z);
+                Vector3 newPos = new Vector3(Player.instance.currentPosForCamFollow.X + (0.7f * Player.playerDir.Normalized.X), Player.instance.currentPosForCamFollow.Y + (0.7f * Player.playerDir.Normalized.Y), Player.instance.currentPosForCamFollow.Z);
                 if (globalInvIterator == 6)
                 { 
                     RemoveFromInventory(2, true, newPos, trajectory); 
@@ -245,15 +266,20 @@ public class InventoryController : SystemBase
         for (int i = slotObjIds.Length - 1; i >= 0; i--)
         {
             ref GUIImage guiImage = ref Entity.FromId(World!, slotObjIds[i]).GetComponent<GUIImage>();
+            ref GUIElement guiElement = ref Entity.FromId(World!, slotObjIds[i]).GetComponent<GUIElement>();
+
             //if selected, gray out / higlight the slot
             if (i == iterator)
             {
-                guiImage.Color = new Color(100, 100, 100, 255);
+                guiImage.Color = new Color(4f, 2f, 4f, 1f);
+                guiElement.Size = new Vector2(120f, 120f);
+
             }
             //else restore the color back to white
             else
             {
                 guiImage.Color = new Color(255, 255, 255, 255);
+                guiElement.Size = new Vector2(100f, 100f);
             }
         }
 
