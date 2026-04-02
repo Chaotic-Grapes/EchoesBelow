@@ -54,7 +54,7 @@ public class CraftMove : SystemBase
         {
             if (!gameObject.Component1.Enabled) continue;
 
-            if (!Player.instance.isEnabled && !Input.IsGamepadConnected(0))
+            if (!Player.instance.isEnabled)
             {
                 isKeyDown_W = Input.IsKeyDown(KeyCode.W);
                 isKeyDown_A = Input.IsKeyDown(KeyCode.A);
@@ -62,17 +62,15 @@ public class CraftMove : SystemBase
                 isKeyDown_D = Input.IsKeyDown(KeyCode.D);
                 isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space);
             }
-            else if(!Player.instance.isEnabled && Input.IsGamepadConnected(0))
-            {
-                isKeyPressed_Space = Input.IsGamepadButtonDown(0, GamepadButton.Y);
-            }
 
-            if (Input.IsGamepadConnected(0))
+            if (isKeyDown_A || isKeyDown_D || isKeyDown_W || isKeyDown_S)
             {
-                moveDir.Y = -Input.GetGamepadAxis(0, GamepadAxis.LeftY);
-                moveDir.X = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+                
+            } // can add an else if in between for spacebar soon
+            else
+            {
+              
             }
-
 
             if (isKeyDown_W) moveDir.Y = GMath.Lerp(moveDir.Y, 1, lerpFac);
             if (isKeyDown_S) moveDir.Y = GMath.Lerp(moveDir.Y, -1, lerpFac);
@@ -80,19 +78,9 @@ public class CraftMove : SystemBase
             if (isKeyDown_D) moveDir.X = GMath.Lerp(moveDir.X, 1, lerpFac);
             moveDir.X = GMath.Lerp(moveDir.X, 0, lerpFac / 2);
             moveDir.Y = GMath.Lerp(moveDir.Y, 0, lerpFac / 2);
-
-
-            Vector2 moveDirNormalized = Vector2.Zero;
+          
             //NaN protection for normalization
-            if (Input.IsGamepadConnected(0))
-            {
-                moveDirNormalized = moveDir;
-            }
-            else
-            {
-                moveDirNormalized = (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f) ? Vector2.Zero : moveDir.Normalized;
-            }
-              
+            Vector2 moveDirNormalized = (-0.0001f <= moveDir.X && moveDir.X <= 0.0001f && -0.0001f <= moveDir.Y && moveDir.Y <= 0.0001f)? Vector2.Zero : moveDir.Normalized;
 
             ref LinearVelocity2D lv = ref Entity.FromId(World!,gameObject.Entity.Id).GetComponent<LinearVelocity2D>();
             //lv.Value = moveDirNormalized * gameObject.Component1.moveSpeed * Time.DeltaTime;
@@ -104,7 +92,7 @@ public class CraftMove : SystemBase
             lv.Value.X = GMath.Clamp(lv.Value.X, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
             lv.Value.Y = GMath.Clamp(lv.Value.Y, -gameObject.Component1.maxSpeed, gameObject.Component1.maxSpeed);
 
-            Player.instance.currentPosForCamFollow = gameObject.Entity.GetComponent<LocalTransform>().Position 
+            Player.instance.currentPos = gameObject.Entity.GetComponent<LocalTransform>().Position 
                 + gameObject.Entity.GetParent()!.GetComponent<LocalTransform>().Position + new Vector3(0,-CraftAnemone.cameraOffsetY,0);
 
 
@@ -114,5 +102,10 @@ public class CraftMove : SystemBase
                 transform.Position = Vector3.Zero;
             }
         }
+    }
+
+    protected override void OnDestroy()
+    {
+     
     }
 }

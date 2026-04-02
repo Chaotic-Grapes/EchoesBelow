@@ -91,7 +91,7 @@ public class MS_Spawner : SystemBase
 
                     if (gameObject.Component1.z_isGlobal)
                     {
-                        spawnPos = new Vector3(xValue + Player.instance.currentPosForCamFollow.X, transform.Position.Y + Player.instance.currentPosForCamFollow.Y, 0);
+                        spawnPos = new Vector3(xValue + Player.instance.currentPos.X, transform.Position.Y + Player.instance.currentPos.Y, 0);
                     }
                     else
                     {

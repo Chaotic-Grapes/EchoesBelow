@@ -52,6 +52,11 @@ public class Oscillator : SystemBase
             //Log("StartPos2: " + startPos);
         }
     }
+
+    protected override void OnDestroy()
+    {
+        //Log("System Spinner destroyed");
+    }
 }
 
 

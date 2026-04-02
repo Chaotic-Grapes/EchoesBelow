@@ -32,7 +32,6 @@ public class MS_Decay : SystemBase
                 //Flame of Udun!
                 //AHH
                 //Go back to the shadow!
-                //You SHALL NOT PASS
                 MS_Manager.instance.SendToPool(gameObject.Entity.Id);
                 //Gandalf!
             }

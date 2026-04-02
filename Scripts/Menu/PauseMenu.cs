@@ -12,11 +12,68 @@ using System.Collections.Generic;
 
 namespace Scripts.Menu;
 
-//This one is Old and Deprecated
 [Component] public record struct PauseMenuComponent(bool isPauseable, int resumeSiginifier, int exitSignifier, bool start);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class PauseMenu : SystemBase
 {
+    private const string SourceSceneName = "Level_One";
+    private const string TargetScenePath = "Scenes/Newstartscene.scn";
+    private static readonly Vector2 SfxRangeStart = new(570.0f, 384.0f);
+    private static readonly Vector2 SfxRangeEnd = new(930.0f, 440.0f);
+    private static readonly Vector2 BgmRangeStart = new(599.0f, 217.0f);
+    private static readonly Vector2 BgmRangeEnd = new(940.0f, 140.0f);
+    private const float SliderTrackHitRadius = 42.0f;
+    private const float VolumeHotkeyRepeatInterval = 0.12f;
+
+    bool isPaused = false;
+
+    public bool isKeyPressed_vertical;
+    bool isFirstSelected;
+    bool isDraggingSfx;
+    bool isDraggingBgm;
+    float sfxLastAxisPos;
+    float bgmLastAxisPos;
+
+    private Entity? sfxBubbleEntity;
+    private Entity? sfxSliderEntity;
+    private Entity? bgmBubbleEntity;
+    private Entity? bgmSliderEntity;
+    private bool hasAudioSliderRefs;
+    private float cachedSfxVolume = 100.0f;
+    private float cachedBgmVolume = 100.0f;
+
+
+    private Entity resumeButton_Lighter;
+    private Entity exitButton_Lighter;
+
+
+    public static List<Entity> pauseMenuElementObjIds;
+    #region System Behaviours
+    private bool OnStart(ref bool startBool, ulong objId)
+    {
+        if (startBool == true) return true;
+        startBool = true;
+        //Todo
+        isFirstSelected = true;
+
+        Entity pauseMenuObj = Entity.FromId(World!, objId);
+        pauseMenuElementObjIds = pauseMenuObj.GetFirstChild()!.GetChildren();
+        pauseMenuElementObjIds.Add(pauseMenuObj.GetFirstChild()!);
+
+        CacheAudioSliderEntities();
+
+        foreach(var obj in World!.Query<GUIElement, MatchSignifierComponent>())
+        {
+            if (obj.Component2.signifierID == 11121) resumeButton_Lighter = Entity.FromId(World!, obj.Entity.Id);
+            if (obj.Component2.signifierID == 22231) exitButton_Lighter = Entity.FromId(World!, obj.Entity.Id);
+
+            if (resumeButton_Lighter != null && exitButton_Lighter != null) break;
+        }
+
+
+        //End of Start
+        return true;
+    }
     protected override void OnUpdate()
     {
         bool isKeyPressed_P = Input.IsKeyPressed(KeyCode.P);

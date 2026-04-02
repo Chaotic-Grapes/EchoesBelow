@@ -32,4 +32,9 @@ public class Spinner : SystemBase
 
         }
     }
+
+    protected override void OnDestroy()
+    {
+        //Log("System Spinner destroyed");
+    }
 }

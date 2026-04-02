@@ -121,7 +121,7 @@ public class MS_Manager : SystemBase
                 if (isVomitting) 
                 {
                     Log("Setting cooldown collison for " + pulledObjId);
-                    MS_ID.instance.SetCooldown(0.35f, pulledObjId); 
+                    MS_ID.instance.SetCooldown(1.85f, pulledObjId); 
                 }
                 ////Log($"Taken from Pool {id_Iterator}!",LogLevel.Debug);
                 return pulledObjId;
