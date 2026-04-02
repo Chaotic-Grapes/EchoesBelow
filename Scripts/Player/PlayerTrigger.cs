@@ -32,14 +32,7 @@ public class PlayerTriggerHandler : TriggerSystemBase
                 (self.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign2) && self.GetComponent<MatchSignifierComponent>().signifierID == 86118001))
             {
                 Log("Endscene Entering. . . ");
-                SceneManager sceneManager = SceneManager.Instance;
-                //Loadscene use dalton's
-                sceneManager.SetNextAudioTransition(2.0f, true);
-                //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
-                //Like creating a new scene / allocate a new scene in the registry
-                var sceneIndex = SceneManager.Instance.AddScene();
-                var ss = SceneManager.Instance.LoadScene(sceneIndex, endSceneName);
-                SceneManager.Instance.SetActive(sceneIndex);
+                SceneCrossFadeTransition.Request(endSceneName, 2.0f, true);
             }
         }
         

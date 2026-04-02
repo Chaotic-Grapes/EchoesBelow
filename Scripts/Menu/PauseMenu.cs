@@ -159,22 +159,7 @@ public class PauseMenu : SystemBase
                 {
                     Log("Exit");
                     Time.TimeScale = 1;
-                    SceneManager sceneManager = SceneManager.Instance;
-                    sceneManager.SetNextAudioTransition(0.8f, true);
-
-                    ulong sceneIndex = sceneManager.AddScene();
-                    bool loaded = sceneManager.LoadScene(sceneIndex, TargetScenePath);
-                    Log("StartMenu direct load StartMenu loaded=" + loaded + " index=" + sceneIndex);
-
-                    if (loaded)
-                    {
-                        sceneManager.SetActive(sceneIndex);
-                        return;
-                    }
-
-                    // Fallback to existing transition request path.
-                    SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
-                    //SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
+                    SceneCrossFadeTransition.Request(TargetScenePath, 2.0f, true);
                 }
             }
         }

@@ -14,28 +14,31 @@ public class SceneCrossFadeTransition : SystemBase
     {
         Idle,
         FadingOut,
+        HoldingBlack,
         FadingIn
     }
 
     private const string FallbackOverlayName = "SceneFadeOverlay";
+    private const float DefaultBlackHoldDuration = 2.0f;
+    private const float FadeRampDuration = 0.2f;
 
     private static bool s_hasRequest;
     private static string s_targetScenePath = string.Empty;
-    private static float s_duration = 0.6f;
+    private static float s_duration = DefaultBlackHoldDuration;
     private static bool s_allowAudioCrossfade = true;
     private static int s_overlaySignifierId;
 
     private static bool s_pendingFadeIn;
-    private static float s_pendingFadeInDuration = 0.6f;
+    private static float s_pendingFadeInDuration = FadeRampDuration;
     private static int s_pendingFadeInOverlaySignifierId;
 
     private TransitionState _state = TransitionState.Idle;
     private float _timer;
-    private float _activeDuration = 0.6f;
+    private float _activeDuration = DefaultBlackHoldDuration;
     private int _activeOverlaySignifierId;
 
     // Call from any gameplay/menu script to trigger a visual scene transition.
-    public static void Request(string targetScenePath, float duration = 0.6f, bool allowAudioCrossfade = true, int overlaySignifierId = 0)
+    public static void Request(string targetScenePath, float duration = DefaultBlackHoldDuration, bool allowAudioCrossfade = true, int overlaySignifierId = 0)
     {
         if (string.IsNullOrWhiteSpace(targetScenePath))
         {
@@ -44,7 +47,7 @@ public class SceneCrossFadeTransition : SystemBase
 
         s_hasRequest = true;
         s_targetScenePath = targetScenePath;
-        s_duration = duration <= 0.01f ? 0.01f : duration;
+        s_duration = duration <= 0.01f ? DefaultBlackHoldDuration : duration;
         s_allowAudioCrossfade = allowAudioCrossfade;
         s_overlaySignifierId = overlaySignifierId;
     }
@@ -78,7 +81,7 @@ public class SceneCrossFadeTransition : SystemBase
         if (!overlay.IsAlive || !overlay.TryGetComponent<GUIElement>(out _) || !overlay.TryGetComponent<GUIPanel>(out _))
         {
             // If no overlay exists, perform a direct scene switch and keep audio fade support.
-            if (_state == TransitionState.FadingOut)
+            if (_state == TransitionState.FadingOut || _state == TransitionState.HoldingBlack)
             {
                 PerformSceneSwap();
             }
@@ -92,13 +95,22 @@ public class SceneCrossFadeTransition : SystemBase
         overlayElement.Visible = true;
         _timer += Time.DeltaTime;
 
-        float t = _activeDuration > 0.0001f ? _timer / _activeDuration : 1.0f;
+        float t = FadeRampDuration > 0.0001f ? _timer / FadeRampDuration : 1.0f;
         t = GMath.Clamp(t, 0.0f, 1.0f);
 
         if (_state == TransitionState.FadingOut)
         {
             SetPanelAlpha(ref overlayPanel, t);
             if (t >= 1.0f)
+            {
+                _state = TransitionState.HoldingBlack;
+                _timer = 0.0f;
+            }
+        }
+        else if (_state == TransitionState.HoldingBlack)
+        {
+            SetPanelAlpha(ref overlayPanel, 1.0f);
+            if (_timer >= _activeDuration)
             {
                 PerformSceneSwap();
                 _state = TransitionState.Idle;
@@ -117,7 +129,7 @@ public class SceneCrossFadeTransition : SystemBase
 
     private static void SetPanelAlpha(ref GUIPanel panel, float alpha)
     {
-        panel.Color = new Color(panel.Color.R, panel.Color.G, panel.Color.B, GMath.Clamp(alpha, 0.0f, 1.0f));
+        panel.Color = new Color(0.0f, 0.0f, 0.0f, GMath.Clamp(alpha, 0.0f, 1.0f));
     }
 
     private Entity FindOverlayEntity(int signifierId)
@@ -158,7 +170,7 @@ public class SceneCrossFadeTransition : SystemBase
         {
             sceneManager.SetActive(sceneIndex);
             s_pendingFadeIn = true;
-            s_pendingFadeInDuration = _activeDuration;
+            s_pendingFadeInDuration = FadeRampDuration;
             s_pendingFadeInOverlaySignifierId = _activeOverlaySignifierId;
         }
     }

@@ -148,21 +148,7 @@ public class StartMenuController : SystemBase
 
     private void TransitionToGameScene()
     {
-        SceneManager sceneManager = SceneManager.Instance;
-        sceneManager.SetNextAudioTransition(0.8f, true);
-
-        ulong sceneIndex = sceneManager.AddScene();
-        bool loaded = sceneManager.LoadScene(sceneIndex, TargetScenePath);
-        Log("StartMenu direct load FGym2 loaded=" + loaded + " index=" + sceneIndex);
-
-        if (loaded)
-        {
-            sceneManager.SetActive(sceneIndex);
-            return;
-        }
-
-        // Fallback to existing transition request path.
-        SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
+        SceneCrossFadeTransition.Request(TargetScenePath, 2.0f, true);
     }
 
     private void TriggerSelectedAction()
@@ -209,7 +195,7 @@ public class StartMenuController : SystemBase
                 bool spacePressedEndScene = spaceDownEndScene && !wasSpaceDown;
                 if (spacePressedEndScene) //controller.Component1.timer < 0 &&
                 { 
-                    SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
+                    SceneCrossFadeTransition.Request(StartSceneName, 2.0f, true);
                 }
             }
             else continue;

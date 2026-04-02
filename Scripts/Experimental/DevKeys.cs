@@ -38,34 +38,17 @@ public class DevKeys : SystemBase
 
         if (isKeyDown_R && isKeyPressed_0)
         {
-            SceneManager sceneManager = SceneManager.Instance;
-            //Loadscene use dalton's
-            sceneManager.SetNextAudioTransition(2.0f, true);
-            //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
-            //Like creating a new scene / allocate a new scene in the registry
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/Newstartscene.scn");
-            SceneManager.Instance.SetActive(sceneIndex);
+            SceneCrossFadeTransition.Request("Scenes/Newstartscene.scn", 2.0f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_1)
         {
-            SceneManager sceneManager = SceneManager.Instance;
-            sceneManager.SetNextAudioTransition(2.0f, true);
-
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/FeatureGym.scn");
-            SceneManager.Instance.SetActive(sceneIndex);
+            SceneCrossFadeTransition.Request("Scenes/FeatureGym.scn", 2.0f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_2)
         {
-            SceneManager sceneManager = SceneManager.Instance;
-            sceneManager.SetNextAudioTransition(2.0f, true);
-
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/M5_L1.scn");
-            SceneManager.Instance.SetActive(sceneIndex);
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 2.0f, true);
         }
 
 

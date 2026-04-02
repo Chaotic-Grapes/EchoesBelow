@@ -12,6 +12,8 @@ namespace EchoesBelow.Scripts;
 public class CamFollow : SystemBase
 {
     static Vector2 playerPos;
+    static Vector3 _prevListenerPos;
+    static bool _hasPrevListenerPos;
     protected override void OnCreate()
     {
         //Log("System CamFollow initialized");
@@ -27,6 +29,21 @@ public class CamFollow : SystemBase
 
             transform.Position = new Vector3(GMath.Lerp(transform.Position.X, playerPos.X, 0.1f),
                                              GMath.Lerp(transform.Position.Y, playerPos.Y, 0.1f), transform.Position.Z);
+
+            float dt = Time.DeltaTime;
+            if (dt <= 0.0f) dt = 0.0001f;
+
+            // Drive the 3D audio listener from the camera so panning matches screen X (camera center).
+            Vector3 listenerPos = new Vector3(transform.Position.X, transform.Position.Y, 0.0f);
+            Vector3 listenerVel = _hasPrevListenerPos ? (listenerPos - _prevListenerPos) / dt : Vector3.Zero;
+            _prevListenerPos = listenerPos;
+            _hasPrevListenerPos = true;
+
+            GrapeEngine.Scripting.Services.Audio.SetListener(
+                listenerPos,
+                listenerVel,
+                new Vector3(0.0f, 1.0f, 0.0f),
+                new Vector3(0.0f, 0.0f, 1.0f));
         }
     }
 
