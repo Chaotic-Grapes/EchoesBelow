@@ -5,259 +5,194 @@ using GrapeEngine.Scripting.Core;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts;
+using Scripts.Menu;
 using System;
 using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
 
-[Component] public record struct StartMenuControllerComponent(bool start, int startSignifier, int exitSignifier, bool isEndScene, float timer);
+[Component] public record struct StartMenuControllerComponent(bool start, bool awake);
+[RequireForUpdate<StartMenuControllerComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class StartMenuController : SystemBase
 {
-    private const float SceneTransitionDuration = 1.5f;
-    //For startscene
-    private const string SourceSceneName = "Newstartscene";
+    public static StartMenuController instance { get; private set; }
+
+    public static List<Entity> panelEntities { get; private set; }
+    public static Dictionary<string, MenuPanel> buttons { get; private set; }
+    public static List<MenuPanel> buttonList { get; private set; }
+
+    //Start Menu Fields
+    static int iterator = 0;
     private const string TargetScenePath = "Scenes/FeatureGym.scn";
-    //for endscene
-    private const string EndSceneName = "EndScene";
-    private const string StartSceneName = "Scenes/NewStartScene.scn";
 
-    // Requested navigation order: NewGame -> Continue -> Settings -> Exit.
-    private readonly string[] normalButtonNames =
+    //Current Button Fields
+    public static MenuPanel currentButton { get; private set; }
+    //Available button names
+    const string newGameButton = "NewGame_Button";
+    const string exitButton = "Exit_Button";
+    const string settingsButton = "Settings_Button";
+    const string continueButton = "Continue_Button";
+
+    private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
     {
-        "NewGame_Button",
-        "Continue_Button",
-        "Settings_Button",
-        "Exit_Button"
-    };
+        if (awakeBool == true) return true;
+        awakeBool = true;
 
-    private readonly string[] lighterButtonNames =
-    {
-        "NewGame_Button_Lighter",
-        "Continue_Button_Lighter",
-        "Settings_Button_Lighter",
-        "Exit_Button_Lighter"
-    };
+        instance = this;
 
-    private readonly Dictionary<string, Entity> buttonEntities = new();
-    private int selectedIndex;
-    private int enterLockFrames;
+        buttons = new Dictionary<string, MenuPanel>();
 
-    private bool OnStart(ref bool startBool, ulong endSceneControllerId)
+        buttonList = new List<MenuPanel>();
+
+        panelEntities = new List<Entity>();
+
+        foreach (Entity child in Entity.FromId(World!, objId).GetChildren())
+        {
+            panelEntities.Add(child);
+            ref GUIElement gui = ref child.GetComponent<GUIElement>();
+        }
+
+        return true;
+    }
+    private bool OnStart(ref bool startBool)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
+        Log("PanelEntities count: " + panelEntities.Count);
+        foreach (Entity panelEntity in panelEntities)
+        {
+            if (panelEntity.HasComponent<GUIInput>())
+            {
+                //Initialize my menu panels
+                string name = panelEntity.GetComponent<Name>().Value.ToString();
+                MenuPanel menuP = new MenuPanel(panelEntity.Id, name, panelEntity);
 
-        selectedIndex = 0;
-        enterLockFrames = 0;
+                switch (name)
+                {
+                    case newGameButton:
+                        menuP.Action = NewGameButtonFunc;
+                        break;
+                    case continueButton:
+                        menuP.Action = ContinueButtonFunc;
+                        break;
+                    case exitButton:
+                        menuP.Action = ExitButtonFunc;
+                        break;
+                    case settingsButton:
+                        menuP.Action = SettingsButtonFunc;
+                        break;
+                }
+                buttons.Add(name, menuP);
+                buttonList.Add(menuP);
+            }
+        }
 
-        //reset endscene timer every time
-        Entity.FromId(World!,endSceneControllerId).GetComponent<StartMenuControllerComponent>().timer = 1f;
-        CacheMenuButtonEntities();
-        ApplySelectionVisual();
+        currentButton = buttons[newGameButton];
+
         //End of Start
         return true;
     }
-
-    private void CacheMenuButtonEntities()
-    {
-        buttonEntities.Clear();
-
-        foreach (var ui in World!.Query<Name, GUIElement>())
-        {
-            string name = ui.Component1.Value.ToString();
-            buttonEntities[name] = ui.Entity;
-        }
-    }
-
-    private void SetVisible(string entityName, bool visible)
-    {
-        if (!buttonEntities.TryGetValue(entityName, out Entity entity) || !entity.IsAlive)
-        {
-            return;
-        }
-
-        if (!entity.TryGetComponent<GUIElement>(out _))
-        {
-            return;
-        }
-
-        entity.GetComponent<GUIElement>().Visible = visible;
-    }
-    private void SetImageAlpha(string entityName, float alpha)
-    {
-        if (!buttonEntities.TryGetValue(entityName, out Entity entity) || !entity.IsAlive)
-        {
-            return;
-        }
-
-        if (!entity.TryGetComponent<GUIImage>(out _))
-        {
-            return;
-        }
-
-        ref GUIImage image = ref entity.GetComponent<GUIImage>();
-        Color color = image.Color;
-        color.A = alpha;
-        image.Color = color;
-    }
-
-    private void ApplySelectionVisual()
-    {
-        for (int i = 0; i < normalButtonNames.Length; ++i)
-        {
-            bool selected = (selectedIndex >= 0) && (i == selectedIndex);
-
-            // Keep both entities visible and crossfade via alpha.
-            SetVisible(normalButtonNames[i], true);
-            SetVisible(lighterButtonNames[i], true);
-            SetImageAlpha(normalButtonNames[i], selected ? 0.0f : 1.0f);
-            SetImageAlpha(lighterButtonNames[i], selected ? 1.0f : 0.0f);
-        }
-    }
-
-    private void MoveSelection(int delta)
-    {
-        int count = normalButtonNames.Length;
-        if (count <= 0)
-        {
-            return;
-        }
-
-        if (selectedIndex < 0)
-        {
-            selectedIndex = 0;
-        }
-        else
-        {
-            selectedIndex = (selectedIndex + delta + count) % count;
-        }
-
-        ApplySelectionVisual();
-    }
-
-    private static void PlayMenuMoveSfx()
-    {
-        if (AudioManager.instance != null)
-        {
-            //AudioManager.instance.PlaySFX("SFX007");
-        }
-    }
-
-    private void TransitionToGameScene()
-    {
-        Log("Transitioning");
-        SceneCrossFadeTransition.Request(TargetScenePath, SceneTransitionDuration, true);
-    }
-
-    private void TriggerSelectedAction()
-    {
-        if (selectedIndex < 0)
-        {
-            return;
-        }
-
-        // New Game / Continue both transition to FGym2 with audio + visual fade.
-        if (selectedIndex == 0)
-        {
-            TransitionToGameScene();
-            return;
-        }
-
-        if(selectedIndex == 1)
-        {
-            return;
-        }
-
-        // Settings currently has no dedicated scene/action in this flow.
-        if (selectedIndex == 2)
-        {
-            return;
-        }
-
-        // Exit
-        if (selectedIndex == 3)
-        {
-            Application.Quit();
-        }
-    }
-
     protected override void OnUpdate()
     {
-        //SceneManager sceneManager = SceneManager.Instance;
-        //foreach(var controller in World!.Query<StartMenuControllerComponent>())
-        //{
-        //    if (controller.Component1.isEndScene)
-        //    {
-        //        controller.Component1.timer -= Time.DeltaTime;
-        //        bool confirmPressedEndScene = Input.IsKeyPressed(KeyCode.Space);
-        //        if (confirmPressedEndScene) //controller.Component1.timer < 0 &&
-        //        { 
-        //            Log("StartMenu end-scene confirm key pressed (G)");
-        //            //SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
-        //        }
-        //    }
-        //    else continue;
-        //}
-        
-        //Scene? active = sceneManager.GetActive();
-        //if (active == null || !string.Equals(active.Name, SourceSceneName, StringComparison.Ordinal))
-        //{
-        //    ////Log($"StartMenuController: Active scene is not the source scene: '{active?.Name ?? "null"}'; aborting switch.");
-        //    return;
-        //}
-
-
-        foreach (var controller in World!.Query<StartMenuControllerComponent>())
+        foreach (var gameObject in World!.Query<StartMenuControllerComponent>())
         {
-            bool start = controller.Component1.start;
-            controller.Component1.start = OnStart(ref start, controller.Entity.Id);
+            bool awake = gameObject.Component1.awake;
+            gameObject.Component1.awake = OnAwake(ref awake, gameObject.Entity.Id);
         }
 
-        // Re-cache if entities changed due to scene edits/hot reload.
-        if (buttonEntities.Count < 8)
+        foreach (var gameObject in World!.Query<StartMenuControllerComponent>())
         {
-            CacheMenuButtonEntities();
-            ApplySelectionVisual();
-        }
-        //ignore
-        bool moveLeft = Input.IsKeyPressed(KeyCode.A);
-        bool moveRight = Input.IsKeyPressed(KeyCode.D);
-        bool movedSelection = false;
-        bool confirmPressed = Input.IsKeyPressed(KeyCode.Space);
+            bool start = gameObject.Component1.start;
+            gameObject.Component1.start = OnStart(ref start);
 
-        if (moveLeft)
+            //Do the rest
+            ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
+
+            //Locate the button
+            if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
+                UpdateCurrentButton();
+
+            float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+            float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
+
+            //if(GMath.Abs(xInput) > 0.9f || GMath.Abs(yInput) > 0.9f)
+            if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp)
+            || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+            {
+                UpdateCurrentButton();
+            }
+
+            //if(Input.IsGamepadButtonPressed(0,GamepadAxis.LeftX))
+
+            if (currentButton_guiInput.Hovered)
+            {
+                //Log("Hovering over " + currentButton.name);
+            }
+            if ((currentButton_guiInput.Clicked || Input.IsGamepadButtonPressed(0, GamepadButton.A)) && !currentButton.Entity.HasComponent<GUISlider>())
+            {
+                AudioManager.instance.PlaySFX("UI005_Track01");
+                currentButton.Action();
+
+            }
+            if (currentButton_guiInput.Entered)
+            {
+                AudioManager.instance.PlaySFX("UI005_Track01");
+            }
+            if (currentButton_guiInput.Dragging && currentButton.Entity.HasComponent<GUISlider>())
+            {
+                currentButton.Action();
+            }
+
+        }
+    }
+    private static void UpdateCurrentButton()
+    {
+        if (Input.IsGamepadConnected(0))
         {
-            AudioManager.instance.PlaySFX("UI005_Track01");
-            MoveSelection(-1);
-            movedSelection = true;
+            ++iterator;
+            if (iterator > buttonList.Count - 1) iterator = 0;
+
+            currentButton = buttonList[iterator];
         }
 
-        if (moveRight)
+        foreach (MenuPanel button in buttons.Values)
         {
-            AudioManager.instance.PlaySFX("UI005_Track02");
-            MoveSelection(1);
-            movedSelection = true;
-        }
+            ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
 
+            ref GUIStateStyle guistateStyle = ref button.Entity.GetComponent<GUIStateStyle>();
 
-        if (movedSelection)
-        {
-            // Block confirm briefly after navigation so actions cannot trigger from stale input.
-            enterLockFrames = 2;
+            if (Input.IsGamepadConnected(0) && currentButton == button)
+            {
+                guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+            }
+            else if (Input.IsGamepadConnected(0) && currentButton != button)
+            {
+                guistateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                if (gui.Hovered) currentButton = button;
+            }
         }
-        else if (enterLockFrames > 0)
-        {
-            enterLockFrames -= 1;
-        }
-
-        // Guard against accidental action confirmation on movement frames.
-        if (!movedSelection && enterLockFrames == 0 && confirmPressed)
-        {
-            Log("StartMenu confirm key pressed (G)");
-            Log("StartMenu confirm fired; selectedIndex=" + selectedIndex);
-            TriggerSelectedAction();
-        }
+    }
+    private void NewGameButtonFunc()
+    {
+        SceneCrossFadeTransition.Request(TargetScenePath, 1.5f, true);
+    } 
+    private void ContinueButtonFunc()
+    {
+        Log("Continue!");
+    }
+    private void SettingsButtonFunc()
+    {
+        //turn off a bunch of buttons and turn on sliders
+        Log("Settings!");
+    }
+    private void ExitButtonFunc()
+    {
+        Application.Quit();
     }
 }

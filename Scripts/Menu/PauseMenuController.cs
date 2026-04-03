@@ -40,7 +40,7 @@ public class PauseMenuController : SystemBase
     const string bgmButton = "BGM_Button";
 
 
-    private const string TargetScenePath = "Scenes/Newstartscene.scn";
+    private const string TargetScenePath = "Scenes/StartScene.scn";
 
     private bool OnAwake(ref bool awakeBool, ulong objId) //Onawake must only play once at the beginning per script.
     {

@@ -58,38 +58,24 @@ public class SceneCrossFadeTransition : SystemBase
 
         if (s_pendingFadeIn && _state == TransitionState.Idle)
         {
-           Log("1=================");
-            Log("s_pendingFadeIn: " + s_pendingFadeIn);
-            Log("s_hasReuqest: " + s_hasRequest);
-
             _state = TransitionState.FadingIn;
             _timer = 0.0f;
             _activeDuration = s_pendingFadeInDuration;
             _activeOverlaySignifierId = s_pendingFadeInOverlaySignifierId;
             s_pendingFadeIn = false;
-
- 
         }
 
         if (_state == TransitionState.Idle && s_hasRequest)
         {
-           Log("2=================");
-            Log("s_pendingFadeIn: " + s_pendingFadeIn);
-            Log("s_hasReuqest: " + s_hasRequest);
-
             _state = TransitionState.FadingOut;
             _timer = 0.0f;
             _activeDuration = s_duration;
             _activeOverlaySignifierId = s_overlaySignifierId;
             s_hasRequest = false;
-
- 
         }
 
         if (_state == TransitionState.Idle)
         {
-            Log("3");
-
             return;
         }
 
@@ -128,7 +114,6 @@ public class SceneCrossFadeTransition : SystemBase
             SetPanelAlpha(ref overlayPanel, 1.0f - t);
             if (t >= 1.0f)
             {
-                overlayElement.Visible = false;
                 _state = TransitionState.Idle;
             }
         }

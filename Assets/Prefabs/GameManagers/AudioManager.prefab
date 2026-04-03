@@ -981,7 +981,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.4000000953674316
+                            "Volume": 0.6000000238418579
                         },
                         "TypeName": "AudioSource"
                     },
@@ -1074,7 +1074,7 @@
                             "Pitch": 1.0,
                             "PlayOnStart": false,
                             "Spatial3D": false,
-                            "Volume": 2.4000000953674316
+                            "Volume": 0.6000000238418579
                         },
                         "TypeName": "AudioSource"
                     },
@@ -4929,6 +4929,99 @@
                         "TypeName": "Audio SFX"
                     }
                 ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "TempTest"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/SpongeCollapse.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": false,
+                            "Volume": 0.75
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 1.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 0.0,
+                                "m10": 0.0,
+                                "m11": 1.0,
+                                "m12": 0.0,
+                                "m13": 0.0,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 3.1
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
             }
         ],
         "Components": [
@@ -4986,54 +5079,6 @@
             },
             {
                 "Data": {
-                    "Alignment": 8,
-                    "AnchorMax": {
-                        "X": 1.0,
-                        "Y": 1.0
-                    },
-                    "AnchorMin": {
-                        "X": 1.0,
-                        "Y": 1.0
-                    },
-                    "Margin": {
-                        "W": 0.0,
-                        "X": 0.0,
-                        "Y": 0.0,
-                        "Z": 0.0
-                    },
-                    "Padding": {
-                        "W": 0.0,
-                        "X": 0.0,
-                        "Y": 0.0,
-                        "Z": 0.0
-                    },
-                    "Position": {
-                        "X": -42.0,
-                        "Y": -827.0
-                    },
-                    "Size": {
-                        "X": 16.0,
-                        "Y": 200.0
-                    },
-                    "Visible": true,
-                    "ZOrder": 0
-                },
-                "TypeName": "GUIElement"
-            },
-            {
-                "Data": {
-                    "Color": {
-                        "A": 1.0,
-                        "B": 0.6304553747177124,
-                        "G": 0.0,
-                        "R": 0.7000782489776611
-                    },
-                    "CornerRadius": 0.0
-                },
-                "TypeName": "GUIPanel"
-            },
-            {
-                "Data": {
                     "Id": 0
                 },
                 "TypeName": "Layer"
@@ -5064,10 +5109,8 @@
             },
             {
                 "Data": {
-                    "globalBGMVolume": 50,
-                    "globalSFXVolume": 100,
-                    "start": false,
-                    "volumeStep": 5
+                    "bgmStartVolume": 80,
+                    "start": false
                 },
                 "TypeName": "Audio Manager"
             }
