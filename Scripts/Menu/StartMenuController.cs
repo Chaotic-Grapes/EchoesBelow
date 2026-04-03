@@ -14,6 +14,7 @@ namespace EchoesBelow.Scripts;
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class StartMenuController : SystemBase
 {
+    private const float SceneTransitionDuration = 1.5f;
     //For startscene
     private const string SourceSceneName = "Newstartscene";
     private const string TargetScenePath = "Scenes/M5_L1.scn";
@@ -41,7 +42,6 @@ public class StartMenuController : SystemBase
     private readonly Dictionary<string, Entity> buttonEntities = new();
     private int selectedIndex;
     private int enterLockFrames;
-    private bool wasSpaceDown;
 
     private bool OnStart(ref bool startBool, ulong endSceneControllerId)
     {
@@ -51,7 +51,6 @@ public class StartMenuController : SystemBase
 
         selectedIndex = 0;
         enterLockFrames = 0;
-        wasSpaceDown = false;
 
         //reset endscene timer every time
         Entity.FromId(World!,endSceneControllerId).GetComponent<StartMenuControllerComponent>().timer = 1f;
@@ -148,21 +147,7 @@ public class StartMenuController : SystemBase
 
     private void TransitionToGameScene()
     {
-        SceneManager sceneManager = SceneManager.Instance;
-        sceneManager.SetNextAudioTransition(0.8f, true);
-
-        ulong sceneIndex = sceneManager.AddScene();
-        bool loaded = sceneManager.LoadScene(sceneIndex, TargetScenePath);
-        Log("StartMenu direct load FGym2 loaded=" + loaded + " index=" + sceneIndex);
-
-        if (loaded)
-        {
-            sceneManager.SetActive(sceneIndex);
-            return;
-        }
-
-        // Fallback to existing transition request path.
-        SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
+        SceneCrossFadeTransition.Request(TargetScenePath, SceneTransitionDuration, true);
     }
 
     private void TriggerSelectedAction()
@@ -205,11 +190,11 @@ public class StartMenuController : SystemBase
             if (controller.Component1.isEndScene)
             {
                 controller.Component1.timer -= Time.DeltaTime;
-                bool spaceDownEndScene = Input.IsKeyDown(KeyCode.Space);
-                bool spacePressedEndScene = spaceDownEndScene && !wasSpaceDown;
-                if (spacePressedEndScene) //controller.Component1.timer < 0 &&
+                bool confirmPressedEndScene = Input.IsKeyPressed(KeyCode.G);
+                if (confirmPressedEndScene) //controller.Component1.timer < 0 &&
                 { 
-                    SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
+                    Log("StartMenu end-scene confirm key pressed (G)");
+                    SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
                 }
             }
             else continue;
@@ -239,8 +224,7 @@ public class StartMenuController : SystemBase
         bool moveLeft = Input.IsKeyPressed(KeyCode.A);
         bool moveRight = Input.IsKeyPressed(KeyCode.D);
         bool movedSelection = false;
-        bool spaceDown = Input.IsKeyDown(KeyCode.Space);
-        bool spacePressed = spaceDown && !wasSpaceDown;
+        bool confirmPressed = Input.IsKeyPressed(KeyCode.G);
 
         if (moveLeft)
         {
@@ -268,12 +252,11 @@ public class StartMenuController : SystemBase
         }
 
         // Guard against accidental action confirmation on movement frames.
-        if (!movedSelection && enterLockFrames == 0 && spacePressed)
+        if (!movedSelection && enterLockFrames == 0 && confirmPressed)
         {
-            Log("StartMenu Space confirm fired; selectedIndex=" + selectedIndex);
+            Log("StartMenu confirm key pressed (G)");
+            Log("StartMenu confirm fired; selectedIndex=" + selectedIndex);
             TriggerSelectedAction();
         }
-
-        wasSpaceDown = spaceDown;
     }
 }

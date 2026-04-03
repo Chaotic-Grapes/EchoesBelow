@@ -75,7 +75,7 @@ public class SceneCrossFadeTransition : SystemBase
         }
 
         Entity overlay = FindOverlayEntity(_activeOverlaySignifierId);
-        if (!overlay.IsAlive || !overlay.TryGetComponent<GUIElement>(out _) || !overlay.TryGetComponent<GUIPanel>(out _))
+        if (!overlay.IsAlive || !overlay.TryGetComponent<GUIElement>(out _) || !overlay.TryGetComponent<GUIImage>(out _))
         {
             // If no overlay exists, perform a direct scene switch and keep audio fade support.
             if (_state == TransitionState.FadingOut)
@@ -87,9 +87,9 @@ public class SceneCrossFadeTransition : SystemBase
         }
 
         ref GUIElement overlayElement = ref overlay.GetComponent<GUIElement>();
-        ref GUIPanel overlayPanel = ref overlay.GetComponent<GUIPanel>();
+        ref GUIImage overlayPanel = ref overlay.GetComponent<GUIImage>();
 
-        overlayElement.Visible = true;
+       overlayPanel.Color = new Color(overlayPanel.Color.R, overlayPanel.Color.G, overlayPanel.Color.B, _state == TransitionState.FadingOut ? 0.0f : 1.0f);
         _timer += Time.DeltaTime;
 
         float t = _activeDuration > 0.0001f ? _timer / _activeDuration : 1.0f;
@@ -115,7 +115,7 @@ public class SceneCrossFadeTransition : SystemBase
         }
     }
 
-    private static void SetPanelAlpha(ref GUIPanel panel, float alpha)
+    private static void SetPanelAlpha(ref GUIImage panel, float alpha)
     {
         panel.Color = new Color(panel.Color.R, panel.Color.G, panel.Color.B, GMath.Clamp(alpha, 0.0f, 1.0f));
     }
@@ -124,7 +124,7 @@ public class SceneCrossFadeTransition : SystemBase
     {
         Entity byName = default!;
 
-        foreach (var candidate in World!.Query<GUIElement, GUIPanel>())
+        foreach (var candidate in World!.Query<GUIElement, GUIImage>())
         {
             if (signifierId != 0)
             {
