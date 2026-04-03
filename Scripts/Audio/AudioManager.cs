@@ -16,10 +16,14 @@ public class AudioManager : SystemBase
 {
     // normal bus state with no filter
     private const float DefaultBusLowPassGain = 1.0f;
+    // normal resonance value (Q) for low-pass (1.0 = neutral - 10.0 max resonance)
+    private const float DefaultBusLowPassResonance = 1.0f;
     // damage muffle strength for the sfx bus
-    private const float DamageBusLowPassGain = 0.33f;
+    private const float DamageBusLowPassGain = 0.30f;
+    // temporary resonance boost while damaged
+    private const float DamageBusLowPassResonance = 2.0f;
     // how long the damage muffle stays active
-    private const float DamageBusLowPassDuration = 4.0f;
+    private const float DamageBusLowPassDuration = 1.4f;
 
     private static readonly AudioBus[] DamageLowPassBuses =
     {
@@ -38,6 +42,7 @@ public class AudioManager : SystemBase
     private float _damageLowPassTimer;
     private float _damageLowPassDurationActive;
     private float _damageLowPassStartGain;
+    private float _damageLowPassStartResonance;
 
 
     private bool OnStart(ref bool startBool, ulong objId)
@@ -52,10 +57,12 @@ public class AudioManager : SystemBase
         _damageLowPassTimer = 0.0f;
         _damageLowPassDurationActive = 0.0f;
         _damageLowPassStartGain = DefaultBusLowPassGain;
+        _damageLowPassStartResonance = DefaultBusLowPassResonance;
         // make sure target buses start with no filter
         foreach (AudioBus bus in DamageLowPassBuses)
         {
             GrapeEngine.Scripting.Services.Audio.ClearBusLowPassFilter(bus);
+            GrapeEngine.Scripting.Services.Audio.ClearBusLowPassResonance(bus);
         }
 
         Entity audioManager = Entity.FromId(World!, objId);
@@ -77,8 +84,11 @@ public class AudioManager : SystemBase
             // Use assignment to avoid hard failures when scene edits accidentally duplicate names.
             sfxEntityDictionary[e.GetComponent<Name>().Value.ToString()] = e;
 
-            // SFX entries should not auto-play on scene load.
-            if (e.TryGetComponent<AudioSource>(out AudioSource aSource) &&  aSource.Bus == AudioBus.SFX)
+            // SFX UI/one-shot entries should not auto-play on scene load.
+            // Keep explicitly spatial emitters intact so world audio can still start.
+            if (e.TryGetComponent<AudioSource>(out AudioSource aSource)
+                && aSource.Bus == AudioBus.SFX
+                && !aSource.Spatial3D)
             {
                 e.GetComponent<AudioSource>().PlayOnStart = false;
             }
@@ -124,10 +134,12 @@ public class AudioManager : SystemBase
                 float progress = 1.0f - (_damageLowPassTimer / _damageLowPassDurationActive);
                 progress = GMath.Clamp(progress, 0.0f, 1.0f);
                 float gain = GMath.Lerp(_damageLowPassStartGain, DefaultBusLowPassGain, progress);
+                float resonance = GMath.Lerp(_damageLowPassStartResonance, DefaultBusLowPassResonance, progress);
 
                 foreach (AudioBus bus in DamageLowPassBuses)
                 {
                     GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, gain);
+                    GrapeEngine.Scripting.Services.Audio.SetBusLowPassResonance(bus, resonance);
                 }
             }
 
@@ -138,23 +150,30 @@ public class AudioManager : SystemBase
                 foreach (AudioBus bus in DamageLowPassBuses)
                 {
                     GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, DefaultBusLowPassGain);
+                    GrapeEngine.Scripting.Services.Audio.SetBusLowPassResonance(bus, DefaultBusLowPassResonance);
                 }
             }
         }
     }
 
     // applies the temporary damage filter to target buses
-    public void TriggerDamageLowPass(float gain = DamageBusLowPassGain, float duration = DamageBusLowPassDuration)
+    public void TriggerDamageLowPass(
+        float gain = DamageBusLowPassGain,
+        float duration = DamageBusLowPassDuration,
+        float resonance = DamageBusLowPassResonance)
     {
         gain = GMath.Clamp(gain, 0.0f, 1.0f);
+        resonance = GMath.Clamp(resonance, 1.0f, 10.0f);
 
         // set filters immediately
         foreach (AudioBus bus in DamageLowPassBuses)
         {
             GrapeEngine.Scripting.Services.Audio.SetBusLowPassFilter(bus, gain);
+            GrapeEngine.Scripting.Services.Audio.SetBusLowPassResonance(bus, resonance);
         }
 
         _damageLowPassStartGain = gain;
+        _damageLowPassStartResonance = resonance;
         _damageLowPassDurationActive = duration > 0.0f ? duration : 0.0f;
 
         // keep the longest active timer if this is called again quickly
