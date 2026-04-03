@@ -28,11 +28,11 @@ public class AudioManager : SystemBase
     // normal resonance value (Q) for low-pass (1.0 = neutral - 10.0 max resonance)
     private const float DefaultBusLowPassResonance = 1.0f;
     // damage muffle strength for the sfx bus
-    private const float DamageBusLowPassGain = 0.60f;
+    private const float DamageBusLowPassGain = 0.50f;
     // temporary resonance boost while damaged
-    private const float DamageBusLowPassResonance = 3.5f;
+    private const float DamageBusLowPassResonance = 2.0f;
     // how long the damage muffle stays active
-    private const float DamageBusLowPassDuration = 1.2f;
+    private const float DamageBusLowPassDuration = 1.5f;
 
     private static readonly AudioBus[] DamageLowPassBuses =
     {
