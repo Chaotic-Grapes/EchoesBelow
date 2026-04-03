@@ -10929,10 +10929,8 @@
                 },
                 {
                     "Data": {
-                        "globalBGMVolume": 50,
-                        "globalSFXVolume": 100,
-                        "start": false,
-                        "volumeStep": 5
+                        "bgmStartVolume": 0,
+                        "start": false
                     },
                     "TypeName": "Audio Manager"
                 }
@@ -16315,7 +16313,7 @@
                         "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 50.0,
                         "HAlign": 0,
-                        "Text": "FPS: 116",
+                        "Text": "FPS: 40",
                         "VAlign": 0,
                         "Wrap": false
                     },
@@ -16579,7 +16577,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 61,
+                        "TextureId": 24,
                         "TexturePath": "Assets\\Sprites\\1-PlayerAssets\\OceanBG_00@4x.png",
                         "Tiling": {
                             "X": 1.0,
@@ -16765,7 +16763,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 1.9903537034988403,
+                        "AspectRatio": 1.5643086433410645,
                         "FOV": 148.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -17174,7 +17172,7 @@
                             "Y": 0.9230769276618958
                         },
                         "TextureFilter": 0,
-                        "TextureId": 27,
+                        "TextureId": 26,
                         "TexturePath": "",
                         "Tiling": {
                             "X": 0.0625,
@@ -17201,7 +17199,7 @@
                         "SheetWidth": 2240,
                         "StartFrame": 16,
                         "TextureFilter": 0,
-                        "TextureId": 27,
+                        "TextureId": 26,
                         "TexturePath": "Assets\\Sprites\\1-PlayerAssets\\PlayerSpriteSheets\\Grain_SpriteSheetV2.png",
                         "UseRow": true,
                         "UseSegments": false
@@ -17458,22 +17456,6 @@
     "EntityCount": 151,
     "Hierarchy": [
         {
-            "child": 1,
-            "parent": 0
-        },
-        {
-            "child": 142,
-            "parent": 141
-        },
-        {
-            "child": 81,
-            "parent": 0
-        },
-        {
-            "child": 146,
-            "parent": 141
-        },
-        {
             "child": 2,
             "parent": 1
         },
@@ -17612,6 +17594,42 @@
         {
             "child": 36,
             "parent": 1
+        },
+        {
+            "child": 77,
+            "parent": 1
+        },
+        {
+            "child": 78,
+            "parent": 1
+        },
+        {
+            "child": 79,
+            "parent": 1
+        },
+        {
+            "child": 80,
+            "parent": 1
+        },
+        {
+            "child": 142,
+            "parent": 141
+        },
+        {
+            "child": 82,
+            "parent": 0
+        },
+        {
+            "child": 1,
+            "parent": 0
+        },
+        {
+            "child": 81,
+            "parent": 0
+        },
+        {
+            "child": 146,
+            "parent": 141
         },
         {
             "child": 83,
@@ -17998,10 +18016,6 @@
             "parent": 142
         },
         {
-            "child": 82,
-            "parent": 0
-        },
-        {
             "child": 144,
             "parent": 142
         },
@@ -18020,22 +18034,6 @@
         {
             "child": 139,
             "parent": 0
-        },
-        {
-            "child": 77,
-            "parent": 1
-        },
-        {
-            "child": 78,
-            "parent": 1
-        },
-        {
-            "child": 79,
-            "parent": 1
-        },
-        {
-            "child": 80,
-            "parent": 1
         },
         {
             "child": 140,
