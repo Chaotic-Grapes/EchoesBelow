@@ -28,11 +28,11 @@ public class AudioManager : SystemBase
     // normal resonance value (Q) for low-pass (1.0 = neutral - 10.0 max resonance)
     private const float DefaultBusLowPassResonance = 1.0f;
     // damage muffle strength for the sfx bus
-    private const float DamageBusLowPassGain = 0.65f;
+    private const float DamageBusLowPassGain = 0.60f;
     // temporary resonance boost while damaged
-    private const float DamageBusLowPassResonance = 2.0f;
+    private const float DamageBusLowPassResonance = 3.5f;
     // how long the damage muffle stays active
-    private const float DamageBusLowPassDuration = 2.0f;
+    private const float DamageBusLowPassDuration = 1.2f;
 
     private static readonly AudioBus[] DamageLowPassBuses =
     {
@@ -88,8 +88,11 @@ public class AudioManager : SystemBase
             // Use assignment to avoid hard failures when scene edits accidentally duplicate names.
             sfxEntityDictionary[e.GetComponent<Name>().Value.ToString()] = e;
 
-            // SFX entries should not auto-play on scene load.
-            if (e.TryGetComponent<AudioSource>(out AudioSource aSource) &&  aSource.Bus == AudioBus.SFX)
+            // SFX UI/one-shot entries should not auto-play on scene load.
+            // Keep explicitly spatial emitters intact so world audio can still start.
+            if (e.TryGetComponent<AudioSource>(out AudioSource aSource)
+                && aSource.Bus == AudioBus.SFX
+                && !aSource.Spatial3D)
             {
                 e.GetComponent<AudioSource>().PlayOnStart = false;
             }
