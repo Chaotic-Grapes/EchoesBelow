@@ -288,6 +288,7 @@ public class CraftAnemone : SystemBase
                         //correct
                         AudioManager.instance.PlaySFX("SFX012");
                         SpiritOfTheOcean.instance.TheSpiritBeckonsThee(true);
+                        cr.isWonSpirit = true;
                     }
                     else
                     {
@@ -385,6 +386,10 @@ public class CraftAnemone : SystemBase
                 ResetCamera(instances[gameObject.Entity.Id], lerpFac * 1.6f);
             }
 
+            if (cr.isWonSpirit && isLeaving)
+            {
+                CamFollow.instance.CamShake(true, 0.056f);
+            }
 
             //AnimCentric
             AnimManager(cr, gameObject.Entity.Id, lerpFac);
@@ -732,6 +737,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
  
         CraftAnemone.instances[self.Id].isEnteredAnemone = true;
         CraftAnemone.instances[self.Id].isExitingAnemone = false;
+        CraftAnemone.instances[self.Id].isWonSpirit = false;
 
         //if(CraftAnemone.instances[self.Id].isOpened)
         CraftAnemone.instances[self.Id].UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));

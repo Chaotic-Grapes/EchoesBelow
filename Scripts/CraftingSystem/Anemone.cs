@@ -24,6 +24,7 @@ public class Anemone :SystemBase
     public bool isExitingAnemone { get; set; }
     public bool isCaptured { get; set; }
     public bool isOpened { get; set; }
+    public bool isWonSpirit {  get; set; }
     public Vector3 rootNodePos { get; set; }
     public Entity rootNode { get; set; }
 
