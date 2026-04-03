@@ -17,7 +17,7 @@ public class StartMenuController : SystemBase
     private const float SceneTransitionDuration = 1.5f;
     //For startscene
     private const string SourceSceneName = "Newstartscene";
-    private const string TargetScenePath = "Scenes/M5_L1.scn";
+    private const string TargetScenePath = "Scenes/FeatureGym.scn";
     //for endscene
     private const string EndSceneName = "EndScene";
     private const string StartSceneName = "Scenes/NewStartScene.scn";
@@ -147,6 +147,7 @@ public class StartMenuController : SystemBase
 
     private void TransitionToGameScene()
     {
+        Log("Transitioning");
         SceneCrossFadeTransition.Request(TargetScenePath, SceneTransitionDuration, true);
     }
 
@@ -184,28 +185,28 @@ public class StartMenuController : SystemBase
 
     protected override void OnUpdate()
     {
-        SceneManager sceneManager = SceneManager.Instance;
-        foreach(var controller in World!.Query<StartMenuControllerComponent>())
-        {
-            if (controller.Component1.isEndScene)
-            {
-                controller.Component1.timer -= Time.DeltaTime;
-                bool confirmPressedEndScene = Input.IsKeyPressed(KeyCode.G);
-                if (confirmPressedEndScene) //controller.Component1.timer < 0 &&
-                { 
-                    Log("StartMenu end-scene confirm key pressed (G)");
-                    SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
-                }
-            }
-            else continue;
-        }
+        //SceneManager sceneManager = SceneManager.Instance;
+        //foreach(var controller in World!.Query<StartMenuControllerComponent>())
+        //{
+        //    if (controller.Component1.isEndScene)
+        //    {
+        //        controller.Component1.timer -= Time.DeltaTime;
+        //        bool confirmPressedEndScene = Input.IsKeyPressed(KeyCode.Space);
+        //        if (confirmPressedEndScene) //controller.Component1.timer < 0 &&
+        //        { 
+        //            Log("StartMenu end-scene confirm key pressed (G)");
+        //            //SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
+        //        }
+        //    }
+        //    else continue;
+        //}
         
-        Scene? active = sceneManager.GetActive();
-        if (active == null || !string.Equals(active.Name, SourceSceneName, StringComparison.Ordinal))
-        {
-            ////Log($"StartMenuController: Active scene is not the source scene: '{active?.Name ?? "null"}'; aborting switch.");
-            return;
-        }
+        //Scene? active = sceneManager.GetActive();
+        //if (active == null || !string.Equals(active.Name, SourceSceneName, StringComparison.Ordinal))
+        //{
+        //    ////Log($"StartMenuController: Active scene is not the source scene: '{active?.Name ?? "null"}'; aborting switch.");
+        //    return;
+        //}
 
 
         foreach (var controller in World!.Query<StartMenuControllerComponent>())
@@ -224,7 +225,7 @@ public class StartMenuController : SystemBase
         bool moveLeft = Input.IsKeyPressed(KeyCode.A);
         bool moveRight = Input.IsKeyPressed(KeyCode.D);
         bool movedSelection = false;
-        bool confirmPressed = Input.IsKeyPressed(KeyCode.G);
+        bool confirmPressed = Input.IsKeyPressed(KeyCode.Space);
 
         if (moveLeft)
         {

@@ -6,6 +6,7 @@ using GrapeEngine.Scripting.Core;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts.Menu;
 using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
@@ -126,12 +127,12 @@ public class InventoryController : SystemBase
     {
         //This is gonna be overhauled
         //check for input
-        if (isEnabled_RMBInput) 
+        if (isEnabled_RMBInput || !PauseMenuController.instance.isPaused) 
         { 
             isRMB_Pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B); 
         }
 
-        if (Input.IsGamepadConnected(0))
+        if (Input.IsGamepadConnected(0) && !PauseMenuController.instance.isPaused)
         {
             if(Input.IsGamepadButtonPressed(0, GamepadButton.LeftBumper) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)
             //|| Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper) 
@@ -144,7 +145,7 @@ public class InventoryController : SystemBase
             else mouseScroll = 0f;
             //Input.GetGamepadAxis(0, GamepadAxis.RightX);
         }
-        else
+        else if(!PauseMenuController.instance.isPaused)
         {
             mouseScroll = -Input.ScrollY;
         }
@@ -271,15 +272,15 @@ public class InventoryController : SystemBase
             //if selected, gray out / higlight the slot
             if (i == iterator)
             {
-                guiImage.Color = new Color(4f, 2f, 4f, 1f);
-                guiElement.Size = new Vector2(120f, 120f);
+                guiImage.Color = new Color(9f, 3f, 9f, 1f);
+                //guiElement.Size = new Vector2(120f, 120f);
 
             }
             //else restore the color back to white
             else
             {
                 guiImage.Color = new Color(255, 255, 255, 255);
-                guiElement.Size = new Vector2(100f, 100f);
+                //guiElement.Size = new Vector2(100f, 100f);
             }
         }
 

@@ -321,7 +321,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 33,
+                        "TextureId": 21,
                         "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS05.png",
                         "Tiling": {
                             "X": 1.0,
@@ -500,7 +500,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 50,
+                        "TextureId": 23,
                         "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS07.png",
                         "Tiling": {
                             "X": 1.0,
@@ -679,7 +679,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 61,
+                        "TextureId": 73,
                         "TexturePath": "Assets\\Sprites\\7-UI\\ChaosGrapeInBubble.png",
                         "Tiling": {
                             "X": 1.0,
@@ -858,7 +858,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 31,
+                        "TextureId": 22,
                         "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1049,7 +1049,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 62,
+                        "TextureId": 74,
                         "TexturePath": "",
                         "Tiling": {
                             "X": 0.02083333395421505,
@@ -1076,7 +1076,7 @@
                         "SheetWidth": 21216,
                         "StartFrame": 0,
                         "TextureFilter": 0,
-                        "TextureId": 62,
+                        "TextureId": 74,
                         "TexturePath": "Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
                         "UseRow": true,
                         "UseSegments": false
@@ -1182,7 +1182,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 62,
+                        "TextureId": 74,
                         "TexturePath": "",
                         "Tiling": {
                             "X": 0.02083333395421505,
@@ -1209,7 +1209,7 @@
                         "SheetWidth": 21216,
                         "StartFrame": 0,
                         "TextureFilter": 0,
-                        "TextureId": 62,
+                        "TextureId": 74,
                         "TexturePath": "Assets\\Sprites\\7-UI\\WavyCorals_SpriteSheet01_FullHorizontal.png",
                         "UseRow": true,
                         "UseSegments": false
@@ -1243,106 +1243,6 @@
                 {
                     "Data": {
                         "ZOrder": -5
-                    },
-                    "TypeName": "ZIndex2D"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 6.0,
-                            "Y": 6.0,
-                            "Z": 6.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "CanvasBG"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "EmissiveStrength": 5.0,
-                        "EmissiveTextureId": 0,
-                        "EmissiveTexturePath": "",
-                        "NormalTextureId": 0,
-                        "NormalTexturePath": "",
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TextureId": 64,
-                        "TexturePath": "Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
-                        "Tiling": {
-                            "X": 1.0,
-                            "Y": 1.0
-                        }
-                    },
-                    "TypeName": "SpriteRenderer2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 6.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 6.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 6.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "ZOrder": -10
                     },
                     "TypeName": "ZIndex2D"
                 }
@@ -1496,7 +1396,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 65,
+                        "TextureId": 76,
                         "TexturePath": "Assets\\Sprites\\3-NPCs\\Mengfish_SiphonaMengfischia@4x - Copy.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1605,7 +1505,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 45,
+                        "TextureId": 30,
                         "TexturePath": "Assets\\Sprites\\3-NPCs\\JellyBoid_.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1714,7 +1614,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 65,
+                        "TextureId": 76,
                         "TexturePath": "Assets\\Sprites\\3-NPCs\\Mengfish_SiphonaMengfischia@4x - Copy.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1823,7 +1723,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 65,
+                        "TextureId": 76,
                         "TexturePath": "Assets\\Sprites\\3-NPCs\\Mengfish_SiphonaMengfischia@4x - Copy.png",
                         "Tiling": {
                             "X": 1.0,
@@ -1932,7 +1832,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 65,
+                        "TextureId": 76,
                         "TexturePath": "Assets\\Sprites\\3-NPCs\\Mengfish_SiphonaMengfischia@4x - Copy.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2041,7 +1941,7 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 63,
+                        "TextureId": 85,
                         "TexturePath": "Assets\\Sprites\\7-UI\\EchoesBelowTitleCard.png",
                         "Tiling": {
                             "X": 1.0,
@@ -2087,8 +1987,8 @@
                 {
                     "Data": {
                         "Position": {
-                            "X": -3.161167621612549,
-                            "Y": -1.2094106674194336,
+                            "X": 0.0,
+                            "Y": 0.0,
                             "Z": 0.0
                         },
                         "Rotation": {
@@ -2098,16 +1998,16 @@
                             "Z": 0.0
                         },
                         "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
+                            "X": 6.0,
+                            "Y": 6.0,
+                            "Z": 6.0
                         }
                     },
                     "TypeName": "LocalTransform"
                 },
                 {
                     "Data": {
-                        "Value": "Light"
+                        "Value": "CanvasBG"
                     },
                     "TypeName": "Name"
                 },
@@ -2122,271 +2022,6 @@
                         "Id": 0
                     },
                     "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "CastsShadows": false,
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.7954732179641724,
-                            "G": 0.37496712803840637,
-                            "R": 0.3917256295681
-                        },
-                        "Direction": {
-                            "X": 0.0,
-                            "Y": -1.0,
-                            "Z": 0.0
-                        },
-                        "Intensity": 46.5,
-                        "LightType": 1,
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 2.9000000953674316
-                        },
-                        "Range": 132.5
-                    },
-                    "TypeName": "Light2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": -3.161167621612549,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": -1.2094106674194336,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "height": 1,
-                        "period": 7,
-                        "start": false,
-                        "timer": 0
-                    },
-                    "TypeName": "Oscillator"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.4864911139011383,
-                            "Y": -1.5372918844223022,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Light (Clone)"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "CastsShadows": false,
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.7954732179641724,
-                            "G": 0.37496712803840637,
-                            "R": 0.3917256295681
-                        },
-                        "Direction": {
-                            "X": 0.0,
-                            "Y": -1.0,
-                            "Z": 0.0
-                        },
-                        "Intensity": 39.599998474121094,
-                        "LightType": 1,
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 2.9000000953674316
-                        },
-                        "Range": 7.0
-                    },
-                    "TypeName": "Light2D"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.4864911139011383,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": -1.5372918844223022,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "height": 1,
-                        "period": 7,
-                        "start": false,
-                        "timer": 0
-                    },
-                    "TypeName": "Oscillator"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.8665060997009277,
-                            "Y": 1.4791678190231323,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 0.75,
-                            "Y": 0.75,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "ChaosGrape (Clone) (Clone)"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Value": 0.0
-                    },
-                    "TypeName": "AngularVelocity2D"
-                },
-                {
-                    "Data": {
-                        "Flags": 0,
-                        "LayerMask": 4294967295,
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Radius": 0.5
-                    },
-                    "TypeName": "CircleCollider2D"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "CastsShadows": false,
-                        "Color": {
-                            "A": 1.0,
-                            "B": 0.9752424955368042,
-                            "G": 0.31168603897094727,
-                            "R": 1.0
-                        },
-                        "Direction": {
-                            "X": 0.0,
-                            "Y": -1.0,
-                            "Z": 0.0
-                        },
-                        "Intensity": 7.0,
-                        "LightType": 1,
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 8.5
-                        },
-                        "Range": 10.0
-                    },
-                    "TypeName": "Light2D"
-                },
-                {
-                    "Data": {
-                        "Value": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        }
-                    },
-                    "TypeName": "LinearVelocity2D"
-                },
-                {
-                    "Data": {
-                        "AngularDamping": 0.0,
-                        "Flags": 3,
-                        "GravityScale": 9.0,
-                        "InverseMass": 1.0,
-                        "LinearDamping": 0.0,
-                        "Mass": 1.0
-                    },
-                    "TypeName": "Rigidbody2D"
                 },
                 {
                     "Data": {
@@ -2406,8 +2041,8 @@
                             "Y": 0.0
                         },
                         "TextureFilter": 0,
-                        "TextureId": 39,
-                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "TextureId": 75,
+                        "TexturePath": "Assets\\Sprites\\7-UI\\StartMenuBG_1.png",
                         "Tiling": {
                             "X": 1.0,
                             "Y": 1.0
@@ -2419,17 +2054,17 @@
                     "Data": {
                         "Dirty": false,
                         "Matrix": {
-                            "m00": 0.75,
+                            "m00": 6.0,
                             "m01": 0.0,
                             "m02": 0.0,
-                            "m03": 0.8665060997009277,
+                            "m03": 0.0,
                             "m10": 0.0,
-                            "m11": 0.75,
+                            "m11": 6.0,
                             "m12": 0.0,
-                            "m13": 1.4791678190231323,
+                            "m13": 0.0,
                             "m20": 0.0,
                             "m21": 0.0,
-                            "m22": 1.0,
+                            "m22": 6.0,
                             "m23": 0.0,
                             "m30": 0.0,
                             "m31": 0.0,
@@ -2441,1314 +2076,9 @@
                 },
                 {
                     "Data": {
-                        "ZOrder": -1
+                        "ZOrder": -10
                     },
                     "TypeName": "ZIndex2D"
-                },
-                {
-                    "Data": {
-                        "InputTest": -2,
-                        "x": 0,
-                        "y": 0
-                    },
-                    "TypeName": "Spinner"
-                },
-                {
-                    "Data": {
-                        "TimeAccumulator": 0,
-                        "startPolarity": 1,
-                        "switchInterval": 12
-                    },
-                    "TypeName": "Grav Switcher"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "StartMenuController"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "exitSignifier": 5555,
-                        "isEndScene": false,
-                        "start": false,
-                        "startSignifier": 4444,
-                        "timer": 7
-                    },
-                    "TypeName": "Start Menu Controller"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Settings_Button"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1548.0,
-                            "Y": 472.0
-                        },
-                        "Size": {
-                            "X": 417.0,
-                            "Y": 350.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 11
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 1,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Clicked": false,
-                        "Dragging": false,
-                        "Entered": false,
-                        "Exited": false,
-                        "Hovered": false,
-                        "Pressed": false,
-                        "Released": false
-                    },
-                    "TypeName": "GUIInput"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 66670
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Settings_Button_Lighter"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1548.0,
-                            "Y": 472.0
-                        },
-                        "Size": {
-                            "X": 417.0,
-                            "Y": 350.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 13
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button_Lighter.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 66671
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Exit_Button"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1570.0,
-                            "Y": 771.0
-                        },
-                        "Size": {
-                            "X": 500.0,
-                            "Y": 500.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 9
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 77780
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Exit_Button_Lighter"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1570.0,
-                            "Y": 771.0
-                        },
-                        "Size": {
-                            "X": 500.0,
-                            "Y": 500.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 10
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button_Lighter.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 77781
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Continue_Button_Lighter"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1127.0,
-                            "Y": 717.0
-                        },
-                        "Size": {
-                            "X": 703.0,
-                            "Y": 691.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 13
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Continue_Button_Lighter.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 88891
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "NewGame_Button_Lighter"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 583.0,
-                            "Y": 772.0
-                        },
-                        "Size": {
-                            "X": 608.0,
-                            "Y": 291.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 13
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 0,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\NweGame_Button_Lighter.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 55561
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "Continue_Button"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 1127.0,
-                            "Y": 717.0
-                        },
-                        "Size": {
-                            "X": 703.0,
-                            "Y": 691.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 12
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 1,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Continue_Button.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 88890
-                    },
-                    "TypeName": "Match Signifier"
-                }
-            ]
-        },
-        {
-            "Components": [
-                {
-                    "Data": {
-                        "Position": {
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Rotation": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Scale": {
-                            "X": 1.0,
-                            "Y": 1.0,
-                            "Z": 1.0
-                        }
-                    },
-                    "TypeName": "LocalTransform"
-                },
-                {
-                    "Data": {
-                        "Value": "NewGame_Button"
-                    },
-                    "TypeName": "Name"
-                },
-                {
-                    "Data": {
-                        "Enabled": true
-                    },
-                    "TypeName": "Active"
-                },
-                {
-                    "Data": {
-                        "Offset": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "ReferenceSize": {
-                            "X": 1920.0,
-                            "Y": 1080.0
-                        },
-                        "ScaleMode": 0
-                    },
-                    "TypeName": "GUICanvas"
-                },
-                {
-                    "Data": {
-                        "Alignment": 4,
-                        "AnchorMax": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "AnchorMin": {
-                            "X": 0.0,
-                            "Y": 0.0
-                        },
-                        "Margin": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Padding": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "Position": {
-                            "X": 583.0,
-                            "Y": 772.0
-                        },
-                        "Size": {
-                            "X": 608.0,
-                            "Y": 291.0
-                        },
-                        "Visible": true,
-                        "ZOrder": 11
-                    },
-                    "TypeName": "GUIElement"
-                },
-                {
-                    "Data": {
-                        "Color": {
-                            "A": 1.0,
-                            "B": 1.0,
-                            "G": 1.0,
-                            "R": 1.0
-                        },
-                        "ScaleMode": 1,
-                        "SliceBorder": {
-                            "W": 0.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 0.0
-                        },
-                        "TextureFilter": 0,
-                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\NewGame_Button.png",
-                        "UVRect": {
-                            "W": 1.0,
-                            "X": 0.0,
-                            "Y": 0.0,
-                            "Z": 1.0
-                        },
-                        "UseSlicing": false
-                    },
-                    "TypeName": "GUIImage"
-                },
-                {
-                    "Data": {
-                        "Id": 0
-                    },
-                    "TypeName": "Layer"
-                },
-                {
-                    "Data": {
-                        "Dirty": false,
-                        "Matrix": {
-                            "m00": 1.0,
-                            "m01": 0.0,
-                            "m02": 0.0,
-                            "m03": 0.0,
-                            "m10": 0.0,
-                            "m11": 1.0,
-                            "m12": 0.0,
-                            "m13": 0.0,
-                            "m20": 0.0,
-                            "m21": 0.0,
-                            "m22": 1.0,
-                            "m23": 0.0,
-                            "m30": 0.0,
-                            "m31": 0.0,
-                            "m32": 0.0,
-                            "m33": 1.0
-                        }
-                    },
-                    "TypeName": "WorldTransform"
-                },
-                {
-                    "Data": {
-                        "signifierID": 55560
-                    },
-                    "TypeName": "Match Signifier"
                 }
             ]
         },
@@ -3893,10 +2223,8 @@
                 },
                 {
                     "Data": {
-                        "globalBGMVolume": 50,
-                        "globalSFXVolume": 100,
-                        "start": false,
-                        "volumeStep": 5
+                        "bgmStartVolume": 0,
+                        "start": false
                     },
                     "TypeName": "Audio Manager"
                 }
@@ -4864,6 +3192,1677 @@
                 {
                     "Data": {
                         "Position": {
+                            "X": 0.8665060997009277,
+                            "Y": 1.4791678190231323,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 0.75,
+                            "Y": 0.75,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "ChaosGrape (Clone) (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Value": 0.0
+                    },
+                    "TypeName": "AngularVelocity2D"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "LayerMask": 4294967295,
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Radius": 0.5
+                    },
+                    "TypeName": "CircleCollider2D"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "CastsShadows": false,
+                        "Color": {
+                            "A": 1.0,
+                            "B": 0.9752424955368042,
+                            "G": 0.31168603897094727,
+                            "R": 1.0
+                        },
+                        "Direction": {
+                            "X": 0.0,
+                            "Y": -1.0,
+                            "Z": 0.0
+                        },
+                        "Intensity": 7.0,
+                        "LightType": 1,
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 8.5
+                        },
+                        "Range": 10.0
+                    },
+                    "TypeName": "Light2D"
+                },
+                {
+                    "Data": {
+                        "Value": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        }
+                    },
+                    "TypeName": "LinearVelocity2D"
+                },
+                {
+                    "Data": {
+                        "AngularDamping": 0.0,
+                        "Flags": 3,
+                        "GravityScale": 9.0,
+                        "InverseMass": 1.0,
+                        "LinearDamping": 0.0,
+                        "Mass": 1.0
+                    },
+                    "TypeName": "Rigidbody2D"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "EmissiveStrength": 5.0,
+                        "EmissiveTextureId": 0,
+                        "EmissiveTexturePath": "",
+                        "NormalTextureId": 0,
+                        "NormalTexturePath": "",
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TextureId": 19,
+                        "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS03.png",
+                        "Tiling": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        }
+                    },
+                    "TypeName": "SpriteRenderer2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 0.75,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.8665060997009277,
+                            "m10": 0.0,
+                            "m11": 0.75,
+                            "m12": 0.0,
+                            "m13": 1.4791678190231323,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "ZOrder": -1
+                    },
+                    "TypeName": "ZIndex2D"
+                },
+                {
+                    "Data": {
+                        "InputTest": -2,
+                        "x": 0,
+                        "y": 0
+                    },
+                    "TypeName": "Spinner"
+                },
+                {
+                    "Data": {
+                        "TimeAccumulator": 0,
+                        "startPolarity": 1,
+                        "switchInterval": 12
+                    },
+                    "TypeName": "Grav Switcher"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": -3.161167621612549,
+                            "Y": -1.2094106674194336,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Light"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "CastsShadows": false,
+                        "Color": {
+                            "A": 1.0,
+                            "B": 0.7954732179641724,
+                            "G": 0.37496712803840637,
+                            "R": 0.3917256295681
+                        },
+                        "Direction": {
+                            "X": 0.0,
+                            "Y": -1.0,
+                            "Z": 0.0
+                        },
+                        "Intensity": 46.5,
+                        "LightType": 1,
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 2.9000000953674316
+                        },
+                        "Range": 132.5
+                    },
+                    "TypeName": "Light2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": -3.161167621612549,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": -1.2094106674194336,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "height": 1,
+                        "period": 7,
+                        "start": false,
+                        "timer": 0
+                    },
+                    "TypeName": "Oscillator"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.4864911139011383,
+                            "Y": -1.5372918844223022,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Light (Clone)"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "CastsShadows": false,
+                        "Color": {
+                            "A": 1.0,
+                            "B": 0.7954732179641724,
+                            "G": 0.37496712803840637,
+                            "R": 0.3917256295681
+                        },
+                        "Direction": {
+                            "X": 0.0,
+                            "Y": -1.0,
+                            "Z": 0.0
+                        },
+                        "Intensity": 39.599998474121094,
+                        "LightType": 1,
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 2.9000000953674316
+                        },
+                        "Range": 7.0
+                    },
+                    "TypeName": "Light2D"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.4864911139011383,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": -1.5372918844223022,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "height": 1,
+                        "period": 7,
+                        "start": false,
+                        "timer": 0
+                    },
+                    "TypeName": "Oscillator"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "StartMenuController"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "exitSignifier": 5555,
+                        "isEndScene": false,
+                        "start": false,
+                        "startSignifier": 4444,
+                        "timer": 7
+                    },
+                    "TypeName": "Start Menu Controller"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Settings_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1548.0,
+                            "Y": 472.0
+                        },
+                        "Size": {
+                            "X": 417.0,
+                            "Y": 350.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 11
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 1,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Clicked": false,
+                        "Dragging": false,
+                        "Entered": false,
+                        "Exited": false,
+                        "Focused": true,
+                        "Hovered": false,
+                        "Pressed": false,
+                        "Released": false
+                    },
+                    "TypeName": "GUIInput"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 66670
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "NewGame_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 583.0,
+                            "Y": 772.0
+                        },
+                        "Size": {
+                            "X": 608.0,
+                            "Y": 291.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 11
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 1,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\NewGame_Button.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 55560
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Settings_Button_Lighter"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1548.0,
+                            "Y": 472.0
+                        },
+                        "Size": {
+                            "X": 417.0,
+                            "Y": 350.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 13
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Settings_Button_Lighter.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 66671
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Exit_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1570.0,
+                            "Y": 771.0
+                        },
+                        "Size": {
+                            "X": 500.0,
+                            "Y": 500.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 9
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 77780
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Exit_Button_Lighter"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1570.0,
+                            "Y": 771.0
+                        },
+                        "Size": {
+                            "X": 500.0,
+                            "Y": 500.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 10
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Exit_Button_Lighter.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 77781
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Continue_Button_Lighter"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1127.0,
+                            "Y": 717.0
+                        },
+                        "Size": {
+                            "X": 703.0,
+                            "Y": 691.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 13
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Continue_Button_Lighter.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 88891
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "NewGame_Button_Lighter"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 583.0,
+                            "Y": 772.0
+                        },
+                        "Size": {
+                            "X": 608.0,
+                            "Y": 291.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 13
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\NweGame_Button_Lighter.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 55561
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "Continue_Button"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 0
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 1127.0,
+                            "Y": 717.0
+                        },
+                        "Size": {
+                            "X": 703.0,
+                            "Y": 691.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 12
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 1.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 1,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7.2-StartScene\\Continue_Button.png",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                },
+                {
+                    "Data": {
+                        "signifierID": 88890
+                    },
+                    "TypeName": "Match Signifier"
+                }
+            ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
                             "X": 0.0,
                             "Y": 0.0,
                             "Z": 1.0
@@ -4897,7 +4896,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 1.7070175409317017,
+                        "AspectRatio": 2.384615421295166,
                         "FOV": 45.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
@@ -5121,126 +5120,161 @@
                     "TypeName": "WorldTransform"
                 }
             ]
+        },
+        {
+            "Components": [
+                {
+                    "Data": {
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Rotation": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Scale": {
+                            "X": 1.0,
+                            "Y": 1.0,
+                            "Z": 1.0
+                        }
+                    },
+                    "TypeName": "LocalTransform"
+                },
+                {
+                    "Data": {
+                        "Value": "SceneFadeOverlay"
+                    },
+                    "TypeName": "Name"
+                },
+                {
+                    "Data": {
+                        "Enabled": true
+                    },
+                    "TypeName": "Active"
+                },
+                {
+                    "Data": {
+                        "Offset": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "ReferenceSize": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "ScaleMode": 1
+                    },
+                    "TypeName": "GUICanvas"
+                },
+                {
+                    "Data": {
+                        "Alignment": 4,
+                        "AnchorMax": {
+                            "X": 1.0,
+                            "Y": 1.0
+                        },
+                        "AnchorMin": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Margin": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Padding": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "Position": {
+                            "X": 0.0,
+                            "Y": 0.0
+                        },
+                        "Size": {
+                            "X": 1920.0,
+                            "Y": 1080.0
+                        },
+                        "Visible": true,
+                        "ZOrder": 1000
+                    },
+                    "TypeName": "GUIElement"
+                },
+                {
+                    "Data": {
+                        "Color": {
+                            "A": 0.0,
+                            "B": 1.0,
+                            "G": 1.0,
+                            "R": 1.0
+                        },
+                        "ScaleMode": 0,
+                        "SliceBorder": {
+                            "W": 0.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 0.0
+                        },
+                        "TextureFilter": 0,
+                        "TexturePath": "Assets\\Sprites\\7-UI\\BlackScreen.jpg",
+                        "UVRect": {
+                            "W": 1.0,
+                            "X": 0.0,
+                            "Y": 0.0,
+                            "Z": 1.0
+                        },
+                        "UseSlicing": false
+                    },
+                    "TypeName": "GUIImage"
+                },
+                {
+                    "Data": {
+                        "Id": 0
+                    },
+                    "TypeName": "Layer"
+                },
+                {
+                    "Data": {
+                        "Flags": 0,
+                        "PrefabHash": 746825842
+                    },
+                    "TypeName": "PrefabInstanceMetadata"
+                },
+                {
+                    "Data": {
+                        "Dirty": false,
+                        "Matrix": {
+                            "m00": 1.0,
+                            "m01": 0.0,
+                            "m02": 0.0,
+                            "m03": 0.0,
+                            "m10": 0.0,
+                            "m11": 1.0,
+                            "m12": 0.0,
+                            "m13": 0.0,
+                            "m20": 0.0,
+                            "m21": 0.0,
+                            "m22": 1.0,
+                            "m23": 0.0,
+                            "m30": 0.0,
+                            "m31": 0.0,
+                            "m32": 0.0,
+                            "m33": 1.0
+                        }
+                    },
+                    "TypeName": "WorldTransform"
+                }
+            ]
         }
     ],
-    "EntityCount": 44,
+    "EntityCount": 45,
     "Hierarchy": [
-        {
-            "child": 7,
-            "parent": 6
-        },
-        {
-            "child": 8,
-            "parent": 6
-        },
-        {
-            "child": 1,
-            "parent": 0
-        },
-        {
-            "child": 10,
-            "parent": 6
-        },
-        {
-            "child": 21,
-            "parent": 20
-        },
-        {
-            "child": 16,
-            "parent": 6
-        },
-        {
-            "child": 28,
-            "parent": 20
-        },
-        {
-            "child": 22,
-            "parent": 20
-        },
-        {
-            "child": 23,
-            "parent": 20
-        },
-        {
-            "child": 24,
-            "parent": 20
-        },
-        {
-            "child": 25,
-            "parent": 20
-        },
-        {
-            "child": 26,
-            "parent": 20
-        },
-        {
-            "child": 27,
-            "parent": 20
-        },
-        {
-            "child": 30,
-            "parent": 29
-        },
-        {
-            "child": 31,
-            "parent": 29
-        },
-        {
-            "child": 32,
-            "parent": 29
-        },
-        {
-            "child": 33,
-            "parent": 29
-        },
-        {
-            "child": 34,
-            "parent": 29
-        },
-        {
-            "child": 35,
-            "parent": 29
-        },
-        {
-            "child": 36,
-            "parent": 29
-        },
-        {
-            "child": 37,
-            "parent": 29
-        },
-        {
-            "child": 38,
-            "parent": 29
-        },
-        {
-            "child": 39,
-            "parent": 29
-        },
-        {
-            "child": 40,
-            "parent": 29
-        },
-        {
-            "child": 11,
-            "parent": 10
-        },
-        {
-            "child": 12,
-            "parent": 10
-        },
-        {
-            "child": 13,
-            "parent": 10
-        },
-        {
-            "child": 14,
-            "parent": 10
-        },
-        {
-            "child": 15,
-            "parent": 10
-        },
         {
             "child": 2,
             "parent": 0
@@ -5259,6 +5293,122 @@
         },
         {
             "child": 9,
+            "parent": 6
+        },
+        {
+            "child": 18,
+            "parent": 17
+        },
+        {
+            "child": 19,
+            "parent": 17
+        },
+        {
+            "child": 20,
+            "parent": 17
+        },
+        {
+            "child": 21,
+            "parent": 17
+        },
+        {
+            "child": 22,
+            "parent": 17
+        },
+        {
+            "child": 23,
+            "parent": 17
+        },
+        {
+            "child": 24,
+            "parent": 17
+        },
+        {
+            "child": 25,
+            "parent": 17
+        },
+        {
+            "child": 26,
+            "parent": 17
+        },
+        {
+            "child": 27,
+            "parent": 17
+        },
+        {
+            "child": 28,
+            "parent": 17
+        },
+        {
+            "child": 7,
+            "parent": 6
+        },
+        {
+            "child": 8,
+            "parent": 6
+        },
+        {
+            "child": 1,
+            "parent": 0
+        },
+        {
+            "child": 33,
+            "parent": 32
+        },
+        {
+            "child": 15,
+            "parent": 6
+        },
+        {
+            "child": 34,
+            "parent": 32
+        },
+        {
+            "child": 35,
+            "parent": 32
+        },
+        {
+            "child": 36,
+            "parent": 32
+        },
+        {
+            "child": 37,
+            "parent": 32
+        },
+        {
+            "child": 38,
+            "parent": 32
+        },
+        {
+            "child": 39,
+            "parent": 32
+        },
+        {
+            "child": 40,
+            "parent": 32
+        },
+        {
+            "child": 10,
+            "parent": 9
+        },
+        {
+            "child": 11,
+            "parent": 9
+        },
+        {
+            "child": 12,
+            "parent": 9
+        },
+        {
+            "child": 13,
+            "parent": 9
+        },
+        {
+            "child": 14,
+            "parent": 9
+        },
+        {
+            "child": 16,
             "parent": 6
         }
     ],

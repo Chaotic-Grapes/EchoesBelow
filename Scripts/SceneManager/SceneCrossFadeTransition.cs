@@ -34,7 +34,7 @@ public class SceneCrossFadeTransition : SystemBase
     private float _activeDuration = 0.6f;
     private int _activeOverlaySignifierId;
 
-    // Call from any gameplay/menu script to trigger a visual scene transition.
+    // Call from any gameplay/menu script to trigger  visual scene transition.
     public static void Request(string targetScenePath, float duration = 0.6f, bool allowAudioCrossfade = true, int overlaySignifierId = 0)
     {
         if (string.IsNullOrWhiteSpace(targetScenePath))
@@ -51,26 +51,45 @@ public class SceneCrossFadeTransition : SystemBase
 
     protected override void OnUpdate()
     {
+        //Log("+++++++++++++++++++++++++++++++"); ;
+        //Log("s_pendingFadeIn: " + s_pendingFadeIn);
+        //Log("s_hasReuqest: " + s_hasRequest);
+        //Log("state: " + _state);
+
         if (s_pendingFadeIn && _state == TransitionState.Idle)
         {
+           Log("1=================");
+            Log("s_pendingFadeIn: " + s_pendingFadeIn);
+            Log("s_hasReuqest: " + s_hasRequest);
+
             _state = TransitionState.FadingIn;
             _timer = 0.0f;
             _activeDuration = s_pendingFadeInDuration;
             _activeOverlaySignifierId = s_pendingFadeInOverlaySignifierId;
             s_pendingFadeIn = false;
+
+ 
         }
 
         if (_state == TransitionState.Idle && s_hasRequest)
         {
+           Log("2=================");
+            Log("s_pendingFadeIn: " + s_pendingFadeIn);
+            Log("s_hasReuqest: " + s_hasRequest);
+
             _state = TransitionState.FadingOut;
             _timer = 0.0f;
             _activeDuration = s_duration;
             _activeOverlaySignifierId = s_overlaySignifierId;
             s_hasRequest = false;
+
+ 
         }
 
         if (_state == TransitionState.Idle)
         {
+            Log("3");
+
             return;
         }
 

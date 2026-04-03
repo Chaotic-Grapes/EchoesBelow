@@ -22,12 +22,14 @@ public class PauseMenuController : SystemBase
 
     public static List<Entity> panelEntities { get; private set; }
     public static Dictionary<string, MenuPanel> buttons { get; private set; }
+    public static List<MenuPanel> buttonList { get; private set; }
 
     //Pause Menu Fields
     public bool isPaused {  get; set; }
     public bool isPausable { get; set; }
     public bool isPauseButtonPressed { get; set; }
 
+    static int iterator = 0;
 
     //Current Button Fields
     public static MenuPanel currentButton {  get; private set; }
@@ -36,13 +38,6 @@ public class PauseMenuController : SystemBase
     const string exitButton = "Exit_Button";
     const string sfxButton = "SFX_Button";
     const string bgmButton = "BGM_Button";
-
-    //Slider Fields
-    //Vector2 bgmSliderMin = new Vector2(618f, 207f);
-    //Vector2 bgmSliderMax = new Vector2(916f, 151f);
-    //Vector2 sfxSliderMin = new Vector2(594, 366f);
-    //Vector2 sfxSliderMax = new Vector2(896f, 415f);
-
 
 
     private const string TargetScenePath = "Scenes/Newstartscene.scn";
@@ -57,6 +52,8 @@ public class PauseMenuController : SystemBase
         isPausable = true;
 
         buttons = new Dictionary<string, MenuPanel>();
+
+        buttonList = new List<MenuPanel>();
 
         panelEntities = new List<Entity>();
 
@@ -102,6 +99,7 @@ public class PauseMenuController : SystemBase
                         break;
                 }
                 buttons.Add(name, menuP);
+                buttonList.Add(menuP);
             }
         }
 
@@ -142,19 +140,30 @@ public class PauseMenuController : SystemBase
             ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
 
             //Locate the button
-            if(!currentButton_guiInput.Dragging)
+            if(!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
             UpdateCurrentButton();
 
+            float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+            float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
 
+            //if(GMath.Abs(xInput) > 0.9f || GMath.Abs(yInput) > 0.9f)
+            if(Input.IsGamepadButtonPressed(0,GamepadButton.DPadDown) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp)
+            || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)|| Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+            {
+                UpdateCurrentButton();
+            }
+
+            //if(Input.IsGamepadButtonPressed(0,GamepadAxis.LeftX))
 
             if (currentButton_guiInput.Hovered)
             {
                 //Log("Hovering over " + currentButton.name);
             }
-            if (currentButton_guiInput.Clicked && !currentButton.Entity.HasComponent<GUISlider>())
+            if ((currentButton_guiInput.Clicked || Input.IsGamepadButtonPressed(0,GamepadButton.A)) && !currentButton.Entity.HasComponent<GUISlider>())
             {
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
+
             }
             if (currentButton_guiInput.Entered)
             {
@@ -169,10 +178,32 @@ public class PauseMenuController : SystemBase
 
     private static void UpdateCurrentButton()
     {
+        if (Input.IsGamepadConnected(0))
+        {
+            ++iterator;
+            if (iterator > buttonList.Count - 1) iterator = 0;
+
+            currentButton = buttonList[iterator];
+        }
+
         foreach (MenuPanel button in buttons.Values)
         {
             ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
-            if (gui.Hovered) currentButton = button;
+            
+            ref GUIStateStyle guistateStyle = ref button.Entity.GetComponent<GUIStateStyle>();
+         
+            if (Input.IsGamepadConnected(0) && currentButton == button)
+            {
+                guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+            }
+            else if(Input.IsGamepadConnected(0) && currentButton != button)
+            {
+                guistateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
+            }
+            else
+            {
+                if (gui.Hovered) currentButton = button;
+            }
         }
     }
 
@@ -221,17 +252,8 @@ public class PauseMenuController : SystemBase
         SceneManager sceneManager = SceneManager.Instance;
         sceneManager.SetNextAudioTransition(0.8f, true);
 
-        ulong sceneIndex = sceneManager.AddScene();
-        bool loaded = sceneManager.LoadScene(sceneIndex, TargetScenePath);
-
-        if (loaded)
-        {
-            sceneManager.SetActive(sceneIndex);
-            return;
-        }
-
         // Fallback to existing transition request path.
-        SceneCrossFadeTransition.Request(TargetScenePath, 0.8f, true);
+        SceneCrossFadeTransition.Request(TargetScenePath, 1.5f, true);
         //SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
     }
     private void SFXButtonFunc()
