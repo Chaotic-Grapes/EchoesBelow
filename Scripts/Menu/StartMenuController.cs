@@ -28,6 +28,10 @@ public class StartMenuController : SystemBase
     private const string TargetScenePath = "Scenes/FeatureGym.scn";
     static bool isNewGamePressedOnce = false;
 
+    //hailmary fix
+    public float timer = 0;
+
+
     //Current Button Fields
     public static MenuPanel currentButton { get; private set; }
     //Available button names
@@ -40,6 +44,8 @@ public class StartMenuController : SystemBase
     {
         if (awakeBool == true) return true;
         awakeBool = true;
+
+        timer = 0f;
 
         isNewGamePressedOnce = false;
 
@@ -162,6 +168,8 @@ public class StartMenuController : SystemBase
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
 
+            if (PauseMenuController.instance.isPaused) return;
+  
             //Do the rest
             ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
 
@@ -175,13 +183,21 @@ public class StartMenuController : SystemBase
             UpdateButtonDefaults();
 
 
+            if(timer > 0f)
+            {
+                timer -= Time.DeltaTime;
+                if (timer <= 0f) timer = 0f;
+            }
+
+            if (timer > 0f) return;
+
             if (Input.IsGamepadButtonPressed(0,GamepadButton.A) && !currentButton.Entity.HasComponent<GUISlider>())
             {
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
 
             }
-            else if (Input.IsGamepadButtonPressed(0, GamepadButton.A))
+            else if (Input.IsGamepadButtonPressed(0, GamepadButton.A) && timer <= 0f)
             {
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
@@ -324,6 +340,9 @@ public class StartMenuController : SystemBase
     {
         //turn off a bunch of buttons and turn on sliders
         Log("Settings!");
+        timer = 0.5f;
+        //if (PauseMenuController.instance.isPaused) return;
+        PauseMenuController.instance.Pause(true);
     }
     private void ExitButtonFunc()
     {

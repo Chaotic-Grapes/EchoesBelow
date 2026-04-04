@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 namespace Scripts.Menu;
 
-[Component] public record struct PauseMenuControllerComponent(bool start, bool awake);
+[Component] public record struct PauseMenuControllerComponent(bool start, bool awake, bool isInStartScene);
 [RequireForUpdate<PauseMenuControllerComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class PauseMenuController : SystemBase
@@ -71,7 +71,7 @@ public class PauseMenuController : SystemBase
 
         return true;
     }
-    private bool OnStart(ref bool startBool)
+    private bool OnStart(ref bool startBool, bool isInStartScene)
     {
         if (startBool == true) return true;
         startBool = true;
@@ -107,48 +107,91 @@ public class PauseMenuController : SystemBase
                 buttonList.Add(menuP);
             }
         }
-        //Assign updownleftright Entities
-        foreach (MenuPanel menuP in buttons.Values)
+
+
+        if (!isInStartScene)
         {
-            string name = menuP.Entity.GetComponent<Name>().Value.ToString();
-            switch (name)
+            //Assign updownleftright Entities
+            foreach (MenuPanel menuP in buttons.Values)
             {
-                case resumeButton:
-                    menuP.up = buttons[sfxButton].Entity;
-                    menuP.down = buttons[bgmButton].Entity;
-                    menuP.left = buttons[exitButton].Entity;
-                    menuP.right = buttons[exitButton].Entity;
-                    break;
-                case exitButton:
-                    menuP.up = buttons[sfxButton].Entity;
-                    menuP.down = buttons[exitButton].Entity;
-                    menuP.left = buttons[resumeButton].Entity;
-                    menuP.right = buttons[resumeButton].Entity;
-                    break;
-                case bgmButton:
-                    menuP.up = buttons[resumeButton].Entity;
-                    menuP.down = buttons[sfxButton].Entity;
-                    menuP.left = buttons[bgmButton].Entity;
-                    menuP.right = buttons[exitButton].Entity;
-                    break;
-                case sfxButton:
-                    menuP.up = buttons[bgmButton].Entity;
-                    menuP.down = buttons[resumeButton].Entity;
-                    menuP.left = buttons[exitButton].Entity;
-                    menuP.right = buttons[exitButton].Entity;
-                    break;
+                string name = menuP.Entity.GetComponent<Name>().Value.ToString();
+                switch (name)
+                {
+                    case resumeButton:
+                        menuP.up = buttons[sfxButton].Entity;
+                        menuP.down = buttons[bgmButton].Entity;
+                        menuP.left = buttons[exitButton].Entity;
+                        menuP.right = buttons[exitButton].Entity;
+                        break;
+                    case exitButton:
+                        menuP.up = buttons[sfxButton].Entity;
+                        menuP.down = buttons[exitButton].Entity;
+                        menuP.left = buttons[resumeButton].Entity;
+                        menuP.right = buttons[resumeButton].Entity;
+                        break;
+                    case bgmButton:
+                        menuP.up = buttons[resumeButton].Entity;
+                        menuP.down = buttons[sfxButton].Entity;
+                        menuP.left = buttons[bgmButton].Entity;
+                        menuP.right = buttons[exitButton].Entity;
+                        break;
+                    case sfxButton:
+                        menuP.up = buttons[bgmButton].Entity;
+                        menuP.down = buttons[resumeButton].Entity;
+                        menuP.left = buttons[exitButton].Entity;
+                        menuP.right = buttons[exitButton].Entity;
+                        break;
+                }
+            }
+            currentButton = buttons[resumeButton];
+
+            if (Input.IsGamepadConnected(0))
+            {
+                currentButton = buttons[resumeButton];
+
+                ref GUIStateStyle guistateStyle = ref currentButton.Entity.GetComponent<GUIStateStyle>();
+                guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+            }
+        }
+        else
+        {
+            //Assign updownleftright Entities
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                string name = menuP.Entity.GetComponent<Name>().Value.ToString();
+                switch (name)
+                {
+                    case exitButton:
+                        menuP.up = buttons[exitButton].Entity;
+                        menuP.down = buttons[exitButton].Entity;
+                        menuP.left = buttons[bgmButton].Entity;
+                        menuP.right = buttons[bgmButton].Entity;
+                        break;
+                    case bgmButton:
+                        menuP.up = buttons[sfxButton].Entity;
+                        menuP.down = buttons[sfxButton].Entity;
+                        menuP.left = buttons[exitButton].Entity;
+                        menuP.right = buttons[exitButton].Entity;
+                        break;
+                    case sfxButton:
+                        menuP.up = buttons[bgmButton].Entity;
+                        menuP.down = buttons[bgmButton].Entity;
+                        menuP.left = buttons[exitButton].Entity;
+                        menuP.right = buttons[exitButton].Entity;
+                        break;
+                }
+            }
+            currentButton = buttons[exitButton];
+
+            if (Input.IsGamepadConnected(0))
+            {
+                currentButton = buttons[exitButton];
+
+                ref GUIStateStyle guistateStyle = ref currentButton.Entity.GetComponent<GUIStateStyle>();
+                guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
             }
         }
 
-        currentButton = buttons[resumeButton];
-
-        if (Input.IsGamepadConnected(0))
-        {
-            currentButton = buttons[resumeButton];
-
-            ref GUIStateStyle guistateStyle = ref currentButton.Entity.GetComponent<GUIStateStyle>();
-            guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
-        }
 
         //Update for gamepad connecting
         if (Input.IsGamepadConnected(0))
@@ -176,7 +219,7 @@ public class PauseMenuController : SystemBase
         foreach (var gameObject in World!.Query<PauseMenuControllerComponent>())
         {
             bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start);
+            gameObject.Component1.start = OnStart(ref start, gameObject.Component1.isInStartScene);
 
             //Do the rest
 
@@ -186,7 +229,8 @@ public class PauseMenuController : SystemBase
             //For future code to interact with
             if (!isPausable) return;
 
-            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2) || Input.IsGamepadButtonPressed(0, GamepadButton.Start);
+            isPauseButtonPressed = (Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2) || Input.IsGamepadButtonPressed(0, GamepadButton.Start))
+                                    && !gameObject.Component1.isInStartScene;
 
             if (!isPaused && isPauseButtonPressed) Pause(true);
             else if (isPaused && isPauseButtonPressed) Pause(false);
@@ -208,6 +252,7 @@ public class PauseMenuController : SystemBase
                 isUsingSlider = false;
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
+                Log("ACtion!");
 
             }
             else if (Input.IsGamepadButtonDown(0, GamepadButton.A) && currentButton.Entity.HasComponent<GUISlider>())
@@ -348,7 +393,7 @@ public class PauseMenuController : SystemBase
         }
     }
 
-    private void Pause(bool isPausing)
+    public void Pause(bool isPausing)
     {
         if (isPausing)
         {
@@ -390,12 +435,24 @@ public class PauseMenuController : SystemBase
     {
         Pause(false);
 
-        SceneManager sceneManager = SceneManager.Instance;
-        sceneManager.SetNextAudioTransition(0.8f, true);
+        foreach(var pauseMenu in World!.Query<PauseMenuControllerComponent>())
+        {
+            if (!pauseMenu.Component1.isInStartScene)
+            {
+                SceneManager sceneManager = SceneManager.Instance;
+                sceneManager.SetNextAudioTransition(0.8f, true);
 
-        // Fallback to existing transition request path.
-        SceneCrossFadeTransition.Request(TargetScenePath, 1.5f, true);
-        //SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
+                // Fallback to existing transition request path.
+                SceneCrossFadeTransition.Request(TargetScenePath, 1.5f, true);
+                //SceneCrossFadeTransition.Request(StartSceneName, 0.8f, true);
+            }
+            else
+            {
+                Log("UNPAUSED");
+                StartMenuController.instance.timer = 0.5f;
+            }
+        }
+
     }
     private void SFXButtonFunc()
     {
