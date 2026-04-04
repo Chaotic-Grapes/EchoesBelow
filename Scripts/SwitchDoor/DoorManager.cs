@@ -58,29 +58,37 @@ public class DoorManager : SystemBase
         }
     }
 
-    public void DeactivateDoor(ulong objID, float camShakeIntensity)
+    public void DeactivateDoor(ulong objID, float camShakeIntensity, bool isSpongeDoor)
     {
-        int audioRandomiser = GMath.Random(1, 4);
-
-        switch (audioRandomiser)
+        if (!isSpongeDoor)
         {
-            case 1:
-                AudioManager.instance.PlaySFX("SFX006_Track01");
-                break;
-            case 2:
-                AudioManager.instance.PlaySFX("SFX006_Track02");
-                break;
-            case 3:
-                AudioManager.instance.PlaySFX("SFX006_Track03");
-                break;
-            case 4:
-                AudioManager.instance.PlaySFX("SFX006_Track04");
-                break;
+            int audioRandomiser = GMath.Random(1, 4);
+
+            switch (audioRandomiser)
+            {
+                case 1:
+                    AudioManager.instance.PlaySFX("SFX006_Track01");
+                    break;
+                case 2:
+                    AudioManager.instance.PlaySFX("SFX006_Track02");
+                    break;
+                case 3:
+                    AudioManager.instance.PlaySFX("SFX006_Track03");
+                    break;
+                case 4:
+                    AudioManager.instance.PlaySFX("SFX006_Track04");
+                    break;
+            }
+        }
+        else
+        {
+            AudioManager.instance.PlaySFX("SFX006_Track01");
         }
 
 
 
-        ref Active doorActive = ref Entity.FromId(World!, objID).GetComponent<Active>();
+
+            ref Active doorActive = ref Entity.FromId(World!, objID).GetComponent<Active>();
         doorActive.Enabled = false;
 
         this.camShakeIntensity = camShakeIntensity;

@@ -152,7 +152,7 @@ public class SpongeButton : SystemBase
                     if ((Xboundary - 0.325f < camXPos && camXPos < Xboundary + 0.325f &&
                         yBoundary - 0.325f < camYPos && camYPos < yBoundary + 0.325f))
                     {
-                        DoorManager.instance.DeactivateDoor(storedDoor.Id, 0.034f);
+                        DoorManager.instance.DeactivateDoor(storedDoor.Id, 0.034f, true);
                     }
 
                     if ((Xboundary - 0.125f < camXPos && camXPos < Xboundary + 0.125f &&
