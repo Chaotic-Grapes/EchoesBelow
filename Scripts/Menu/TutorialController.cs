@@ -109,7 +109,11 @@ public class TutorialController : SystemBase
         barrelSpongeComplete = false;
         spongeButtonComplete = false;
         lexicateComplete = false;
+
         coralBuilderConfirmComplete = false;
+        coralBuilderEntryComplete = false;
+        coralBuilderNavigateComplete = false;
+
         marineSnowComplete = false;
         spiritComplete = false;
 

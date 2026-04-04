@@ -215,6 +215,35 @@ public class LexicateTrade : TriggerSystemBase
                     lx.throwing_trajectory = trajectory;
                     lx.throwing_decayTime = 100000f;
                 }
+                else if (otherEntity.GetComponent<MS_IDComponent>().msID > 0 || otherEntity.GetComponent<MS_IDComponent>().msID < 8)
+                {
+                    //AudioManager.instance.PlaySFX("SFX010_Track01");
+                    lx.isProcessing = true;
+                    //Finding the local up angle?
+                    float eulerAngle = Quat2EulerAxisZ(selfEntity.GetComponent<LocalTransform>().Rotation) + (90f * GMath.Rad2Deg);
+                    Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
+                    if (-0.0001f < localUp.X && localUp.X < 0.0001f && 0.9999f < localUp.Y && localUp.Y < 1.0001f) localUp = new Vector2(0, 1);
+
+                    //declaring my values
+                    Vector2 trajectory = localUp.Normalized * gameObject.Component1.vomitSpeed;
+                    Vector3 newPos = ApplyRotationToVector(
+                        new Vector3(outputEntity.GetComponent<LocalTransform>().Position.X * selfEntity.GetComponent<LocalTransform>().Scale.X,
+                                    outputEntity.GetComponent<LocalTransform>().Position.Y * selfEntity.GetComponent<LocalTransform>().Scale.Y,
+                                    outputEntity.GetComponent<LocalTransform>().Position.Z * selfEntity.GetComponent<LocalTransform>().Scale.Z),
+                                    selfEntity.GetComponent<LocalTransform>().Rotation) + selfEntity.GetComponent<LocalTransform>().Position;
+
+                    //send and remove an obj from the pool into the world
+
+                    MS_Manager.instance.SendToPool(otherEntity.Id);
+                    Lexicate.instance.SetAnimState(self.Id, World!, Lexicate.instance.spitState);
+                    //Delay this
+
+
+                    lx.throwing_msID = otherEntity.GetComponent<MS_IDComponent>().msID;
+                    lx.throwing_newPos = newPos;
+                    lx.throwing_trajectory = trajectory;
+                    lx.throwing_decayTime = 100000f;
+                }
             }
         }
 
