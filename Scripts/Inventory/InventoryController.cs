@@ -152,9 +152,9 @@ public class InventoryController : SystemBase
 
         if (Input.IsGamepadConnected(0) && !PauseMenuController.instance.isPaused)
         {
-            if(Input.IsGamepadButtonPressed(0, GamepadButton.LeftBumper) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)) 
+            if(Input.IsGamepadButtonPressed(0, GamepadButton.LeftBumper)) 
             mouseScroll = -1;
-            else if (Input.IsGamepadButtonPressed(0, GamepadButton.RightBumper)|| Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight)) 
+            else if (Input.IsGamepadButtonPressed(0, GamepadButton.RightBumper)) 
             mouseScroll = 1;
             else mouseScroll = 0f;
 

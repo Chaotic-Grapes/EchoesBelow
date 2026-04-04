@@ -33,6 +33,8 @@ public class PauseMenuController : SystemBase
 
     //Current Button Fields
     public static MenuPanel currentButton {  get; private set; }
+    public static bool isUsingSlider = false;
+
     //Available button names
     const string resumeButton = "Resume_Button";
     const string exitButton = "Exit_Button";
@@ -74,6 +76,8 @@ public class PauseMenuController : SystemBase
         if (startBool == true) return true;
         startBool = true;
         //Todo
+        isUsingSlider = false;
+
         Log("PanelEntities count: " + panelEntities.Count);
         foreach(Entity panelEntity in panelEntities)
         {
@@ -147,7 +151,15 @@ public class PauseMenuController : SystemBase
         }
 
         //Update for gamepad connecting
-        UpdateButtonDefaults();
+        if (Input.IsGamepadConnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
+            }
+        }
 
         //End of Start
         return true;
@@ -183,7 +195,7 @@ public class PauseMenuController : SystemBase
 
             ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
 
-            if (Input.IsGamepadConnected(0))
+            if (Input.IsGamepadConnected(0) && !isUsingSlider)
             {
                 UpdateCurrentButtonForGamePad();
             }
@@ -193,14 +205,20 @@ public class PauseMenuController : SystemBase
 
             if (Input.IsGamepadButtonPressed(0, GamepadButton.A) && !currentButton.Entity.HasComponent<GUISlider>())
             {
+                isUsingSlider = false;
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
 
             }
-            else if (Input.IsGamepadButtonPressed(0, GamepadButton.A))
+            else if (Input.IsGamepadButtonDown(0, GamepadButton.A) && currentButton.Entity.HasComponent<GUISlider>())
             {
-                AudioManager.instance.PlaySFX("UI005_Track01");
+                isUsingSlider = true;
+
                 currentButton.Action();
+            }
+            else
+            {
+                isUsingSlider = false;
             }
             //=========================================================================
             if (Input.IsGamepadConnected(0)) return;
@@ -233,15 +251,6 @@ public class PauseMenuController : SystemBase
 
     private static void UpdateButtonDefaults()
     {
-        if (Input.IsGamepadConnected(0))
-        {
-            foreach (MenuPanel menuP in buttons.Values)
-            {
-                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
-                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
-                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
-            }
-        }
         if (Input.IsGamepadJustConnected(0))
         {
             foreach (MenuPanel menuP in buttons.Values)
@@ -269,51 +278,63 @@ public class PauseMenuController : SystemBase
 
     private static void UpdateCurrentButtonForGamePad()
     {
-
+        
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp))
         {
-            //currentButton = buttons[currentButton.]
+            currentButton = buttons[currentButton.up.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
+
         }
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown))
         {
-
+            currentButton = buttons[currentButton.down.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
         }
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft))
         {
-
+            currentButton = buttons[currentButton.left.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
         }
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
         {
-
+            currentButton = buttons[currentButton.right.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
         }
+        //Log("Current button" + currentButton.name);
+    }
 
-        //if (Input.IsGamepadConnected(0))
-        //{
-        //    ++iterator;
-        //    if (iterator > buttonList.Count - 1) iterator = 0;
+    private static void UpdateGamePadSelection()
+    {
+        AudioManager.instance.PlaySFX("UI005_Track01");
+        foreach (MenuPanel menuP in buttons.Values)
+        {
+            ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
 
-        //    currentButton = buttonList[iterator];
-        //}
-
-        //foreach (MenuPanel button in buttons.Values)
-        //{
-        //    ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
-
-        //    ref GUIStateStyle guistateStyle = ref button.Entity.GetComponent<GUIStateStyle>();
-
-        //    if (Input.IsGamepadConnected(0) && currentButton == button)
-        //    {
-        //        guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
-        //    }
-        //    else if(Input.IsGamepadConnected(0) && currentButton != button)
-        //    {
-        //        guistateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
-        //    }
-        //    else
-        //    {
-        //        if (gui.Hovered) currentButton = button;
-        //    }
-        //}
+            if (menuP.Entity.TryGetComponent<GUISlider>(out _))
+            {
+                ref GUISlider slider = ref menuP.Entity.GetComponent<GUISlider>();
+                if(menuP.name == currentButton.name)
+                {
+                    slider.KnobColor = new Color(3f, 3f, 3f, 1f);
+                }
+                else
+                {
+                    slider.KnobColor = new Color(1f, 1f, 1f, 1f);
+                }
+            }
+            else
+            {
+                if(menuP.name == currentButton.name)
+                {
+                    stateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+                }
+                else
+                {
+                    stateStyle.NormalColor = new Color(1f,1f,1f,1f);
+                }
+            }
+            
+        }
     }
 
     private void UpdateCurrentButtonForMouse()
@@ -378,13 +399,36 @@ public class PauseMenuController : SystemBase
     }
     private void SFXButtonFunc()
     {
-        GUISlider currentButton_slider = currentButton.Entity.GetComponent<GUISlider>();
+        ref GUISlider currentButton_slider = ref currentButton.Entity.GetComponent<GUISlider>();
+ 
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)) 
+        { 
+            AudioManager.instance.PlaySFX("UI005_Track01");
+            currentButton_slider.Value -= 0.1f; 
+        }
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+        {
+            AudioManager.instance.PlaySFX("UI005_Track01");
+            currentButton_slider.Value += 0.1f;
+        }
         AudioManager.instance.UpdateSFXVolume(currentButton_slider.Value);
      
     }
     private void BGMButtonFunc()
     {
-        GUISlider currentButton_slider = currentButton.Entity.GetComponent<GUISlider>();
+        ref GUISlider currentButton_slider = ref currentButton.Entity.GetComponent<GUISlider>();
+
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft))
+        {
+            AudioManager.instance.PlaySFX("UI005_Track01");
+            currentButton_slider.Value -= 0.1f;
+        }
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+        {
+            AudioManager.instance.PlaySFX("UI005_Track01");
+            currentButton_slider.Value += 0.1f;
+        }
+
         AudioManager.instance.UpdateBGMVolume(currentButton_slider.Value);
 
     }

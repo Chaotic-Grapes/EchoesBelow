@@ -136,7 +136,15 @@ public class StartMenuController : SystemBase
             guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
         }
         //Update for gamepad connecting
-        UpdateButtonDefaults();
+        if (Input.IsGamepadConnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
+            }
+        }
 
         //End of Start
         return true;
@@ -181,7 +189,7 @@ public class StartMenuController : SystemBase
 
             //=========================================================================
             if (Input.IsGamepadConnected(0)) return;
-
+           
             //Locate the button
             if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
                 UpdateCurrentButtonForMouse();
@@ -209,16 +217,6 @@ public class StartMenuController : SystemBase
     }
     private static void UpdateButtonDefaults()
     {
-        if (Input.IsGamepadConnected(0))
-        {
-            foreach (MenuPanel menuP in buttons.Values)
-            {
-                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
-                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
-                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
-            }
-        }
-
         if (Input.IsGamepadJustConnected(0))
         {
             foreach (MenuPanel menuP in buttons.Values)
@@ -247,18 +245,55 @@ public class StartMenuController : SystemBase
     {
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp))
         {
-            //currentButton = buttons[currentButton.]
+            currentButton = buttons[currentButton.up.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
         }
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown))
         {
-
+            currentButton = buttons[currentButton.down.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
         }
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft))
         {
-
+            currentButton = buttons[currentButton.left.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
         }
         if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
         {
+            currentButton = buttons[currentButton.right.GetComponent<Name>().Value.ToString()];
+            UpdateGamePadSelection();
+        }
+    }
+    private static void UpdateGamePadSelection()
+    {
+        AudioManager.instance.PlaySFX("UI005_Track01");
+        foreach (MenuPanel menuP in buttons.Values)
+        {
+            ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+
+            if (menuP.Entity.TryGetComponent<GUISlider>(out _))
+            {
+                ref GUISlider slider = ref menuP.Entity.GetComponent<GUISlider>();
+                if (menuP.name == currentButton.name)
+                {
+                    slider.KnobColor = new Color(3f, 3f, 3f, 1f);
+                }
+                else
+                {
+                    slider.KnobColor = new Color(1f, 1f, 1f, 1f);
+                }
+            }
+            else
+            {
+                if (menuP.name == currentButton.name)
+                {
+                    stateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+                }
+                else
+                {
+                    stateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
+                }
+            }
 
         }
     }
