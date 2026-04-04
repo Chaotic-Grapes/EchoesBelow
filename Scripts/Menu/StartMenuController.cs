@@ -304,10 +304,14 @@ public class StartMenuController : SystemBase
                 if (menuP.name == currentButton.name)
                 {
                     stateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+                    stateStyle.HoverColor = new Color(3f, 3f, 3f, 1f);
+                    stateStyle.PressedColor = new Color(3f, 3f, 3f, 1f);
                 }
                 else
                 {
                     stateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
+                    stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                    stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
                 }
             }
 
