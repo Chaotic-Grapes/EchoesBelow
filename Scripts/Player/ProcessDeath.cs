@@ -48,7 +48,6 @@ public class ProcessDeath : SystemBase
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Component1.cooldownSignifier);
 
-
             //if u get hit during the coolDown timer, you die
             //if the cooldown ends, you can repeat the process
             if (isHit)
@@ -59,12 +58,17 @@ public class ProcessDeath : SystemBase
                 //convert cooldown to percentage
                 float percentage = (gameObject.Component1.coolDownVal - gameObject.Component1.hitCoolDownTimer) / gameObject.Component1.coolDownVal;
                 //call signifier
+
+                CamFollow.instance.CamShake(true, 0.04f * percentage);
+
                 foreach (var result in World!.Query<MatchSignifierComponent>())
                 {
                     if (result.Entity.GetComponent<MatchSignifierComponent>().signifierID == coolDownSignifier)
                     {
                         //set start size
-                        result.Entity.GetComponent<GUIElement>().Size.X = 820 * percentage;
+                        ref GUIImage vignetteGUI = ref result.Entity.GetComponent<GUIImage>();
+                        vignetteGUI.Color = new Color(10f,0f,0f, 1f * percentage);
+                     
                     }
                 }
 
@@ -73,6 +77,7 @@ public class ProcessDeath : SystemBase
                 {
                     isHit = false;
                     gameObject.Component1.hitCoolDownTimer = 0;
+                    CamFollow.instance.CamShake(false, 0f);
                 }
             }
 
@@ -97,7 +102,7 @@ public class ProcessDeath : SystemBase
                     gameObject.Entity.GetComponent<Active>().Enabled = true;
 
                     isDying = false;
-
+                    CamFollow.instance.CamShake(false, 0f);
                 }
             }
 
@@ -119,20 +124,11 @@ public class ProcessDeath : SystemBase
         Vector2 recoilDir = new Vector2(player.GetComponent<LocalTransform>().Position.X - other.GetComponent<LocalTransform>().Position.X,
                                         player.GetComponent<LocalTransform>().Position.Y - other.GetComponent<LocalTransform>().Position.Y);
 
-        player.GetComponent<LinearVelocity2D>().Value = recoilDir.Normalized * 1.5f;
+        player.GetComponent<LinearVelocity2D>().Value = recoilDir.Normalized * 1.1f;
 
         if (!isHit)
         {
-            //set the signifier obj reference ui element!
-            foreach(var result in World!.Query<MatchSignifierComponent>())
-            {
-                if(result.Entity.GetComponent<MatchSignifierComponent>().signifierID == coolDownSignifier)
-                {
-                    //set start size
-                    result.Entity.GetComponent<GUIElement>().Size.X = 338;
-                }
-            }
-            //Log("I'm hit");
+
             isHit = true;
         }
         else
@@ -144,15 +140,19 @@ public class ProcessDeath : SystemBase
     }
     private void Death(ulong playerId)
     {
-        //disable the player
+
+
         foreach (var result in World!.Query<MatchSignifierComponent>())
         {
             if (result.Entity.GetComponent<MatchSignifierComponent>().signifierID == coolDownSignifier)
             {
                 //set start size
-                result.Entity.GetComponent<GUIElement>().Size.X = 0;
+                ref GUIImage vignetteGUI = ref result.Entity.GetComponent<GUIImage>();
+                vignetteGUI.Color = new Color(1f, 1f, 1f, 0);
+
             }
         }
+        CamFollow.instance.CamShake(false, 0f);
 
         //Deactivate and zero out the velocity!
         ref LinearVelocity2D lv = ref Entity.FromId(World!, playerId).GetComponent<LinearVelocity2D>();
