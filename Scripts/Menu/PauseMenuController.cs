@@ -87,6 +87,7 @@ public class PauseMenuController : SystemBase
                 {
                     case resumeButton:
                         menuP.Action = ResumeButtonFunc;
+                        
                         break;
                     case exitButton:
                         menuP.Action = ExitButtonFunc;
@@ -100,6 +101,38 @@ public class PauseMenuController : SystemBase
                 }
                 buttons.Add(name, menuP);
                 buttonList.Add(menuP);
+            }
+        }
+        //Assign updownleftright Entities
+        foreach (MenuPanel menuP in buttons.Values)
+        {
+            string name = menuP.Entity.GetComponent<Name>().Value.ToString();
+            switch (name)
+            {
+                case resumeButton:
+                    menuP.up = buttons[sfxButton].Entity;
+                    menuP.down = buttons[bgmButton].Entity;
+                    menuP.left = buttons[exitButton].Entity;
+                    menuP.right = buttons[exitButton].Entity;
+                    break;
+                case exitButton:
+                    menuP.up = buttons[sfxButton].Entity;
+                    menuP.down = buttons[exitButton].Entity;
+                    menuP.left = buttons[resumeButton].Entity;
+                    menuP.right = buttons[resumeButton].Entity;
+                    break;
+                case bgmButton:
+                    menuP.up = buttons[resumeButton].Entity;
+                    menuP.down = buttons[sfxButton].Entity;
+                    menuP.left = buttons[bgmButton].Entity;
+                    menuP.right = buttons[exitButton].Entity;
+                    break;
+                case sfxButton:
+                    menuP.up = buttons[bgmButton].Entity;
+                    menuP.down = buttons[resumeButton].Entity;
+                    menuP.left = buttons[exitButton].Entity;
+                    menuP.right = buttons[exitButton].Entity;
+                    break;
             }
         }
 

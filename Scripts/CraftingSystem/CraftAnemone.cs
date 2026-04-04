@@ -389,6 +389,10 @@ public class CraftAnemone : SystemBase
             if (cr.isWonSpirit && isLeaving)
             {
                 CamFollow.instance.CamShake(true, 0.056f);
+                if (Input.IsGamepadConnected(0))
+                {
+                    Input.SetGamepadVibration(0, 0.8f, 0.8f);
+                }
             }
 
             //AnimCentric
@@ -601,10 +605,11 @@ public class CraftAnemone : SystemBase
         }
         else if (cr.currentState == releaseState.name)
         {
+            InventoryController.instance.isEnabled_vomitInput = false;
             if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (releaseState.frameLength-1))
             {
                 SetAnimState(idleEnterState, cr.objId, World!);
-                InventoryController.instance.isEnabled_RMBInput = true;
+                InventoryController.instance.isEnabled_vomitInput = true;
             }
         }
         else if (cr.currentState == idleEnterState.name)
@@ -680,6 +685,11 @@ public class CraftAnemoneHandler : TriggerSystemBase
         else return;
        
         CamFollow.instance.CamShake(true, 0.0085f);
+        if (Input.IsGamepadConnected(0))
+        {
+            Input.SetGamepadVibration(0,0.8f,0.8f);
+        }
+            
        
         if (!CraftAnemone.isLMB_pressed) return;
  
@@ -692,7 +702,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
             //Disable player movement and X key for inventory!
             Player.instance.isEnabled = false;
-            InventoryController.instance.isEnabled_RMBInput = false;
+            InventoryController.instance.isEnabled_vomitInput = false;
             Player.instance.ResetInputs();
 
             //Remove Rigidbody on the Player!
@@ -713,7 +723,7 @@ public class CraftAnemoneHandler : TriggerSystemBase
 
         CamFollow.instance.CamShake(false, 0f);
 
-        if(!CraftAnemone.instances[self.Id].isLerpingToAnemone && !CraftAnemone.instances[self.Id].isExitingAnemone)
+        if (!CraftAnemone.instances[self.Id].isLerpingToAnemone && !CraftAnemone.instances[self.Id].isExitingAnemone)
         {
             CraftAnemone.instance.SetAnimState(CraftAnemone.vibrateExitState, self.Id, World!);
         }
@@ -741,7 +751,11 @@ public class CraftAnemoneHandler : TriggerSystemBase
         CraftAnemone.instances[self.Id].isWonSpirit = false;
 
         //if(CraftAnemone.instances[self.Id].isOpened)
-        CraftAnemone.instances[self.Id].UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));
+        if(InventoryController.slotInstances[Entity.FromId(World!, InventoryController.slotObjIds[InventoryController.globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+        {
+            CraftAnemone.instances[self.Id].UpdateSelection(World!, InventoryController.currentSelected_msID, new Vector3(0, 1.55f, 0));
+        }
+        
     }
 
 }

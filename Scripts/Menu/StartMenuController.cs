@@ -26,6 +26,7 @@ public class StartMenuController : SystemBase
     //Start Menu Fields
     static int iterator = 0;
     private const string TargetScenePath = "Scenes/FeatureGym.scn";
+    static bool isNewGamePressedOnce = false;
 
     //Current Button Fields
     public static MenuPanel currentButton { get; private set; }
@@ -39,6 +40,8 @@ public class StartMenuController : SystemBase
     {
         if (awakeBool == true) return true;
         awakeBool = true;
+
+        isNewGamePressedOnce = false;
 
         instance = this;
 
@@ -87,6 +90,39 @@ public class StartMenuController : SystemBase
                 }
                 buttons.Add(name, menuP);
                 buttonList.Add(menuP);
+            }
+        }
+
+        //Assign updownleftright Entities
+        foreach (MenuPanel menuP in buttons.Values)
+        {
+            string name = menuP.Entity.GetComponent<Name>().Value.ToString();
+            switch (name)
+            {
+                case newGameButton:
+                    menuP.up = buttons[newGameButton].Entity;
+                    menuP.down = buttons[newGameButton].Entity;
+                    menuP.left = buttons[exitButton].Entity;
+                    menuP.right = buttons[continueButton].Entity;
+                    break;
+                case continueButton:
+                    menuP.up = buttons[continueButton].Entity;
+                    menuP.down = buttons[continueButton].Entity;
+                    menuP.left = buttons[newGameButton].Entity;
+                    menuP.right = buttons[exitButton].Entity;
+                    break;
+                case exitButton:
+                    menuP.up = buttons[settingsButton].Entity;
+                    menuP.down = buttons[settingsButton].Entity;
+                    menuP.left = buttons[continueButton].Entity;
+                    menuP.right = buttons[newGameButton].Entity;
+                    break;
+                case settingsButton:
+                    menuP.up = buttons[exitButton].Entity;
+                    menuP.down = buttons[exitButton].Entity;
+                    menuP.left = buttons[continueButton].Entity;
+                    menuP.right = buttons[newGameButton].Entity;
+                    break;
             }
         }
 
@@ -180,7 +216,12 @@ public class StartMenuController : SystemBase
     }
     private void NewGameButtonFunc()
     {
-        SceneCrossFadeTransition.Request(TargetScenePath, 1.5f, true);
+        if (!isNewGamePressedOnce)
+        {
+            SceneCrossFadeTransition.Request(TargetScenePath, 1.5f, true);
+            isNewGamePressedOnce = true;
+        }
+
     } 
     private void ContinueButtonFunc()
     {

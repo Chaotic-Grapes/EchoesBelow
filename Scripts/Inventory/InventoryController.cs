@@ -6,12 +6,13 @@ using GrapeEngine.Scripting.Core;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts;
 using Scripts.Menu;
 using System.Collections.Generic;
 
 namespace EchoesBelow.Scripts;
 
-[Component] public record struct InventoryControllerComponent(bool start, int ms01_signifier, int ms02_signifier);
+[Component] public record struct InventoryControllerComponent(bool start, int ms01_signifier, int ms02_signifier, bool awake);
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class InventoryController : SystemBase
 {
@@ -26,10 +27,12 @@ public class InventoryController : SystemBase
     public static ulong[] slotObjIds;
     public static Dictionary<string, Slot> slotInstances;
 
-    static bool isRMB_Pressed;
+    static bool isRMB_vomit_Pressed;
+    //static float vomitCoolDown = 1f;
+    //static float vomitTimer = 0f;
     public static double mouseScroll;
 
-    public bool isEnabled_RMBInput = true;
+    public bool isEnabled_vomitInput = true;
 
     public static int globalInvIterator;
     public static int currentSelected_msID;
@@ -38,11 +41,24 @@ public class InventoryController : SystemBase
     {
         instance = this;
     }
+
+
+    private bool OnAwake(ref bool awakeBool) //Onawake must only play once at the beginning per script.
+    {
+        if (awakeBool == true) return true;
+        awakeBool = true;
+
+        instance = this;
+
+        return true;
+    }
     private bool OnStart(ref bool startBool, ulong objId)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
+
+
         //Initialize our values!
         ms01_Count = 0;
         ms02_Count = 0;
@@ -58,7 +74,7 @@ public class InventoryController : SystemBase
 
         currentSelected_msID = 0;
 
-        isEnabled_RMBInput = true;
+        isEnabled_vomitInput = true;
 
         //Finds every child of a slot, and aligns it to the parent slot in ui space
         //Also stores the unique references to instances of lists
@@ -127,31 +143,35 @@ public class InventoryController : SystemBase
     {
         //This is gonna be overhauled
         //check for input
-        if (isEnabled_RMBInput || !PauseMenuController.instance.isPaused) 
+        if ((isEnabled_vomitInput || !PauseMenuController.instance.isPaused)) 
         { 
-            isRMB_Pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B); 
+            isRMB_vomit_Pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B);
         }
+
+
 
         if (Input.IsGamepadConnected(0) && !PauseMenuController.instance.isPaused)
         {
-            if(Input.IsGamepadButtonPressed(0, GamepadButton.LeftBumper) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)
-            //|| Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper) 
-            || Input.IsGamepadButtonDown(0, GamepadButton.DPadLeft)
-                ) mouseScroll = -1;
-            else if (Input.IsGamepadButtonPressed(0, GamepadButton.RightBumper)|| Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight)
-            //|| Input.IsGamepadButtonDown(0, GamepadButton.RightBumper) 
-            || Input.IsGamepadButtonDown(0, GamepadButton.DPadRight)
-                ) mouseScroll = 1;
+            if(Input.IsGamepadButtonPressed(0, GamepadButton.LeftBumper) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)) 
+            mouseScroll = -1;
+            else if (Input.IsGamepadButtonPressed(0, GamepadButton.RightBumper)|| Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight)) 
+            mouseScroll = 1;
             else mouseScroll = 0f;
-            //Input.GetGamepadAxis(0, GamepadAxis.RightX);
+
         }
         else if(!PauseMenuController.instance.isPaused)
         {
             mouseScroll = -Input.ScrollY;
         }
 
+        foreach (var gameObject in World!.Query<InventoryControllerComponent>())
+        {
+            bool awake = gameObject.Component1.awake;
+            gameObject.Component1.awake = OnAwake(ref awake);
+            //Todo
+        }
 
-        foreach(var gameObject in World!.Query<InventoryControllerComponent>())
+            foreach (var gameObject in World!.Query<InventoryControllerComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
@@ -198,7 +218,7 @@ public class InventoryController : SystemBase
                 }
             }
             //Remove from slot / Vomitting
-            if ((isRMB_Pressed) && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
+            if ((isRMB_vomit_Pressed) && slotInstances[Entity.FromId(World!, slotObjIds[globalInvIterator]).GetComponent<Name>().Value.ToString()].isStoringItem)
             {
 
                 if (!AudioManager.sfxEntityDictionary["SFX010_Track01"].GetComponent<AudioSource>().PlayOnStart)

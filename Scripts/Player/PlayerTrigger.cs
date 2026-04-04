@@ -47,9 +47,12 @@ public class PlayerTriggerHandler : TriggerSystemBase
                 sceneManager.SetNextAudioTransition(2.0f, true);
                 //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
                 //Like creating a new scene / allocate a new scene in the registry
-                var sceneIndex = SceneManager.Instance.AddScene();
-                var ss = SceneManager.Instance.LoadScene(sceneIndex, endSceneName);
-                SceneManager.Instance.SetActive(sceneIndex);
+
+
+                SceneCrossFadeTransition.Request(endSceneName, 1.5f, true);
+                //var sceneIndex = SceneManager.Instance.AddScene();
+                //var ss = SceneManager.Instance.LoadScene(sceneIndex, endSceneName);
+                //SceneManager.Instance.SetActive(sceneIndex);
             }
         }
         

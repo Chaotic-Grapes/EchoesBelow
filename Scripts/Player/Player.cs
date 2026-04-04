@@ -107,8 +107,8 @@ public class Player : SystemBase
             isKeyDown_S = yGamePadInput < 0 ;
             isKeyDown_D = xGamePadInput > 0 ;
 
-            isKeyPressed_Space = Input.IsGamepadButtonPressed(0, GamepadButton.A)
-                              || (Input.IsGamepadButtonDown(0, GamepadButton.RightBumper) && (Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper)));
+            isKeyPressed_Space = Input.IsGamepadButtonPressed(0, GamepadButton.A);
+                              //|| (Input.IsGamepadButtonDown(0, GamepadButton.RightBumper) && (Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper)));
         }
 
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())

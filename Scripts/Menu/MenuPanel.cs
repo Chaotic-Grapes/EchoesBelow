@@ -12,6 +12,14 @@ public class MenuPanel
     public ulong objID { get; set; }
     public string name { get; set; }
     public Entity Entity { get; set; }
+
+    //For directional key input (Gamepad and Mouse)
+    public Entity up {  get; set; }
+    public Entity down { get; set; }
+    public Entity left { get; set; }
+    public Entity right { get; set; }
+
+    //unused
     public Vector2 startPos {  get; set; }
     public Vector2 retreatPos {  get; set; } // must be keyed in remotely?
 

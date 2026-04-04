@@ -44,6 +44,10 @@ public class DoorManager : SystemBase
             timer -= Time.DeltaTime;
 
             CamFollow.instance.CamShake(true, camShakeIntensity);
+            if (Input.IsGamepadConnected(0))
+            {
+                Input.SetGamepadVibration(0, 0.8f, 0.8f);
+            }
 
 
             if (timer < 0f)
@@ -56,7 +60,26 @@ public class DoorManager : SystemBase
 
     public void DeactivateDoor(ulong objID, float camShakeIntensity)
     {
-        AudioManager.instance.PlaySFX("SFX006");
+        int audioRandomiser = GMath.Random(1, 4);
+
+        switch (audioRandomiser)
+        {
+            case 1:
+                AudioManager.instance.PlaySFX("SFX006_Track01");
+                break;
+            case 2:
+                AudioManager.instance.PlaySFX("SFX006_Track02");
+                break;
+            case 3:
+                AudioManager.instance.PlaySFX("SFX006_Track03");
+                break;
+            case 4:
+                AudioManager.instance.PlaySFX("SFX006_Track04");
+                break;
+        }
+
+
+
         ref Active doorActive = ref Entity.FromId(World!, objID).GetComponent<Active>();
         doorActive.Enabled = false;
 

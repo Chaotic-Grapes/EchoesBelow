@@ -32,9 +32,15 @@ public class DevKeys : SystemBase
         //     // Process component
         // }
         bool isKeyDown_R = Input.IsKeyDown(KeyCode.R);
+        bool isKeyPressed_9 = Input.IsKeyDown(KeyCode.Keypad9);
+
         bool isKeyPressed_0 = Input.IsKeyDown(KeyCode.Keypad0);
         bool isKeyPressed_1 = Input.IsKeyDown(KeyCode.Keypad1);
         bool isKeyPressed_2 = Input.IsKeyDown(KeyCode.Keypad2);
+        bool isKeyPressed_3 = Input.IsKeyDown(KeyCode.Keypad3);
+        bool isKeyPressed_4 = Input.IsKeyDown(KeyCode.Keypad4);
+        bool isKeyPressed_5 = Input.IsKeyDown(KeyCode.Keypad5);
+        bool isKeyPressed_6 = Input.IsKeyDown(KeyCode.Keypad6);
 
         if (isKeyDown_R && isKeyPressed_0)
         {
@@ -43,12 +49,10 @@ public class DevKeys : SystemBase
             sceneManager.SetNextAudioTransition(2.0f, true);
             //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
             //Like creating a new scene / allocate a new scene in the registry
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/StartScene.scn");
-            SceneManager.Instance.SetActive(sceneIndex);
+            SceneCrossFadeTransition.Request("Scenes/StartScene.scn", 0.7f, true);
         }
 
-        if (isKeyDown_R && isKeyPressed_1)
+        if (isKeyDown_R && isKeyPressed_9)
         {
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
@@ -58,16 +62,53 @@ public class DevKeys : SystemBase
             SceneManager.Instance.SetActive(sceneIndex);
         }
 
+        if (isKeyDown_R && isKeyPressed_1)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+        }
+
         if (isKeyDown_R && isKeyPressed_2)
         {
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            var sceneIndex = SceneManager.Instance.AddScene();
-            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/M5_L1.scn");
-            SceneManager.Instance.SetActive(sceneIndex);
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
         }
 
+        if (isKeyDown_R && isKeyPressed_3)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+        }
+
+        if (isKeyDown_R && isKeyPressed_4)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+        }
+
+        if (isKeyDown_R && isKeyPressed_5)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+        }
+
+        if (isKeyDown_R && isKeyPressed_6)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+        }
 
         SceneManager sceneManager1 = SceneManager.Instance;
         //if (sceneManager1.GetScene(sceneManager1.GetActiveIndex())!.Name != "M5_L1.scn") return;
