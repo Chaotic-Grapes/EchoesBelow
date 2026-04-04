@@ -499,7 +499,7 @@ public class CraftAnemone : SystemBase
                 cr.isEnteredAnemone = false;
                 cr.isExitingAnemone = false;
 
-                InventoryController.instance.isEnabled_RMBInput = true;
+                //InventoryController.instance.isEnabled_RMBInput = true;
                 Log("Done Exiting!");
             }
 
@@ -604,6 +604,7 @@ public class CraftAnemone : SystemBase
             if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (releaseState.frameLength-1))
             {
                 SetAnimState(idleEnterState, cr.objId, World!);
+                InventoryController.instance.isEnabled_RMBInput = true;
             }
         }
         else if (cr.currentState == idleEnterState.name)
