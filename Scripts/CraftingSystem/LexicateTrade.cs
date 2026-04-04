@@ -214,6 +214,11 @@ public class LexicateTrade : TriggerSystemBase
                     lx.throwing_newPos = newPos;
                     lx.throwing_trajectory = trajectory;
                     lx.throwing_decayTime = 100000f;
+
+
+                    ref AudioSource audsrc = ref self.GetComponent<AudioSource>();
+                    audsrc.PlayOnStart = false;
+                    audsrc.PlayOnStart = true;
                 }
                 else if (otherEntity.GetComponent<MS_IDComponent>().msID > 0 || otherEntity.GetComponent<MS_IDComponent>().msID < 8)
                 {
@@ -243,6 +248,10 @@ public class LexicateTrade : TriggerSystemBase
                     lx.throwing_newPos = newPos;
                     lx.throwing_trajectory = trajectory;
                     lx.throwing_decayTime = 100000f;
+
+                    ref AudioSource audsrc = ref self.GetComponent<AudioSource>();
+                    audsrc.PlayOnStart = false;
+                    audsrc.PlayOnStart = true;
                 }
             }
         }
@@ -293,6 +302,9 @@ public class LexicateTrade : TriggerSystemBase
                 lx.throwing_trajectory = trajectory;
                 lx.throwingPlayer = otherEntity;
 
+                ref AudioSource audsrc = ref self.GetComponent<AudioSource>();
+                audsrc.PlayOnStart = false;
+                audsrc.PlayOnStart = true;
             }
             //Log("Lex: Complete Player storing");
 

@@ -1,0 +1,299 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.37184667587280273,
+                                "Y": -0.19478416442871094,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "OutputPort (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Bus": 2,
+                            "CuePath": "Assets/Audio/M6_SFX/PopVomit_v2.wav",
+                            "EnableFadeIn": false,
+                            "EnableFadeOut": false,
+                            "EnableLowPass": false,
+                            "FadeInDuration": 1.0,
+                            "FadeOutDuration": 1.0,
+                            "Loop": false,
+                            "LowPassGain": 1.0,
+                            "Pan": 0.0,
+                            "Pitch": 1.0,
+                            "PlayOnStart": false,
+                            "Spatial3D": true,
+                            "Volume": 2.0
+                        },
+                        "TypeName": "AudioSource"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 2.000000476837158,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -14.559588432312012,
+                                "m10": 0.0,
+                                "m11": 2.000000476837158,
+                                "m12": 0.0,
+                                "m13": -13.641902923583984,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "start": false,
+                            "startVolume": 0
+                        },
+                        "TypeName": "Audio SFX"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 2.000000476837158,
+                        "Y": 2.000000476837158,
+                        "Z": 1.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "Lexicate_MS05"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "CurrentFrame": 0,
+                    "Finished": false,
+                    "TimeAccumulator": 0.0
+                },
+                "TypeName": "AnimationState2D"
+            },
+            {
+                "Data": {
+                    "Bus": 2,
+                    "CuePath": "Assets/Audio/M6_SFX/TubeTravelling.wav",
+                    "EnableFadeIn": false,
+                    "EnableFadeOut": false,
+                    "EnableLowPass": true,
+                    "FadeInDuration": 1.0,
+                    "FadeOutDuration": 1.0,
+                    "Loop": false,
+                    "LowPassGain": 1.0,
+                    "Pan": 0.0,
+                    "Pitch": 1.0,
+                    "PlayOnStart": false,
+                    "Spatial3D": true,
+                    "Volume": 1.399999976158142
+                },
+                "TypeName": "AudioSource"
+            },
+            {
+                "Data": {
+                    "Flags": 1,
+                    "HalfExtents": {
+                        "X": 0.12999999523162842,
+                        "Y": 0.029999999329447746
+                    },
+                    "LayerMask": 4,
+                    "Offset": {
+                        "X": -0.3799999952316284,
+                        "Y": 0.699999988079071
+                    },
+                    "Rotation": 0.0
+                },
+                "TypeName": "BoxCollider2D"
+            },
+            {
+                "Data": {
+                    "Id": 1
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "AOStrength": 1.0,
+                    "AlphaCutoff": 0.5,
+                    "Flags": 16,
+                    "MRA_TextureId": 0,
+                    "MRA_TexturePath": "",
+                    "Metallic": 1.0,
+                    "NormalStrength": 1.0,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Smoothness": 0.0
+                },
+                "TypeName": "Material2D"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 0.0,
+                        "G": 3.799999952316284,
+                        "R": 2.118000030517578
+                    },
+                    "EmissiveStrength": 5.0,
+                    "EmissiveTextureId": 0,
+                    "EmissiveTexturePath": "",
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.5555555820465088
+                    },
+                    "TextureFilter": 0,
+                    "TextureId": 35,
+                    "TexturePath": "",
+                    "Tiling": {
+                        "X": 0.0625,
+                        "Y": 0.1111111044883728
+                    }
+                },
+                "TypeName": "SpriteRenderer2D"
+            },
+            {
+                "Data": {
+                    "FrameCount": 1,
+                    "FrameHeight": 250,
+                    "FrameLength": 96,
+                    "FrameOffset": 0,
+                    "FrameWidth": 250,
+                    "FramesPerSecond": 24.0,
+                    "Loop": true,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Playing": true,
+                    "Row": 3,
+                    "Segments": [],
+                    "SheetHeight": 2250,
+                    "SheetWidth": 4000,
+                    "StartFrame": 0,
+                    "TextureFilter": 0,
+                    "TextureId": 35,
+                    "TexturePath": "Assets\\Sprites\\2.2-SwitchDoorSystem\\Lexicate_SpriteSheet.png",
+                    "UseRow": true,
+                    "UseSegments": false
+                },
+                "TypeName": "SpriteSheetAnimation2D"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 2.000000476837158,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": -15.303281784057617,
+                        "m10": 0.0,
+                        "m11": 2.000000476837158,
+                        "m12": 0.0,
+                        "m13": -13.252334594726563,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            },
+            {
+                "Data": {
+                    "ZOrder": -1
+                },
+                "TypeName": "ZIndex2D"
+            },
+            {
+                "Data": {
+                    "awake": false,
+                    "doorSignifier": 0,
+                    "msID_in": 5,
+                    "msID_out": 6,
+                    "objID": 0,
+                    "start": false,
+                    "vomitSpeed": 2
+                },
+                "TypeName": "Lexicate Trade"
+            },
+            {
+                "Data": {
+                    "start": false,
+                    "startVolume": 0
+                },
+                "TypeName": "Audio SFX"
+            }
+        ]
+    }
+}
