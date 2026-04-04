@@ -128,6 +128,9 @@ public class StartMenuController : SystemBase
 
         currentButton = buttons[newGameButton];
 
+        //Update for gamepad connecting
+        UpdateButtonDefaults();
+
         //End of Start
         return true;
     }
@@ -151,8 +154,8 @@ public class StartMenuController : SystemBase
             if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
                 UpdateCurrentButton();
 
-            float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
-            float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
+            //float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+            //float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
 
             //if(GMath.Abs(xInput) > 0.9f || GMath.Abs(yInput) > 0.9f)
             if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp)
@@ -162,6 +165,12 @@ public class StartMenuController : SystemBase
             }
 
             //if(Input.IsGamepadButtonPressed(0,GamepadAxis.LeftX))
+
+
+            //Update for gamepad connecting
+            UpdateButtonDefaults();
+
+            if (Input.IsGamepadConnected(0)) return;
 
             if (currentButton_guiInput.Hovered)
             {
@@ -182,6 +191,38 @@ public class StartMenuController : SystemBase
                 currentButton.Action();
             }
 
+        }
+    }
+    private static void UpdateButtonDefaults()
+    {
+        if (Input.IsGamepadConnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+
+        if (Input.IsGamepadJustConnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+
+        if (Input.IsGamepadJustDisconnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(3f, 3f, 3f, 1f);
+                stateStyle.PressedColor = new Color(5f, 4f, 5f, 1f);
+            }
         }
     }
     private static void UpdateCurrentButton()

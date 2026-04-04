@@ -138,6 +138,9 @@ public class PauseMenuController : SystemBase
 
         currentButton = buttons[resumeButton];
 
+        //Update for gamepad connecting
+        UpdateButtonDefaults();
+
         //End of Start
         return true;
     }
@@ -163,7 +166,7 @@ public class PauseMenuController : SystemBase
             //For future code to interact with
             if (!isPausable) return;
 
-            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2) || Input.IsGamepadButtonPressed(0,GamepadButton.Start);
+            isPauseButtonPressed = Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2) || Input.IsGamepadButtonPressed(0, GamepadButton.Start);
 
             if (!isPaused && isPauseButtonPressed) Pause(true);
             else if (isPaused && isPauseButtonPressed) Pause(false);
@@ -173,26 +176,31 @@ public class PauseMenuController : SystemBase
             ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
 
             //Locate the button
-            if(!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
-            UpdateCurrentButton();
+            if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
+                UpdateCurrentButton();
 
-            float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
-            float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
+            //float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
+            //float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
 
             //if(GMath.Abs(xInput) > 0.9f || GMath.Abs(yInput) > 0.9f)
-            if(Input.IsGamepadButtonPressed(0,GamepadButton.DPadDown) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp)
-            || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft)|| Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+            if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp)
+            || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
             {
                 UpdateCurrentButton();
             }
 
             //if(Input.IsGamepadButtonPressed(0,GamepadAxis.LeftX))
 
+            //Update for gamepad connecting
+            UpdateButtonDefaults();
+
+            if (Input.IsGamepadConnected(0)) return;
+
             if (currentButton_guiInput.Hovered)
             {
                 //Log("Hovering over " + currentButton.name);
             }
-            if ((currentButton_guiInput.Clicked || Input.IsGamepadButtonPressed(0,GamepadButton.A)) && !currentButton.Entity.HasComponent<GUISlider>())
+            if ((currentButton_guiInput.Clicked || Input.IsGamepadButtonPressed(0, GamepadButton.A)) && !currentButton.Entity.HasComponent<GUISlider>())
             {
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
@@ -205,6 +213,38 @@ public class PauseMenuController : SystemBase
             if (currentButton_guiInput.Dragging && currentButton.Entity.HasComponent<GUISlider>())
             {
                 currentButton.Action();
+            }
+        }
+    }
+
+    private static void UpdateButtonDefaults()
+    {
+        if (Input.IsGamepadConnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+        if (Input.IsGamepadJustConnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
+                stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
+            }
+        }
+
+        if (Input.IsGamepadJustDisconnected(0))
+        {
+            foreach (MenuPanel menuP in buttons.Values)
+            {
+                ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
+                stateStyle.HoverColor = new Color(3f, 3f, 3f, 1f);
+                stateStyle.PressedColor = new Color(5f, 4f, 5f, 1f);
             }
         }
     }
