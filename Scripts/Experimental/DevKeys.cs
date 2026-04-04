@@ -33,6 +33,7 @@ public class DevKeys : SystemBase
         // }
         bool isKeyDown_R = Input.IsKeyDown(KeyCode.R);
         bool isKeyPressed_9 = Input.IsKeyDown(KeyCode.Keypad9);
+        bool isKeyPressed_8 = Input.IsKeyDown(KeyCode.Keypad8);
 
         bool isKeyPressed_0 = Input.IsKeyDown(KeyCode.Keypad0);
         bool isKeyPressed_1 = Input.IsKeyDown(KeyCode.Keypad1);
@@ -59,6 +60,16 @@ public class DevKeys : SystemBase
 
             var sceneIndex = SceneManager.Instance.AddScene();
             var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/FeatureGym.scn");
+            SceneManager.Instance.SetActive(sceneIndex);
+        }
+
+        if (isKeyDown_R && isKeyPressed_8)
+        {
+            SceneManager sceneManager = SceneManager.Instance;
+            sceneManager.SetNextAudioTransition(2.0f, true);
+
+            var sceneIndex = SceneManager.Instance.AddScene();
+            var ss = SceneManager.Instance.LoadScene(sceneIndex, "Scenes/StartingBlack.scn");
             SceneManager.Instance.SetActive(sceneIndex);
         }
 

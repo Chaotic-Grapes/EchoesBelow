@@ -7,6 +7,7 @@ using GrapeEngine.Scripting.Events;
 using GrapeEngine.Scripting.Services;
 using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
+using Scripts;
 using Scripts.CraftingSystem;
 using Scripts.Menu;
 using Scripts.SwitchDoor;
@@ -533,7 +534,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
         if (Entity.FromId(World!, other.Id).TryGetComponent<TagMask>(out TagMask tg))
         {
 
-            if (tg.Mask == 32)
+            if (tg.Mask == 32 && !SpiritOfTheOcean.isEnabled)
             {
                 //Take damage
                 AudioManager.instance.PlaySFX("SFX004");
@@ -544,7 +545,7 @@ public class PlayerCollisionHandler : CollisionSystemBase
                 Player.instance.hitVisualCoolDown = 0.125f;
             }
             
-            if (tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.05f)
+            if ((tg.Mask == 4 && Player.instance.isDashing && GMath.Abs(Player.instance.player.GetComponent<LinearVelocity2D>().Value.Magnitude) > 0.05f) || SpiritOfTheOcean.isEnabled)
             {
                 DoorManager.instance.DeactivateDoor(other.Id, 0.024f, false);
             }

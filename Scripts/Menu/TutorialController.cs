@@ -160,7 +160,7 @@ public class TutorialController : SystemBase
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start);
 
-            bool isRMBPressed = Input.IsMousePressed(1);
+            bool isRMBPressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.A);
 
             //GateSponge===============================================================================================
             if (gateSpongeTicked && isRMBPressed && !gateSpongeComplete)

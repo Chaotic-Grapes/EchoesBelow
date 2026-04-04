@@ -35,21 +35,21 @@ public class PlayerTriggerHandler : TriggerSystemBase
             }
         }
 
-        if (self.HasComponent<PlayerComponent>() ||
-            other.HasComponent<PlayerComponent>())
-        {
-            if ((other.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign) && other.GetComponent<MatchSignifierComponent>().signifierID == 86118001) ||
-                (self.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign2) && self.GetComponent<MatchSignifierComponent>().signifierID == 86118001))
-            {
-                Log("Endscene Entering. . . ");
-                SceneManager sceneManager = SceneManager.Instance;
-                //Loadscene use dalton's
-                sceneManager.SetNextAudioTransition(2.0f, true);
+        //if (self.HasComponent<PlayerComponent>() ||
+        //    other.HasComponent<PlayerComponent>())
+        //{
+        //    if ((other.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign) && other.GetComponent<MatchSignifierComponent>().signifierID == 86118001) ||
+        //        (self.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent mSign2) && self.GetComponent<MatchSignifierComponent>().signifierID == 86118001))
+        //    {
+        //        Log("Endscene Entering. . . ");
+        //        SceneManager sceneManager = SceneManager.Instance;
+        //        //Loadscene use dalton's
+        //        sceneManager.SetNextAudioTransition(2.0f, true);
            
-                SceneCrossFadeTransition.Request(endSceneName, 1.5f, true);
+        //        SceneCrossFadeTransition.Request(endSceneName, 1.5f, true);
          
-            }
-        }
+        //    }
+        //}
         Log($"self: {self.GetComponent<Name>().Value.ToString()} / other: {other.GetComponent<Name>().Value.ToString()}");
         if(other.HasComponent<PlayerComponent>() && self.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent msignifier))
         {
