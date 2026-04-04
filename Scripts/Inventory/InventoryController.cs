@@ -141,6 +141,8 @@ public class InventoryController : SystemBase
     }
     protected override void OnUpdate()
     {
+        if (!PauseMenuController.instance.isPausable) return;
+
         //This is gonna be overhauled
         //check for input
         if ((isEnabled_vomitInput || !PauseMenuController.instance.isPaused)) 
@@ -378,6 +380,9 @@ public class InventoryController : SystemBase
     }
     public void AddToInventory(int msID, ulong otherId)
     {
+
+        TutorialController.instance.EnableMarineSnow();
+
         switch (msID)
         {
             case 1:

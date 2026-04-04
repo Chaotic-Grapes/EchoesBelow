@@ -78,7 +78,7 @@ public class PauseMenuController : SystemBase
         //Todo
         isUsingSlider = false;
 
-        Log("PanelEntities count: " + panelEntities.Count);
+        //Log("PanelEntities count: " + panelEntities.Count);
         foreach(Entity panelEntity in panelEntities)
         {
             if (panelEntity.HasComponent<GUIInput>())
@@ -228,7 +228,7 @@ public class PauseMenuController : SystemBase
 
             //For future code to interact with
             if (!isPausable) return;
-
+            
             isPauseButtonPressed = (Input.IsKeyPressed(KeyCode.P) || Input.IsMousePressed(2) || Input.IsGamepadButtonPressed(0, GamepadButton.Start))
                                     && !gameObject.Component1.isInStartScene;
 

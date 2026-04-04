@@ -9,6 +9,7 @@ using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts;
 using Scripts.CraftingSystem;
+using Scripts.Menu;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -196,6 +197,7 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
         }
 
+        if (!PauseMenuController.instance.isPausable) return;
 
         isRMB_pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B);
         isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space) || Input.IsGamepadButtonPressed(0, GamepadButton.Y);
@@ -623,6 +625,7 @@ public class CraftAnemone : SystemBase
         {
             if (cr.anemoneSprites[0].GetComponent<AnimationState2D>().CurrentFrame >= (captureState.frameLength - 1))
             {
+                TutorialController.instance.EnableCoralBuilderNavigate();
                 SetAnimState(closedStillState, cr.objId, World!);
             }
         }
@@ -670,26 +673,34 @@ public class CraftAnemoneHandler : TriggerSystemBase
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
         Log("Begin Vibration");
+        
         if(!CraftAnemone.isLeaving)
         CraftAnemone.instance.SetAnimState(CraftAnemone.vibrateEnterState, self.Id, World!);
+
+        TutorialController.instance.EnableCoralBuilderEntry();
+
     }
 
 
     protected override void OnTriggerStay(Entity self, TriggerEvent evt)
     {
         if (CraftAnemone.isLeaving) return;
+
         
+
         Entity other = Entity.FromId(World!, evt.OtherEntityId);
 
         if (Entity.FromId(World!, self.Id).HasComponent<CraftAnemoneComponent>() && (other.HasComponent<PlayerTriggerComponent>() || other.HasComponent<PlayerComponent>())) { }
         else return;
        
+        
+
         CamFollow.instance.CamShake(true, 0.0085f);
         if (Input.IsGamepadConnected(0))
         {
             Input.SetGamepadVibration(0,0.8f,0.8f);
         }
-            
+        
        
         if (!CraftAnemone.isLMB_pressed) return;
  

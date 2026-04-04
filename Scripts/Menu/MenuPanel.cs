@@ -32,3 +32,20 @@ public class MenuPanel
         this.Entity = Entity;
     }
 }
+
+public class TutorialPanel
+{
+    public ulong objID { get; set; }
+    public string name { get; set; }
+    public Entity Entity { get; set; }
+    public TutorialPanel NextPanel { get; set; }
+    //Delegate for storing function
+    public Action Action { get; set; }
+    public TutorialPanel(ulong objID, string name, Entity Entity)
+    {
+        this.objID = objID;
+        this.name = name;
+        this.Entity = Entity;
+    }
+}
+

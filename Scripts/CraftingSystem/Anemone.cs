@@ -200,11 +200,13 @@ public class Anemone :SystemBase
                 ResetPoolObj(world, childID);
             }
         }
-
+            
         //Spawn based on the iterator
         //Skip the spawning step if msID is 0 , i.e empty slot
         if (msID == 0) return;
         int id_Iterator = 1;
+
+        TutorialController.instance.EnableCoralBuilderConfirm();
         foreach (List<ulong> objPool in objPools)
         {
             Log($"msID == idIterator: {msID == id_Iterator}");
@@ -221,6 +223,10 @@ public class Anemone :SystemBase
                 Entity.FromId(world, pulledObjId).GetComponent<CraftMoveComponent>().Enabled = true;
 
                 InitPoolObj(world, newPos, pulledObjId);
+
+
+                
+
 
                 return;
             }

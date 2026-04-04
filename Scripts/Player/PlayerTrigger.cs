@@ -45,14 +45,32 @@ public class PlayerTriggerHandler : TriggerSystemBase
                 SceneManager sceneManager = SceneManager.Instance;
                 //Loadscene use dalton's
                 sceneManager.SetNextAudioTransition(2.0f, true);
-                //var scene = SceneManager.Instance.LoadScene(TargetScenePath);
-                //Like creating a new scene / allocate a new scene in the registry
-
-
+           
                 SceneCrossFadeTransition.Request(endSceneName, 1.5f, true);
-                //var sceneIndex = SceneManager.Instance.AddScene();
-                //var ss = SceneManager.Instance.LoadScene(sceneIndex, endSceneName);
-                //SceneManager.Instance.SetActive(sceneIndex);
+         
+            }
+        }
+        Log($"self: {self.GetComponent<Name>().Value.ToString()} / other: {other.GetComponent<Name>().Value.ToString()}");
+        if(other.HasComponent<PlayerComponent>() && self.TryGetComponent<MatchSignifierComponent>(out MatchSignifierComponent msignifier))
+        {
+            if(msignifier.signifierID == 76384)
+            {
+                TutorialController.instance.EnableGateSponge();
+            }
+
+            if (msignifier.signifierID == 42213)
+            {
+                TutorialController.instance.EnableBarrelSponge();
+            }
+
+            if (msignifier.signifierID == 59987)
+            {
+                TutorialController.instance.EnableSpongeButton();
+            }
+
+            if (msignifier.signifierID == 12447)
+            {
+                TutorialController.instance.EnableLexicate();
             }
         }
         

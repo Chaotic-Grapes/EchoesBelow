@@ -70,7 +70,7 @@ public class StartMenuController : SystemBase
         if (startBool == true) return true;
         startBool = true;
         //Todo
-        Log("PanelEntities count: " + panelEntities.Count);
+        //Log("PanelEntities count: " + panelEntities.Count);
         foreach (Entity panelEntity in panelEntities)
         {
             if (panelEntity.HasComponent<GUIInput>())

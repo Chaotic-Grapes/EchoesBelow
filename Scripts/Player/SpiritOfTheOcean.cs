@@ -18,11 +18,15 @@ public class SpiritOfTheOcean : SystemBase
     public static bool isEnabled;
     public static SpiritOfTheOcean instance;
     public static ulong objID;
+
+    float timer = 0f;
     private bool OnStart(ref bool startBool, Entity entity)
     {
         if (startBool == true) return true;
         startBool = true;
         //Todo
+
+        timer = 0f;
 
         instance = this;
         objID = entity.Id;
@@ -38,6 +42,19 @@ public class SpiritOfTheOcean : SystemBase
     }
     protected override void OnUpdate()
     {
+
+        if (timer > 0f)
+        {
+            timer -= Time.DeltaTime;
+            if (timer <= 0f) 
+            {
+                timer = 0f;
+                TutorialController.instance.EnableSpiritOfTheOcean();
+            }
+        }
+
+        
+
         //Use this
         foreach (var gameObject in World!.Query<SpiritOfTheOceanComponent>())
         {
@@ -61,7 +78,8 @@ public class SpiritOfTheOcean : SystemBase
 
             ref SpriteRenderer2D spr = ref Player.instance.player.GetComponent<SpriteRenderer2D>();
             //spr.Color = new Color(-2.435f, -2.401f, -2.385f,1f);
-            
+
+            timer = 1.5f;
 
             //housekeeping
             isEnabled = true;
@@ -82,6 +100,8 @@ public class SpiritOfTheOcean : SystemBase
             isEnabled = false;
             Entity.FromId(World!, objID).GetComponent<SpiritOfTheOceanComponent>().isEnabled = false;
         }
+
+
     }
 
 
