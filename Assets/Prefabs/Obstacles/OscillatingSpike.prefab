@@ -6,19 +6,19 @@
                     {
                         "Data": {
                             "Position": {
-                                "X": -0.27161312103271484,
-                                "Y": 1.451103687286377,
+                                "X": 0.05684804916381836,
+                                "Y": 1.5864732265472412,
                                 "Z": 0.0
                             },
                             "Rotation": {
-                                "W": 0.8863267302513123,
+                                "W": 1.0,
                                 "X": 0.0,
                                 "Y": 0.0,
-                                "Z": 0.4630604386329651
+                                "Z": 0.0
                             },
                             "Scale": {
-                                "X": 1.0000001192092896,
-                                "Y": 1.0000001192092896,
+                                "X": 1.0,
+                                "Y": 1.0,
                                 "Z": 1.0
                             }
                         },
@@ -26,9 +26,15 @@
                     },
                     {
                         "Data": {
-                            "Value": "Spike03_prefab"
+                            "Value": "Spike01_prefab (Clone)"
                         },
                         "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
                     },
                     {
                         "Data": {
@@ -40,9 +46,9 @@
                         "Data": {
                             "Color": {
                                 "A": 1.0,
-                                "B": 0.2136744111776352,
-                                "G": 0.2136744111776352,
-                                "R": 0.5938078165054321
+                                "B": 0.574372410774231,
+                                "G": 0.574372410774231,
+                                "R": 0.9018557071685791
                             },
                             "EmissiveStrength": 5.0,
                             "EmissiveTextureId": 0,
@@ -53,8 +59,9 @@
                                 "X": 0.0,
                                 "Y": 0.0
                             },
-                            "TextureId": 29,
-                            "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\Spike03.png",
+                            "TextureFilter": 0,
+                            "TextureId": 30,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                             "Tiling": {
                                 "X": 1.0,
                                 "Y": 1.0
@@ -66,14 +73,14 @@
                         "Data": {
                             "Dirty": false,
                             "Matrix": {
-                                "m00": 0.5711501240730286,
-                                "m01": -0.8208457827568054,
+                                "m00": 1.0,
+                                "m01": 0.0,
                                 "m02": 0.0,
-                                "m03": 6.0837931632995605,
-                                "m10": 0.8208457827568054,
-                                "m11": 0.5711501240730286,
+                                "m03": -6.493085861206055,
+                                "m10": 0.0,
+                                "m11": 1.0,
                                 "m12": 0.0,
-                                "m13": 2.286494016647339,
+                                "m13": 9.153244972229004,
                                 "m20": 0.0,
                                 "m21": 0.0,
                                 "m22": 1.0,
@@ -119,6 +126,12 @@
                     },
                     {
                         "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
                             "Id": 0
                         },
                         "TypeName": "Layer"
@@ -140,8 +153,9 @@
                                 "X": 0.0,
                                 "Y": 0.0
                             },
-                            "TextureId": 28,
-                            "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\Spike01.png",
+                            "TextureFilter": 0,
+                            "TextureId": 30,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                             "Tiling": {
                                 "X": 1.0,
                                 "Y": 1.0
@@ -156,11 +170,11 @@
                                 "m00": 1.0,
                                 "m01": 0.0,
                                 "m02": 0.0,
-                                "m03": 6.227706432342529,
+                                "m03": -6.677633762359619,
                                 "m10": 0.0,
                                 "m11": 1.0,
                                 "m12": 0.0,
-                                "m13": 2.286529302597046,
+                                "m13": 9.01791000366211,
                                 "m20": 0.0,
                                 "m21": 0.0,
                                 "m22": 1.0,
@@ -180,18 +194,18 @@
                     {
                         "Data": {
                             "Position": {
-                                "X": 0.3250393867492676,
-                                "Y": 1.7525591850280762,
+                                "X": 0.2795681953430176,
+                                "Y": 1.829463005065918,
                                 "Z": 0.0
                             },
                             "Rotation": {
                                 "W": 0.9984650611877441,
                                 "X": 0.0,
                                 "Y": 0.0,
-                                "Z": -0.05538518354296684
+                                "Z": -0.055385179817676544
                             },
                             "Scale": {
-                                "X": 0.7000001668930054,
+                                "X": 0.4300000071525574,
                                 "Y": 0.7000001668930054,
                                 "Z": 1.0
                             }
@@ -203,6 +217,12 @@
                             "Value": "Spike01_prefab (Clone)"
                         },
                         "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
                     },
                     {
                         "Data": {
@@ -227,8 +247,9 @@
                                 "X": 0.0,
                                 "Y": 0.0
                             },
-                            "TextureId": 28,
-                            "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\Spike01.png",
+                            "TextureFilter": 0,
+                            "TextureId": 32,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike03.png",
                             "Tiling": {
                                 "X": 1.0,
                                 "Y": 1.0
@@ -240,101 +261,14 @@
                         "Data": {
                             "Dirty": false,
                             "Matrix": {
-                                "m00": 0.6957056522369385,
+                                "m00": 0.42736193537712097,
                                 "m01": 0.07742025703191757,
                                 "m02": 0.0,
-                                "m03": 6.680445671081543,
-                                "m10": -0.07742025703191757,
+                                "m03": -6.2703657150268555,
+                                "m10": -0.047558147460222244,
                                 "m11": 0.6957056522369385,
                                 "m12": 0.0,
-                                "m13": 2.587949514389038,
-                                "m20": 0.0,
-                                "m21": 0.0,
-                                "m22": 1.0,
-                                "m23": 0.0,
-                                "m30": 0.0,
-                                "m31": 0.0,
-                                "m32": 0.0,
-                                "m33": 1.0
-                            }
-                        },
-                        "TypeName": "WorldTransform"
-                    }
-                ]
-            },
-            {
-                "Components": [
-                    {
-                        "Data": {
-                            "Position": {
-                                "X": 0.05684804916381836,
-                                "Y": 1.5864732265472412,
-                                "Z": 0.0
-                            },
-                            "Rotation": {
-                                "W": 1.0,
-                                "X": 0.0,
-                                "Y": 0.0,
-                                "Z": 0.0
-                            },
-                            "Scale": {
-                                "X": 1.0,
-                                "Y": 1.0,
-                                "Z": 1.0
-                            }
-                        },
-                        "TypeName": "LocalTransform"
-                    },
-                    {
-                        "Data": {
-                            "Value": "Spike01_prefab (Clone)"
-                        },
-                        "TypeName": "Name"
-                    },
-                    {
-                        "Data": {
-                            "Id": 0
-                        },
-                        "TypeName": "Layer"
-                    },
-                    {
-                        "Data": {
-                            "Color": {
-                                "A": 1.0,
-                                "B": 0.574372410774231,
-                                "G": 0.574372410774231,
-                                "R": 0.9018557071685791
-                            },
-                            "EmissiveStrength": 5.0,
-                            "EmissiveTextureId": 0,
-                            "EmissiveTexturePath": "",
-                            "NormalTextureId": 0,
-                            "NormalTexturePath": "",
-                            "Offset": {
-                                "X": 0.0,
-                                "Y": 0.0
-                            },
-                            "TextureId": 28,
-                            "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\Spike01.png",
-                            "Tiling": {
-                                "X": 1.0,
-                                "Y": 1.0
-                            }
-                        },
-                        "TypeName": "SpriteRenderer2D"
-                    },
-                    {
-                        "Data": {
-                            "Dirty": false,
-                            "Matrix": {
-                                "m00": 1.0,
-                                "m01": 0.0,
-                                "m02": 0.0,
-                                "m03": 6.412254333496094,
-                                "m10": 0.0,
-                                "m11": 1.0,
-                                "m12": 0.0,
-                                "m13": 2.421863555908203,
+                                "m13": 9.396234512329102,
                                 "m20": 0.0,
                                 "m21": 0.0,
                                 "m22": 1.0,
@@ -380,6 +314,12 @@
                     },
                     {
                         "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
                             "Id": 0
                         },
                         "TypeName": "Layer"
@@ -401,8 +341,9 @@
                                 "X": 0.0,
                                 "Y": 0.0
                             },
-                            "TextureId": 28,
-                            "TexturePath": "EchoesBelow\\Assets\\Sprites\\BackgroundElements\\Spike01.png",
+                            "TextureFilter": 0,
+                            "TextureId": 30,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                             "Tiling": {
                                 "X": 1.0,
                                 "Y": 1.0
@@ -417,11 +358,105 @@
                                 "m00": 0.6539394855499268,
                                 "m01": -0.24972715973854065,
                                 "m02": 0.0,
-                                "m03": 6.069389820098877,
+                                "m03": -6.8359503746032715,
                                 "m10": 0.24972715973854065,
                                 "m11": 0.6539394855499268,
                                 "m12": 0.0,
-                                "m13": 2.452615261077881,
+                                "m13": 9.183996200561523,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.25842952728271484,
+                                "Y": 1.4078912734985352,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.9279338717460632,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.3727448880672455
+                            },
+                            "Scale": {
+                                "X": 0.9100000262260437,
+                                "Y": 0.7900000214576721,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "Spike03_prefab"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 1.0,
+                                "B": 0.2136744111776352,
+                                "G": 0.2136744111776352,
+                                "R": 0.5938078165054321
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 32,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike03.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 0.6571314930915833,
+                                "m01": -0.5464945435523987,
+                                "m02": 0.0,
+                                "m03": -6.808363437652588,
+                                "m10": 0.6295063495635986,
+                                "m11": 0.570476770401001,
+                                "m12": 0.0,
+                                "m13": 8.974662780761719,
                                 "m20": 0.0,
                                 "m21": 0.0,
                                 "m22": 1.0,
@@ -441,8 +476,8 @@
             {
                 "Data": {
                     "Position": {
-                        "X": 6.355406284332275,
-                        "Y": 0.8353903293609619,
+                        "X": 0.0,
+                        "Y": 0.0,
                         "Z": 0.0
                     },
                     "Rotation": {
@@ -461,23 +496,29 @@
             },
             {
                 "Data": {
-                    "Value": "OscillatePoint"
+                    "Value": "OscillatingSpike"
                 },
                 "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
             },
             {
                 "Data": {
                     "Flags": 0,
                     "HalfExtents": {
                         "X": 0.5,
-                        "Y": 0.30000001192092896
+                        "Y": 1.0
                     },
-                    "LayerMask": 4294967295,
+                    "LayerMask": 4294967294,
                     "Offset": {
-                        "X": -0.10000000149011612,
-                        "Y": 1.600000023841858
+                        "X": 0.0,
+                        "Y": 1.149999976158142
                     },
-                    "Rotation": 0.4000000059604645
+                    "Rotation": 0.0
                 },
                 "TypeName": "BoxCollider2D"
             },
@@ -510,16 +551,22 @@
             },
             {
                 "Data": {
+                    "Mask": 32
+                },
+                "TypeName": "TagMask"
+            },
+            {
+                "Data": {
                     "Dirty": false,
                     "Matrix": {
                         "m00": 1.0,
                         "m01": 0.0,
                         "m02": 0.0,
-                        "m03": 6.355406284332275,
+                        "m03": -6.549933910369873,
                         "m10": 0.0,
                         "m11": 1.0,
                         "m12": 0.0,
-                        "m13": 0.8353903293609619,
+                        "m13": 7.566771507263184,
                         "m20": 0.0,
                         "m21": 0.0,
                         "m22": 1.0,
@@ -537,6 +584,16 @@
                     "ZOrder": 1
                 },
                 "TypeName": "ZIndex2D"
+            },
+            {
+                "Data": {
+                    "awake": false,
+                    "height": 1,
+                    "period": 1,
+                    "start": false,
+                    "timer": 0
+                },
+                "TypeName": "Oscillator"
             }
         ]
     }
