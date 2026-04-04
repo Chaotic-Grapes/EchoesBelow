@@ -157,28 +157,40 @@ public class StartMenuController : SystemBase
             //Do the rest
             ref GUIInput currentButton_guiInput = ref currentButton.Entity.GetComponent<GUIInput>();
 
-            //Locate the button
-            if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
-                UpdateCurrentButtonForMouse();
-
             if (Input.IsGamepadConnected(0))
             {
                 UpdateCurrentButtonForGamePad();
             }
 
-            //if(Input.IsGamepadButtonPressed(0,GamepadAxis.LeftX))
-
 
             //Update for gamepad connecting
             UpdateButtonDefaults();
 
+
+            if (Input.IsGamepadButtonPressed(0,GamepadButton.A) && !currentButton.Entity.HasComponent<GUISlider>())
+            {
+                AudioManager.instance.PlaySFX("UI005_Track01");
+                currentButton.Action();
+
+            }
+            else if (Input.IsGamepadButtonPressed(0, GamepadButton.A))
+            {
+                AudioManager.instance.PlaySFX("UI005_Track01");
+                currentButton.Action();
+            }
+
+            //=========================================================================
             if (Input.IsGamepadConnected(0)) return;
+
+            //Locate the button
+            if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
+                UpdateCurrentButtonForMouse();
 
             if (currentButton_guiInput.Hovered)
             {
                 //Log("Hovering over " + currentButton.name);
             }
-            if ((currentButton_guiInput.Clicked || Input.IsGamepadButtonPressed(0, GamepadButton.A)) && !currentButton.Entity.HasComponent<GUISlider>())
+            if (currentButton_guiInput.Clicked && !currentButton.Entity.HasComponent<GUISlider>())
             {
                 AudioManager.instance.PlaySFX("UI005_Track01");
                 currentButton.Action();
@@ -215,6 +227,9 @@ public class StartMenuController : SystemBase
                 stateStyle.HoverColor = new Color(1f, 1f, 1f, 1f);
                 stateStyle.PressedColor = new Color(1f, 1f, 1f, 1f);
             }
+
+            ref GUIStateStyle stateStyle2 = ref currentButton.Entity.GetComponent<GUIStateStyle>();
+            stateStyle2.NormalColor = new Color(3f, 3f, 3f, 1f);
         }
 
         if (Input.IsGamepadJustDisconnected(0))
@@ -224,6 +239,7 @@ public class StartMenuController : SystemBase
                 ref GUIStateStyle stateStyle = ref menuP.Entity.GetComponent<GUIStateStyle>();
                 stateStyle.HoverColor = new Color(3f, 3f, 3f, 1f);
                 stateStyle.PressedColor = new Color(5f, 4f, 5f, 1f);
+                stateStyle.NormalColor = new Color(1f,1f,1f,1f);
             }
         }
     }
