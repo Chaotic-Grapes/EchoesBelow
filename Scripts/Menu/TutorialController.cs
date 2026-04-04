@@ -403,6 +403,8 @@ public class TutorialController : SystemBase
     //Functions
     public void DisplayTutorial(string tutorialName, bool enable)
     {
+        AudioManager.instance.PlaySFX("UI003");
+
         TutorialPanel selectedTutorial = tutorialPageDict[tutorialName];
         ref GUIElement guiElement = ref selectedTutorial.Entity.GetComponent<GUIElement>();
 

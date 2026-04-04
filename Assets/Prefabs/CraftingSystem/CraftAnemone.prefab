@@ -17561,7 +17561,7 @@
                     "Pitch": 1.0,
                     "PlayOnStart": true,
                     "Spatial3D": true,
-                    "Volume": 0.05000000074505806
+                    "Volume": 0.009999999776482582
                 },
                 "TypeName": "AudioSource"
             },

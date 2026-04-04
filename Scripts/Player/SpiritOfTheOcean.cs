@@ -79,6 +79,8 @@ public class SpiritOfTheOcean : SystemBase
             ref SpriteRenderer2D spr = ref Player.instance.player.GetComponent<SpriteRenderer2D>();
             //spr.Color = new Color(-2.435f, -2.401f, -2.385f,1f);
 
+            AudioManager.instance.PlaySFX("SFX020_SpiritChime");
+
             timer = 1.5f;
 
             //housekeeping
