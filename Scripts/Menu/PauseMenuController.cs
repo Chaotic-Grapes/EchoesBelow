@@ -138,6 +138,14 @@ public class PauseMenuController : SystemBase
 
         currentButton = buttons[resumeButton];
 
+        if (Input.IsGamepadConnected(0))
+        {
+            currentButton = buttons[resumeButton];
+
+            ref GUIStateStyle guistateStyle = ref currentButton.Entity.GetComponent<GUIStateStyle>();
+            guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+        }
+
         //Update for gamepad connecting
         UpdateButtonDefaults();
 
@@ -177,16 +185,11 @@ public class PauseMenuController : SystemBase
 
             //Locate the button
             if (!currentButton_guiInput.Dragging && !Input.IsGamepadConnected(0))
-                UpdateCurrentButton();
+                UpdateCurrentButtonForMouse();
 
-            //float xInput = Input.GetGamepadAxis(0, GamepadAxis.LeftX);
-            //float yInput = Input.GetGamepadAxis(0, GamepadAxis.LeftY);
-
-            //if(GMath.Abs(xInput) > 0.9f || GMath.Abs(yInput) > 0.9f)
-            if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp)
-            || Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft) || Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+            if (Input.IsGamepadConnected(0))
             {
-                UpdateCurrentButton();
+                UpdateCurrentButtonForGamePad();
             }
 
             //if(Input.IsGamepadButtonPressed(0,GamepadAxis.LeftX))
@@ -249,31 +252,59 @@ public class PauseMenuController : SystemBase
         }
     }
 
-    private static void UpdateCurrentButton()
+    private static void UpdateCurrentButtonForGamePad()
     {
-        if (Input.IsGamepadConnected(0))
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadUp))
         {
-            ++iterator;
-            if (iterator > buttonList.Count - 1) iterator = 0;
+            //currentButton = buttons[currentButton.]
+        }
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadDown))
+        {
 
-            currentButton = buttonList[iterator];
+        }
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadLeft))
+        {
+
+        }
+        if (Input.IsGamepadButtonPressed(0, GamepadButton.DPadRight))
+        {
+
         }
 
+        //if (Input.IsGamepadConnected(0))
+        //{
+        //    ++iterator;
+        //    if (iterator > buttonList.Count - 1) iterator = 0;
+
+        //    currentButton = buttonList[iterator];
+        //}
+
+        //foreach (MenuPanel button in buttons.Values)
+        //{
+        //    ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
+
+        //    ref GUIStateStyle guistateStyle = ref button.Entity.GetComponent<GUIStateStyle>();
+
+        //    if (Input.IsGamepadConnected(0) && currentButton == button)
+        //    {
+        //        guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
+        //    }
+        //    else if(Input.IsGamepadConnected(0) && currentButton != button)
+        //    {
+        //        guistateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
+        //    }
+        //    else
+        //    {
+        //        if (gui.Hovered) currentButton = button;
+        //    }
+        //}
+    }
+
+    private void UpdateCurrentButtonForMouse()
+    {
         foreach (MenuPanel button in buttons.Values)
         {
             ref GUIInput gui = ref button.Entity.GetComponent<GUIInput>();
-            
-            ref GUIStateStyle guistateStyle = ref button.Entity.GetComponent<GUIStateStyle>();
-         
-            if (Input.IsGamepadConnected(0) && currentButton == button)
-            {
-                guistateStyle.NormalColor = new Color(3f, 3f, 3f, 1f);
-            }
-            else if(Input.IsGamepadConnected(0) && currentButton != button)
-            {
-                guistateStyle.NormalColor = new Color(1f, 1f, 1f, 1f);
-            }
-            else
             {
                 if (gui.Hovered) currentButton = button;
             }
