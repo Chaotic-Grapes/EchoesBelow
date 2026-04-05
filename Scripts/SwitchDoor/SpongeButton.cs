@@ -50,12 +50,12 @@ public class SpongeButton : SystemBase
     {
         if (awakeBool == true) return true;
         awakeBool = true;
-        // Initialize static runtime state once per active system instance.
-        if (instance != this || instances == null)
-        {
-            instance = this;
-            instances = new Dictionary<ulong, SpongeBubData>();
-        }
+        //Todo
+
+        instance = this;
+
+        //Initialize our list
+        instances = new Dictionary<ulong, SpongeBubData>();
 
         //End of Start
         return true;
@@ -70,7 +70,7 @@ public class SpongeButton : SystemBase
         spButton.objID = spongeEntity.Id;
 
         SpongeBubData bub = new SpongeBubData(spongeEntity, isTransformed);
-        instances[spongeEntity.Id] = bub;
+        instances.Add(spongeEntity.Id, bub);
 
         if (isTransformed)
         {
@@ -90,52 +90,33 @@ public class SpongeButton : SystemBase
     }
     protected override void OnUpdate()
     {
-        // Snapshot matching entity ids first. Structural changes during processing
-        // (add/remove components) can invalidate direct query iteration order.
-        List<ulong> spongeButtonIds = new List<ulong>();
         foreach (var gameObject in World!.Query<SpongeButtonComponent>())
         {
-            spongeButtonIds.Add(gameObject.Entity.Id);
+            bool awake = gameObject.Component1.awake;
+            gameObject.Component1.awake = OnAwake(ref awake, gameObject.Entity);
+
+        }
+        foreach (var gameObject in World!.Query<SpongeButtonComponent>())
+        {
+            bool start = gameObject.Component1.start;
+            gameObject.Component1.start = OnStart(ref start, gameObject.Entity, gameObject.Component1.isTransformed);
         }
 
-        foreach (ulong id in spongeButtonIds)
+        //Do everyth else
+        foreach (var gameObject in World!.Query<SpongeButtonComponent>())
         {
-            Entity entity = Entity.FromId(World!, id);
-            if (!entity.HasComponent<SpongeButtonComponent>()) continue;
-            ref SpongeButtonComponent comp = ref entity.GetComponent<SpongeButtonComponent>();
 
-            bool awake = comp.awake;
-            comp.awake = OnAwake(ref awake, entity);
-        }
-
-        foreach (ulong id in spongeButtonIds)
-        {
-            Entity entity = Entity.FromId(World!, id);
-            if (!entity.HasComponent<SpongeButtonComponent>()) continue;
-            ref SpongeButtonComponent comp = ref entity.GetComponent<SpongeButtonComponent>();
-
-            bool start = comp.start;
-            comp.start = OnStart(ref start, entity, comp.isTransformed);
-        }
-
-        // Do everything else.
-        foreach (ulong id in spongeButtonIds)
-        {
-            Entity entity = Entity.FromId(World!, id);
-            if (!entity.HasComponent<SpongeButtonComponent>()) continue;
-
-            if (!SpongeButton.instances.TryGetValue(entity.Id, out SpongeBubData sBub))
-                continue;
+            SpongeBubData sBub= SpongeButton.instances[gameObject.Entity.Id];
 
             if (sBub.currentState == transformState.name)
             {
                 CamFollow.instance.CamShake(true, 0.018f);
 
-                if (entity.GetComponent<AnimationState2D>().CurrentFrame >= (transformState.frameLength - 1))
+                if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (transformState.frameLength - 1))
                 {
                     sBub.isTransformed = true;
 
-                    SetAnimState(entity.Id, World!, buttonIdleState);
+                    SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
                     CamFollow.instance.CamShake(false, 0f);
                     InitBoxCollider(sBub);
                 }
@@ -144,9 +125,9 @@ public class SpongeButton : SystemBase
             {
                 if (!sBub.isDoorAccessible)
                 {
-                    if (entity.GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
+                    if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
                     {
-                        SetAnimState(entity.Id, World!, buttonIdleState);
+                        SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
 
                         InitBoxCollider(sBub);
                         sBub.storedDoor = null;
@@ -176,9 +157,9 @@ public class SpongeButton : SystemBase
 
                     if ((Xboundary - 0.125f < camXPos && camXPos < Xboundary + 0.125f &&
                         yBoundary - 0.125f < camYPos && camYPos < yBoundary + 0.125f)
-                        && entity.GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
+                        && Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (buttonPushState.frameLength - 1))
                     {
-                        SetAnimState(entity.Id, World!, buttonIdleState);
+                        SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
 
                         InitBoxCollider(sBub);
                         sBub.storedDoor = null;
