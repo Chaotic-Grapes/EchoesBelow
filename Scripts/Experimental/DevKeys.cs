@@ -78,7 +78,7 @@ public class DevKeys : SystemBase
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+            SceneCrossFadeTransition.Request("Scenes/M6_L1_C1.scn", 0.7f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_2)
@@ -86,7 +86,7 @@ public class DevKeys : SystemBase
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+            SceneCrossFadeTransition.Request("Scenes/M6_L1_C2.scn", 0.7f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_3)
@@ -94,7 +94,7 @@ public class DevKeys : SystemBase
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+            SceneCrossFadeTransition.Request("Scenes/M6_L1_C3.scn", 0.7f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_4)
@@ -102,7 +102,7 @@ public class DevKeys : SystemBase
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+            SceneCrossFadeTransition.Request("Scenes/M6_L2_C1.scn", 0.7f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_5)
@@ -110,7 +110,7 @@ public class DevKeys : SystemBase
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+            SceneCrossFadeTransition.Request("Scenes/M6_L2_C2.scn", 0.7f, true);
         }
 
         if (isKeyDown_R && isKeyPressed_6)
@@ -118,7 +118,7 @@ public class DevKeys : SystemBase
             SceneManager sceneManager = SceneManager.Instance;
             sceneManager.SetNextAudioTransition(2.0f, true);
 
-            SceneCrossFadeTransition.Request("Scenes/M5_L1.scn", 0.7f, true);
+            SceneCrossFadeTransition.Request("Scenes/M6_L2_C3.scn", 0.7f, true);
         }
 
         SceneManager sceneManager1 = SceneManager.Instance;
