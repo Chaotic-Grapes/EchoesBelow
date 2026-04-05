@@ -57,6 +57,8 @@ public class LoadScene : TriggerSystemBase
                             SceneCrossFadeTransition.Request(endSceneName, 1.5f, true);
                             break;
                         default:
+                            sceneManager.SetNextAudioTransition(2.0f, true);
+                            SceneCrossFadeTransition.Request("Scenes/StartScene.scn", 1.5f, true);
                             break;
 
                     }
