@@ -25,7 +25,7 @@ public class StartMenuController : SystemBase
 
     //Start Menu Fields
     static int iterator = 0;
-    private const string TargetScenePath = "Scenes/FeatureGym.scn";
+    private const string TargetScenePath = "Scenes/M6_L1_C1.scn";
     static bool isNewGamePressedOnce = false;
 
     //hailmary fix
