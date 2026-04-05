@@ -1,0 +1,416 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -3.547150135040283,
+                                "Y": 0.6205248832702637,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 2.0,
+                                "Y": 2.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 0.45993030071258545,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 33,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 2.0,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": -0.5696609020233154,
+                                "m10": 0.0,
+                                "m11": 2.0,
+                                "m12": 0.0,
+                                "m13": 1.1570936441421509,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.7714306712150574,
+                                "Y": 1.2783210277557373,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 0.01735982671380043,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9998493194580078
+                            },
+                            "Scale": {
+                                "X": 2.0000054836273193,
+                                "Y": 2.0000054836273193,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 0.4250870943069458,
+                                "B": 0.36177682876586914,
+                                "G": 0.01627938076853752,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 33,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -1.9988000392913818,
+                                "m01": -0.06942903995513916,
+                                "m02": 0.0,
+                                "m03": 2.2060585021972656,
+                                "m10": 0.06942903995513916,
+                                "m11": -1.9988000392913818,
+                                "m12": 0.0,
+                                "m13": 1.8148897886276245,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            },
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": -0.6326844096183777,
+                                "Y": 3.7743465900421143,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": -0.3199937343597412,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.9474196434020996
+                            },
+                            "Scale": {
+                                "X": 2.000014066696167,
+                                "Y": 2.000014066696167,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "CoralBG (Clone) (Clone)"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "AOStrength": 1.0,
+                            "AlphaCutoff": 0.5,
+                            "Flags": 0,
+                            "MRA_TextureId": 0,
+                            "MRA_TexturePath": "",
+                            "Metallic": 0.0,
+                            "NormalStrength": 1.0,
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Smoothness": 0.5
+                        },
+                        "TypeName": "Material2D"
+                    },
+                    {
+                        "Data": {
+                            "Color": {
+                                "A": 0.40069687366485596,
+                                "B": 0.32933878898620605,
+                                "G": 0.014754234813153744,
+                                "R": 0.0
+                            },
+                            "EmissiveStrength": 5.0,
+                            "EmissiveTextureId": 0,
+                            "EmissiveTexturePath": "",
+                            "NormalTextureId": 0,
+                            "NormalTexturePath": "",
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "TextureFilter": 0,
+                            "TextureId": 33,
+                            "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CoralBG01.png",
+                            "Tiling": {
+                                "X": 1.0,
+                                "Y": 1.0
+                            }
+                        },
+                        "TypeName": "SpriteRenderer2D"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": -1.5904271602630615,
+                                "m01": 1.2126820087432861,
+                                "m02": 0.0,
+                                "m03": 2.3448047637939453,
+                                "m10": -1.2126820087432861,
+                                "m11": -1.5904271602630615,
+                                "m12": 0.0,
+                                "m13": 4.310915470123291,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 1.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    },
+                    {
+                        "Data": {
+                            "ZOrder": -83
+                        },
+                        "TypeName": "ZIndex2D"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 1.0,
+                        "Y": 1.0,
+                        "Z": 1.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "CoralsParallax01"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Id": 0
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 1.0,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 2.9774892330169678,
+                        "m10": 0.0,
+                        "m11": 1.0,
+                        "m12": 0.0,
+                        "m13": 0.5365687608718872,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 1.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            }
+        ]
+    }
+}

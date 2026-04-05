@@ -204,6 +204,13 @@ public class PauseMenuController : SystemBase
             }
         }
 
+
+
+        foreach (var loadScenes in World!.Query<LoadSceneComponent>())
+        {
+            loadScenes.Entity.RemoveComponent<ShapeCircle2D>();
+        }
+
         //End of Start
         return true;
     }

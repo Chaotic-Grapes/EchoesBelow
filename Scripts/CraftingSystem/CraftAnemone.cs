@@ -106,6 +106,10 @@ public class CraftAnemone : SystemBase
             waterCurr.Entity.RemoveComponent<ShapeCircle2D>();
         }
 
+        //foreach (var loadScenes in World!.Query<LoadSceneComponent>())
+        //{
+        //    loadScenes.Entity.RemoveComponent<ShapeCircle2D>();
+        //}
         return true;
     }
     private bool OnStart(ref bool startBool, ulong objId)
