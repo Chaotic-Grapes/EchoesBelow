@@ -26,6 +26,7 @@ public class SpongeBubData
     public LayerMask layerMask { get; set; }
     public Entity storedDoor { get; set; }
     public bool isDoorAccessible { get; set; }
+
     public SpongeBubData(Entity entity, bool isTransformed)
     {
         this.entity = entity;
@@ -37,7 +38,10 @@ public class SpongeBubData
 [RequireForUpdate<SpongeButtonComponent>]
 [System(SystemGroup.Update, SystemRunMode.PlayOnly)]
 public class SpongeButton : SystemBase
-{
+{    
+    
+    public static bool fireONCE_Bismillah {  get; set; }
+
     public static SpongeButton instance;
     public static Dictionary<ulong, SpongeBubData> instances;
 
@@ -54,40 +58,51 @@ public class SpongeButton : SystemBase
 
         instance = this;
 
+        fireONCE_Bismillah = false;
+
         //Initialize our list
         instances = new Dictionary<ulong, SpongeBubData>();
 
         //End of Start
         return true;
     }
-    private bool OnStart(ref bool startBool, Entity spongeEntity, bool isTransformed)
-    {
-        if (startBool == true) return true;
-        startBool = true;
-        //Todo
+    //private bool OnStart(ref bool startBool, Entity spongeEntity, bool isTransformed)
+    //{
+    //    if (startBool == true) return true;
+    //    startBool = true;
+    //    //Todo
+    //    Log("START Name: " + spongeEntity.GetComponent<Name>().Value.ToString());
+    //    //foreach(var obj in World!.Query<SpongeButtonComponent>())
+    //    //{
 
-        ref SpongeButtonComponent spButton = ref Entity.FromId(World!, spongeEntity.Id).GetComponent<SpongeButtonComponent>();
-        spButton.objID = spongeEntity.Id;
+    //    //}
+    //    ref SpongeButtonComponent spButton = ref Entity.FromId(World!, spongeEntity.Id).GetComponent<SpongeButtonComponent>();
+    //    spButton.objID = spongeEntity.Id;
 
-        SpongeBubData bub = new SpongeBubData(spongeEntity, isTransformed);
-        instances.Add(spongeEntity.Id, bub);
+    //    SpongeBubData bub = new SpongeBubData(spongeEntity, isTransformed);
+    //    instances.Add(spongeEntity.Id, bub);
+    //    Log("HEY");
+    //    Log("But how many");
+    //    if (isTransformed)
+    //    {
+    //        Log("1");
+    //        SetAnimState(spongeEntity.Id, World!, buttonIdleState);
+    //        Log("2");
+    //        spongeEntity.RemoveComponent<BoxCollider2D>();
+    //        Log("3 Removed");
+    //        InitBoxCollider(bub);
+    //        Log("Turned intu a butt");
+    //    }
+    //    else
+    //    {
+    //        SetAnimState(spongeEntity.Id, World!, idleState);
+    //    }
+    //    Log("END Name: " + bub.entity.GetComponent<Name>().Value.ToString());
+    //    Log("END=====");
 
-        if (isTransformed)
-        {
-            SetAnimState(spongeEntity.Id, World!, buttonIdleState);
-            spongeEntity.RemoveComponent<BoxCollider2D>();
-            InitBoxCollider(bub);
-        }
-        else
-        {
-            SetAnimState(spongeEntity.Id, World!, idleState);
-        }
-
-
-
-        //End of Start
-        return true;
-    }
+    //    //End of Start
+    //    return true;
+    //}
     protected override void OnUpdate()
     {
         foreach (var gameObject in World!.Query<SpongeButtonComponent>())
@@ -96,11 +111,62 @@ public class SpongeButton : SystemBase
             gameObject.Component1.awake = OnAwake(ref awake, gameObject.Entity);
 
         }
-        foreach (var gameObject in World!.Query<SpongeButtonComponent>())
+
+   
+
+        if (!fireONCE_Bismillah)
         {
-            bool start = gameObject.Component1.start;
-            gameObject.Component1.start = OnStart(ref start, gameObject.Entity, gameObject.Component1.isTransformed);
+            int i = 0;
+            foreach(var gameObject in World!.Query<SpongeButtonComponent>())
+            {
+                //Log("Prelim only========esryer====awefwafg", LogLevel.Debug);
+                //Log("PREName: " + gameObject.Entity.GetComponent<Name>().Value.ToString());
+                bool yes = false;
+                foreach (ulong id in instances.Keys)
+                {
+                    if (id == gameObject.Entity.Id) yes = true;
+                }
+                if (yes) break;
+
+                i++;
+                fireONCE_Bismillah = true;
+                //Log("Once only==================================");
+
+                Entity spongeEntity = gameObject.Entity;
+                //Log("START Name: " + spongeEntity.GetComponent<Name>().Value.ToString());
+                ref SpongeButtonComponent spButton = ref Entity.FromId(World!, spongeEntity.Id).GetComponent<SpongeButtonComponent>();
+                spButton.objID = spongeEntity.Id;
+                //Log("I=" + i);
+                SpongeBubData bub = new SpongeBubData(spongeEntity, gameObject.Component1.isTransformed);
+
+
+                //Log("spongeEntity.ID: " + spongeEntity.Id, LogLevel.Warning);
+                //Log($"1here: {spongeEntity.GetComponent<Name>().Value.ToString()} // bub {bub.entity.GetComponent<Name>().Value.ToString()}");
+                //Log("INSTANCES null?:" + (instances == null));
+                instances.Add(spongeEntity.Id, bub);
+                //Log("2Here");
+          
+                //if (gameObject.Component1.isTransformed && spongeEntity.HasComponent<BoxCollider2D>())
+                //{
+                //    SetAnimState(spongeEntity.Id, World!, buttonIdleState);
+                //    //Log("1");
+                //    spongeEntity.RemoveComponent<BoxCollider2D>();
+                //    //Log("2");
+                //    InitBoxCollider(bub);
+                //    //Log("3 Turned int a butt");
+                //}
+                //else
+                //{
+                    //Log("carried on");
+                SetAnimState(spongeEntity.Id, World!, idleState);
+                //}
+                //Log("END Name: " + bub.entity.GetComponent<Name>().Value.ToString());
+            }
+
+            fireONCE_Bismillah = true;
+            //Log("I=" + i);
         }
+  
 
         //Do everyth else
         foreach (var gameObject in World!.Query<SpongeButtonComponent>())
@@ -114,6 +180,7 @@ public class SpongeButton : SystemBase
 
                 if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (transformState.frameLength - 1))
                 {
+
                     sBub.isTransformed = true;
 
                     SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
@@ -221,7 +288,7 @@ public class SpongeTriggerHandler: TriggerSystemBase
                 AudioManager.instance.PlaySFX("TempTest");
                 //Do this
                 SpongeButton.instance.SetAnimState(bubData.objID, World!, SpongeButton.instance.transformState);
-             
+                //TutorialController.instance.EnableSpongeButton();
                 bubData.layerMask = bubData.entity.GetComponent<BoxCollider2D>().LayerMask;
                 bubData.entity.RemoveComponent<BoxCollider2D>();
             }
