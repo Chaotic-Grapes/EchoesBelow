@@ -14,8 +14,8 @@
                     "Z": 0.0
                 },
                 "Scale": {
-                    "X": 1.0000001192092896,
-                    "Y": 1.0000001192092896,
+                    "X": 1.0,
+                    "Y": 1.0,
                     "Z": 1.0
                 }
             },
@@ -23,7 +23,7 @@
         },
         {
             "Data": {
-                "Value": "Checkpoint"
+                "Value": "Barnacle Snatcher _ Orange"
             },
             "TypeName": "Name"
         },
@@ -35,34 +35,33 @@
         },
         {
             "Data": {
-                "Id": 3
+                "CurrentFrame": 15,
+                "Finished": false,
+                "TimeAccumulator": 0.003533758223056793
             },
-            "TypeName": "Layer"
+            "TypeName": "AnimationState2D"
         },
         {
             "Data": {
-                "CastsShadows": false,
-                "Color": {
-                    "A": 1.0,
-                    "B": 0.1253647804260254,
-                    "G": 0.8984794020652771,
-                    "R": 0.7440000176429749
+                "Flags": 1,
+                "HalfExtents": {
+                    "X": 1.399999976158142,
+                    "Y": 0.23000000417232513
                 },
-                "Direction": {
-                    "X": 0.0,
-                    "Y": -1.0,
-                    "Z": -0.6000000238418579
+                "LayerMask": 4294967295,
+                "Offset": {
+                    "X": 0.029999999329447746,
+                    "Y": 0.20000000298023224
                 },
-                "Intensity": 3.299999952316284,
-                "LightType": 1,
-                "Position": {
-                    "X": 0.0,
-                    "Y": 0.0,
-                    "Z": 0.4000000059604645
-                },
-                "Range": 5.5
+                "Rotation": 0.0
             },
-            "TypeName": "Light2D"
+            "TypeName": "BoxCollider2D"
+        },
+        {
+            "Data": {
+                "Id": 2
+            },
+            "TypeName": "Layer"
         },
         {
             "Data": {
@@ -75,17 +74,17 @@
                 "NormalStrength": 1.0,
                 "NormalTextureId": 0,
                 "NormalTexturePath": "",
-                "Smoothness": 0.0
+                "Smoothness": 0.5
             },
             "TypeName": "Material2D"
         },
         {
             "Data": {
                 "Color": {
-                    "A": 0.7456445693969727,
-                    "B": 0.9998999834060669,
-                    "G": 1.0,
-                    "R": 0.9999850988388062
+                    "A": 1.0,
+                    "B": 0.1289999932050705,
+                    "G": 1.2000000476837158,
+                    "R": 1.0
                 },
                 "EmissiveStrength": 5.0,
                 "EmissiveTextureId": 0,
@@ -94,30 +93,55 @@
                 "NormalTexturePath": "",
                 "Offset": {
                     "X": 0.0,
-                    "Y": 0.0
+                    "Y": 0.7777777910232544
                 },
                 "TextureFilter": 0,
-                "TextureId": 53,
-                "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\SpawnGrape_Bulb.png",
+                "TextureId": 24,
+                "TexturePath": "",
                 "Tiling": {
-                    "X": 1.0,
-                    "Y": 1.0
+                    "X": 0.3333333432674408,
+                    "Y": 0.037037014961242676
                 }
             },
             "TypeName": "SpriteRenderer2D"
         },
         {
             "Data": {
+                "FrameCount": 58,
+                "FrameHeight": 220,
+                "FrameLength": 58,
+                "FrameOffset": 0,
+                "FrameWidth": 900,
+                "FramesPerSecond": 24.0,
+                "Loop": true,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Playing": true,
+                "Row": 0,
+                "Segments": [],
+                "SheetHeight": 5940,
+                "SheetWidth": 2700,
+                "StartFrame": 0,
+                "TextureFilter": 0,
+                "TextureId": 24,
+                "TexturePath": "Assets\\Sprites\\3.1-NPCsSpriteSheets\\BarnacleSnatcher_SpriteSheet.png",
+                "UseRow": true,
+                "UseSegments": false
+            },
+            "TypeName": "SpriteSheetAnimation2D"
+        },
+        {
+            "Data": {
                 "Dirty": false,
                 "Matrix": {
-                    "m00": 0.10292454063892365,
-                    "m01": -0.9946893453598022,
+                    "m00": 1.0,
+                    "m01": 0.0,
                     "m02": 0.0,
-                    "m03": -0.09396648406982422,
-                    "m10": 0.9946893453598022,
-                    "m11": 0.10292454063892365,
+                    "m03": -1.8051118850708008,
+                    "m10": 0.0,
+                    "m11": 1.0,
                     "m12": 0.0,
-                    "m13": 1.105004072189331,
+                    "m13": 2.388521671295166,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,
@@ -132,21 +156,10 @@
         },
         {
             "Data": {
-                "ZOrder": 184
-            },
-            "TypeName": "ZIndex2D"
-        },
-        {
-            "Data": {
-                "signifierID": 91822645
-            },
-            "TypeName": "Match Signifier"
-        },
-        {
-            "Data": {
+                "awake": false,
                 "start": false
             },
-            "TypeName": "Check Point"
+            "TypeName": "Barnacle Snatcher"
         }
     ]
 }

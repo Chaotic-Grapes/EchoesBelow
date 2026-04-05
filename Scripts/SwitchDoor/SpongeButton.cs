@@ -225,6 +225,26 @@ public class SpongeTriggerHandler: TriggerSystemBase
                 bubData.layerMask = bubData.entity.GetComponent<BoxCollider2D>().LayerMask;
                 bubData.entity.RemoveComponent<BoxCollider2D>();
             }
+            else if (msIDcomp.msID > 0 || msIDcomp.msID < 8)
+            {
+                MS_Manager.instance.SendToPool(otherEntity.Id);
+
+
+                float eulerAngle = Quat2EulerAxisZ(self.GetComponent<LocalTransform>().Rotation) + (45f * GMath.Rad2Deg) ;
+                Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
+                if (-0.0001f < localUp.X && localUp.X < 0.0001f && 0.9999f < localUp.Y && localUp.Y < 1.0001f) localUp = new Vector2(0, 1);
+
+                //declaring my values
+                Vector2 trajectory = localUp.Normalized * 4f;
+                Vector3 newPos = ApplyRotationToVector(
+                    new Vector3(self.GetComponent<LocalTransform>().Position.X * self.GetComponent<LocalTransform>().Scale.X,
+                                self.GetComponent<LocalTransform>().Position.Y * self.GetComponent<LocalTransform>().Scale.Y,
+                                self.GetComponent<LocalTransform>().Position.Z * self.GetComponent<LocalTransform>().Scale.Z),
+                                self.GetComponent<LocalTransform>().Rotation) + self.GetComponent<LocalTransform>().Position;
+
+                MS_Manager.instance.TakeFromPool(msIDcomp.msID, self.GetComponent<LocalTransform>().Position,
+                    trajectory, 100000f, true);
+            }
         }
     }
     protected override void OnTriggerExit(Entity self, TriggerExitEvent evt)
@@ -235,6 +255,39 @@ public class SpongeTriggerHandler: TriggerSystemBase
             bubData = SpongeButton.instances[self.Id];
             
         }
+    }
+    private float Quat2EulerAxisZ(Quaternion quat)
+    {
+        //To find out how
+        //Search up Conversion of ZYX Quaternion to Euler Angle (z-yaw)
+        float x = quat.X;
+        float y = quat.Y;
+        float z = quat.Z;
+        float w = quat.W;
+
+        float a = 2 * (w * z + x * y);
+        float b = 1 - (2 * ((y * y) + (z * z)));
+        float outAngle = GMath.Atan2(a, b);
+        return outAngle;
+    }
+
+    private Vector3 ApplyRotationToVector(Vector3 vector, Quaternion quat)
+    {
+
+        Vector3 u = new Vector3(quat.X, quat.Y, quat.Z);
+        float s = quat.W;
+        // v' = v + 2*u x (s*v + u x v)
+
+        return vector + 2.0f * Cross3D(u, (quat.W * vector + Cross3D(u, vector)));
+    }
+
+    public Vector3 Cross3D(Vector3 left, Vector3 right)
+    {
+        Vector3 result = new Vector3();
+        result.X = left.Y * right.Z - left.Z * right.Y;
+        result.Y = left.Z * right.X - left.X * right.Z;
+        result.Z = left.X * right.Y - left.Y * right.X;
+        return result;
     }
 }
 
@@ -284,4 +337,5 @@ public class SpongeCollisionHandler : CollisionSystemBase
 
         }
     }
+
 }

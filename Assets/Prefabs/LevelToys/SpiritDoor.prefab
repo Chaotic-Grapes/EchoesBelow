@@ -1,0 +1,255 @@
+{
+    "Entity": {
+        "Children": [
+            {
+                "Components": [
+                    {
+                        "Data": {
+                            "Position": {
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Rotation": {
+                                "W": 1.0,
+                                "X": 0.0,
+                                "Y": 0.0,
+                                "Z": 0.0
+                            },
+                            "Scale": {
+                                "X": 1.0,
+                                "Y": 1.0,
+                                "Z": 1.0
+                            }
+                        },
+                        "TypeName": "LocalTransform"
+                    },
+                    {
+                        "Data": {
+                            "Value": "DoorTrigger"
+                        },
+                        "TypeName": "Name"
+                    },
+                    {
+                        "Data": {
+                            "Enabled": true
+                        },
+                        "TypeName": "Active"
+                    },
+                    {
+                        "Data": {
+                            "Flags": 1,
+                            "HalfExtents": {
+                                "X": 0.20000000298023224,
+                                "Y": 0.5
+                            },
+                            "LayerMask": 2,
+                            "Offset": {
+                                "X": 0.0,
+                                "Y": 0.0
+                            },
+                            "Rotation": 0.0
+                        },
+                        "TypeName": "BoxCollider2D"
+                    },
+                    {
+                        "Data": {
+                            "Id": 0
+                        },
+                        "TypeName": "Layer"
+                    },
+                    {
+                        "Data": {
+                            "Mask": 8
+                        },
+                        "TypeName": "TagMask"
+                    },
+                    {
+                        "Data": {
+                            "Dirty": false,
+                            "Matrix": {
+                                "m00": 3.0000011920928955,
+                                "m01": 0.0,
+                                "m02": 0.0,
+                                "m03": 21.16713523864746,
+                                "m10": 0.0,
+                                "m11": 3.0000011920928955,
+                                "m12": 0.0,
+                                "m13": -7.74066162109375,
+                                "m20": 0.0,
+                                "m21": 0.0,
+                                "m22": 3.0,
+                                "m23": 0.0,
+                                "m30": 0.0,
+                                "m31": 0.0,
+                                "m32": 0.0,
+                                "m33": 1.0
+                            }
+                        },
+                        "TypeName": "WorldTransform"
+                    }
+                ]
+            }
+        ],
+        "Components": [
+            {
+                "Data": {
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Rotation": {
+                        "W": 1.0,
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 0.0
+                    },
+                    "Scale": {
+                        "X": 3.0000011920928955,
+                        "Y": 3.0000011920928955,
+                        "Z": 3.0
+                    }
+                },
+                "TypeName": "LocalTransform"
+            },
+            {
+                "Data": {
+                    "Value": "SpiritDoor"
+                },
+                "TypeName": "Name"
+            },
+            {
+                "Data": {
+                    "Enabled": true
+                },
+                "TypeName": "Active"
+            },
+            {
+                "Data": {
+                    "Flags": 0,
+                    "HalfExtents": {
+                        "X": 0.20000000298023224,
+                        "Y": 0.5
+                    },
+                    "LayerMask": 6,
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "Rotation": 0.0
+                },
+                "TypeName": "BoxCollider2D"
+            },
+            {
+                "Data": {
+                    "Id": 0
+                },
+                "TypeName": "Layer"
+            },
+            {
+                "Data": {
+                    "CastsShadows": false,
+                    "Color": {
+                        "A": 1.0,
+                        "B": 1.0,
+                        "G": 1.0,
+                        "R": 2.0
+                    },
+                    "Direction": {
+                        "X": 0.0,
+                        "Y": -1.0,
+                        "Z": 0.0
+                    },
+                    "Intensity": 31.700000762939453,
+                    "LightType": 1,
+                    "Position": {
+                        "X": 0.0,
+                        "Y": 0.0,
+                        "Z": 1.0
+                    },
+                    "Range": 2.0
+                },
+                "TypeName": "Light2D"
+            },
+            {
+                "Data": {
+                    "AOStrength": 1.0,
+                    "AlphaCutoff": 0.5,
+                    "Flags": 32,
+                    "MRA_TextureId": 0,
+                    "MRA_TexturePath": "",
+                    "Metallic": 0.0,
+                    "NormalStrength": 1.0,
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Smoothness": 0.0
+                },
+                "TypeName": "Material2D"
+            },
+            {
+                "Data": {
+                    "Color": {
+                        "A": 1.0,
+                        "B": 1.2000000476837158,
+                        "G": 1.2000000476837158,
+                        "R": 1.2000000476837158
+                    },
+                    "EmissiveStrength": 5.0,
+                    "EmissiveTextureId": 0,
+                    "EmissiveTexturePath": "",
+                    "NormalTextureId": 0,
+                    "NormalTexturePath": "",
+                    "Offset": {
+                        "X": 0.0,
+                        "Y": 0.0
+                    },
+                    "TextureFilter": 0,
+                    "TextureId": 69,
+                    "TexturePath": "Assets\\Sprites\\2.2-SwitchDoorSystem\\SpiritDoor.png",
+                    "Tiling": {
+                        "X": 1.0,
+                        "Y": 1.0
+                    }
+                },
+                "TypeName": "SpriteRenderer2D"
+            },
+            {
+                "Data": {
+                    "Dirty": false,
+                    "Matrix": {
+                        "m00": 3.0000011920928955,
+                        "m01": 0.0,
+                        "m02": 0.0,
+                        "m03": 21.16713523864746,
+                        "m10": 0.0,
+                        "m11": 3.0000011920928955,
+                        "m12": 0.0,
+                        "m13": -7.74066162109375,
+                        "m20": 0.0,
+                        "m21": 0.0,
+                        "m22": 3.0,
+                        "m23": 0.0,
+                        "m30": 0.0,
+                        "m31": 0.0,
+                        "m32": 0.0,
+                        "m33": 1.0
+                    }
+                },
+                "TypeName": "WorldTransform"
+            },
+            {
+                "Data": {
+                    "ZOrder": -1
+                },
+                "TypeName": "ZIndex2D"
+            },
+            {
+                "Data": {
+                    "signifierID": 9011
+                },
+                "TypeName": "Match Signifier"
+            }
+        ]
+    }
+}

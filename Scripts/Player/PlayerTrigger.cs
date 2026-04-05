@@ -42,21 +42,25 @@ public class PlayerTriggerHandler : TriggerSystemBase
             if(msignifier.signifierID == 76384)
             {
                 TutorialController.instance.EnableGateSponge();
+                self.RemoveComponent<CircleCollider2D>();
             }
 
             if (msignifier.signifierID == 42213)
             {
                 TutorialController.instance.EnableBarrelSponge();
+                self.RemoveComponent<CircleCollider2D>();
             }
 
             if (msignifier.signifierID == 59987)
             {
                 TutorialController.instance.EnableSpongeButton();
+                self.RemoveComponent<CircleCollider2D>();
             }
 
             if (msignifier.signifierID == 12447)
             {
                 TutorialController.instance.EnableLexicate();
+                self.RemoveComponent<CircleCollider2D>();
             }
         }
         

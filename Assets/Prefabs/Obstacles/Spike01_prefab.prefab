@@ -3,8 +3,8 @@
         {
             "Data": {
                 "Position": {
-                    "X": -0.010443180799484253,
-                    "Y": -3.7273054122924805,
+                    "X": 0.0,
+                    "Y": 0.0,
                     "Z": 0.0
                 },
                 "Rotation": {
@@ -29,13 +29,19 @@
         },
         {
             "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
                 "Flags": 0,
                 "LayerMask": 4,
                 "Offset": {
                     "X": -0.05000000074505806,
-                    "Y": 0.47999998927116394
+                    "Y": 0.25
                 },
-                "Radius": 0.07999999821186066
+                "Radius": 0.20000000298023224
             },
             "TypeName": "CircleCollider2D"
         },
@@ -56,20 +62,19 @@
                 "EmissiveStrength": 5.0,
                 "EmissiveTextureId": 0,
                 "EmissiveTexturePath": "",
-                "Height": 342,
                 "NormalTextureId": 0,
                 "NormalTexturePath": "",
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
                 },
-                "TextureId": 33,
-                "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
+                "TextureFilter": 0,
+                "TextureId": 43,
+                "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\Spike01.png",
                 "Tiling": {
                     "X": 1.0,
                     "Y": 1.0
-                },
-                "Width": 216
+                }
             },
             "TypeName": "SpriteRenderer2D"
         },
@@ -86,11 +91,11 @@
                     "m00": 1.0,
                     "m01": 0.0,
                     "m02": 0.0,
-                    "m03": -0.010443180799484253,
+                    "m03": -4.723048210144043,
                     "m10": 0.0,
                     "m11": 1.0,
                     "m12": 0.0,
-                    "m13": -3.7273054122924805,
+                    "m13": -0.11431193351745605,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,
