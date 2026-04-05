@@ -273,35 +273,48 @@ public class SpongeTriggerHandler: TriggerSystemBase
 {
     Entity otherEntity;
     SpongeBubData bubData;
+
+    private bool TryGetSpongeData(ulong selfId, out SpongeBubData data)
+    {
+        data = null;
+        if (SpongeButton.instances == null) return false;
+        return SpongeButton.instances.TryGetValue(selfId, out data);
+    }
+
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
         otherEntity = Entity.FromId(World!, evt.OtherEntityId);
         if (self.TryGetComponent<SpongeButtonComponent>(out SpongeButtonComponent spButton) && otherEntity.TryGetComponent<MS_IDComponent>(out MS_IDComponent msIDcomp))
         {
+            if (!TryGetSpongeData(self.Id, out bubData)) return;
 
-            bubData = SpongeButton.instances[self.Id];
+            var spongeButtonSystem = SpongeButton.instance;
+            var marineSnowManager = MS_Manager.instance;
+            var audioManager = AudioManager.instance;
+
+            if (spongeButtonSystem == null || marineSnowManager == null) return;
+
             if(spButton.inputMSID == msIDcomp.msID)
             {
-                MS_Manager.instance.SendToPool(otherEntity.Id);
+                marineSnowManager.SendToPool(otherEntity.Id);
 
+                audioManager?.PlaySFX("TempTest");
+                spongeButtonSystem.SetAnimState(bubData.objID, World!, spongeButtonSystem.transformState);
 
-                AudioManager.instance.PlaySFX("TempTest");
-                //Do this
-                SpongeButton.instance.SetAnimState(bubData.objID, World!, SpongeButton.instance.transformState);
-                //TutorialController.instance.EnableSpongeButton();
-                bubData.layerMask = bubData.entity.GetComponent<BoxCollider2D>().LayerMask;
-                bubData.entity.RemoveComponent<BoxCollider2D>();
+                if (bubData.entity.HasComponent<BoxCollider2D>())
+                {
+                    bubData.layerMask = bubData.entity.GetComponent<BoxCollider2D>().LayerMask;
+                    bubData.entity.RemoveComponent<BoxCollider2D>();
+                }
             }
             else if (msIDcomp.msID > 0 || msIDcomp.msID < 8)
             {
-                MS_Manager.instance.SendToPool(otherEntity.Id);
-
+                marineSnowManager.SendToPool(otherEntity.Id);
 
                 float eulerAngle = Quat2EulerAxisZ(self.GetComponent<LocalTransform>().Rotation) + (45f * GMath.Rad2Deg) ;
                 Vector2 localUp = new Vector2(GMath.Cos(eulerAngle + (90 * GMath.Deg2Rad)), GMath.Cos(eulerAngle));
                 if (-0.0001f < localUp.X && localUp.X < 0.0001f && 0.9999f < localUp.Y && localUp.Y < 1.0001f) localUp = new Vector2(0, 1);
 
-                //declaring my values
                 Vector2 trajectory = localUp.Normalized * 4f;
                 Vector3 newPos = ApplyRotationToVector(
                     new Vector3(self.GetComponent<LocalTransform>().Position.X * self.GetComponent<LocalTransform>().Scale.X,
@@ -309,7 +322,7 @@ public class SpongeTriggerHandler: TriggerSystemBase
                                 self.GetComponent<LocalTransform>().Position.Z * self.GetComponent<LocalTransform>().Scale.Z),
                                 self.GetComponent<LocalTransform>().Rotation) + self.GetComponent<LocalTransform>().Position;
 
-                MS_Manager.instance.TakeFromPool(msIDcomp.msID, self.GetComponent<LocalTransform>().Position,
+                marineSnowManager.TakeFromPool(msIDcomp.msID, self.GetComponent<LocalTransform>().Position,
                     trajectory, 100000f, true);
             }
         }
@@ -319,8 +332,7 @@ public class SpongeTriggerHandler: TriggerSystemBase
         otherEntity = Entity.FromId(World!, evt.OtherEntityId);
         if (self.TryGetComponent<SpongeButtonComponent>(out SpongeButtonComponent spButton) && otherEntity.TryGetComponent<MS_IDComponent>(out MS_IDComponent msIDcomp))
         {
-            bubData = SpongeButton.instances[self.Id];
-            
+            if (!TryGetSpongeData(self.Id, out bubData)) return;
         }
     }
     private float Quat2EulerAxisZ(Quaternion quat)

@@ -49,61 +49,95 @@ public class SpiritOfTheOcean : SystemBase
             if (timer <= 0f) 
             {
                 timer = 0f;
-                TutorialController.instance.EnableSpiritOfTheOcean();
+                if (TutorialController.instance != null)
+                {
+                    TutorialController.instance.EnableSpiritOfTheOcean();
+                }
             }
         }
 
-        
-
-        //Use this
         foreach (var gameObject in World!.Query<SpiritOfTheOceanComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity);
-
-            //Do everyth else
-
-
         }
     }
     public void TheSpiritBeckonsThee(bool isImbueing)
     {
+        if (objID == 0) return;
+
+        Entity spiritEntity;
+        try
+        {
+            spiritEntity = Entity.FromId(World!, objID);
+        }
+        catch
+        {
+            return;
+        }
+
         if (isImbueing)
         {
-            ref ParticleEmitter prtcleEmit = ref Entity.FromId(World!,objID).GetComponent<ParticleEmitter>();
-            prtcleEmit.EmissionRate = 50f;
+            if (spiritEntity.TryGetComponent<ParticleEmitter>(out var prtcleEmit))
+            {
+                prtcleEmit.EmissionRate = 50f;
+            }
 
-            ref Light2D light2D = ref Entity.FromId(World!, objID).GetComponent<Light2D>();
-            light2D.Position.Z = 1f;
+            if (spiritEntity.TryGetComponent<Light2D>(out var light2D))
+            {
+                light2D.Position.Z = 1f;
+            }
 
-            ref SpriteRenderer2D spr = ref Player.instance.player.GetComponent<SpriteRenderer2D>();
-            //spr.Color = new Color(-2.435f, -2.401f, -2.385f,1f);
+            if (spiritEntity.HasComponent<SpiritOfTheOceanComponent>())
+            {
+                spiritEntity.GetComponent<SpiritOfTheOceanComponent>().isEnabled = true;
+            }
 
-            AudioManager.instance.PlaySFX("SFX020_SpiritChime");
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlaySFX("SFX020_SpiritChime");
+            }
 
             timer = 1.5f;
 
             //housekeeping
             isEnabled = true;
-            Entity.FromId(World!, objID).GetComponent<SpiritOfTheOceanComponent>().isEnabled = true;
         }
         else
         {
-            ref ParticleEmitter prtcleEmit = ref Entity.FromId(World!, objID).GetComponent<ParticleEmitter>();
-            prtcleEmit.EmissionRate = 0f;
+            if (spiritEntity.TryGetComponent<ParticleEmitter>(out var prtcleEmit))
+            {
+                prtcleEmit.EmissionRate = 0f;
+            }
 
-            ref Light2D light2D = ref Entity.FromId(World!, objID).GetComponent<Light2D>();
-            light2D.Position.Z = 0f;
+            if (spiritEntity.TryGetComponent<Light2D>(out var light2D))
+            {
+                light2D.Position.Z = 0f;
+            }
 
-            ref SpriteRenderer2D spr = ref Player.instance.player.GetComponent<SpriteRenderer2D>();
-            spr.Color = new Color(1f, 1f, 1f, 1f);
+            if (Player.instance != null)
+            {
+                try
+                {
+                    if (Player.instance.player.Id != 0 && Entity.FromId(World!, Player.instance.player.Id).HasComponent<SpriteRenderer2D>())
+                    {
+                        ref SpriteRenderer2D spr = ref Player.instance.player.GetComponent<SpriteRenderer2D>();
+                        spr.Color = new Color(1f, 1f, 1f, 1f);
+                    }
+                }
+                catch
+                {
+                    // Ignore transient startup/despawn state.
+                }
+            }
 
             //housekeeping
             isEnabled = false;
-            Entity.FromId(World!, objID).GetComponent<SpiritOfTheOceanComponent>().isEnabled = false;
+            if (spiritEntity.HasComponent<SpiritOfTheOceanComponent>())
+            {
+                spiritEntity.GetComponent<SpiritOfTheOceanComponent>().isEnabled = false;
+            }
         }
-
-
     }
 
 

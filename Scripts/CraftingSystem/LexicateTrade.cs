@@ -170,10 +170,15 @@ public class LexicateTrade : TriggerSystemBase
     public static Dictionary<ulong, LexicateData> instances;
     protected override void OnTriggerEnter(Entity self, TriggerEvent evt)
     {
+        // Guard init-order issues that can cause intermittent NRE
+        if (instances == null) return;
+        if (!instances.TryGetValue(self.Id, out LexicateData lxData)) return;
+        if (Lexicate.instance == null) return;
+
         Entity selfEntity = Entity.FromId(World!, self.Id);
         Entity otherEntity = Entity.FromId(World!, evt.OtherEntityId);
 
-        Entity outputEntity = instances[self.Id].output;
+        Entity outputEntity = lxData.output;
 
         if (selfEntity.HasComponent<LexicateTradeComponent>() && otherEntity.HasComponent<MS_IDComponent>())
         {
@@ -181,7 +186,7 @@ public class LexicateTrade : TriggerSystemBase
             {
                 if (gameObject.Component1.objID != self.Id) continue;
 
-                LexicateData lx = LexicateTrade.instances[self.Id];
+                LexicateData lx = lxData;
 
                 if (lx.isProcessing) continue;
                 
@@ -203,8 +208,7 @@ public class LexicateTrade : TriggerSystemBase
                                     outputEntity.GetComponent<LocalTransform>().Position.Z * selfEntity.GetComponent<LocalTransform>().Scale.Z),
                                     selfEntity.GetComponent<LocalTransform>().Rotation) + selfEntity.GetComponent<LocalTransform>().Position;
 
-                    //send and remove an obj from the pool into the world
-
+                    if (MS_Manager.instance == null) return;
                     MS_Manager.instance.SendToPool(otherEntity.Id);
                     Lexicate.instance.SetAnimState(self.Id, World!, Lexicate.instance.spitState);
                     //Delay this
@@ -237,8 +241,7 @@ public class LexicateTrade : TriggerSystemBase
                                     outputEntity.GetComponent<LocalTransform>().Position.Z * selfEntity.GetComponent<LocalTransform>().Scale.Z),
                                     selfEntity.GetComponent<LocalTransform>().Rotation) + selfEntity.GetComponent<LocalTransform>().Position;
 
-                    //send and remove an obj from the pool into the world
-
+                    if (MS_Manager.instance == null) return;
                     MS_Manager.instance.SendToPool(otherEntity.Id);
                     Lexicate.instance.SetAnimState(self.Id, World!, Lexicate.instance.spitState);
                     //Delay this
@@ -263,7 +266,7 @@ public class LexicateTrade : TriggerSystemBase
             {
                 if (gameObject.Component1.objID != self.Id) continue;
 
-                LexicateData lx = LexicateTrade.instances[self.Id];
+                LexicateData lx = lxData;
 
                 if (lx.isProcessing) continue;
                 lx.isProcessing = true;
@@ -274,6 +277,7 @@ public class LexicateTrade : TriggerSystemBase
 
                 Entity.FromId(World!, otherEntity.Id).GetComponent<Active>().Enabled = false;
 
+                if (Player.instance == null) return;
                 Player.instance.isEnabled = false;
 
                 //PlayerAnimManager.instance.SetAnimState(Player.instance.tuckedState);

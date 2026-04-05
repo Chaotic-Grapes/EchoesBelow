@@ -58,11 +58,15 @@ public class MS_Spawner : SystemBase
                 //Reset the timer, prime it for the next interval
                 gameObject.Component1.timer = 0;
 
-                ShapeBox2D boundary = entity.GetComponent<ShapeBox2D>();
+                float boundaryX = 0f;
+
+                if (entity.TryGetComponent<ShapeBox2D>(out var boundary))
+                    boundaryX = boundary.HalfExtents.X;
+
                 LocalTransform transform = entity.GetComponent<LocalTransform>();
                 //Set the x boundary min and max limits
-                float xBoundaryMax = transform.Position.X + boundary.HalfExtents.X;
-                float xBoundaryMin = transform.Position.X - boundary.HalfExtents.X;
+                float xBoundaryMax = transform.Position.X + boundaryX;
+                float xBoundaryMin = transform.Position.X - boundaryX;
                 
                 //Marine Snow selector
                 string msID_raw = gameObject.Component1.toSpawn.ToString();

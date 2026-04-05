@@ -91,7 +91,8 @@ public class Player : SystemBase
     protected override void OnUpdate()
     {
 
-        if (!PauseMenuController.instance.isPausable) return;
+        var pauseController = PauseMenuController.instance;
+        if (pauseController != null && !pauseController.isPausable) return;
 
         if (isEnabled && !Input.IsGamepadConnected(0))
         {
@@ -105,14 +106,14 @@ public class Player : SystemBase
         {
             float xGamePadInput = GMath.Round(Input.GetGamepadAxis(0, GamepadAxis.LeftX));
             float yGamePadInput = -GMath.Round(Input.GetGamepadAxis(0, GamepadAxis.LeftY));
-    
+
             isKeyDown_W = yGamePadInput > 0 ;
             isKeyDown_A = xGamePadInput < 0 ;
             isKeyDown_S = yGamePadInput < 0 ;
             isKeyDown_D = xGamePadInput > 0 ;
 
             isKeyPressed_Space = Input.IsGamepadButtonPressed(0, GamepadButton.A);
-                              //|| (Input.IsGamepadButtonDown(0, GamepadButton.RightBumper) && (Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper)));
+                          //|| (Input.IsGamepadButtonDown(0, GamepadButton.RightBumper) && (Input.IsGamepadButtonDown(0, GamepadButton.LeftBumper)));
         }
 
         foreach (var gameObject in World!.Query<PlayerComponent, LinearVelocity2D, AngularVelocity2D, LocalTransform>())

@@ -142,9 +142,8 @@ public class AddCurrentUtility : SystemBase
 
         //Log($"currentDir){currentDir} objAngle){objAngle} ");
 
-
-        ref ShapeBox2D shapeBox = ref obj.GetComponent<ShapeBox2D>();
-        shapeBox.Filled = false;
+        //ref ShapeBox2D shapeBox = ref obj.GetComponent<ShapeBox2D>();
+        //shapeBox.Filled = false;
 
         //Log("PARTICLE SET for : " + obj.GetComponent<Name>().Value.ToString());
         //End of Start

@@ -37,10 +37,11 @@ public class CamFollow : SystemBase
     {
         start = OnStart(ref start);
 
+        if (Player.instance == null) return;
+
         focusPos = new Vector2(Player.instance.currentPosForCamFollow.X, Player.instance.currentPosForCamFollow.Y);
         foreach(var gameObject in World!.Query<CamFollowComponent, LocalTransform>())
         {
-            Entity entity = Entity.FromId(World!, gameObject.Entity.Id);
             ref LocalTransform transform = ref gameObject.Component2;
 
             transform.Position = new Vector3(GMath.Lerp(transform.Position.X, focusPos.X, lerpFac),
@@ -52,7 +53,17 @@ public class CamFollow : SystemBase
             float Xboundary = transform.Position.X;
             float yBoundary = transform.Position.Y;
 
-            Vector3 playerPos = Player.instance.player.GetComponent<LocalTransform>().Position;
+            Vector3 playerPos;
+            try
+            {
+                if (Player.instance.player.Id == 0) continue;
+                if (!Entity.FromId(World!, Player.instance.player.Id).HasComponent<LocalTransform>()) continue;
+                playerPos = Player.instance.player.GetComponent<LocalTransform>().Position;
+            }
+            catch
+            {
+                continue;
+            }
 
             if ((Xboundary - 0.125f < playerPos.X && playerPos.X < Xboundary + 0.125f &&
                 yBoundary - 0.125f < playerPos.Y && playerPos.Y < yBoundary + 0.125f))

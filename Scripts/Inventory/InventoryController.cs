@@ -141,6 +141,7 @@ public class InventoryController : SystemBase
     }
     protected override void OnUpdate()
     {
+        if (PauseMenuController.instance == null) return;
         if (!PauseMenuController.instance.isPausable) return;
 
         //This is gonna be overhauled
@@ -149,8 +150,6 @@ public class InventoryController : SystemBase
         { 
             isRMB_vomit_Pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B);
         }
-
-
 
         if (Input.IsGamepadConnected(0) && !PauseMenuController.instance.isPaused)
         {
@@ -173,14 +172,15 @@ public class InventoryController : SystemBase
             //Todo
         }
 
-            foreach (var gameObject in World!.Query<InventoryControllerComponent>())
+        foreach (var gameObject in World!.Query<InventoryControllerComponent>())
         {
             bool start = gameObject.Component1.start;
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
             //Todo
-            
-          
-            
+
+            if (slotObjIds == null || slotInstances == null || slotObjIds.Length == 0)
+                continue;
+
             //Iterator
             if (mouseScroll != 0)
             {

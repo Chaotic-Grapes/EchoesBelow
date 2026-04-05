@@ -19,25 +19,33 @@ public class FollowLeader : SystemBase
 
     protected override void OnUpdate()
     {
+        if (MS_Manager.instance == null) return;
+
         foreach(var gameObject in World!.Query<FollowLeaderComponent, LocalTransform>())
         {
             //This is how we find matching signifiers============================================================
 
-            ulong targetObjId =MS_Manager.instance.emptyId; //default objId, just borrowing MS_Manager's empty ID
+            ulong targetObjId = MS_Manager.instance.emptyId; //default objId, just borrowing MS_Manager's empty ID
 
             foreach(var result in World!.Query<MatchSignifierComponent>())
             {
                 if(result.Component1.signifierID == gameObject.Component1.target_signifierID)
                 {
                     targetObjId = result.Entity.Id;
+                    break;
                 }
             }
 
             //===================================================================================================
-            Entity entity = Entity.FromId(World!, gameObject.Entity.Id);
             ref LocalTransform transform = ref gameObject.Component2;
 
+            if (targetObjId == MS_Manager.instance.emptyId)
+                continue;
+
             Entity targetEntity = Entity.FromId(World!, targetObjId);
+            if (!targetEntity.HasComponent<LocalTransform>())
+                continue;
+
             ref LocalTransform targetTransform = ref targetEntity.GetComponent<LocalTransform>();
 
             transform.Position = new Vector3(targetTransform.Position.X,targetTransform.Position.Y, 0f);

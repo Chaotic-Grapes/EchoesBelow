@@ -208,7 +208,10 @@ public class CraftAnemone : SystemBase
             gameObject.Component1.start = OnStart(ref start, gameObject.Entity.Id);
         }
 
+        if (PauseMenuController.instance == null) return;
         if (!PauseMenuController.instance.isPausable) return;
+
+        if (instances == null) return;
 
         isRMB_pressed = Input.IsMousePressed(1) || Input.IsGamepadButtonPressed(0,GamepadButton.B);
         isKeyPressed_Space = Input.IsKeyPressed(KeyCode.Space) || Input.IsGamepadButtonPressed(0, GamepadButton.Y);
@@ -218,9 +221,11 @@ public class CraftAnemone : SystemBase
         //Then all Update funcs
         foreach (var gameObject in World!.Query<CraftAnemoneComponent>())
         {
+            if (!instances.TryGetValue(gameObject.Entity.Id, out Anemone cr))
+                continue;
+
             float lerpFac = gameObject.Component1.lerpFacInMiliseconds / 1000f;
 
-            Anemone cr = instances[gameObject.Entity.Id];
             //Log("Currentstate: " + cr.currentState);
             float yBloom = 1.55f;
             //float yWilt = -0.86f; // might be unused but good to know!
@@ -300,7 +305,10 @@ public class CraftAnemone : SystemBase
                     {
                         //correct
                         AudioManager.instance.PlaySFX("SFX012");
-                        SpiritOfTheOcean.instance.TheSpiritBeckonsThee(true);
+                        if (SpiritOfTheOcean.instance != null)
+                        {
+                            SpiritOfTheOcean.instance.TheSpiritBeckonsThee(true);
+                        }
                         cr.isWonSpirit = true;
                     }
                     else
@@ -401,7 +409,10 @@ public class CraftAnemone : SystemBase
 
             if (cr.isWonSpirit && isLeaving)
             {
-                CamFollow.instance.CamShake(true, 0.056f);
+                if (CamFollow.instance != null)
+                {
+                    CamFollow.instance.CamShake(true, 0.056f);
+                }
                 if (Input.IsGamepadConnected(0))
                 {
                     Input.SetGamepadVibration(0, 0.8f, 0.8f);
