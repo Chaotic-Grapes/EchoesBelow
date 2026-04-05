@@ -101,10 +101,10 @@ public class CraftAnemone : SystemBase
         }
 
 
-        foreach(var waterCurr in World!.Query<AddCurrentComponent>())
-        {
-            waterCurr.Entity.RemoveComponent<ShapeCircle2D>();
-        }
+        //foreach(var waterCurr in World!.Query<AddCurrentComponent>())
+        //{
+        //    waterCurr.Entity.RemoveComponent<ShapeCircle2D>();
+        //}
 
         //foreach (var loadScenes in World!.Query<LoadSceneComponent>())
         //{
