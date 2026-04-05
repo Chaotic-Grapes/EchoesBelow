@@ -82,7 +82,7 @@ public class Oscillator : SystemBase
             float rawSineWave = GMath.Sin(cycles * tau); //creates my sine wave w the period indicated. Returns a value btwn -1 to 1
             oscillateFac = (rawSineWave + 1) / 2f; //converts the range (-1 to 1) to (0 to 2) then (0-1)
 
-            //Log(oscillators[gameObject.Entity.Id].objID + "osc: " + oscillateFac);
+            Log(oscillators[gameObject.Entity.Id].objID + "osc: " + oscillateFac);
             //Log("startPos: " + oscillators[result.Entity.Id].startPos);
 
             gameObject.Entity.GetComponent<LocalTransform>().Position
