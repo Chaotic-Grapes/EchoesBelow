@@ -11596,7 +11596,7 @@
                         "FontPath": "Assets\\Fonts\\Roboto\\Roboto-Regular.ttf",
                         "FontSize": 50.0,
                         "HAlign": 0,
-                        "Text": "FPS: 162",
+                        "Text": "FPS: 81",
                         "VAlign": 0,
                         "Wrap": false
                     },
@@ -22345,7 +22345,7 @@
                 {
                     "Data": {
                         "Active": true,
-                        "AspectRatio": 2.43137264251709,
+                        "AspectRatio": 1.6447534561157227,
                         "FOV": 148.0,
                         "FarPlane": 100.0,
                         "NearPlane": 0.10000000149011612,
