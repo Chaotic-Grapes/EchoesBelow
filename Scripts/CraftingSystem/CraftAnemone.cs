@@ -9,6 +9,7 @@ using GrapeEngine.Scripting.Systems;
 using GrapeEngine.Scripting.Systems.Attributes;
 using Scripts;
 using Scripts.CraftingSystem;
+using Scripts.Level_Toys;
 using Scripts.Menu;
 using System;
 using System.Collections;
@@ -97,6 +98,12 @@ public class CraftAnemone : SystemBase
                 NodeLink.instances.Add(gameObject.Entity.Id, nodeLinkData);
                 //Log("Created and Added a node");
             }
+        }
+
+
+        foreach(var waterCurr in World!.Query<AddCurrentComponent>())
+        {
+            waterCurr.Entity.RemoveComponent<ShapeCircle2D>();
         }
 
         return true;

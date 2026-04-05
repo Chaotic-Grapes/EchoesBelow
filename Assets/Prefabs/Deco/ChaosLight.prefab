@@ -29,6 +29,18 @@
         },
         {
             "Data": {
+                "Enabled": true
+            },
+            "TypeName": "Active"
+        },
+        {
+            "Data": {
+                "Value": 0.0
+            },
+            "TypeName": "AngularVelocity2D"
+        },
+        {
+            "Data": {
                 "Id": 2
             },
             "TypeName": "Layer"
@@ -60,6 +72,15 @@
         },
         {
             "Data": {
+                "Value": {
+                    "X": 0.0,
+                    "Y": 0.0
+                }
+            },
+            "TypeName": "LinearVelocity2D"
+        },
+        {
+            "Data": {
                 "AOStrength": 1.0,
                 "AlphaCutoff": 0.5,
                 "Flags": 0,
@@ -72,6 +93,17 @@
                 "Smoothness": 0.5
             },
             "TypeName": "Material2D"
+        },
+        {
+            "Data": {
+                "AngularDamping": 0.0,
+                "Flags": 0,
+                "GravityScale": 1.0,
+                "InverseMass": 1.0,
+                "LinearDamping": 0.0,
+                "Mass": 1.0
+            },
+            "TypeName": "Rigidbody2D"
         },
         {
             "Data": {
@@ -92,7 +124,7 @@
                 },
                 "TextureFilter": 0,
                 "TextureId": 31,
-                "TexturePath": "C:/Users/Jpeg1/Documents/GrapeEngine Projects/EchoesBelow\\Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
+                "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\ChaosGrape01.png",
                 "Tiling": {
                     "X": 1.0,
                     "Y": 1.0
@@ -104,14 +136,14 @@
             "Data": {
                 "Dirty": false,
                 "Matrix": {
-                    "m00": 0.2458726316690445,
-                    "m01": 0.17189139127731323,
+                    "m00": 0.30000001192092896,
+                    "m01": 0.0,
                     "m02": 0.0,
-                    "m03": 13.84372615814209,
-                    "m10": -0.17189139127731323,
-                    "m11": 0.2458726316690445,
+                    "m03": 1.1093698740005493,
+                    "m10": 0.0,
+                    "m11": 0.30000001192092896,
                     "m12": 0.0,
-                    "m13": 12.685683250427246,
+                    "m13": 1.8405665159225464,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,
@@ -129,6 +161,14 @@
                 "ZOrder": -3
             },
             "TypeName": "ZIndex2D"
+        },
+        {
+            "Data": {
+                "InputTest": 100,
+                "x": 0,
+                "y": 0
+            },
+            "TypeName": "Spinner"
         }
     ]
 }

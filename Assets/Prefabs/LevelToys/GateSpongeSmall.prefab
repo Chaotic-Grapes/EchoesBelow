@@ -14,16 +14,16 @@
                     "Z": 0.0
                 },
                 "Scale": {
-                    "X": 0.4000000059604645,
-                    "Y": 0.4000000059604645,
-                    "Z": 0.4000000059604645
+                    "X": 1.0,
+                    "Y": 1.0,
+                    "Z": 3.0
                 }
             },
             "TypeName": "LocalTransform"
         },
         {
             "Data": {
-                "Value": "MS06"
+                "Value": "GateSpongeSmall"
             },
             "TypeName": "Name"
         },
@@ -35,47 +35,40 @@
         },
         {
             "Data": {
-                "Value": 0.0
-            },
-            "TypeName": "AngularVelocity2D"
-        },
-        {
-            "Data": {
                 "Flags": 0,
-                "LayerMask": 15,
+                "HalfExtents": {
+                    "X": 0.20000000298023224,
+                    "Y": 0.5
+                },
+                "LayerMask": 4294967294,
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
                 },
-                "Radius": 0.49000000953674316
+                "Rotation": 0.0
             },
-            "TypeName": "CircleCollider2D"
+            "TypeName": "BoxCollider2D"
         },
         {
             "Data": {
-                "Id": 2
+                "Id": 0
             },
             "TypeName": "Layer"
         },
         {
             "Data": {
-                "Value": {
-                    "X": 0.0,
-                    "Y": 0.0
-                }
+                "AOStrength": 1.0,
+                "AlphaCutoff": 0.5,
+                "Flags": 32,
+                "MRA_TextureId": 0,
+                "MRA_TexturePath": "",
+                "Metallic": 0.0,
+                "NormalStrength": 1.0,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Smoothness": 0.0
             },
-            "TypeName": "LinearVelocity2D"
-        },
-        {
-            "Data": {
-                "AngularDamping": 1.2000000476837158,
-                "Flags": 3,
-                "GravityScale": 0.10000000149011612,
-                "InverseMass": 1.0,
-                "LinearDamping": 1.399999976158142,
-                "Mass": 1.0
-            },
-            "TypeName": "Rigidbody2D"
+            "TypeName": "Material2D"
         },
         {
             "Data": {
@@ -95,8 +88,8 @@
                     "Y": 0.0
                 },
                 "TextureFilter": 0,
-                "TextureId": 38,
-                "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                "TextureId": 30,
+                "TexturePath": "Assets\\Sprites\\4-BackgroundAssets\\CraftDoor_Pink.png",
                 "Tiling": {
                     "X": 1.0,
                     "Y": 1.0
@@ -106,19 +99,25 @@
         },
         {
             "Data": {
+                "Mask": 4
+            },
+            "TypeName": "TagMask"
+        },
+        {
+            "Data": {
                 "Dirty": false,
                 "Matrix": {
-                    "m00": 0.4000000059604645,
-                    "m01": 0.0,
+                    "m00": 0.9995942115783691,
+                    "m01": 0.02848544344305992,
                     "m02": 0.0,
-                    "m03": -100.0,
-                    "m10": 0.0,
-                    "m11": 0.4000000059604645,
+                    "m03": 8.902436256408691,
+                    "m10": -0.02848544344305992,
+                    "m11": 0.9995942115783691,
                     "m12": 0.0,
-                    "m13": -2.616392135620117,
+                    "m13": -4.1838059425354,
                     "m20": 0.0,
                     "m21": 0.0,
-                    "m22": 0.4000000059604645,
+                    "m22": 3.0,
                     "m23": 0.0,
                     "m30": 0.0,
                     "m31": 0.0,
@@ -130,11 +129,9 @@
         },
         {
             "Data": {
-                "color": 0,
-                "msID": 6,
-                "start": false
+                "ZOrder": -1
             },
-            "TypeName": "MS_ID"
+            "TypeName": "ZIndex2D"
         }
     ]
 }

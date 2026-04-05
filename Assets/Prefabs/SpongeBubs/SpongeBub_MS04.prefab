@@ -14,16 +14,16 @@
                     "Z": 0.0
                 },
                 "Scale": {
-                    "X": 0.4000000059604645,
-                    "Y": 0.4000000059604645,
-                    "Z": 0.4000000059604645
+                    "X": 3.0,
+                    "Y": 3.0,
+                    "Z": 1.0
                 }
             },
             "TypeName": "LocalTransform"
         },
         {
             "Data": {
-                "Value": "MS06"
+                "Value": "SpongeBub_MS04"
             },
             "TypeName": "Name"
         },
@@ -35,55 +35,41 @@
         },
         {
             "Data": {
-                "Value": 0.0
+                "CurrentFrame": 0,
+                "Finished": false,
+                "TimeAccumulator": 0.0
             },
-            "TypeName": "AngularVelocity2D"
+            "TypeName": "AnimationState2D"
         },
         {
             "Data": {
-                "Flags": 0,
-                "LayerMask": 15,
+                "Flags": 1,
+                "HalfExtents": {
+                    "X": 0.14000000059604645,
+                    "Y": 0.03999999910593033
+                },
+                "LayerMask": 4,
                 "Offset": {
                     "X": 0.0,
-                    "Y": 0.0
+                    "Y": 0.6000000238418579
                 },
-                "Radius": 0.49000000953674316
+                "Rotation": 0.0
             },
-            "TypeName": "CircleCollider2D"
+            "TypeName": "BoxCollider2D"
         },
         {
             "Data": {
-                "Id": 2
+                "Id": 0
             },
             "TypeName": "Layer"
         },
         {
             "Data": {
-                "Value": {
-                    "X": 0.0,
-                    "Y": 0.0
-                }
-            },
-            "TypeName": "LinearVelocity2D"
-        },
-        {
-            "Data": {
-                "AngularDamping": 1.2000000476837158,
-                "Flags": 3,
-                "GravityScale": 0.10000000149011612,
-                "InverseMass": 1.0,
-                "LinearDamping": 1.399999976158142,
-                "Mass": 1.0
-            },
-            "TypeName": "Rigidbody2D"
-        },
-        {
-            "Data": {
                 "Color": {
                     "A": 1.0,
-                    "B": 1.0,
-                    "G": 1.0,
-                    "R": 1.0
+                    "B": 10.0,
+                    "G": 5.25,
+                    "R": 1.090000033378601
                 },
                 "EmissiveStrength": 5.0,
                 "EmissiveTextureId": 0,
@@ -92,33 +78,58 @@
                 "NormalTexturePath": "",
                 "Offset": {
                     "X": 0.0,
-                    "Y": 0.0
+                    "Y": 0.9090909361839294
                 },
                 "TextureFilter": 0,
                 "TextureId": 38,
-                "TexturePath": "Assets\\Sprites\\2-MarineSnow\\MS06.png",
+                "TexturePath": "",
                 "Tiling": {
-                    "X": 1.0,
-                    "Y": 1.0
+                    "X": 0.0625,
+                    "Y": 0.09090906381607056
                 }
             },
             "TypeName": "SpriteRenderer2D"
         },
         {
             "Data": {
+                "FrameCount": 1,
+                "FrameHeight": 400,
+                "FrameLength": 48,
+                "FrameOffset": 0,
+                "FrameWidth": 550,
+                "FramesPerSecond": 24.0,
+                "Loop": true,
+                "NormalTextureId": 0,
+                "NormalTexturePath": "",
+                "Playing": true,
+                "Row": 0,
+                "Segments": [],
+                "SheetHeight": 4400,
+                "SheetWidth": 8800,
+                "StartFrame": 0,
+                "TextureFilter": 0,
+                "TextureId": 38,
+                "TexturePath": "Assets\\Sprites\\2.2-SwitchDoorSystem\\SpongeBub_Spritesheet.png",
+                "UseRow": true,
+                "UseSegments": false
+            },
+            "TypeName": "SpriteSheetAnimation2D"
+        },
+        {
+            "Data": {
                 "Dirty": false,
                 "Matrix": {
-                    "m00": 0.4000000059604645,
+                    "m00": 3.0,
                     "m01": 0.0,
                     "m02": 0.0,
-                    "m03": -100.0,
+                    "m03": -1.4879626035690308,
                     "m10": 0.0,
-                    "m11": 0.4000000059604645,
+                    "m11": 3.0,
                     "m12": 0.0,
-                    "m13": -2.616392135620117,
+                    "m13": -11.484070777893066,
                     "m20": 0.0,
                     "m21": 0.0,
-                    "m22": 0.4000000059604645,
+                    "m22": 1.0,
                     "m23": 0.0,
                     "m30": 0.0,
                     "m31": 0.0,
@@ -130,11 +141,14 @@
         },
         {
             "Data": {
-                "color": 0,
-                "msID": 6,
+                "awake": false,
+                "doorSignifier": 966,
+                "inputMSID": 4,
+                "isTransformed": false,
+                "objID": 0,
                 "start": false
             },
-            "TypeName": "MS_ID"
+            "TypeName": "Sponge Button"
         }
     ]
 }

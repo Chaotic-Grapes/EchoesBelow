@@ -14,8 +14,8 @@
                     "Z": 0.0
                 },
                 "Scale": {
-                    "X": 1.0000050067901611,
-                    "Y": 1.0000050067901611,
+                    "X": 1.0000040531158447,
+                    "Y": 1.0000040531158447,
                     "Z": 1.0
                 }
             },
@@ -23,7 +23,7 @@
         },
         {
             "Data": {
-                "Value": "WaterColumn_Medium"
+                "Value": "WaterColumn_Large"
             },
             "TypeName": "Name"
         },
@@ -37,13 +37,13 @@
             "Data": {
                 "Flags": 1,
                 "HalfExtents": {
-                    "X": 0.20000000298023224,
-                    "Y": 3.0
+                    "X": 2.0,
+                    "Y": 1.899999976158142
                 },
                 "LayerMask": 6,
                 "Offset": {
                     "X": 0.0,
-                    "Y": 3.0
+                    "Y": 1.5
                 },
                 "Rotation": 0.0
             },
@@ -72,10 +72,10 @@
                 "dieOnCollision": false,
                 "drag": 0.30000001192092896,
                 "emissionAngle": 0.0,
-                "emissionRadius": 0.20000000298023224,
+                "emissionRadius": 1.75,
                 "emissionRate": 50.0,
-                "emissionShape": 3,
-                "emissionSpread": 0.550000011920929,
+                "emissionShape": 1,
+                "emissionSpread": 0.0,
                 "gravityX": 0.0,
                 "gravityY": 4.300000190734863,
                 "killOutOfBounds": false,
@@ -101,34 +101,31 @@
                 "Color": {
                     "A": 1.0,
                     "B": 0.0,
-                    "G": 0.06065589189529419,
-                    "R": 1.0
+                    "G": 0.6936097741127014,
+                    "R": 0.008509994484484196
                 },
-                "Filled": true,
-                "HalfExtents": {
-                    "X": 0.5,
-                    "Y": 0.5
-                },
+                "Filled": false,
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
                 },
-                "Thickness": 0.0
+                "Radius": 1.0,
+                "Thickness": 1.0
             },
-            "TypeName": "ShapeBox2D"
+            "TypeName": "ShapeCircle2D"
         },
         {
             "Data": {
                 "Dirty": false,
                 "Matrix": {
-                    "m00": 1.0000050067901611,
+                    "m00": 1.0000040531158447,
                     "m01": 0.0,
                     "m02": 0.0,
-                    "m03": 10.144927978515625,
+                    "m03": 12.805908203125,
                     "m10": 0.0,
-                    "m11": 1.0000050067901611,
+                    "m11": 1.0000040531158447,
                     "m12": 0.0,
-                    "m13": 1.739131212234497,
+                    "m13": 0.23950183391571045,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,

@@ -14,8 +14,8 @@
                     "Z": 0.0
                 },
                 "Scale": {
-                    "X": 3.0,
-                    "Y": 3.0,
+                    "X": 1.0,
+                    "Y": 1.0,
                     "Z": 1.0
                 }
             },
@@ -23,7 +23,7 @@
         },
         {
             "Data": {
-                "Value": "AnemoneTubing"
+                "Value": "LearnBarrelSponge"
             },
             "TypeName": "Name"
         },
@@ -35,64 +35,55 @@
         },
         {
             "Data": {
-                "Id": 0
+                "Flags": 1,
+                "LayerMask": 15,
+                "Offset": {
+                    "X": 0.0,
+                    "Y": 0.0
+                },
+                "Radius": 3.0
+            },
+            "TypeName": "CircleCollider2D"
+        },
+        {
+            "Data": {
+                "Id": 2
             },
             "TypeName": "Layer"
         },
         {
             "Data": {
-                "AOStrength": 1.0,
-                "AlphaCutoff": 0.5,
-                "Flags": 32,
-                "MRA_TextureId": 0,
-                "MRA_TexturePath": "",
-                "Metallic": 0.0,
-                "NormalStrength": 1.0,
-                "NormalTextureId": 0,
-                "NormalTexturePath": "",
-                "Smoothness": 0.5
-            },
-            "TypeName": "Material2D"
-        },
-        {
-            "Data": {
                 "Color": {
-                    "A": 0.7159533500671387,
-                    "B": 1.0,
-                    "G": 0.5140055418014526,
-                    "R": 0.4751519560813904
+                    "A": 1.0,
+                    "B": 0.0860053300857544,
+                    "G": 1.0,
+                    "R": 0.15657490491867065
                 },
-                "EmissiveStrength": 5.0,
-                "EmissiveTextureId": 0,
-                "EmissiveTexturePath": "",
-                "NormalTextureId": 0,
-                "NormalTexturePath": "",
+                "Filled": false,
+                "HalfExtents": {
+                    "X": 0.5,
+                    "Y": 0.5
+                },
                 "Offset": {
                     "X": 0.0,
                     "Y": 0.0
                 },
-                "TextureFilter": 0,
-                "TextureId": 84,
-                "TexturePath": "Assets\\Sprites\\2.1-CraftingSystem\\AnemoneTubing.png",
-                "Tiling": {
-                    "X": 1.0,
-                    "Y": 1.0
-                }
+                "Thickness": 0.10000000149011612
             },
-            "TypeName": "SpriteRenderer2D"
+            "TypeName": "ShapeBox2D"
         },
         {
             "Data": {
                 "Dirty": false,
                 "Matrix": {
-                    "m00": 3.0,
+                    "m00": 1.0,
                     "m01": 0.0,
                     "m02": 0.0,
-                    "m03": 9.251684188842773,
+                    "m03": -4.368088722229004,
                     "m10": 0.0,
-                    "m11": 3.0,
+                    "m11": 1.0,
                     "m12": 0.0,
-                    "m13": -10.105688095092773,
+                    "m13": -6.14894962310791,
                     "m20": 0.0,
                     "m21": 0.0,
                     "m22": 1.0,
@@ -107,9 +98,9 @@
         },
         {
             "Data": {
-                "ZOrder": -8
+                "signifierID": 42213
             },
-            "TypeName": "ZIndex2D"
+            "TypeName": "Match Signifier"
         }
     ]
 }

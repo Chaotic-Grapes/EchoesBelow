@@ -139,7 +139,12 @@ public class BarnacleTriggerHandler : TriggerSystemBase
                     //selfEntity.GetComponent<AudioSource>().PlayOnStart = true;
                     AudioManager.instance.PlaySFX("SFX002");
                     BarnacleSnatcher.instances[self.Id].SetAnimState(BarnacleSnatcher.attackState);
+
+                    MS_Manager.instance.TakeFromPool(slotInstance.storedMsId, selfEntity.GetComponent<LocalTransform>().Position,
+                    Vector2.Zero, 100000f, true);
+
                     InventoryController.instance.RemoveFromSlotInInventory(i);
+
                     break;
                 }
                 

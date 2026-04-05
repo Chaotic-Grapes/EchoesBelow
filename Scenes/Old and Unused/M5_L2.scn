@@ -8750,7 +8750,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -8897,7 +8897,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -9044,7 +9044,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -9191,7 +9191,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -9338,7 +9338,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -9485,7 +9485,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -9632,7 +9632,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -9779,7 +9779,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
@@ -10060,7 +10060,7 @@
                     "Data": {
                         "AngularDamping": 1.2000000476837158,
                         "Flags": 3,
-                        "GravityScale": 1.0,
+                        "GravityScale": 0.10000000149011612,
                         "InverseMass": 1.0,
                         "LinearDamping": 1.399999976158142,
                         "Mass": 1.0
