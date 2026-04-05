@@ -110,16 +110,20 @@ public class SpongeButton : SystemBase
 
             if (sBub.currentState == transformState.name)
             {
+                Log("1");
                 CamFollow.instance.CamShake(true, 0.018f);
-
+                Log("2");
                 if (Entity.FromId(World!, gameObject.Entity.Id).GetComponent<AnimationState2D>().CurrentFrame >= (transformState.frameLength - 1))
                 {
+                    Log("3");
                     sBub.isTransformed = true;
-
+                    Log("4");
                     SetAnimState(gameObject.Entity.Id, World!, buttonIdleState);
                     CamFollow.instance.CamShake(false, 0f);
                     InitBoxCollider(sBub);
+                    Log("5");
                 }
+                Log("6");
             }
             else if (sBub.currentState == buttonPushState.name)
             {
@@ -322,6 +326,7 @@ public class SpongeCollisionHandler : CollisionSystemBase
                     {
                         bubData.storedDoor = Entity.FromId(World!, door.Entity.Id);
                         bubData.isDoorAccessible = true;
+                        Log("INNNNNNN");
                     }
                     //else nothin,  no door found
                 }
